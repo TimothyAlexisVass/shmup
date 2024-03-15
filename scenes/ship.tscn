@@ -1,22 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm23pqetbflrq"]
+[gd_scene load_steps=3 format=3 uid="uid://cm23pqetbflrq"]
 
 [ext_resource type="Script" path="res://scripts/spawner/ship.gd" id="1_gy10l"]
 [ext_resource type="Texture2D" uid="uid://c1518wbja6dd" path="res://assets/sprites/spaceShips_001.png" id="2_lxpmn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pokpc"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-shadow_color = Color(0.180392, 0.180392, 0.180392, 0.6)
-shadow_size = 2
-shadow_offset = Vector2(2, 2)
 
 [node name="Ship" type="Area2D"]
 collision_layer = 2
@@ -43,7 +28,6 @@ offset_right = 50.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_pokpc")
 value = 25.0
 show_percentage = false
 
