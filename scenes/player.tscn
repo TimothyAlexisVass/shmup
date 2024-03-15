@@ -104,7 +104,6 @@ visible = false
 [node name="1" type="Marker2D" parent="CannonConfiguration6"]
 position = Vector2(-6, -26)
 rotation = -0.0139626
-scale = Vector2(1, 1)
 
 [node name="2" type="Marker2D" parent="CannonConfiguration6"]
 position = Vector2(6, -26)
