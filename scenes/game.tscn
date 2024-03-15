@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxuuwmlma1xmm"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_15kp8"]
+[ext_resource type="PackedScene" uid="uid://t35pb2ajkk0d" path="res://scenes/spawner.tscn" id="3_opaq1"]
+[ext_resource type="PackedScene" uid="uid://nf2q1p0e06qp" path="res://scenes/background.tscn" id="4_2sncd"]
+[ext_resource type="PackedScene" uid="uid://dniho73boedhe" path="res://scenes/hud.tscn" id="4_pq1a5"]
+
+[sub_resource type="Environment" id="Environment_1a5l6"]
+background_mode = 3
+ambient_light_energy = 6.61
+glow_enabled = true
+glow_levels/1 = 3.0
+glow_levels/2 = 2.0
+glow_levels/4 = 0.5
+glow_levels/5 = 0.25
+glow_intensity = 0.3
+glow_strength = 0.8
+glow_blend_mode = 1
+glow_hdr_threshold = 0.75
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mbgow"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(540, 1080, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 1, 0.682353)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vfeij"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(540, 1080, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
+color = Color(1, 1, 1, 0.682353)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_smswk"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(540, 1080, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(1, 1, 1, 0.682353)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_15kp8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1a5l6")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("4_pq1a5")]
+
+[node name="PlayerSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(528, 1704)
+
+[node name="Spawner" parent="." instance=ExtResource("3_opaq1")]
+
+[node name="ParallaxBackground2" parent="." instance=ExtResource("4_2sncd")]
+
+[node name="Starfield" type="Node" parent="."]
+
+[node name="StarfieldBack" type="GPUParticles2D" parent="Starfield"]
+modulate = Color(3, 3, 3, 1)
+z_index = -888
+position = Vector2(548, 589)
+amount = 3000
+process_material = SubResource("ParticleProcessMaterial_mbgow")
+lifetime = 40.0
+preprocess = 300.0
+
+[node name="StarfieldMiddle" type="GPUParticles2D" parent="Starfield"]
+modulate = Color(6, 6, 6, 1)
+z_index = -888
+position = Vector2(548, 589)
+amount = 3000
+process_material = SubResource("ParticleProcessMaterial_vfeij")
+lifetime = 300.0
+preprocess = 500.0
+trail_lifetime = 0.1
+trail_sections = 10
+trail_section_subdivisions = 100
+
+[node name="StarfieldFront" type="GPUParticles2D" parent="Starfield"]
+modulate = Color(9, 9, 9, 1)
+z_index = -888
+position = Vector2(548, 589)
+amount = 3000
+process_material = SubResource("ParticleProcessMaterial_smswk")
+lifetime = 300.0
+preprocess = 500.0
+trail_lifetime = 0.1
+trail_sections = 10
+trail_section_subdivisions = 100
