@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://drnwdolfdun1k"]
+
+[ext_resource type="Script" path="res://scenes/cannon_configuration.gd" id="1_2ujb7"]
+
+[node name="CannonConfiguration" type="Node2D"]
+visible = false
+script = ExtResource("1_2ujb7")

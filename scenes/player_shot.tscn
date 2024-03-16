@@ -12,14 +12,13 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_irflt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(4, 2, 1, 1)
 position = Vector2(0, -22)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_426e5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -22)
 shape = SubResource("CapsuleShape2D_nnupo")
 

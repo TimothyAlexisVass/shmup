@@ -27,7 +27,6 @@ var score := 0:
 @onready var game = get_node('/root/Game')
 @onready var max_x = get_viewport().size.x
 @onready var max_y = get_viewport().size.y
-@onready var cannon_configuration = get_node("CannonConfiguration" + str(cannon_level))
 
 var player_shot = preload("res://scenes/player_shot.tscn")
 
@@ -58,7 +57,7 @@ func die():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_shoot_timer_timeout():
-	for muzzle in cannon_configuration.get_children():
+	for muzzle in $CannonConfiguration.get_children():
 		var shot = player_shot.instantiate()
 		var muzzle_rotation = muzzle.rotation
 		shot.speed = shot_speed
