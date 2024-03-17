@@ -1,4 +1,4 @@
-class_name Ship extends Area2D
+class_name Ship extends Node2D
 
 const PADDING = 10
 
@@ -7,6 +7,7 @@ var speed
 var total_hit_points
 var points
 var texture
+var collision_shape
 
 # Calculated properties
 var width
@@ -25,25 +26,23 @@ func initialize(data):
 		set(property, data[property])
 
 	image = texture.get_image()
+	$ShipBody/Sprite.texture = ImageTexture.create_from_image(image)
 	width = image.get_size().x
 	height = image.get_size().y
+	$ShipBody.add_child(collision_shape.duplicate())
 
 func _ready():
-	# TODO: Move this to the Spawner
-	CollisionShapeGenerator.generate(self, image)
-	initialize_hitpoints_bar(image, 10)
-
-func initialize_hitpoints_bar(image, padding):
 	$HitPoints.add_theme_stylebox_override("fill", hit_points_bar_fill)
 	$HitPoints.add_theme_stylebox_override("background", hit_points_bar_background)
 	$HitPoints.value = total_hit_points
 	$HitPoints.max_value = total_hit_points
-	$HitPoints.position.x = -width/2 + padding
-	$HitPoints.position.y = -(height/2 + $HitPoints.size.y + padding)
-	$HitPoints.size.x = width - padding*2
+	$HitPoints.position.x = -width/2 + PADDING
+	$HitPoints.position.y = -(height/2 + $HitPoints.size.y + PADDING)
+	$HitPoints.size.x = width - PADDING*2
 
 func _physics_process(delta):
 	global_position.y += speed * delta
+	$ShipBody.rotation = Vector2.UP.angle() + (game.player.global_position - self.global_position).angle()
 
 func _on_collision(object):
 	if object is Player:
@@ -51,7 +50,7 @@ func _on_collision(object):
 		die()
 	if object is PlayerShot:
 		take_damage(object.damage)
-		object.hit()
+		object.hit(Vector2.DOWN.angle() - (object.global_position - self.global_position).angle())
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

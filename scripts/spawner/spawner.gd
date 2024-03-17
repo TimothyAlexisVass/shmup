@@ -6,45 +6,42 @@ var ship_scene = preload("res://scenes/ship.tscn")
 @onready var stuff = game.get_node("Stuff")
 
 var ships = {
-	"buff": {
-		"texture": preload("res://assets/sprites/spaceShips_001.png"),
+	"spaceShips_001": {
 		"total_hit_points": 10,
 		"speed": 150,
 		"points": 100
 	},
-	"brawler": {
-		"texture": preload("res://assets/sprites/spaceShips_002.png"),
+	"spaceShips_002": {
 		"total_hit_points": 2,
 		"speed": 800,
 		"points": 600
 	},
-	"gigant": {
-		"texture": preload("res://assets/sprites/spaceShips_003.png"),
+	"spaceShips_003": {
 		"total_hit_points": 50,
 		"speed": 50,
 		"points": 800
 	},
-	"diver": {
-		"texture": preload("res://assets/sprites/spaceShips_004.png"),
+	"spaceShips_004": {
 		"total_hit_points": 5,
 		"speed": 350,
 		"points": 200
 	},
-	"technoid": {
-		"texture": preload("res://assets/sprites/spaceShips_007.png"),
+	"spaceShips_007": {
 		"total_hit_points": 20,
 		"speed": 100,
 		"points": 400
 	}
 }
 
-func _ready():
-	pass
+func _enter_tree():
+	for ship in ships:
+		ships[ship]["texture"] = load("res://assets/sprites/" + ship + ".png")
+		ships[ship]["collision_shape"] = CollisionShapeGenerator.generate(ships[ship]["texture"].get_image())
 
 func spawn(ship_type):
 	var ship = ship_scene.instantiate()
 	ship.initialize(ships[ship_type])
-	ship.global_position = Vector2(randf_range(50, stuff.global_position.x - 50), -stuff.global_position.y - ship.height)
+	ship.global_position = Vector2(randf_range(50, get_viewport().size.x), -stuff.global_position.y - ship.height)
 	stuff.add_child(ship)
 
 func _on_ship_spawn_timer_timeout():

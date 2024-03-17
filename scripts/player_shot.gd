@@ -13,10 +13,10 @@ func _physics_process(delta):
 	translate(direction * speed * delta)
 	speed += speed * acceleration * delta
 
-func hit():
+func hit(angle):
 	var hit_effect = hit_effect_scene.instantiate()
 	hit_effect.global_position = self.global_position
-	hit_effect.rotation = self.rotation
+	hit_effect.rotation = -angle
 	hit_effect.emitting = true
 	game.add_child(hit_effect)
 	queue_free()

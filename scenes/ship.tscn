@@ -3,17 +3,16 @@
 [ext_resource type="Script" path="res://scripts/spawner/ship.gd" id="1_gy10l"]
 [ext_resource type="Texture2D" uid="uid://c1518wbja6dd" path="res://assets/sprites/spaceShips_001.png" id="2_lxpmn"]
 
-[node name="Ship" type="Area2D"]
-collision_layer = 2
-collision_mask = 5
+[node name="Ship" type="Node2D"]
 script = ExtResource("1_gy10l")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="ShipBody" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Sprite" type="Sprite2D" parent="ShipBody"]
 modulate = Color(1.2, 1.1, 1.1, 1)
 texture = ExtResource("2_lxpmn")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -52)
 
 [node name="HitPoints" type="ProgressBar" parent="."]
 visible = false
@@ -31,6 +30,9 @@ grow_vertical = 2
 value = 25.0
 show_percentage = false
 
-[connection signal="area_entered" from="." to="." method="_on_collision"]
-[connection signal="body_entered" from="." to="." method="_on_collision"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -52)
+
+[connection signal="area_entered" from="ShipBody" to="." method="_on_collision"]
+[connection signal="body_entered" from="ShipBody" to="ShipBody" method="_on_collision"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="ShipBody" method="_on_visible_on_screen_notifier_2d_screen_exited"]

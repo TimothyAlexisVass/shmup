@@ -10,7 +10,6 @@ var score := 0:
 
 func _ready():
 	score = 0
-
 	player = player_scene.instantiate()
 	player.cannon_level = 2
 	player.shot_speed_level = 30
@@ -24,8 +23,9 @@ func _process(_delta):
 		get_tree().quit()
 	elif Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
-	$Stuff.global_position.x = -(player.global_position.x - 555)/2
-	$Stuff.global_position.y = -(player.global_position.y - 1111)/3
+	if is_instance_valid(player):
+		$Stuff.global_position.x = -(player.global_position.x - 555)/2
+		$Stuff.global_position.y = -(player.global_position.y - 1111)/3
 
 static func diminishing(base, level):
 	return snapped(base * sqrt(level + 1), 0.01)
