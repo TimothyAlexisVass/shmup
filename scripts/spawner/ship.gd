@@ -18,6 +18,7 @@ var hit_points_bar_fill_stylebox = preload("res://styles/hit_points_bar_fill.tre
 var hit_points_bar_background_stylebox = preload("res://styles/hit_points_bar_background.tres")
 
 @onready var game = get_node('/root/Game')
+@onready var player = game.player
 @onready var hit_points_bar_fill = hit_points_bar_fill_stylebox.duplicate()
 @onready var hit_points_bar_background = hit_points_bar_background_stylebox.duplicate()
 
@@ -42,7 +43,8 @@ func _ready():
 
 func _physics_process(delta):
 	global_position.y += speed * delta
-	$ShipBody.rotation = Vector2.UP.angle() + (game.player.global_position - self.global_position).angle()
+	if is_instance_valid(player):
+		$ShipBody.rotation = Game.ANGLE_UP + self.global_position.angle_to_point(player.global_position)
 
 func _on_collision(object):
 	if object is Player:
@@ -50,7 +52,7 @@ func _on_collision(object):
 		die()
 	if object is PlayerShot:
 		take_damage(object.damage)
-		object.hit(Vector2.DOWN.angle() - (object.global_position - self.global_position).angle())
+		object.hit(self.global_position)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

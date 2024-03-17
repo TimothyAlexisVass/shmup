@@ -1,5 +1,8 @@
 class_name Game extends Node2D
 
+const ANGLE_UP = -1.57079637050629
+const ANGLE_DOWN = 1.57079637050629
+
 var player_scene = preload("res://scenes/player.tscn")
 var player
 

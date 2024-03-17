@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	scroll_offset.y += 22 * delta
 	if is_instance_valid(game.player):
-		scroll_offset.x = -(game.player.global_position.x - 555)/44
+		scroll_offset.x = -(game.player.global_position.x - 555)/22
 
 func random_boolean():
 	return [true, false][randi() % 2]
