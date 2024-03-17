@@ -13,8 +13,7 @@ var collision_shape
 var width
 var height
 var image
-var explosion_scale_x
-var explosion_scale_y
+var explosion_scale
 
 var explosion_scene = preload("res://scenes/fire_explosion.tscn")
 
@@ -31,6 +30,7 @@ func initialize(data):
 	$ShipBody/Sprite.texture = ImageTexture.create_from_image(image)
 	width = image.get_size().x
 	height = image.get_size().y
+	explosion_scale = max(width, height) / 200.0
 	$ShipBody.add_child(collision_shape.duplicate())
 
 func _ready():
@@ -78,8 +78,8 @@ func die():
 	var explosion = explosion_scene.instantiate()
 	explosion.global_position = self.global_position - stuff.global_position
 	for particle in explosion.get_children():
-		particle.scale.x = width / 111.1
-		particle.scale.y = height / 111.1
+		particle.get_process_material().scale_min *= explosion_scale
+		particle.get_process_material().scale_max *= explosion_scale
 		particle.emitting = true
 	stuff.add_child(explosion)
 	queue_free()

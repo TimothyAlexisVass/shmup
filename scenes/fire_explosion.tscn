@@ -17,6 +17,7 @@ point_count = 3
 curve = SubResource("Curve_2xenr")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l8ouv"]
+resource_local_to_scene = true
 lifetime_randomness = 0.19
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
@@ -47,6 +48,7 @@ point_count = 3
 curve = SubResource("Curve_s5ax8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_obouj"]
+resource_local_to_scene = true
 lifetime_randomness = 0.63
 particle_flag_disable_z = true
 angle_min = -525.8
@@ -65,11 +67,11 @@ scale_curve = SubResource("CurveTexture_33o5p")
 color_ramp = SubResource("GradientTexture1D_clqml")
 hue_variation_min = -0.2
 hue_variation_max = 0.2
-turbulence_enabled = true
 turbulence_noise_strength = 2.64
 turbulence_noise_scale = 7.039
 
 [node name="FireExplosion" type="Node2D"]
+z_index = -111
 
 [node name="lines" type="GPUParticles2D" parent="."]
 modulate = Color(4, 2, 1, 1)
