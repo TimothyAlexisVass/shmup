@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://j72yxl2kkkoo"]
+
+[ext_resource type="Texture2D" uid="uid://c2npflj143i4f" path="res://assets/particles/fire_smudge.png" id="1_08gul"]
+
+[sub_resource type="Gradient" id="Gradient_3sxsp"]
+offsets = PackedFloat32Array(0, 0.24077, 0.630819, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0.333333, 0, 0, 0.486275)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_clqml"]
+gradient = SubResource("Gradient_3sxsp")
+
+[sub_resource type="Curve" id="Curve_2xenr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.593245, 0.522508), -2.75278, -2.75278, 0, 0, Vector2(1, 0.051447), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_myy1s"]
+curve = SubResource("Curve_2xenr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l8ouv"]
+lifetime_randomness = 0.19
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 70.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 67.03
+damping_min = 100.0
+damping_max = 100.0
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_myy1s")
+color_ramp = SubResource("GradientTexture1D_clqml")
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+turbulence_noise_strength = 0.01
+turbulence_noise_scale = 8.575
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_srprw"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_s5ax8"]
+_data = [Vector2(0.00293686, 0.344051), 0.0, 0.0, 0, 0, Vector2(0.298091, 0.991961), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_33o5p"]
+curve = SubResource("Curve_s5ax8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_obouj"]
+lifetime_randomness = 0.63
+particle_flag_disable_z = true
+angle_min = -525.8
+angle_max = 415.9
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 69.95
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 67.03
+damping_min = 20.0
+damping_max = 20.0
+scale_min = 0.5
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_33o5p")
+color_ramp = SubResource("GradientTexture1D_clqml")
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+turbulence_enabled = true
+turbulence_noise_strength = 2.64
+turbulence_noise_scale = 7.039
+
+[node name="FireExplosion" type="Node2D"]
+
+[node name="lines" type="GPUParticles2D" parent="."]
+modulate = Color(4, 2, 1, 1)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_l8ouv")
+lifetime = 0.9
+one_shot = true
+preprocess = 0.3
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 0.2
+
+[node name="smudge" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_srprw")
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_obouj")
+texture = ExtResource("1_08gul")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.91

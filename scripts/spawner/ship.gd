@@ -13,8 +13,13 @@ var collision_shape
 var width
 var height
 var image
+var explosion_scale_x
+var explosion_scale_y
 
-@onready var game = get_node('/root/Game')
+var explosion_scene = preload("res://scenes/fire_explosion.tscn")
+
+@onready var game = get_node("/root/Game")
+@onready var stuff = game.get_node("Stuff")
 @onready var player = game.player
 @onready var current_health = total_hit_points
 
@@ -70,4 +75,11 @@ func take_damage(amount):
 
 func die():
 	game.score += points
+	var explosion = explosion_scene.instantiate()
+	explosion.global_position = self.global_position - stuff.global_position
+	for particle in explosion.get_children():
+		particle.scale.x = width / 111.1
+		particle.scale.y = height / 111.1
+		particle.emitting = true
+	stuff.add_child(explosion)
 	queue_free()
