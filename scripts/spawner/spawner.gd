@@ -2,7 +2,8 @@ class_name Spawner extends Node
 
 var ship_scene = preload("res://scenes/ship.tscn")
 
-@onready var game = get_node('/root/Game')
+@onready var game = get_node("/root/Game")
+@onready var stuff = game.get_node("Stuff")
 
 var ships = {
 	"buff": {
@@ -43,8 +44,8 @@ func _ready():
 func spawn(ship_type):
 	var ship = ship_scene.instantiate()
 	ship.initialize(ships[ship_type])
-	ship.global_position = Vector2(randf_range(50, get_viewport().size.x - 50), -50)
-	game.add_child(ship)
+	ship.global_position = Vector2(randf_range(50, stuff.global_position.x - 50), -stuff.global_position.y - ship.height)
+	stuff.add_child(ship)
 
 func _on_ship_spawn_timer_timeout():
 	spawn(ships.keys().pick_random())

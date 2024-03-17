@@ -1,18 +1,97 @@
-[gd_scene load_steps=3 format=3 uid="uid://nf2q1p0e06qp"]
+[gd_scene load_steps=4 format=3 uid="uid://nf2q1p0e06qp"]
 
 [ext_resource type="Script" path="res://scripts/ParallaxBackground.gd" id="1_6rfjx"]
 [ext_resource type="Texture2D" uid="uid://ie4sk7u4wmr7" path="res://assets/space_backgrounds/blue.jpg" id="2_ymu88"]
+[ext_resource type="Texture2D" uid="uid://dax0q3xykgfg5" path="res://assets/space_backgrounds/random_circles.svg" id="3_jvkac"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_6rfjx")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+[node name="-999" type="ParallaxLayer" parent="."]
+z_index = -999
+motion_offset = Vector2(0, 200)
 motion_mirroring = Vector2(0, 4734)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-modulate = Color(1.3, 1.3, 1.3, 1)
+[node name="SpaceBackground" type="Sprite2D" parent="-999"]
+modulate = Color(1.4, 1.4, 1.4, 1)
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(546, -434)
+position = Vector2(540, 500)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_ymu88")
+
+[node name="-888" type="ParallaxLayer" parent="."]
+z_index = -888
+motion_scale = Vector2(2.5, 2.5)
+motion_mirroring = Vector2(0, 3840)
+
+[node name="Stars" type="TextureRect" parent="-888"]
+modulate = Color(100, 100, 100, 1)
+offset_right = 1080.0
+offset_bottom = 3840.0
+texture = ExtResource("3_jvkac")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="-777" type="ParallaxLayer" parent="."]
+z_index = -777
+motion_scale = Vector2(5, 5)
+motion_offset = Vector2(0, 777)
+motion_mirroring = Vector2(0, 5760)
+
+[node name="Stars" type="TextureRect" parent="-777"]
+modulate = Color(75, 75, 75, 1)
+offset_right = 1080.0
+offset_bottom = 3840.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_jvkac")
+stretch_mode = 1
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="-555" type="ParallaxLayer" parent="."]
+z_index = -777
+motion_scale = Vector2(10, 10)
+motion_offset = Vector2(0, 1920)
+motion_mirroring = Vector2(0, 7680)
+
+[node name="Stars" type="TextureRect" parent="-555"]
+modulate = Color(30, 30, 30, 1)
+offset_right = 1080.0
+offset_bottom = 3840.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_jvkac")
+stretch_mode = 1
+flip_v = true
+metadata/_edit_use_anchors_ = true
+
+[node name="-444" type="ParallaxLayer" parent="."]
+z_index = -777
+motion_scale = Vector2(15, 15)
+motion_offset = Vector2(0, 2880)
+motion_mirroring = Vector2(0, 9600)
+
+[node name="Stars" type="TextureRect" parent="-444"]
+modulate = Color(30, 30, 30, 1)
+offset_right = 1080.0
+offset_bottom = 3840.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_jvkac")
+stretch_mode = 1
+flip_h = true
+flip_v = true
+metadata/_edit_use_anchors_ = true
+
+[node name="-333" type="ParallaxLayer" parent="."]
+z_index = -888
+motion_scale = Vector2(20, 20)
+motion_mirroring = Vector2(0, 11520)
+
+[node name="Stars" type="TextureRect" parent="-333"]
+modulate = Color(20, 20, 20, 1)
+offset_right = 1080.0
+offset_bottom = 3840.0
+scale = Vector2(3, 3)
+texture = ExtResource("3_jvkac")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true

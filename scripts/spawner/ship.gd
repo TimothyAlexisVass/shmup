@@ -2,10 +2,16 @@ class_name Ship extends Area2D
 
 const PADDING = 10
 
+# Basic properties
 var speed
 var total_hit_points
 var points
 var texture
+
+# Calculated properties
+var width
+var height
+var image
 
 var hit_points_bar_fill_stylebox = preload("res://styles/hit_points_bar_fill.tres")
 var hit_points_bar_background_stylebox = preload("res://styles/hit_points_bar_background.tres")
@@ -14,19 +20,20 @@ var hit_points_bar_background_stylebox = preload("res://styles/hit_points_bar_ba
 @onready var hit_points_bar_fill = hit_points_bar_fill_stylebox.duplicate()
 @onready var hit_points_bar_background = hit_points_bar_background_stylebox.duplicate()
 
-func initialize(enemy_data):
-	for property in enemy_data.keys():
-		set(property, enemy_data[property])
+func initialize(data):
+	for property in data.keys():
+		set(property, data[property])
+
+	image = texture.get_image()
+	width = image.get_size().x
+	height = image.get_size().y
 
 func _ready():
-	var image = texture.get_image()
 	# TODO: Move this to the Spawner
 	CollisionShapeGenerator.generate(self, image)
 	initialize_hitpoints_bar(image, 10)
 
 func initialize_hitpoints_bar(image, padding):
-	var width = image.get_size().x
-	var height = image.get_size().y
 	$HitPoints.add_theme_stylebox_override("fill", hit_points_bar_fill)
 	$HitPoints.add_theme_stylebox_override("background", hit_points_bar_background)
 	$HitPoints.value = total_hit_points
