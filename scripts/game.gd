@@ -14,10 +14,10 @@ var score := 0:
 func _ready():
 	score = 0
 	player = player_scene.instantiate()
-	player.cannon_level = 2
-	player.shot_speed_level = 30
+	player.cannon_level = 5
+	player.shot_speed_level = 50
 	player.fire_power_level = 1
-	player.fire_rate_level = 50
+	player.fire_rate_level = 80
 	player.global_position = $PlayerSpawnPosition.global_position
 	add_child(player)
 

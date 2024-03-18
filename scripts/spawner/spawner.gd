@@ -4,6 +4,7 @@ var ship_scene = preload("res://scenes/ship.tscn")
 
 @onready var game = get_node("/root/Game")
 @onready var stuff = game.get_node("Stuff")
+@onready var ships_layer = stuff.get_node("TopLayer/Ships")
 
 var ships = {
 	"spaceShips_001": {
@@ -42,7 +43,7 @@ func spawn(ship_type):
 	var ship = ship_scene.instantiate()
 	ship.initialize(ships[ship_type])
 	ship.global_position = Vector2(randf_range(50, get_viewport().size.x), -stuff.global_position.y - ship.height)
-	stuff.add_child(ship)
+	ships_layer.add_child(ship)
 
 func _on_ship_spawn_timer_timeout():
 	spawn(ships.keys().pick_random())

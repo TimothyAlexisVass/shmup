@@ -38,3 +38,13 @@ position = Vector2(528, 1704)
 [node name="ParallaxBackground2" parent="Stuff" instance=ExtResource("4_2sncd")]
 offset = Vector2(0, -777)
 transform = Transform2D(1, 0, 0, 1, 0, -777)
+
+[node name="PlayerStuff" type="Node2D" parent="Stuff"]
+z_index = -111
+
+[node name="TopLayer" type="Node2D" parent="Stuff"]
+z_index = 999
+
+[node name="Ships" type="Node2D" parent="Stuff/TopLayer"]
+
+[node name="Shots" type="Node2D" parent="Stuff/TopLayer"]
