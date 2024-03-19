@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ceuh25br64vvt"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pl1ct"]
-[ext_resource type="Texture2D" uid="uid://bhvftiiome0m8" path="res://assets/sprites/playerShip1_blue.png" id="2_tf0ev"]
+[ext_resource type="Texture2D" uid="uid://cmkfefdmkgvlp" path="res://assets/sprites/playerShip2_orange.png" id="2_qpe5h"]
 [ext_resource type="PackedScene" uid="uid://drnwdolfdun1k" path="res://scenes/cannon_configuration.tscn" id="3_trwge"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mg686"]
@@ -16,7 +16,7 @@ script = ExtResource("1_pl1ct")
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1.2, 1.2, 1.4, 1)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_tf0ev")
+texture = ExtResource("2_qpe5h")
 
 [node name="GrazeArea" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-32, 17, -34, -4, -27, 1, -8, -9, -6, -26, 6, -26, 9, -8, 26, 1, 34, -5, 33, 17, 10, 19, 6, 26, -6, 26, -10, 19)

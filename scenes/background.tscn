@@ -10,14 +10,13 @@ script = ExtResource("1_6rfjx")
 
 [node name="-999" type="ParallaxLayer" parent="."]
 z_index = -999
-motion_offset = Vector2(0, 200)
 motion_mirroring = Vector2(0, 5098)
 
 [node name="SpaceBackground" type="Sprite2D" parent="-999"]
 modulate = Color(1.4, 1.4, 1.4, 1)
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(560, 500)
+position = Vector2(540, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_ymu88")
 

@@ -7,9 +7,13 @@ var shot_speed_level = 0:
 		shot_speed_level = value
 		shot_speed = Game.diminishing(shot_speed_base, shot_speed_level)
 
-var movement_speed_level = 50
-var fire_power_level = 1
-var cannon_level = 4
+var movement_speed
+var movement_speed_base = 100
+var movement_speed_increase = 1
+var movement_speed_level = 0:
+	set(value):
+		movement_speed_level = value
+		movement_speed = Game.linear(movement_speed_base, movement_speed_level, movement_speed_increase)
 
 var shots_per_second
 var fire_rate_base = 0.5
@@ -19,38 +23,26 @@ var fire_rate_level = 0:
 		shots_per_second = 1 / Game.diminishing(fire_rate_base, fire_rate_level)
 		$ShootTimer.wait_time = shots_per_second
 
-var score := 0:
-	set(value):
-		score = value
-		$UI/HUD.score = score
-
-@onready var game = get_node('/root/Game')
-@onready var max_x = get_viewport().size.x
-@onready var max_y = get_viewport().size.y
+var fire_power_level = 1
+var cannon_level = 4
 
 var player_shot = preload("res://scenes/player_shot.tscn")
 
+@onready var game = get_node("/root/Game")
+@onready var player_stuff = game.get_node("Stuff/PlayerStuff")
+
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	get_viewport().warp_mouse(self.position)
+	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	movement_speed_level += 100
+	get_viewport().warp_mouse(self.global_position) 
 
 func _physics_process(delta):
-	var direction = handle_position() - self.position
-	velocity = direction * delta * movement_speed_level
+	print(get_global_mouse_position())
+	var direction = get_global_mouse_position() - self.global_position
+	velocity = direction * delta * movement_speed
 	move_and_slide()
-
-func handle_position():
-	var mouse_position = get_viewport().get_mouse_position()
-	if mouse_position.x < 0:
-		mouse_position.x = 0
-	if mouse_position.y < 0:
-		mouse_position.y = 0
-	if mouse_position.x > max_x:
-		mouse_position.x = max_x
-	if mouse_position.y > max_y:
-		mouse_position.y = max_y
-	get_viewport().warp_mouse(mouse_position)
-	return mouse_position
+	self.global_position.x = clamp(self.global_position.x, game.area.x.min, game.area.x.max)
+	self.global_position.y = clamp(self.global_position.y, game.area.y.min, game.area.y.max)
 
 func die():
 	queue_free()
@@ -59,9 +51,8 @@ func die():
 func _on_shoot_timer_timeout():
 	for muzzle in $CannonConfiguration.get_children():
 		var shot = player_shot.instantiate()
-		var muzzle_rotation = muzzle.rotation
 		shot.speed = shot_speed
 		shot.damage = fire_power_level
-		shot.rotation = muzzle_rotation
+		shot.rotation = muzzle.rotation
 		shot.global_position = muzzle.global_position
-		game.add_child(shot)
+		player_stuff.add_child(shot)

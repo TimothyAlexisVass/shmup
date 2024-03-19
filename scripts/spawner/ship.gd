@@ -77,7 +77,7 @@ func take_damage(amount):
 func die():
 	game.score += points
 	var explosion = explosion_scene.instantiate()
-	explosion.global_position = self.global_position - stuff.global_position
+	explosion.global_position = self.global_position
 	for particle in explosion.get_children():
 		particle.get_process_material().scale_min *= explosion_scale
 		particle.get_process_material().scale_max *= explosion_scale

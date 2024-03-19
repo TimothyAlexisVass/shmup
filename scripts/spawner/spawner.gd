@@ -42,7 +42,7 @@ func _enter_tree():
 func spawn(ship_type):
 	var ship = ship_scene.instantiate()
 	ship.initialize(ships[ship_type])
-	ship.global_position = Vector2(randf_range(50, get_viewport().size.x), -stuff.global_position.y - ship.height)
+	ship.global_position = Vector2(randf_range(50, get_viewport().size.x), - ship.height)
 	ships_layer.add_child(ship)
 
 func _on_ship_spawn_timer_timeout():
