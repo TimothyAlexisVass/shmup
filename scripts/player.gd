@@ -8,7 +8,7 @@ var shot_speed_level = 0:
 		shot_speed = Game.diminishing(shot_speed_base, shot_speed_level)
 
 var movement_speed
-var movement_speed_base = 100
+var movement_speed_base = 1000
 var movement_speed_increase = 1
 var movement_speed_level = 0:
 	set(value):
@@ -33,13 +33,13 @@ var player_shot = preload("res://scenes/player_shot.tscn")
 
 func _ready():
 	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	movement_speed_level += 100
-	get_viewport().warp_mouse(self.global_position) 
+	movement_speed_level += 10
 
 func _physics_process(delta):
-	print(get_global_mouse_position())
 	var direction = get_global_mouse_position() - self.global_position
-	velocity = direction * delta * movement_speed
+	velocity = direction * delta * movement_speed / 10
+	velocity.x = clamp(velocity.x, -movement_speed, movement_speed)
+	velocity.y = clamp(velocity.y, -movement_speed, movement_speed)
 	move_and_slide()
 	self.global_position.x = clamp(self.global_position.x, game.area.x.min, game.area.x.max)
 	self.global_position.y = clamp(self.global_position.y, game.area.y.min, game.area.y.max)

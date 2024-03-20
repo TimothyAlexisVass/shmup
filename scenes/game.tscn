@@ -29,9 +29,6 @@ environment = SubResource("Environment_1a5l6")
 
 [node name="HUD" parent="UI" instance=ExtResource("4_pq1a5")]
 
-[node name="PlayerSpawnPosition" type="Marker2D" parent="."]
-position = Vector2(540, 1760)
-
 [node name="Spawner" parent="." instance=ExtResource("3_opaq1")]
 
 [node name="Stuff" type="Node2D" parent="."]
