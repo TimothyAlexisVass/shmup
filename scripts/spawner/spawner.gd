@@ -37,18 +37,21 @@ var ships = {
 
 var players = {
 	"playerShip1_blue": {
-		"shot_speed_base": 100,
+		"projectile_speed_base": 100,
 		"movement_speed_base": 2000,
+		"fire_power_base": 1,
 		"fire_rate_base": 0.5
 	},
 	"playerShip2_orange": {
-		"shot_speed_base": 200,
+		"projectile_speed_base": 200,
 		"movement_speed_base": 1000,
+		"fire_power_base": 1,
 		"fire_rate_base": 0.5
 	},
 	"playerShip3_green": {
-		"shot_speed_base": 100,
+		"projectile_speed_base": 100,
 		"movement_speed_base": 1000,
+		"fire_power_base": 1,
 		"fire_rate_base": 2
 	},
 }

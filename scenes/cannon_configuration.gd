@@ -1,13 +1,13 @@
 class_name CannonConfiguration extends Node2D
 
 @onready var parent = get_parent()
-@onready var image = parent.get_node("Sprite").texture.get_image()
+@onready var image = parent.image
 @onready var width = image.get_size().x
 @onready var height = image.get_size().y
 @onready var center_line = width / 2
 
 func _ready():
-	if parent.cannon_level & 1:
+	if parent.cannon_level & 1: # odd number
 		add_muzzle(0)
 	for offset in range(1, ceil((parent.cannon_level + 0.1) / 2)):
 		add_muzzle(-offset * 5)

@@ -1,14 +1,14 @@
 class_name Player extends CharacterBody2D
 
 var projectile_speed
-var projectile_speed_base = 200
+var projectile_speed_base
 var projectile_speed_level = 0:
 	set(value):
 		projectile_speed_level = value
 		projectile_speed = Game.diminishing(projectile_speed_base, projectile_speed_level)
 
 var shots_per_second
-var fire_rate_base = 0.5
+var fire_rate_base
 var fire_rate_level = 0:
 	set(value):
 		fire_rate_level = value
@@ -16,15 +16,15 @@ var fire_rate_level = 0:
 		$ShootTimer.wait_time = shots_per_second
 
 var fire_power
-var fire_power_base = 1
+var fire_power_base
 var fire_power_level = 0:
 	set(value):
 		fire_power_level = value
 		fire_power = Game.diminishing(fire_power_base, fire_power_level)
 
 var movement_speed
-var movement_speed_base = 1000
-var movement_speed_increase = 1
+var movement_speed_base
+var movement_speed_increase
 var movement_speed_level = 0:
 	set(value):
 		movement_speed_level = value
@@ -44,10 +44,13 @@ var player_shot = preload("res://scenes/player_shot.tscn")
 
 @onready var game = get_node("/root/Game")
 @onready var player_stuff = game.get_node("Stuff/PlayerStuff")
+@onready var sprite = $Sprite
 
 func initialize(data):
 	for property in data.keys():
 		set(property, data[property])
+	
+	movement_speed_increase = (5000 - movement_speed_base) / 1000.0
 
 	image = texture.get_image()
 	$Sprite.texture = ImageTexture.create_from_image(image)
@@ -56,8 +59,7 @@ func initialize(data):
 	add_child(graze_area.duplicate())
 
 func _ready():
-	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	movement_speed_level += 10
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _physics_process(delta):
 	var direction = get_global_mouse_position() - self.global_position
