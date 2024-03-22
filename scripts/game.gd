@@ -19,7 +19,7 @@ var score = 0:
 
 func _ready():
 	score = 0
-	$Spawner.spawn_player("playerShip2_orange")
+	player = $Spawner.spawn_player($Spawner.players.keys().pick_random())
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):

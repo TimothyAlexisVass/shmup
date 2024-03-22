@@ -37,22 +37,22 @@ var ships = {
 
 var players = {
 	"playerShip1_blue": {
-		"projectile_speed_base": 100,
+		"projectile_speed_base": 400,
 		"movement_speed_base": 2000,
 		"fire_power_base": 1,
-		"fire_rate_base": 0.5
+		"fire_rate_base": 1
 	},
 	"playerShip2_orange": {
-		"projectile_speed_base": 200,
+		"projectile_speed_base": 600,
 		"movement_speed_base": 1000,
-		"fire_power_base": 1,
+		"fire_power_base": 2,
 		"fire_rate_base": 0.5
 	},
 	"playerShip3_green": {
-		"projectile_speed_base": 100,
+		"projectile_speed_base": 400,
 		"movement_speed_base": 1000,
 		"fire_power_base": 1,
-		"fire_rate_base": 2
+		"fire_rate_base": 1
 	},
 }
 
@@ -81,6 +81,7 @@ func spawn_player(player_type):
 	get_viewport().warp_mouse(Vector2(540, 1340))
 	player.global_position = Vector2(670, 1550)
 	game.add_child(player)
+	return player
 
 func _on_ship_spawn_timer_timeout():
 	spawn_ship(ships.keys().pick_random())

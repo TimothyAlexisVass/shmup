@@ -40,6 +40,10 @@ func _ready():
 	$HitPoints.position.y = -(height/2 + $HitPoints.size.y + PADDING)
 	$HitPoints.size.x = width - PADDING*2
 
+func _process(_delta):
+	if $HitPoints.value <= 0:
+		die()
+
 func _physics_process(delta):
 	global_position.y += speed * delta
 	if is_instance_valid(player):
@@ -59,9 +63,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func take_damage(amount):
 	current_health -= amount
-	if $HitPoints.value <= 0:
-		die()
-	else:
+	if $HitPoints.value > 0:
 		var ratio = $HitPoints.value / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
 		var green_component = min(1, 2 * ratio)
