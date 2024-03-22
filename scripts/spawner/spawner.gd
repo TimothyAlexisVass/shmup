@@ -56,6 +56,14 @@ var players = {
 	},
 }
 
+var player_levels = {
+	"cannon_level": 1,
+	"projectile_speed_level": 0,
+	"movement_speed_level": 0,
+	"fire_power_level": 0,
+	"fire_rate_level": 1
+}
+
 func _enter_tree():
 	for ship in ships:
 		ships[ship]["texture"] = load("res://assets/sprites/" + ship + ".png")
@@ -72,12 +80,7 @@ func spawn_ship(ship_type):
 
 func spawn_player(player_type):
 	var player = player_scene.instantiate()
-	player.initialize(players[player_type])
-	player.cannon_level = 1
-	player.projectile_speed_level = 0
-	player.movement_speed_level = 0
-	player.fire_power_level = 0
-	player.fire_rate_level = 1
+	player.initialize(players[player_type], player_levels)
 	get_viewport().warp_mouse(Vector2(540, 1340))
 	player.global_position = Vector2(670, 1550)
 	game.add_child(player)

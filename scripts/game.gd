@@ -8,8 +8,8 @@ var player_scene = preload("res://scenes/player.tscn")
 var player
 
 @onready var area = {
-	"x": { "min": - GAME_AREA_OFFSET.x, "max": get_viewport().size.x + GAME_AREA_OFFSET.x},
-	"y": { "min": - GAME_AREA_OFFSET.y, "max": get_viewport().size.y + GAME_AREA_OFFSET.y}
+	"min": -GAME_AREA_OFFSET,
+	"max": Vector2(get_viewport().size) + GAME_AREA_OFFSET
 }
 
 var score = 0:

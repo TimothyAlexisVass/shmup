@@ -28,7 +28,7 @@ var movement_speed_increase
 var movement_speed_level = 0:
 	set(value):
 		movement_speed_level = value
-		movement_speed = Game.linear(movement_speed_base, movement_speed_level, movement_speed_increase)
+		movement_speed = Game.linear(movement_speed_base, movement_speed_level, (5000 - movement_speed_base) / 1000.0)
 
 # Basic properties
 var cannon_level
@@ -46,11 +46,11 @@ var player_shot = preload("res://scenes/player_shot.tscn")
 @onready var player_stuff = game.get_node("Stuff/PlayerStuff")
 @onready var sprite = $Sprite
 
-func initialize(data):
+func initialize(data, levels):
 	for property in data.keys():
 		set(property, data[property])
-	
-	movement_speed_increase = (5000 - movement_speed_base) / 1000.0
+	for property in levels.keys():
+		set(property, levels[property])
 
 	image = texture.get_image()
 	$Sprite.texture = ImageTexture.create_from_image(image)
@@ -66,9 +66,9 @@ func _physics_process(delta):
 	velocity = direction * delta * movement_speed / 10
 	velocity.x = clamp(velocity.x, -movement_speed, movement_speed)
 	velocity.y = clamp(velocity.y, -movement_speed, movement_speed)
+	self.global_position.x = clamp(self.global_position.x, game.area.min.x, game.area.max.x)
+	self.global_position.y = clamp(self.global_position.y, game.area.min.y, game.area.max.y)
 	move_and_slide()
-	self.global_position.x = clamp(self.global_position.x, game.area.x.min, game.area.x.max)
-	self.global_position.y = clamp(self.global_position.y, game.area.y.min, game.area.y.max)
 
 func die():
 	queue_free()
