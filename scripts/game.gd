@@ -19,15 +19,7 @@ var score = 0:
 
 func _ready():
 	score = 0
-	get_viewport().warp_mouse(Vector2(540, 1340))
-	player = player_scene.instantiate()
-	player.cannon_level = 9
-	player.shot_speed_level = 50
-	player.movement_speed_level = 0
-	player.fire_power_level = 1
-	player.fire_rate_level = 80
-	player.global_position = Vector2(670, 1550)
-	add_child(player)
+	$Spawner.spawn_player("playerShip2_orange")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
