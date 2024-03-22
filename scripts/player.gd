@@ -70,7 +70,7 @@ func _physics_process(delta):
 	self.global_position.y = clamp(self.global_position.y, game.area.min.y, game.area.max.y)
 	move_and_slide()
 
-func die():
+func clear():
 	queue_free()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
