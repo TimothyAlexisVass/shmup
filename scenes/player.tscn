@@ -18,11 +18,9 @@ modulate = Color(1.2, 1.2, 1.4, 1)
 texture = ExtResource("2_qpe5h")
 
 [node name="HitArea" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_mg686")
 
 [node name="ShootTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="CannonConfiguration" parent="." instance=ExtResource("3_trwge")]
 

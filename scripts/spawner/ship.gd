@@ -46,14 +46,14 @@ func _process(_delta):
 
 func _physics_process(delta):
 	global_position.y += speed * delta
-	if is_instance_valid(player) && current_health > 0:
+	if is_instance_valid(player) && player.is_playing:
 		$ShipBody.rotation = Game.ANGLE_UP + self.global_position.angle_to_point(player.global_position)
 
 func _on_collision(object):
 	if object is Player:
 		object.clear()
 		clear()
-	if object is PlayerShot:
+	if object is Shot:
 		take_damage(object.damage)
 		if $HitPoints.value > 0:
 			object.hit(self.global_position)
@@ -82,7 +82,6 @@ func shine():
 	tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2)
 
 func clear():
-	game.score += points
 	var explosion = explosion_scene.instantiate()
 	explosion.global_position = self.global_position
 	for particle in explosion.get_children():

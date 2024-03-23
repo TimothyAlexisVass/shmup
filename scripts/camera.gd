@@ -9,5 +9,5 @@ func _ready():
 	global_position = Vector2(540, 1140)
 
 func _process(_delta):
-	if is_instance_valid(game.player):
+	if game.player.is_playing:
 		global_position = center - camera_position_factor * (center - game.player.global_position)

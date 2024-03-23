@@ -12,14 +12,8 @@ var player
 	"max": Vector2(get_viewport().size) + GAME_AREA_OFFSET
 }
 
-var score = 0:
-	set(value):
-		score = value
-		$UI/HUD.score = score
-
 func _ready():
 	DataManager.load_data()
-	score = 0
 	player = $Spawner.spawn_player($Spawner.players.keys().pick_random())
 
 func _process(_delta):

@@ -1,4 +1,4 @@
-class_name PlayerShot extends Area2D
+class_name Shot extends Area2D
 
 var speed
 var damage

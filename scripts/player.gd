@@ -45,6 +45,7 @@ var player_shot = preload("res://scenes/player_shot.tscn")
 @onready var game = get_node("/root/Game")
 @onready var player_stuff = game.get_node("Stuff/PlayerStuff")
 @onready var sprite = $Sprite
+@onready var is_playing = true
 
 func initialize(data, levels):
 	for property in data.keys():
@@ -56,23 +57,37 @@ func initialize(data, levels):
 	$Sprite.texture = ImageTexture.create_from_image(image)
 	width = image.get_size().x
 	height = image.get_size().y
-	add_child(graze_area.duplicate())
+	add_child(graze_area)
+	graze_area.name = "GrazeArea"
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	play()
+	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	pass
 
 func _physics_process(delta):
-	var direction = get_global_mouse_position() - self.global_position
-	velocity = direction * delta * movement_speed / 10
-	velocity.x = clamp(velocity.x, -movement_speed, movement_speed)
-	velocity.y = clamp(velocity.y, -movement_speed, movement_speed)
-	self.global_position.x = clamp(self.global_position.x, game.area.min.x, game.area.max.x)
-	self.global_position.y = clamp(self.global_position.y, game.area.min.y, game.area.max.y)
-	move_and_slide()
+	if is_playing:
+		var direction = get_global_mouse_position() - global_position
+		velocity = direction * delta * movement_speed / 10
+		velocity.x = clamp(velocity.x, -movement_speed, movement_speed)
+		velocity.y = clamp(velocity.y, -movement_speed, movement_speed)
+		move_and_slide()
+		global_position.x = clamp(global_position.x, game.area.min.x, game.area.max.x)
+		global_position.y = clamp(global_position.y, game.area.min.y, game.area.max.y)
+
+func play():
+	$ShootTimer.start()
+	is_playing = true
+	$GrazeArea.call_deferred("set_disabled", false)
+	$HitArea.call_deferred("set_disabled", false)
 
 func clear():
-	queue_free()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$ShootTimer.stop()
+	self.visible = false
+	is_playing = false
+	$GrazeArea.call_deferred("set_disabled", true)
+	$HitArea.call_deferred("set_disabled", true)
+	# Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_shoot_timer_timeout():
 	for muzzle in $CannonConfiguration.get_children():
