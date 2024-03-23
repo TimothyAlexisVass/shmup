@@ -50,7 +50,7 @@ func initialize(data, levels):
 	for property in data.keys():
 		set(property, data[property])
 	for property in levels.keys():
-		set(property, levels[property])
+		set(property, int(levels[property]))
 
 	image = texture.get_image()
 	$Sprite.texture = ImageTexture.create_from_image(image)

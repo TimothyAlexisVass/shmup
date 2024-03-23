@@ -36,9 +36,9 @@ func initialize(data):
 func _ready():
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
-	$HitPoints.position.x = -width/2 + PADDING
-	$HitPoints.position.y = -(height/2 + $HitPoints.size.y + PADDING)
-	$HitPoints.size.x = width - PADDING*2
+	$HitPoints.position.x = -width / 2 + PADDING
+	$HitPoints.position.y = -(height / 2 + $HitPoints.size.y + PADDING)
+	$HitPoints.size.x = width - PADDING * 2
 
 func _process(_delta):
 	if $HitPoints.value <= 0:

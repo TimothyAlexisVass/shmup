@@ -18,6 +18,7 @@ var score = 0:
 		$UI/HUD.score = score
 
 func _ready():
+	DataManager.load_data()
 	score = 0
 	player = $Spawner.spawn_player($Spawner.players.keys().pick_random())
 
