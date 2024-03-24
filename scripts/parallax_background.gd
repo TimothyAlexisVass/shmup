@@ -14,4 +14,4 @@ func _process(delta):
 	scroll_offset.y = scroll_offset_y
 	
 	if is_instance_valid(game.player):
-		scroll_offset.x = -(game.player.global_position.x - 555)/22
+		scroll_offset.x = -(game.player.global_position.x)/22
