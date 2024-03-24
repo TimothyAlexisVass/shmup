@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxuuwmlma1xmm"]
+[gd_scene load_steps=8 format=3 uid="uid://bxuuwmlma1xmm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_15kp8"]
 [ext_resource type="PackedScene" uid="uid://t35pb2ajkk0d" path="res://scenes/spawner.tscn" id="3_opaq1"]
 [ext_resource type="PackedScene" uid="uid://nf2q1p0e06qp" path="res://scenes/background.tscn" id="4_2sncd"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_jnuwh"]
+[ext_resource type="Script" path="res://scenes/game_area.gd" id="5_o6sog"]
 
 [sub_resource type="Environment" id="Environment_1a5l6"]
 background_mode = 3
@@ -17,6 +18,9 @@ glow_intensity = 0.3
 glow_strength = 0.8
 glow_blend_mode = 1
 glow_hdr_threshold = 0.75
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eobj"]
+size = Vector2(1880, 2560)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_15kp8")
@@ -42,3 +46,15 @@ z_index = 999
 script = ExtResource("4_jnuwh")
 
 [node name="ParallaxBackground2" parent="Camera2D" instance=ExtResource("4_2sncd")]
+
+[node name="GameArea" type="Area2D" parent="."]
+position = Vector2(540, 980)
+collision_layer = 16
+collision_mask = 14
+script = ExtResource("5_o6sog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameArea"]
+shape = SubResource("RectangleShape2D_3eobj")
+
+[connection signal="area_exited" from="GameArea" to="GameArea" method="_on_exited"]
+[connection signal="body_exited" from="GameArea" to="GameArea" method="_on_exited"]

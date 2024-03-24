@@ -2,12 +2,8 @@ extends Camera2D
 
 @onready var game = get_node("/root/Game")
 
-@onready var center = get_viewport().size / 2.0
-@onready var camera_position_factor = Vector2(Game.GAME_AREA_OFFSET.x / (Game.GAME_AREA_OFFSET.x + center.x), Game.GAME_AREA_OFFSET.y / (Game.GAME_AREA_OFFSET.y + center.y))
-
-func _ready():
-	global_position = Vector2(540, 1140)
+@onready var camera_position_factor = Vector2(Globals.GAME_AREA_OFFSET.x / (Globals.GAME_AREA_OFFSET.x + Globals.center.x), Globals.GAME_AREA_OFFSET.y / (Globals.GAME_AREA_OFFSET.y + Globals.center.y))
 
 func _process(_delta):
-	if game.player.is_playing:
-		global_position = center - camera_position_factor * (center - game.player.global_position)
+	if is_instance_valid(game.player):
+		global_position = Globals.center - camera_position_factor * (Globals.center - game.player.global_position)

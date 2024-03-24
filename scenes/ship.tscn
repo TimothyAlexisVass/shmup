@@ -35,9 +35,5 @@ theme_override_styles/fill = ExtResource("4_adx34")
 value = 25.0
 show_percentage = false
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -52)
-
 [connection signal="area_entered" from="ShipBody" to="." method="_on_collision"]
 [connection signal="body_entered" from="ShipBody" to="." method="_on_collision"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="ShipBody" method="_on_visible_on_screen_notifier_2d_screen_exited"]

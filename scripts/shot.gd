@@ -26,16 +26,17 @@ func _ready():
 
 func _physics_process(delta):
 	translate(direction * speed * delta)
+	# var angle = abs(direction.angle_to(Vector2.UP))
+	# var direction_to = Vector2.UP if angle < 1 else Vector2.DOWN
+	# direction = direction.lerp(direction_to, angle / 150)
 	speed += speed * acceleration * delta
+	rotation = Globals.ANGLE_DOWN + direction.angle()
 
 func hit(target):
 	var hit_effect = hit_effects[source.shot_type].instantiate()
 	hit_effect.modulate = source.shot_color * 2
 	hit_effect.position = (self.global_position - target.global_position) - (self.global_position - target.global_position)/3.0
-	hit_effect.rotation = Game.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
+	hit_effect.rotation = Globals.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
 	hit_effect.emitting = true
 	target.add_child(hit_effect)
-	queue_free()
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

@@ -4,8 +4,7 @@ var ship_scene = preload("res://scenes/ship.tscn")
 var player_ship_scene = preload("res://scenes/player.tscn")
 
 @onready var game = get_node("/root/Game")
-@onready var stuff = game.get_node("Stuff")
-@onready var ships_layer = stuff.get_node("TopLayer/Ships")
+@onready var ships_layer = game.get_node("Stuff/TopLayer/Ships")
 
 var ships = {
 	"spaceShips_001": {
@@ -73,14 +72,14 @@ func _enter_tree():
 func spawn_ship(ship_type):
 	var ship = ship_scene.instantiate()
 	ship.initialize(ships[ship_type])
-	ship.global_position = Vector2(randf_range(50, get_viewport().size.x), - ship.height)
+	ship.global_position = Vector2(randf_range(50, Globals.play_area.max.x), Globals.play_area.min.y - ship.height)
 	ships_layer.add_child(ship)
 
 func spawn_player_ship(player_ship_type):
 	var player_ship = player_ship_scene.instantiate()
 	player_ship.initialize(player_ships[player_ship_type], DataManager.player_data.levels)
-	get_viewport().warp_mouse(Vector2(540, 1340))
-	player_ship.global_position = Vector2(670, 1550)
+	get_viewport().warp_mouse(Vector2(540, 1540))
+	player_ship.global_position = Vector2(620, 1750)
 	game.add_child(player_ship)
 	return player_ship
 

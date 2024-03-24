@@ -1,13 +1,12 @@
 class_name DataManager extends Node
 
-
 const SAVE_DIR = "user://saves/"
 const SAVE_FILE = "save.json"
 const SECURITY_KEY = "VERY_SECRET_KEY"
 
 static var player_data = PlayerData.new()
 
-static func save_data() -> void:
+static func save_data():
 	if not DirAccess.dir_exists_absolute(SAVE_DIR):
 		DirAccess.make_dir_absolute(SAVE_DIR)
 	var file = FileAccess.open_encrypted_with_pass(SAVE_DIR + SAVE_FILE, FileAccess.WRITE, SECURITY_KEY)
@@ -21,7 +20,7 @@ static func save_data() -> void:
 	file.store_string(JSON.stringify(data_to_save, "\t"))
 	file.close()
 
-static func load_data() -> void:
+static func load_data():
 	if FileAccess.file_exists(SAVE_DIR + SAVE_FILE):
 		var file = FileAccess.open_encrypted_with_pass(SAVE_DIR + SAVE_FILE, FileAccess.READ, SECURITY_KEY)
 		if not file:

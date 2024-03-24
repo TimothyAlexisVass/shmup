@@ -5,14 +5,14 @@ var shot_speed_base
 var shot_speed_level = 0:
 	set(value):
 		shot_speed_level = value
-		shot_speed = Game.diminishing(shot_speed_base, shot_speed_level)
+		shot_speed = Globals.diminishing(shot_speed_base, shot_speed_level)
 
 var shots_per_second
 var fire_rate_base
 var fire_rate_level = 0:
 	set(value):
 		fire_rate_level = value
-		shots_per_second = 1 / Game.diminishing(fire_rate_base, fire_rate_level)
+		shots_per_second = 1 / Globals.diminishing(fire_rate_base, fire_rate_level)
 		$ShootTimer.wait_time = shots_per_second
 
 var fire_power
@@ -20,7 +20,7 @@ var fire_power_base
 var fire_power_level = 0:
 	set(value):
 		fire_power_level = value
-		fire_power = Game.diminishing(fire_power_base, fire_power_level)
+		fire_power = Globals.diminishing(fire_power_base, fire_power_level)
 
 var movement_speed
 var movement_speed_base
@@ -28,7 +28,7 @@ var movement_speed_increase
 var movement_speed_level = 0:
 	set(value):
 		movement_speed_level = value
-		movement_speed = Game.linear(movement_speed_base, movement_speed_level, (5000 - movement_speed_base) / 1000.0)
+		movement_speed = Globals.linear(movement_speed_base, movement_speed_level, (5000 - movement_speed_base) / 1000.0)
 
 # Basic properties
 var cannon_level
@@ -76,21 +76,19 @@ func _physics_process(delta):
 		velocity.x = clamp(velocity.x, -movement_speed, movement_speed)
 		velocity.y = clamp(velocity.y, -movement_speed, movement_speed)
 		move_and_slide()
-		global_position.x = clamp(global_position.x, game.area.min.x, game.area.max.x)
-		global_position.y = clamp(global_position.y, game.area.min.y, game.area.max.y)
+		global_position.x = clamp(global_position.x, Globals.play_area.min.x, Globals.play_area.max.x)
+		global_position.y = clamp(global_position.y, Globals.play_area.min.y, Globals.play_area.max.y)
 
 func play():
 	$ShootTimer.start()
+	visible = true
 	is_playing = true
 	$GrazeArea.call_deferred("set_disabled", false)
 	$HitArea.call_deferred("set_disabled", false)
 
-func take_damage(_amount):
-	clear()
-
 func clear():
 	$ShootTimer.stop()
-	self.visible = false
+	visible = false
 	is_playing = false
 	$GrazeArea.call_deferred("set_disabled", true)
 	$HitArea.call_deferred("set_disabled", true)

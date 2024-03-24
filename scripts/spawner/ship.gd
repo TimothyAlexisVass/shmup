@@ -47,39 +47,31 @@ func _process(_delta):
 func _physics_process(delta):
 	global_position.y += speed * delta
 	if is_instance_valid(player) && player.is_playing:
-		$ShipBody.rotation = Game.ANGLE_UP + self.global_position.angle_to_point(player.global_position)
+		$ShipBody.rotation = Globals.ANGLE_UP + self.global_position.angle_to_point(player.global_position)
 
 func _on_collision(object):
 	if object is Player:
-		object.take_damage(current_health)
+		object.clear()
 		take_damage(current_health)
-	if object is Shot:
+	if object is Shot and object.source is Player:
 		take_damage(object.source.fire_power)
 		if $HitPoints.value > 0:
 			object.hit(self)
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
 
 func take_damage(amount):
 	current_health -= amount
 	if not $HitPoints.visible:
 		$HitPoints.visible = true
 	if current_health <= 0:
-		shine()
+		# shine
+		game.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2)
 	if $HitPoints.value > 0:
 		var ratio = $HitPoints.value / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
 		var green_component = min(1, 2 * ratio)
 		$HitPoints.get_theme_stylebox("fill").bg_color = Color(red_component, green_component, 0)
 		$HitPoints.modulate = Color(max(1.7, 1.7 + 1 - green_component), 1.7, 1, 1)
-
-		var tween = get_tree().create_tween()
-		tween.tween_property($HitPoints, "value", current_health, 0.2)
-
-func shine():
-	var tween = get_tree().create_tween()
-	tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2)
+		game.tween_property($HitPoints, "value", current_health, 0.2)
 
 func clear():
 	var explosion = explosion_scene.instantiate()

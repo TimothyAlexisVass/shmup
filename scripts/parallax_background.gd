@@ -5,8 +5,8 @@ extends ParallaxBackground
 @onready var scroll_offset_y = 0.0
 
 func _ready():
-	space_background.flip_h = Game.random_boolean()
-	space_background.flip_v = Game.random_boolean()
+	space_background.flip_h = Globals.random_boolean()
+	space_background.flip_v = Globals.random_boolean()
 	get_node("-999").motion_offset.y = randi() % int(space_background.texture.get_size().y)
 
 func _process(delta):

@@ -10,6 +10,10 @@ height = 44.0
 [node name="PlayerShot" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
+gravity_space_override = 1
+gravity_point = true
+gravity_point_unit_distance = 32.0
+gravity = 8888.0
 script = ExtResource("1_o7yvm")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -21,9 +25,3 @@ texture = ExtResource("2_tnbqu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -22)
 shape = SubResource("CapsuleShape2D_nnupo")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -22)
-scale = Vector2(0.4, 0.3)
-
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
