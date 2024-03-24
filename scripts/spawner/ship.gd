@@ -60,16 +60,19 @@ func take_damage(amount):
 	current_health -= amount
 	if not $HitPoints.visible:
 		$HitPoints.visible = true
+
+	var tween = create_tween()
+	tween.set_parallel()
 	if current_health <= 0:
 		# shine
-		game.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2)
+		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2)
 	if $HitPoints.value > 0:
 		var ratio = $HitPoints.value / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
 		var green_component = min(1, 2 * ratio)
 		$HitPoints.get_theme_stylebox("fill").bg_color = Color(red_component, green_component, 0)
 		$HitPoints.modulate = Color(max(1.7, 1.7 + 1 - green_component), 1.7, 1, 1)
-		game.tween_property($HitPoints, "value", current_health, 0.2)
+		tween.tween_property($HitPoints, "value", current_health, 0.2)
 
 func clear():
 	Globals.explode(self)

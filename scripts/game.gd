@@ -19,11 +19,3 @@ func _process(_delta):
 		get_tree().quit()
 	elif Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
-
-func tween_property(object, parameter, final_value, duration):
-	if is_instance_valid(object):
-		var tween = create_tween()
-		if is_instance_valid(object):
-			tween.tween_property(object, parameter, final_value, duration)
-		else:
-			tween.kill()
