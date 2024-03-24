@@ -37,4 +37,4 @@ static func load_data():
 		
 		player_data.levels = loaded_data.player_levels
 	else:
-		printerr("Save file doesn't exist")
+		print("Save file doesn't exist")

@@ -36,6 +36,7 @@ var texture
 var graze_area
 var shot_color
 var shot_type
+var explosion_type
 
 # Calculated properties
 var image
@@ -44,6 +45,7 @@ var height
 
 var shot_scene = preload("res://scenes/shot.tscn")
 var shot_instance
+var shot_offset
 
 @onready var game = get_node("/root/Game")
 @onready var player_stuff = game.get_node("Stuff/PlayerStuff")
@@ -65,9 +67,9 @@ func initialize(data, levels):
 
 func _ready():
 	shot_instance = shot_scene.instantiate()
+	shot_offset = shot_instance.shot_types[shot_type].offset
 	play()
 	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	pass
 
 func _physics_process(delta):
 	if is_playing:
@@ -90,6 +92,7 @@ func clear():
 	$ShootTimer.stop()
 	visible = false
 	is_playing = false
+	Globals.explode(self)
 	$GrazeArea.call_deferred("set_disabled", true)
 	$HitArea.call_deferred("set_disabled", true)
 	# Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -99,5 +102,5 @@ func _on_shoot_timer_timeout():
 		var shot = shot_instance.duplicate()
 		shot.initialize(self)
 		shot.rotation = muzzle.rotation
-		shot.global_position = muzzle.global_position
+		shot.global_position = muzzle.global_position - shot_offset
 		player_stuff.add_child(shot)

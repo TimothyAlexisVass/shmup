@@ -8,14 +8,13 @@ var total_hit_points
 var points
 var texture
 var collision_shape
+var explosion_type
 
 # Calculated properties
 var width
 var height
 var image
 var explosion_scale
-
-var explosion_scene = preload("res://scenes/fire_explosion.tscn")
 
 @onready var game = get_node("/root/Game")
 @onready var stuff = game.get_node("Stuff")
@@ -30,7 +29,6 @@ func initialize(data):
 	$ShipBody/Sprite.texture = ImageTexture.create_from_image(image)
 	width = image.get_size().x
 	height = image.get_size().y
-	explosion_scale = max(width, height) / 200.0
 	$ShipBody.add_child(collision_shape.duplicate())
 
 func _ready():
@@ -74,11 +72,5 @@ func take_damage(amount):
 		game.tween_property($HitPoints, "value", current_health, 0.2)
 
 func clear():
-	var explosion = explosion_scene.instantiate()
-	explosion.global_position = self.global_position
-	for particle in explosion.get_children():
-		particle.get_process_material().scale_min *= explosion_scale
-		particle.get_process_material().scale_max *= explosion_scale
-		particle.emitting = true
-	stuff.add_child(explosion)
+	Globals.explode(self)
 	queue_free()

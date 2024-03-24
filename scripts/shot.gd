@@ -6,11 +6,12 @@ var source
 var hit_effect_scenes = {
 	"plasma": preload("res://scenes/hit_effects/plasma.tscn")
 }
-var hit_effects = {
-	"plasma": hit_effect_scenes.plasma
-}
 var shot_types = {
-	"plasma": preload("res://assets/sprites/shots/plasma.png")
+	"plasma": {
+		"texture": preload("res://assets/sprites/shots/plasma.png"),
+		"offset": Vector2(0, 22),
+		"hit_effect": hit_effect_scenes.plasma
+	}
 }
 
 @onready var direction = Vector2.UP.rotated(rotation)
@@ -22,7 +23,7 @@ func initialize(_source):
 
 func _ready():
 	$Sprite.modulate = source.shot_color
-	$Sprite.texture = shot_types[source.shot_type]
+	$Sprite.texture = shot_types[source.shot_type].texture
 
 func _physics_process(delta):
 	translate(direction * speed * delta)
@@ -33,7 +34,7 @@ func _physics_process(delta):
 	rotation = Globals.ANGLE_DOWN + direction.angle()
 
 func hit(target):
-	var hit_effect = hit_effects[source.shot_type].instantiate()
+	var hit_effect = shot_types[source.shot_type].hit_effect.instantiate()
 	hit_effect.modulate = source.shot_color * 2
 	hit_effect.position = (self.global_position - target.global_position) - (self.global_position - target.global_position)/3.0
 	hit_effect.rotation = Globals.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
