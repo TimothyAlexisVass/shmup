@@ -54,9 +54,9 @@ func _on_collision(object):
 		object.clear()
 		clear()
 	if object is Shot:
-		take_damage(object.damage)
+		take_damage(object.source.fire_power)
 		if $HitPoints.value > 0:
-			object.hit(self.global_position)
+			object.hit(self)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

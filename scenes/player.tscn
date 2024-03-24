@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ceuh25br64vvt"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pl1ct"]
-[ext_resource type="Texture2D" uid="uid://cmkfefdmkgvlp" path="res://assets/sprites/playerShip2_orange.png" id="2_qpe5h"]
+[ext_resource type="Texture2D" uid="uid://bhvftiiome0m8" path="res://assets/sprites/player_ships/playerShip1_blue.png" id="2_o21p0"]
 [ext_resource type="PackedScene" uid="uid://drnwdolfdun1k" path="res://scenes/cannon_configuration.tscn" id="3_trwge"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mg686"]
@@ -15,7 +15,7 @@ script = ExtResource("1_pl1ct")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1.2, 1.2, 1.4, 1)
-texture = ExtResource("2_qpe5h")
+texture = ExtResource("2_o21p0")
 
 [node name="HitArea" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mg686")

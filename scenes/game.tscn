@@ -39,8 +39,6 @@ z_index = 999
 [node name="Shots" type="Node2D" parent="Stuff/TopLayer"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_smoothed = true
-position_smoothing_enabled = true
 script = ExtResource("4_jnuwh")
 
 [node name="ParallaxBackground2" parent="Camera2D" instance=ExtResource("4_2sncd")]

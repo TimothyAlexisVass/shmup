@@ -14,7 +14,7 @@ var player
 
 func _ready():
 	DataManager.load_data()
-	player = $Spawner.spawn_player($Spawner.players.keys().pick_random())
+	player = $Spawner.spawn_player_ship($Spawner.player_ships.keys().pick_random())
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):

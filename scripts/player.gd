@@ -1,11 +1,11 @@
 class_name Player extends CharacterBody2D
 
-var projectile_speed
-var projectile_speed_base
-var projectile_speed_level = 0:
+var shot_speed
+var shot_speed_base
+var shot_speed_level = 0:
 	set(value):
-		projectile_speed_level = value
-		projectile_speed = Game.diminishing(projectile_speed_base, projectile_speed_level)
+		shot_speed_level = value
+		shot_speed = Game.diminishing(shot_speed_base, shot_speed_level)
 
 var shots_per_second
 var fire_rate_base
@@ -34,13 +34,16 @@ var movement_speed_level = 0:
 var cannon_level
 var texture
 var graze_area
+var shot_color
+var shot_type
 
 # Calculated properties
 var image
 var width
 var height
 
-var player_shot = preload("res://scenes/player_shot.tscn")
+var shot_scene = preload("res://scenes/shot.tscn")
+var shot_instance
 
 @onready var game = get_node("/root/Game")
 @onready var player_stuff = game.get_node("Stuff/PlayerStuff")
@@ -61,6 +64,7 @@ func initialize(data, levels):
 	graze_area.name = "GrazeArea"
 
 func _ready():
+	shot_instance = shot_scene.instantiate()
 	play()
 	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	pass
@@ -91,9 +95,8 @@ func clear():
 
 func _on_shoot_timer_timeout():
 	for muzzle in $CannonConfiguration.get_children():
-		var shot = player_shot.instantiate()
-		shot.speed = projectile_speed
-		shot.damage = fire_power
+		var shot = shot_instance.duplicate()
+		shot.initialize(self)
 		shot.rotation = muzzle.rotation
 		shot.global_position = muzzle.global_position
 		player_stuff.add_child(shot)

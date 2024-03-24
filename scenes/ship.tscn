@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cm23pqetbflrq"]
 
 [ext_resource type="Script" path="res://scripts/spawner/ship.gd" id="1_gy10l"]
-[ext_resource type="Texture2D" uid="uid://c1518wbja6dd" path="res://assets/sprites/spaceShips_001.png" id="2_lxpmn"]
+[ext_resource type="Texture2D" uid="uid://c1518wbja6dd" path="res://assets/sprites/ships/spaceShips_001.png" id="2_6jjvq"]
 [ext_resource type="StyleBox" uid="uid://c8xpn58skk06e" path="res://styles/hit_points_bar_background.tres" id="3_i1gfx"]
 [ext_resource type="StyleBox" uid="uid://cvnn0obm23hqj" path="res://styles/hit_points_bar_fill.tres" id="4_adx34"]
 
@@ -14,10 +14,11 @@ collision_mask = 5
 
 [node name="Sprite" type="Sprite2D" parent="ShipBody"]
 modulate = Color(1.2, 1.1, 1.1, 1)
-texture = ExtResource("2_lxpmn")
+texture = ExtResource("2_6jjvq")
 
 [node name="HitPoints" type="ProgressBar" parent="."]
 visible = false
+modulate = Color(1.7, 1.7, 1, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

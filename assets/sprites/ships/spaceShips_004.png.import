@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsapslo3ijg23"
-path="res://.godot/imported/powerupGreen_bolt.png-6101e6081492a7802bb8f863ce81f7b3.ctex"
+uid="uid://3cpyfbyh7kj7"
+path="res://.godot/imported/spaceShips_004.png-ab2d31a14972f449a373b6c364b749ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/powerupGreen_bolt.png"
-dest_files=["res://.godot/imported/powerupGreen_bolt.png-6101e6081492a7802bb8f863ce81f7b3.ctex"]
+source_file="res://assets/sprites/ships/spaceShips_004.png"
+dest_files=["res://.godot/imported/spaceShips_004.png-ab2d31a14972f449a373b6c364b749ab.ctex"]
 
 [params]
 

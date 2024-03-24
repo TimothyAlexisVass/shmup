@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://72p6hkipsrnw"]
 
-[ext_resource type="Script" path="res://scripts/shot.gd" id="1_irflt"]
-[ext_resource type="Texture2D" uid="uid://bygq0dc0q4u28" path="res://assets/sprites/laserRed01.png" id="2_426e5"]
+[ext_resource type="Script" path="res://scripts/shot.gd" id="1_o7yvm"]
+[ext_resource type="Texture2D" uid="uid://b304d0fyllk3h" path="res://assets/sprites/shots/plasma.png" id="2_tnbqu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnupo"]
 radius = 4.0
@@ -10,13 +10,13 @@ height = 44.0
 [node name="PlayerShot" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_irflt")
+script = ExtResource("1_o7yvm")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(4, 2, 1, 1)
+modulate = Color(4, 1.2, 1, 1)
 position = Vector2(0, -22)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_426e5")
+texture = ExtResource("2_tnbqu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -22)
