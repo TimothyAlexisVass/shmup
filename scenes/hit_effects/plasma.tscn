@@ -17,7 +17,7 @@ gravity = Vector3(0, 10, 0)
 scale_max = 6.0
 color_ramp = SubResource("GradientTexture1D_q5iqj")
 
-[node name="LaserExplosion" type="GPUParticles2D"]
+[node name="Plasma" type="GPUParticles2D"]
 modulate = Color(10, 3, 1, 1)
 emitting = false
 amount = 10
