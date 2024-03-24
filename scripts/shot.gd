@@ -4,7 +4,7 @@ var acceleration = 0
 var source
 
 var hit_effect_scenes = {
-	"plasma": preload("res://scenes/laser_explosion.tscn")
+	"plasma": preload("res://scenes/hit_effects/plasma.tscn")
 }
 var hit_effects = {
 	"plasma": hit_effect_scenes.plasma

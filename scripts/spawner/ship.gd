@@ -51,8 +51,8 @@ func _physics_process(delta):
 
 func _on_collision(object):
 	if object is Player:
-		object.clear()
-		clear()
+		object.take_damage(current_health)
+		take_damage(current_health)
 	if object is Shot:
 		take_damage(object.source.fire_power)
 		if $HitPoints.value > 0:

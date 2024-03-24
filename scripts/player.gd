@@ -85,6 +85,9 @@ func play():
 	$GrazeArea.call_deferred("set_disabled", false)
 	$HitArea.call_deferred("set_disabled", false)
 
+func take_damage(_amount):
+	clear()
+
 func clear():
 	$ShootTimer.stop()
 	self.visible = false
