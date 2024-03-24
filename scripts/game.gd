@@ -22,5 +22,8 @@ func _process(_delta):
 
 func tween_property(object, parameter, final_value, duration):
 	if is_instance_valid(object):
-		var tween = get_tree().create_tween()
-		tween.tween_property(object, parameter, final_value, duration)
+		var tween = create_tween()
+		if is_instance_valid(object):
+			tween.tween_property(object, parameter, final_value, duration)
+		else:
+			tween.kill()

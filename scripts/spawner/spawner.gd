@@ -41,7 +41,7 @@ var ships = {
 
 var player_ships = {
 	"playerShip1_blue": {
-		"shot_speed_base": 400,
+		"shot_speed_base": 900,
 		"movement_speed_base": 800,
 		"fire_power_base": 1,
 		"fire_rate_base": 1,
@@ -59,7 +59,7 @@ var player_ships = {
 		"explosion_type": "fire_explosion"
 	},
 	"playerShip3_green": {
-		"shot_speed_base": 400,
+		"shot_speed_base": 600,
 		"movement_speed_base": 500,
 		"fire_power_base": 1,
 		"fire_rate_base": 1,
