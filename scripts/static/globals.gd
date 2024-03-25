@@ -9,7 +9,8 @@ static var center
 static var play_area
 
 static var explosion_scenes = {
-	"fire_explosion": preload("res://scenes/fire_explosion.tscn")
+	"fire_explosion": preload("res://scenes/fire_explosion.tscn"),
+	"electric_explosion": preload("res://scenes/electric_explosion.tscn")
 }
 
 static func explode(object):

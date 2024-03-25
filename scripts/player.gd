@@ -69,7 +69,6 @@ func _ready():
 	shot_instance = shot_scene.instantiate()
 	shot_offset = shot_instance.shot_types[shot_type].offset
 	play()
-	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _physics_process(delta):
 	if is_playing:
@@ -87,6 +86,7 @@ func play():
 	is_playing = true
 	$GrazeArea.call_deferred("set_disabled", false)
 	$HitArea.call_deferred("set_disabled", false)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func clear():
 	$ShootTimer.stop()
@@ -95,7 +95,7 @@ func clear():
 	Globals.explode(self)
 	$GrazeArea.call_deferred("set_disabled", true)
 	$HitArea.call_deferred("set_disabled", true)
-	# Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_shoot_timer_timeout():
 	for muzzle in $CannonConfiguration.get_children():

@@ -31,16 +31,28 @@ var ships = {
 		"points": 200,
 		"explosion_type": "fire_explosion"
 	},
+	"spaceShips_005": {
+		"total_hit_points": 20,
+		"speed": 250,
+		"points": 500,
+		"explosion_type": "fire_explosion"
+	},
+	"spaceShips_006": {
+		"total_hit_points": 40,
+		"speed": 120,
+		"points": 1000,
+		"explosion_type": "electric_explosion"
+	},
 	"spaceShips_007": {
 		"total_hit_points": 20,
 		"speed": 100,
 		"points": 400,
-		"explosion_type": "fire_explosion"
+		"explosion_type": "electric_explosion"
 	}
 }
 
 var player_ships = {
-	"playerShip1_blue": {
+	"Blues": {
 		"shot_speed_base": 900,
 		"movement_speed_base": 800,
 		"fire_power_base": 1,
@@ -49,7 +61,7 @@ var player_ships = {
 		"shot_type": "plasma",
 		"explosion_type": "fire_explosion"
 	},
-	"playerShip2_orange": {
+	"Naranja": {
 		"shot_speed_base": 600,
 		"movement_speed_base": 500,
 		"fire_power_base": 2,
@@ -58,7 +70,7 @@ var player_ships = {
 		"shot_type": "plasma",
 		"explosion_type": "fire_explosion"
 	},
-	"playerShip3_green": {
+	"GreenGo": {
 		"shot_speed_base": 600,
 		"movement_speed_base": 500,
 		"fire_power_base": 1,
@@ -67,6 +79,15 @@ var player_ships = {
 		"shot_type": "plasma",
 		"explosion_type": "fire_explosion"
 	},
+	"Blade": {
+		"shot_speed_base": 3000,
+		"movement_speed_base": 8000,
+		"fire_power_base": 1,
+		"fire_rate_base": 10,
+		"shot_color": Color(4, 4, 4),
+		"shot_type": "plasma",
+		"explosion_type": "fire_explosion"
+	}
 }
 
 func _enter_tree():

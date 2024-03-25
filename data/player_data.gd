@@ -7,11 +7,11 @@ func _enter_tree() -> void:
 	name_validator.compile("^[\\p{L}\\p{M}\\ \\-\\']+$")
 
 var levels = {
-	"cannon_level": 5,
+	"cannon_level": 3,
 	"shot_speed_level": 0,
 	"movement_speed_level": 0,
 	"fire_power_level": 0,
-	"fire_rate_level": 5
+	"fire_rate_level": 0
 }
 
 var user = {

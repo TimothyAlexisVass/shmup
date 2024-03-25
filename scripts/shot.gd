@@ -27,9 +27,9 @@ func _ready():
 
 func _physics_process(delta):
 	translate(direction * speed * delta)
-	# var angle = abs(direction.angle_to(Vector2.UP))
-	# var direction_to = Vector2.UP if angle < 1 else Vector2.DOWN
-	# direction = direction.lerp(direction_to, angle / 150)
+	var angle = abs(direction.angle_to(Vector2.UP))
+	var direction_to = Vector2.UP if angle < 1 else Vector2.DOWN
+	direction = direction.lerp(direction_to, angle / 150)
 	speed += speed * acceleration * delta
 	rotation = Globals.ANGLE_DOWN + direction.angle()
 
