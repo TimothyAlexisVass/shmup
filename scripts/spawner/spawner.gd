@@ -1,7 +1,7 @@
 class_name Spawner extends Node
 
 var ship_scene = preload("res://scenes/ship.tscn")
-var player_ship_scene = preload("res://scenes/player.tscn")
+var player_ship_scene = preload("res://scenes/player/player.tscn")
 
 @onready var game = get_node("/root/Game")
 @onready var ships_layer = game.get_node("Stuff/TopLayer/Ships")
@@ -78,25 +78,17 @@ var player_ships = {
 		"shot_color": Color(1, 4, 1.2),
 		"shot_type": "plasma",
 		"explosion_type": "fire_explosion"
-	},
-	"Blade": {
-		"shot_speed_base": 3000,
-		"movement_speed_base": 8000,
-		"fire_power_base": 1,
-		"fire_rate_base": 10,
-		"shot_color": Color(4, 4, 4),
-		"shot_type": "plasma",
-		"explosion_type": "fire_explosion"
 	}
 }
 
-func _enter_tree():
+func _ready():
 	for ship in ships:
 		ships[ship]["texture"] = load("res://assets/sprites/ships/" + ship + ".png")
 		ships[ship]["collision_shape"] = CollisionShapeGenerator.generate(ships[ship]["texture"].get_image())
 	for player_ship in player_ships:
 		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
 		player_ships[player_ship]["graze_area"] = CollisionShapeGenerator.generate(player_ships[player_ship]["texture"].get_image())
+		player_ships[player_ship]["ship_name"] = player_ship
 
 func spawn_ship(ship_type):
 	var ship = ship_scene.instantiate()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pl1ct"]
 [ext_resource type="Texture2D" uid="uid://bhvftiiome0m8" path="res://assets/sprites/player_ships/playerShip1_blue.png" id="2_o21p0"]
-[ext_resource type="PackedScene" uid="uid://drnwdolfdun1k" path="res://scenes/cannon_configuration.tscn" id="3_trwge"]
+[ext_resource type="PackedScene" uid="uid://drnwdolfdun1k" path="res://scenes/player/cannon_configuration.tscn" id="3_trwge"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mg686"]
 radius = 6.0

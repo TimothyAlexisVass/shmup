@@ -31,6 +31,7 @@ var movement_speed_level = 0:
 		movement_speed = Globals.linear(movement_speed_base, movement_speed_level, (5000 - movement_speed_base) / 1000.0)
 
 # Basic properties
+var ship_name
 var cannon_level
 var texture
 var graze_area
@@ -62,7 +63,7 @@ func initialize(data, levels):
 	$Sprite.texture = ImageTexture.create_from_image(image)
 	width = image.get_size().x
 	height = image.get_size().y
-	graze_area.name = "GrazeArea"
+	graze_area.set_name(ship_name + "GrazeArea")
 	add_child(graze_area)
 
 func _ready():
@@ -84,7 +85,7 @@ func play():
 	$ShootTimer.start()
 	visible = true
 	is_playing = true
-	$GrazeArea.call_deferred("set_disabled", false)
+	get_node(ship_name + "GrazeArea").call_deferred("set_disabled", false)
 	$HitArea.call_deferred("set_disabled", false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
@@ -93,7 +94,7 @@ func clear():
 	visible = false
 	is_playing = false
 	Globals.explode(self)
-	$GrazeArea.call_deferred("set_disabled", true)
+	get_node(ship_name + "GrazeArea").call_deferred("set_disabled", true)
 	$HitArea.call_deferred("set_disabled", true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

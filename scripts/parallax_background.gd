@@ -1,6 +1,5 @@
 extends ParallaxBackground
 
-@onready var game = get_node('/root/Game')
 @onready var space_background = get_node("-999/SpaceBackground")
 @onready var scroll_offset_y = 0.0
 
@@ -13,5 +12,5 @@ func _process(delta):
 	scroll_offset_y += 22 * delta
 	scroll_offset.y = scroll_offset_y
 	
-	if is_instance_valid(game.player):
-		scroll_offset.x = -(game.player.global_position.x)/22
+	if is_instance_valid(Globals.player):
+		scroll_offset.x = -(Globals.player.global_position.x)/22

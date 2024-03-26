@@ -16,9 +16,6 @@ var height
 var image
 var explosion_scale
 
-@onready var game = get_node("/root/Game")
-@onready var stuff = game.get_node("Stuff")
-@onready var player = game.player
 @onready var current_health = total_hit_points
 
 func initialize(data):
@@ -44,8 +41,8 @@ func _process(_delta):
 
 func _physics_process(delta):
 	global_position.y += speed * delta
-	if is_instance_valid(player) && player.is_playing:
-		$ShipBody.rotation = Globals.ANGLE_UP + self.global_position.angle_to_point(player.global_position)
+	if is_instance_valid(Globals.player) && Globals.player.is_playing:
+		$ShipBody.rotation = Globals.ANGLE_UP + self.global_position.angle_to_point(Globals.player.global_position)
 
 func _on_collision(object):
 	if object is Player:
