@@ -6,12 +6,33 @@ var player_ship_scene = preload("res://scenes/player/player.tscn")
 @onready var game = get_node("/root/Game")
 @onready var ships_layer = game.get_node("Stuff/TopLayer/Ships")
 
+# positions: Vector3(x, y, rotation)
 var ships = {
 	"spaceShips_001": {
 		"total_hit_points": 10,
 		"speed": 150,
 		"points": 100,
-		"explosion_type": "fire_explosion"
+		"explosion_type": "fire_explosion",
+		"muzzles": [
+			{
+				"shot_type": "plasma",
+				"color": Color(1, 0, 0),
+				"positions": [
+					Vector3(29, 67, 0),
+					Vector3(76, 67, 0)
+				]
+			}
+		], 
+		"jets": [
+			{
+				"jet_type": "gas",
+				"color": Color(0.2, 0.4, 1),
+				"positions": [
+					Vector3(0, 38, 0),
+					Vector3(0, 67, 0)
+				]
+			}
+		]
 	},
 	"spaceShips_002": {
 		"total_hit_points": 2,
