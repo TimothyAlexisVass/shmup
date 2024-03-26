@@ -62,8 +62,8 @@ func initialize(data, levels):
 	$Sprite.texture = ImageTexture.create_from_image(image)
 	width = image.get_size().x
 	height = image.get_size().y
-	add_child(graze_area)
 	graze_area.name = "GrazeArea"
+	add_child(graze_area)
 
 func _ready():
 	shot_instance = shot_scene.instantiate()

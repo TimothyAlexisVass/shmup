@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://72p6hkipsrnw"]
+[gd_scene load_steps=5 format=3 uid="uid://72p6hkipsrnw"]
 
 [ext_resource type="Script" path="res://scripts/shot.gd" id="1_o7yvm"]
+[ext_resource type="Texture2D" uid="uid://dvr1l6ewynpxh" path="res://assets/sprites/shots/plasma_background.png" id="2_r0bqc"]
 [ext_resource type="Texture2D" uid="uid://b304d0fyllk3h" path="res://assets/sprites/shots/plasma.png" id="2_tnbqu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnupo"]
@@ -16,8 +17,11 @@ gravity_point_unit_distance = 32.0
 gravity = 8888.0
 script = ExtResource("1_o7yvm")
 
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_r0bqc")
+
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(4, 1.2, 1, 1)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_tnbqu")
 
