@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://drnwdolfdun1k"]
 
-[ext_resource type="Script" path="res://scripts/cannon_configuration.gd" id="1_3b0en"]
+[ext_resource type="Script" path="res://node_classes/player/cannon_configuration.gd" id="1_3b0en"]
 
 [node name="CannonConfiguration" type="Node2D"]
 visible = false

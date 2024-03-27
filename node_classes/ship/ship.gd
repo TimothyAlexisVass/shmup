@@ -3,32 +3,28 @@ class_name Ship extends Node2D
 const PADDING = 10
 
 # Basic properties
-var speed
-var total_hit_points
-var points
-var texture
-var collision_shape
-var explosion_type
+@export var speed: float
+@export var total_hit_points: float
+@export var points: float
+@export var explosion: PackedScene
 
 # Calculated properties
+var image
 var width
 var height
-var image
 var explosion_scale
 
 @onready var current_health = total_hit_points
 
-func initialize(data):
-	for property in data.keys():
-		set(property, data[property])
-
-	image = texture.get_image()
-	$ShipBody/Sprite.texture = ImageTexture.create_from_image(image)
+func _enter_tree():
+	image = $ShipBody/Sprite.texture.get_image()
 	width = image.get_size().x
 	height = image.get_size().y
-	$ShipBody.add_child(collision_shape.duplicate())
+	explosion_scale = max(width, height) / 200.0
+	$ShipBody.add_child(CollisionShapeGenerator.generate(image))
 
 func _ready():
+	global_position = Vector2(randf_range(50, Globals.play_area.max.x), Globals.play_area.min.y - height)
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING
@@ -61,8 +57,7 @@ func take_damage(amount):
 	var tween = create_tween()
 	tween.set_parallel()
 	if current_health <= 0:
-		# shine
-		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2)
+		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2) # shine
 	if $HitPoints.value > 0:
 		var ratio = $HitPoints.value / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))

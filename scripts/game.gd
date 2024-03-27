@@ -1,11 +1,14 @@
 class_name Game extends Node2D
 
 func _enter_tree():
+	Globals.game = self
 	Globals.center = get_viewport().size / 2.0
 	Globals.play_area = { "min": -Globals.GAME_AREA_OFFSET, "max": Vector2(get_viewport().size) + Globals.GAME_AREA_OFFSET }
 
 func _ready():
 	Globals.stuff = $Stuff
+	Globals.player_stuff = $Stuff/PlayerStuff
+	Globals.ships_layer = $Stuff/TopLayer/Ships
 	DataManager.load_data()
 	Globals.player = $Spawner.spawn_player_ship($Spawner.player_ships.keys().pick_random())
 

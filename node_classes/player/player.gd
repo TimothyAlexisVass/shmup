@@ -37,20 +37,18 @@ var texture
 var graze_area
 var shot_color
 var shot_type
-var explosion_type
+var explosion
 
 # Calculated properties
 var image
 var width
 var height
+var explosion_scale
 
-var shot_scene = preload("res://scenes/shot.tscn")
+var shot_scene = preload("res://node_classes/shot/shot.tscn")
 var shot_instance
 var shot_offset
 
-@onready var game = get_node("/root/Game")
-@onready var player_stuff = game.get_node("Stuff/PlayerStuff")
-@onready var sprite = $Sprite
 @onready var is_playing = true
 
 func initialize(data, levels):
@@ -63,6 +61,7 @@ func initialize(data, levels):
 	$Sprite.texture = ImageTexture.create_from_image(image)
 	width = image.get_size().x
 	height = image.get_size().y
+	explosion_scale = max(width, height) / 200.0
 	graze_area.set_name(ship_name + "GrazeArea")
 	add_child(graze_area)
 
@@ -104,4 +103,4 @@ func _on_shoot_timer_timeout():
 		shot.initialize(self)
 		shot.rotation = muzzle.rotation
 		shot.global_position = muzzle.global_position - shot_offset
-		player_stuff.add_child(shot)
+		Globals.player_stuff.add_child(shot)
