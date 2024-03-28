@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b35aq2t5agpy3"]
+
+[ext_resource type="Script" path="res://node_classes/muzzle/muzzle.gd" id="1_wty60"]
+[ext_resource type="PackedScene" uid="uid://qcx6gopeqq0j" path="res://scenes/shots/plasma.tscn" id="2_47uvi"]
+[ext_resource type="PackedScene" uid="uid://36ey03pwxccf" path="res://scenes/hit_effects/plasma.tscn" id="3_r5ksm"]
+
+[node name="Muzzle" type="Line2D"]
+points = PackedVector2Array(0, 0, 0, 68, 4.99999, 48, -5, 48, 0, 68)
+width = 5.0
+script = ExtResource("1_wty60")
+shot_scene = ExtResource("2_47uvi")
+hit_effect_scene = ExtResource("3_r5ksm")
+rate_of_fire = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

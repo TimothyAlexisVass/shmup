@@ -3,9 +3,10 @@ extends Node
 var player_ship_scene = preload("res://node_classes/player/player.tscn")
 
 var ships = {
-	"spaceShips_001": preload("res://ships/spaceShips_001.tscn"),
-	"spaceShips_002": preload("res://ships/spaceShips_002.tscn"),
-	"spaceShips_003": preload("res://ships/spaceShips_003.tscn")
+	"spaceShips_001": preload("res://scenes/ships/spaceShips_001.tscn"),
+	"spaceShips_002": preload("res://scenes/ships/spaceShips_002.tscn"),
+	"spaceShips_003": preload("res://scenes/ships/spaceShips_003.tscn"),
+	"spaceShips_004": preload("res://scenes/ships/spaceShips_004.tscn")
 }
 
 var explosions = {
@@ -19,7 +20,7 @@ var player_ships = {
 		"fire_power_base": 1,
 		"fire_rate_base": 1,
 		"shot_color": Color(1, 1.2, 4),
-		"shot_type": "plasma",
+		"shot_type": 0,
 		"explosion": explosions["fire_explosion"]
 	},
 	"Naranja": {
@@ -28,7 +29,7 @@ var player_ships = {
 		"fire_power_base": 2,
 		"fire_rate_base": 0.5,
 		"shot_color": Color(4, 1.2, 1),
-		"shot_type": "plasma",
+		"shot_type": 0,
 		"explosion": explosions["fire_explosion"]
 	},
 	"GreenGo": {
@@ -37,7 +38,7 @@ var player_ships = {
 		"fire_power_base": 1,
 		"fire_rate_base": 1,
 		"shot_color": Color(1, 4, 1.2),
-		"shot_type": "plasma",
+		"shot_type": 0,
 		"explosion": explosions["fire_explosion"]
 	}
 }

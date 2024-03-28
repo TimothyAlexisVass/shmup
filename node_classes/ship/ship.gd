@@ -7,6 +7,8 @@ const PADDING = 10
 @export var total_hit_points: float
 @export var points: float
 @export var explosion: PackedScene
+@export var aim_at_player: bool
+@export var move_where_heading: bool
 
 # Calculated properties
 var image
@@ -21,10 +23,9 @@ func _enter_tree():
 	width = image.get_size().x
 	height = image.get_size().y
 	explosion_scale = max(width, height) / 200.0
-	$ShipBody.add_child(CollisionShapeGenerator.generate(image))
+	global_position = Vector2(randf_range(50, Globals.play_area.max.x), Globals.play_area.min.y - height)
 
 func _ready():
-	global_position = Vector2(randf_range(50, Globals.play_area.max.x), Globals.play_area.min.y - height)
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING
@@ -36,8 +37,12 @@ func _process(_delta):
 		clear()
 
 func _physics_process(delta):
-	global_position.y += speed * delta
-	if is_instance_valid(Globals.player) && Globals.player.is_playing:
+	if move_where_heading:
+		var velocity = Vector2.DOWN.rotated($ShipBody.rotation) * speed * delta
+		translate(velocity)
+	else:
+		global_position.y += speed * delta
+	if aim_at_player && is_instance_valid(Globals.player) && Globals.player.is_playing:
 		$ShipBody.rotation = Globals.ANGLE_UP + self.global_position.angle_to_point(Globals.player.global_position)
 
 func _on_collision(object):

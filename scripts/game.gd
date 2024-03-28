@@ -9,6 +9,7 @@ func _ready():
 	Globals.stuff = $Stuff
 	Globals.player_stuff = $Stuff/PlayerStuff
 	Globals.ships_layer = $Stuff/TopLayer/Ships
+	Globals.shots_layer = $Stuff/TopLayer/Shots
 	DataManager.load_data()
 	Globals.player = $Spawner.spawn_player_ship($Spawner.player_ships.keys().pick_random())
 

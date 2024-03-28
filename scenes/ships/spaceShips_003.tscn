@@ -12,6 +12,8 @@ speed = 100.0
 total_hit_points = 20.0
 points = 100.0
 explosion = ExtResource("2_ga412")
+aim_at_player = true
+move_where_heading = true
 
 [node name="ShipBody" type="Area2D" parent="."]
 collision_layer = 2
@@ -20,6 +22,9 @@ collision_mask = 5
 [node name="Sprite" type="Sprite2D" parent="ShipBody"]
 modulate = Color(1.2, 1.1, 1.1, 1)
 texture = ExtResource("3_p65ge")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShipBody"]
+polygon = PackedVector2Array(-10, -41, -6, -46, 6, -46, 10, -42, 9, -23, 12, -23, 14, -32, 33, -43, 50, -43, 29, 27, 19, 26, 13, 44, 7, 47, -8, 46, -14, 42, -19, 26, -31, 26, -50, -42, -32, -42, -16, -32, -14, -22, -11, -23)
 
 [node name="HitPoints" type="ProgressBar" parent="."]
 visible = false

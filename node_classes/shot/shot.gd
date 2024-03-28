@@ -7,7 +7,8 @@ var hit_effect_scenes = {
 	"plasma": preload("res://scenes/hit_effects/plasma.tscn")
 }
 var shot_types = {
-	"plasma": {
+	0: {
+		"type": "plasma",
 		"texture": preload("res://assets/sprites/shots/plasma.png"),
 		"offset": Vector2(0, 22),
 		"hit_effect": hit_effect_scenes.plasma

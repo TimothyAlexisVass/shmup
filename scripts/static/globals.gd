@@ -1,7 +1,9 @@
 class_name Globals extends Node
 
-const ANGLE_UP = -1.57079637050629
-const ANGLE_DOWN = 1.57079637050629
+const ANGLE_UP = -PI/2
+const ANGLE_RIGHT = 0
+const ANGLE_DOWN = PI/2
+const ANGLE_LEFT = PI
 const GAME_AREA_OFFSET = Vector2(400, 200)
 
 static var game
