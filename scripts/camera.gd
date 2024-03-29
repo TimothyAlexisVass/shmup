@@ -1,7 +1,7 @@
 extends Camera2D
 
-@onready var camera_position_factor = Vector2(Globals.GAME_AREA_OFFSET.x / (Globals.GAME_AREA_OFFSET.x + Globals.center.x), Globals.GAME_AREA_OFFSET.y / (Globals.GAME_AREA_OFFSET.y + Globals.center.y))
+@onready var camera_position_factor = Vector2(G.GAME_AREA_OFFSET.x / (G.GAME_AREA_OFFSET.x + G.center.x), G.GAME_AREA_OFFSET.y / (G.GAME_AREA_OFFSET.y + G.center.y))
 
 func _process(_delta):
-	if is_instance_valid(Globals.player):
-		global_position = Globals.center - camera_position_factor * (Globals.center - Globals.player.global_position)
+	if is_instance_valid(G.player):
+		global_position = G.center - camera_position_factor * (G.center - G.player.global_position)

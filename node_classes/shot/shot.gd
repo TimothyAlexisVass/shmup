@@ -32,13 +32,13 @@ func _physics_process(delta):
 	var direction_to = Vector2.UP if angle < 1 else Vector2.DOWN
 	direction = direction.lerp(direction_to, angle / 150)
 	speed += speed * acceleration * delta
-	rotation = Globals.ANGLE_DOWN + direction.angle()
+	rotation = G.ANGLE_DOWN + direction.angle()
 
 func hit(target):
 	var hit_effect = shot_types[source.shot_type].hit_effect.instantiate()
 	hit_effect.modulate = source.shot_color * 2
 	hit_effect.position = (self.global_position - target.global_position) - (self.global_position - target.global_position)/3.0
-	hit_effect.rotation = Globals.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
+	hit_effect.rotation = G.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
 	hit_effect.emitting = true
 	target.add_child(hit_effect)
 	queue_free()

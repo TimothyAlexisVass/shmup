@@ -1,17 +1,17 @@
 class_name Game extends Node2D
 
 func _enter_tree():
-	Globals.game = self
-	Globals.center = get_viewport().size / 2.0
-	Globals.play_area = { "min": -Globals.GAME_AREA_OFFSET, "max": Vector2(get_viewport().size) + Globals.GAME_AREA_OFFSET }
+	G.game = self
+	G.center = get_viewport().size / 2.0
+	G.play_area = { "min": -G.GAME_AREA_OFFSET, "max": Vector2(get_viewport().size) + G.GAME_AREA_OFFSET }
 
 func _ready():
-	Globals.stuff = $Stuff
-	Globals.player_stuff = $Stuff/PlayerStuff
-	Globals.ships_layer = $Stuff/TopLayer/Ships
-	Globals.shots_layer = $Stuff/TopLayer/Shots
+	G.stuff = $Stuff
+	G.player_stuff = $Stuff/PlayerStuff
+	G.ships_layer = $Stuff/TopLayer/Ships
+	G.shots_layer = $Stuff/TopLayer/Shots
 	DataManager.load_data()
-	Globals.player = $Spawner.spawn_player_ship($Spawner.player_ships.keys().pick_random())
+	G.player = $Spawner.spawn_player_ship($Spawner.player_ships.keys().pick_random())
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):

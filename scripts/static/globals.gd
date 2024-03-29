@@ -1,4 +1,4 @@
-class_name Globals extends Node
+class_name G extends Node
 
 const ANGLE_UP = -PI/2
 const ANGLE_RIGHT = 0
@@ -32,4 +32,7 @@ static func linear(base, level, magnitude):
 	return base + level * magnitude
 
 static func random_boolean():
-	return [true, false][randi() % 2]
+	return [true, false].pick_random()
+
+static func random_sign(number):
+	return number * [-1, 1].pick_random()

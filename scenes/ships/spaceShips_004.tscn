@@ -9,12 +9,15 @@
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_2mgvc")
-speed = 70.0
+speed = 150.0
 total_hit_points = 10.0
 points = 100.0
 explosion = ExtResource("2_fa6a8")
-aim_at_player = true
 move_where_heading = true
+rotation_frequency_min = 2.0
+rotation_frequency_max = 5.0
+rotation_angle_min = 25.0
+rotation_angle_max = 180.0
 
 [node name="ShipBody" type="Area2D" parent="."]
 collision_layer = 2
@@ -30,12 +33,12 @@ polygon = PackedVector2Array(-1, -38, -15, -27, -20, -32, -27, -33, -28, -52, -4
 [node name="Muzzle" parent="ShipBody" instance=ExtResource("4_s1ca7")]
 position = Vector2(-28, 53)
 default_color = Color(4, 0.2, 4, 1)
-rate_of_fire = 0.05
+shot_speed = 250.0
 
 [node name="Muzzle2" parent="ShipBody" instance=ExtResource("4_s1ca7")]
 position = Vector2(27, 53)
 default_color = Color(4, 0.2, 4, 1)
-rate_of_fire = 0.05
+shot_speed = 250.0
 
 [node name="HitPoints" type="ProgressBar" parent="."]
 visible = false

@@ -51,15 +51,16 @@ func _ready():
 
 func spawn_ship(ship_scene):
 	var ship = ship_scene.instantiate()
-	Globals.ships_layer.add_child(ship)
+	G.ships_layer.add_child(ship)
 
 func spawn_player_ship(player_ship_type):
 	var player_ship = player_ship_scene.instantiate()
 	player_ship.initialize(player_ships[player_ship_type], DataManager.player_data.levels)
 	get_viewport().warp_mouse(Vector2(540, 1540))
 	player_ship.global_position = Vector2(620, 1750)
-	Globals.game.add_child(player_ship)
+	G.game.add_child(player_ship)
 	return player_ship
 
 func _on_ship_spawn_timer_timeout():
-	spawn_ship(ships[ships.keys().pick_random()])
+	spawn_ship(ships[ships.keys()[3]])
+	# spawn_ship(ships[ships.keys().pick_random()])

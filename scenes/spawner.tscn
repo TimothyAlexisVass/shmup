@@ -6,7 +6,7 @@
 script = ExtResource("1_lthhu")
 
 [node name="ShipSpawnTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="ShipSpawnTimer" to="." method="_on_ship_spawn_timer_timeout"]

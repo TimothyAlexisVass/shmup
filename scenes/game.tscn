@@ -37,6 +37,8 @@ script = ExtResource("5_o6sog")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnvironment/GameArea"]
 shape = SubResource("RectangleShape2D_3eobj")
 
+[node name="SpawnPoints" type="Node" parent="WorldEnvironment/GameArea"]
+
 [node name="Spawner" parent="." instance=ExtResource("3_opaq1")]
 
 [node name="Stuff" type="Node2D" parent="."]
