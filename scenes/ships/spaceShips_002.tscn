@@ -12,8 +12,7 @@ speed = 400.0
 total_hit_points = 2.0
 points = 100.0
 explosion = ExtResource("2_mv8sg")
-destination = 1
-fixed_relative_position = Vector2i(0, 9999)
+destination = 2
 face_towards = 1
 move = 1
 

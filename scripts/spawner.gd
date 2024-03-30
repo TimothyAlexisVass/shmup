@@ -64,4 +64,4 @@ func spawn_player_ship(player_ship_type):
 
 func _on_ship_spawn_timer_timeout():
 	if spawn_ships:
-		spawn_ship(ships[ships.keys().pick_random()])
+		spawn_ship(ships[ships.keys()[3]])#.pick_random()])

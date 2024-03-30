@@ -12,6 +12,8 @@ speed = 100.0
 total_hit_points = 20.0
 points = 100.0
 explosion = ExtResource("2_ga412")
+destination = 2
+move = 1
 
 [node name="ShipBody" type="Area2D" parent="."]
 collision_layer = 2

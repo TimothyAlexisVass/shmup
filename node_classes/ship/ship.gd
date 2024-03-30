@@ -8,6 +8,7 @@ const PADDING = 10
 @export var points: float
 @export var explosion: PackedScene
 @export var rotation_speed: float = 0.01
+@export var acceleration: float = 0.001
 
 enum DESTINATION {RANDOM, FIXED, FACING_DIRECTION}
 @export var destination: DESTINATION
@@ -17,7 +18,7 @@ enum DESTINATION {RANDOM, FIXED, FACING_DIRECTION}
 enum FACE_TOWARDS {PLAYER, DESTINATION}
 @export var face_towards: FACE_TOWARDS
 
-enum MOVE {TOWARDS_PLAYER, TO_DESTINATION, STATIONARY}
+enum MOVE {TO_DESTINATION, AHEAD, STATIONARY}
 @export var move: MOVE
 
 # Calculated properties
@@ -27,7 +28,7 @@ var height
 var direction
 var explosion_scale
 var target
-var velocity = null
+var velocity = Vector2(0, 0)
 
 @onready var current_health = total_hit_points
 
@@ -64,10 +65,11 @@ func _physics_process(delta):
 		G.rotate_towards_target($ShipBody, G.player.global_position, rotation_speed)
 
 	if move == MOVE.TO_DESTINATION:
-		velocity = (target - global_position).normalized()
-	elif move == MOVE.TOWARDS_PLAYER:
-		velocity = (G.player.global_position - global_position).normalized()
-	if velocity:
+		var desired_velocity = (target - global_position).normalized()
+		velocity = lerp(velocity, desired_velocity, acceleration)
+	elif move == MOVE.AHEAD:
+		velocity = Vector2.DOWN.rotated($ShipBody.rotation)
+	if velocity != Vector2(0, 0):
 		translate(velocity * speed * delta)
 
 func _on_collision(object):

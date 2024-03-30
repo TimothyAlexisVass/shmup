@@ -13,8 +13,8 @@ speed = 300.0
 total_hit_points = 10.0
 points = 100.0
 explosion = ExtResource("2_fa6a8")
-rotation_speed = 1.0
-move = 1
+rotation_speed = 0.1
+acceleration = 0.01
 
 [node name="ShipBody" type="Area2D" parent="."]
 collision_layer = 2
