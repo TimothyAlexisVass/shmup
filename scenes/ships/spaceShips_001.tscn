@@ -13,7 +13,6 @@ speed = 200.0
 total_hit_points = 10.0
 points = 200.0
 explosion = ExtResource("2_rccv0")
-aim_at_player = true
 
 [node name="ShipBody" type="Area2D" parent="."]
 collision_layer = 2

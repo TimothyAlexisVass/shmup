@@ -5,14 +5,14 @@ var shot_speed_base
 var shot_speed_level = 0:
 	set(value):
 		shot_speed_level = value
-		shot_speed = G.diminishing(shot_speed_base, shot_speed_level)
+		shot_speed = G.diminishing_increase(shot_speed_base, shot_speed_level)
 
 var shots_per_second
 var fire_rate_base
 var fire_rate_level = 0:
 	set(value):
 		fire_rate_level = value
-		shots_per_second = 1 / G.diminishing(fire_rate_base, fire_rate_level)
+		shots_per_second = 1 / G.diminishing_increase(fire_rate_base, fire_rate_level)
 		$ShootTimer.wait_time = shots_per_second
 
 var fire_power
@@ -20,7 +20,7 @@ var fire_power_base
 var fire_power_level = 0:
 	set(value):
 		fire_power_level = value
-		fire_power = G.diminishing(fire_power_base, fire_power_level)
+		fire_power = G.diminishing_increase(fire_power_base, fire_power_level)
 
 var movement_speed
 var movement_speed_base
@@ -28,7 +28,7 @@ var movement_speed_increase
 var movement_speed_level = 0:
 	set(value):
 		movement_speed_level = value
-		movement_speed = G.linear(movement_speed_base, movement_speed_level, (5000 - movement_speed_base) / 1000.0)
+		movement_speed = G.linear_increase(movement_speed_base, movement_speed_level, (10 - movement_speed_base) / 1000.0)
 
 # Basic properties
 var ship_name
@@ -49,7 +49,8 @@ var shot_scene = preload("res://node_classes/shot/shot.tscn")
 var shot_instance
 var shot_offset
 
-@onready var is_playing = true
+var is_playing = true
+var just_spawned = 20
 
 func initialize(data, levels):
 	for property in data.keys():
@@ -72,13 +73,12 @@ func _ready():
 
 func _physics_process(delta):
 	if is_playing:
-		var direction = get_global_mouse_position() - global_position
-		velocity = direction * delta * movement_speed / 10
-		velocity.x = clamp(velocity.x, -movement_speed, movement_speed)
-		velocity.y = clamp(velocity.y, -movement_speed, movement_speed)
-		move_and_slide()
+		global_position = global_position.lerp(get_global_mouse_position(), delta * movement_speed)
 		global_position.x = clamp(global_position.x, G.play_area.min.x, G.play_area.max.x)
 		global_position.y = clamp(global_position.y, G.play_area.min.y, G.play_area.max.y)
+	if just_spawned > 0:
+		global_position = Vector2(540, 1540 + G.GAME_AREA_OFFSET.y/2 + 14)
+		just_spawned -= 1
 
 func play():
 	$ShootTimer.start()

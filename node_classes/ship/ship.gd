@@ -7,20 +7,27 @@ const PADDING = 10
 @export var total_hit_points: float
 @export var points: float
 @export var explosion: PackedScene
-@export var aim_at_player: bool
-@export var move_where_heading: bool
-@export_category("Random rotation")
-@export_range(0, 20, 0.1) var rotation_frequency_min: float = 0
-@export_range(0, 20, 0.1) var rotation_frequency_max: float = 0
-@export_range(0, 180, 0.5) var rotation_angle_min: float = 0
-@export_range(0, 180, 0.5) var rotation_angle_max: float = 0
-@export var bidirectional_rotation: bool = true
+@export var rotation_speed: float = 0.01
+
+enum DESTINATION {RANDOM, FIXED, FACING_DIRECTION}
+@export var destination: DESTINATION
+
+@export var fixed_relative_position: Vector2i
+
+enum FACE_TOWARDS {PLAYER, DESTINATION}
+@export var face_towards: FACE_TOWARDS
+
+enum MOVE {TOWARDS_PLAYER, TO_DESTINATION, STATIONARY}
+@export var move: MOVE
 
 # Calculated properties
 var image
 var width
 var height
+var direction
 var explosion_scale
+var target
+var velocity = null
 
 @onready var current_health = total_hit_points
 
@@ -37,21 +44,31 @@ func _ready():
 	$HitPoints.position.x = -width / 2 + PADDING
 	$HitPoints.position.y = -(height / 2 + $HitPoints.size.y + PADDING)
 	$HitPoints.size.x = width - PADDING * 2
-	if rotation_frequency_min > 0 or rotation_frequency_max > 0:
-		add_rotation_timer()
+	if destination == DESTINATION.RANDOM:
+		target = G.random_position_in_camera_view()
+	elif destination == DESTINATION.FIXED:
+		target = global_position + Vector2(fixed_relative_position)
+	elif destination == DESTINATION.FACING_DIRECTION:
+		target = (Vector2.DOWN * 9999).rotated($ShipBody.rotation)
 
 func _process(_delta):
 	if $HitPoints.value <= 0:
 		clear()
+	if destination == DESTINATION.RANDOM && ($ShipBody.global_position - target).length() < 100:
+		target = G.random_position_in_camera_view()
 
 func _physics_process(delta):
-	if move_where_heading:
-		var velocity = Vector2.DOWN.rotated($ShipBody.rotation) * speed * delta
-		translate(velocity)
-	else:
-		global_position.y += speed * delta
-	if aim_at_player && is_instance_valid(G.player) && G.player.is_playing:
-		$ShipBody.rotation = G.ANGLE_UP + self.global_position.angle_to_point(G.player.global_position)
+	if face_towards == FACE_TOWARDS.DESTINATION:
+		G.rotate_towards_target($ShipBody, target, rotation_speed)
+	elif face_towards == FACE_TOWARDS.PLAYER && is_instance_valid(G.player) && G.player.is_playing:
+		G.rotate_towards_target($ShipBody, G.player.global_position, rotation_speed)
+
+	if move == MOVE.TO_DESTINATION:
+		velocity = (target - global_position).normalized()
+	elif move == MOVE.TOWARDS_PLAYER:
+		velocity = (G.player.global_position - global_position).normalized()
+	if velocity:
+		translate(velocity * speed * delta)
 
 func _on_collision(object):
 	if object is Player:
@@ -78,25 +95,6 @@ func take_damage(amount):
 		$HitPoints.get_theme_stylebox("fill").bg_color = Color(red_component, green_component, 0)
 		$HitPoints.modulate = Color(max(1.7, 1.7 + 1 - green_component), 1.7, 1, 1)
 		tween.tween_property($HitPoints, "value", current_health, 0.2)
-
-func add_rotation_timer(rotation_time = get_rotation_time()):
-	var change_rotation_timer = get_tree().create_timer(rotation_time)
-	change_rotation_timer.connect("timeout", _on_change_rotation_timer_timeout)
-
-func _on_change_rotation_timer_timeout():
-	var rotation_time = get_rotation_time()
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.set_ease(Tween.EaseType.EASE_IN_OUT)
-	tween.tween_property($ShipBody, "rotation", get_target_rotation(), rotation_time)
-	add_rotation_timer(rotation_time)
-
-func get_rotation_time():
-	return randf_range(rotation_frequency_min, rotation_frequency_max)
-
-func get_target_rotation():
-	var target_angle = randf_range(deg_to_rad(rotation_angle_min), deg_to_rad(rotation_angle_max))
-	return $ShipBody.rotation + G.random_sign(target_angle)
 
 func clear():
 	G.explode(self)

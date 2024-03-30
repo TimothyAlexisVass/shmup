@@ -9,15 +9,12 @@
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_2mgvc")
-speed = 150.0
+speed = 300.0
 total_hit_points = 10.0
 points = 100.0
 explosion = ExtResource("2_fa6a8")
-move_where_heading = true
-rotation_frequency_min = 2.0
-rotation_frequency_max = 5.0
-rotation_angle_min = 25.0
-rotation_angle_max = 180.0
+rotation_speed = 1.0
+move = 1
 
 [node name="ShipBody" type="Area2D" parent="."]
 collision_layer = 2
