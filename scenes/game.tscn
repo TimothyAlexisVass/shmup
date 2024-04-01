@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxuuwmlma1xmm"]
+[gd_scene load_steps=10 format=3 uid="uid://bxuuwmlma1xmm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_15kp8"]
 [ext_resource type="PackedScene" uid="uid://t35pb2ajkk0d" path="res://scenes/spawner.tscn" id="3_opaq1"]
@@ -21,6 +21,17 @@ glow_hdr_threshold = 0.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eobj"]
 size = Vector2(1880, 2560)
+
+[sub_resource type="Gradient" id="Gradient_rdepl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2vd6a"]
+gradient = SubResource("Gradient_rdepl")
+width = 100
+height = 100
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_15kp8")
@@ -57,6 +68,30 @@ z_index = 999
 script = ExtResource("4_jnuwh")
 
 [node name="ParallaxBackground2" parent="Camera2D" instance=ExtResource("4_2sncd")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-53, 11)
+scale = Vector2(17.5469, 17.9219)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_2vd6a")
+texture_scale = 4.1
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(1140, 194)
+scale = Vector2(17.5469, 17.9219)
+color = Color(1, 0.466667, 0.396078, 0.498039)
+texture = SubResource("GradientTexture2D_2vd6a")
+texture_scale = 4.23
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(289, 1764)
+scale = Vector2(17.5469, 17.9219)
+color = Color(0, 0.686275, 0.878431, 0.576471)
+texture = SubResource("GradientTexture2D_2vd6a")
+texture_scale = 3.33
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.5
 
 [connection signal="area_exited" from="WorldEnvironment/GameArea" to="WorldEnvironment/GameArea" method="_on_exited"]
 [connection signal="body_exited" from="WorldEnvironment/GameArea" to="WorldEnvironment/GameArea" method="_on_exited"]

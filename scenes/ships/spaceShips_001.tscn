@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsxbcgw1h02im"]
+[gd_scene load_steps=10 format=3 uid="uid://dsxbcgw1h02im"]
 
 [ext_resource type="Script" path="res://node_classes/ship/ship.gd" id="1_lml6o"]
 [ext_resource type="PackedScene" uid="uid://j72yxl2kkkoo" path="res://scenes/explosions/fire_explosion.tscn" id="2_rccv0"]
-[ext_resource type="Texture2D" uid="uid://c1518wbja6dd" path="res://assets/sprites/ships/spaceShips_001.png" id="3_3cl84"]
+[ext_resource type="Texture2D" uid="uid://cn5e6gk8jut0j" path="res://assets/sprites/ships/sabre/tight_top6.png" id="3_6dymx"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="4_axgg2"]
+[ext_resource type="Texture2D" uid="uid://b01kwajcnuh4o" path="res://assets/sprites/ships/sabre/tight_top_normal.png" id="4_vs2xp"]
+[ext_resource type="Texture2D" uid="uid://d131opqofivaw" path="res://assets/sprites/ships/sabre/tight_top_depth.png" id="5_4g21y"]
 [ext_resource type="StyleBox" uid="uid://c8xpn58skk06e" path="res://styles/hit_points_bar_background.tres" id="5_biuyf"]
 [ext_resource type="StyleBox" uid="uid://cvnn0obm23hqj" path="res://styles/hit_points_bar_fill.tres" id="6_d0jnb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wrah3"]
+diffuse_texture = ExtResource("3_6dymx")
+normal_texture = ExtResource("4_vs2xp")
+specular_texture = ExtResource("5_4g21y")
+specular_shininess = 0.77
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_lml6o")
@@ -22,20 +30,25 @@ collision_mask = 5
 
 [node name="Sprite" type="Sprite2D" parent="ShipBody"]
 modulate = Color(1.2, 1.1, 1.1, 1)
-texture = ExtResource("3_3cl84")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShipBody"]
-polygon = PackedVector2Array(-4, -32, 4, -32.1, 4, -40, 26, -40, 26, -34.8, 41, -30.8, 54, 19, 31.4, 40, 22, 37.8, 19, 24.3, 21, 11, 15.5, 5, 8.7, 25, -9, 25, -15.5, 5.9, -21, 10.5, -19, 24, -22, 38, -32, 40, -53, 18.4, -40.8, -31, -26, -34.8, -26, -40, -4, -40)
+scale = Vector2(0.2, 0.2)
+texture = SubResource("CanvasTexture_wrah3")
 
 [node name="Muzzle" parent="ShipBody" instance=ExtResource("4_axgg2")]
-position = Vector2(-25.511, 29.5539)
-default_color = Color(4, 4, 0.215686, 1)
+position = Vector2(-15, 75)
+points = PackedVector2Array(0, 0, 0, 100)
+default_color = Color(4, 1.5, 0.9, 1)
 shot_speed = 300.0
 
 [node name="Muzzle2" parent="ShipBody" instance=ExtResource("4_axgg2")]
-position = Vector2(24.489, 29.5539)
-default_color = Color(4, 4, 0.215686, 1)
+position = Vector2(15, 75)
+points = PackedVector2Array(0, 0, 0, 100)
+default_color = Color(4, 1.5, 0.9, 1)
 shot_speed = 300.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShipBody"]
+visible = false
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(0, -460, -29, -370, -37, -177, -59, -133, -78, -267, -151, -249, -127, -43, -86, -47, -130, 18, -211, -188, -210, -305, -174, -464, -269, -274, -290, -382, -321, -360, -312, -198, -240, 87, -203, 113, -108, 366, -2, 453, 109, 363, 207, 118, 245, 81, 313, -199, 322, -370, 287, -383, 272, -272, 178, -460, 213, -274, 210, -184, 142, 19, 87, -44, 122, -41, 154, -245, 80, -269, 64, -132, 34, -178, 28, -370)
 
 [node name="HitPoints" type="ProgressBar" parent="."]
 visible = false

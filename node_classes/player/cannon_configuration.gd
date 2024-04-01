@@ -9,19 +9,19 @@ class_name CannonConfiguration extends Node2D
 func _ready():
 	if parent.cannon_level & 1: # odd number
 		add_muzzle(0, get_top_pixel(center_line), 0)
-	var x_offset = 5
-	var y_offset = 5
+	var x_offset = 5 / parent.scale.x
+	var y_offset = 5 / parent.scale.y
 	var x
 	var y
 	for cannon_number in range(1, ceil((parent.cannon_level + 0.1) / 2)):
 		if x_offset <= width / 2:
-			x = x_offset
+			x = x_offset / parent.scale.x
 			y = get_top_pixel(x_offset + center_line)
-			x_offset += 5
+			x_offset += 5 / parent.scale.x
 		else:
 			x = get_left_pixel(y_offset)
 			y = y_offset
-			y_offset += 5
+			y_offset += 5 / parent.scale.y
 			cannon_number += 100
 			cannon_number *= 2
 

@@ -33,14 +33,15 @@ var movement_speed_level = 0:
 # Basic properties
 var ship_name
 var cannon_level
+var image
 var texture
+var normal_map
 var graze_area
 var shot_color
 var shot_type
 var explosion
 
 # Calculated properties
-var image
 var width
 var height
 var explosion_scale
@@ -58,10 +59,14 @@ func initialize(data, levels):
 	for property in levels.keys():
 		set(property, int(levels[property]))
 
+	scale = Vector2(0.2, 0.2)
+	rotation = PI
 	image = texture.get_image()
-	$Sprite.texture = ImageTexture.create_from_image(image)
-	width = image.get_size().x
-	height = image.get_size().y
+	var image_size = Vector2(image.get_size()) * scale
+	$Sprite.texture.diffuse_texture = texture
+	$Sprite.texture.normal_texture = normal_map
+	width = image_size.x
+	height = image_size.y
 	explosion_scale = max(width, height) / 200.0
 	graze_area.set_name(ship_name + "GrazeArea")
 	add_child(graze_area)

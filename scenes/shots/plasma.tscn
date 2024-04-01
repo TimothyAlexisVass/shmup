@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qcx6gopeqq0j"]
+[gd_scene load_steps=7 format=3 uid="uid://qcx6gopeqq0j"]
 
 [ext_resource type="Script" path="res://scenes/shots/shot.gd" id="1_4g8bx"]
 [ext_resource type="Texture2D" uid="uid://dvr1l6ewynpxh" path="res://assets/sprites/shots/plasma_background.png" id="2_05lcx"]
@@ -7,6 +7,14 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnupo"]
 radius = 4.0
 height = 44.0
+
+[sub_resource type="Gradient" id="Gradient_p8p0u"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tm7r1"]
+gradient = SubResource("Gradient_p8p0u")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Shot" type="Area2D"]
 collision_layer = 4
@@ -28,3 +36,8 @@ texture = ExtResource("3_42yb3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nnupo")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2, 2.125)
+texture = SubResource("GradientTexture2D_tm7r1")
+texture_scale = 2.0

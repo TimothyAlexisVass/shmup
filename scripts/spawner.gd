@@ -15,8 +15,13 @@ var explosions = {
 	"fire_explosion": preload("res://scenes/explosions/fire_explosion.tscn")
 }
 
+var normal_maps = {
+	"vash": preload("res://assets/sprites/ships/vash/vash_normal.png")
+}
+
 var player_ships = {
-	"Blues": {
+	"Blade": {
+		"normal_map": normal_maps["vash"],
 		"shot_speed_base": 900,
 		"movement_speed_base": 10,
 		"fire_power_base": 1,
@@ -24,7 +29,9 @@ var player_ships = {
 		"shot_color": Color(1, 1.2, 4),
 		"shot_type": 0,
 		"explosion": explosions["fire_explosion"]
-	},
+	}
+}
+"""
 	"Naranja": {
 		"shot_speed_base": 600,
 		"movement_speed_base": 10,
@@ -44,6 +51,7 @@ var player_ships = {
 		"explosion": explosions["fire_explosion"]
 	}
 }
+"""
 
 func _ready():
 	for player_ship in player_ships:
@@ -64,4 +72,4 @@ func spawn_player_ship(player_ship_type):
 
 func _on_ship_spawn_timer_timeout():
 	if spawn_ships:
-		spawn_ship(ships[ships.keys()[3]])#.pick_random()])
+		spawn_ship(ships[ships.keys()[0]])#.pick_random()])

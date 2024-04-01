@@ -24,6 +24,7 @@ func initialize(_source):
 
 func _ready():
 	$Sprite.modulate = source.shot_color
+	$PointLight2D.color = source.shot_color
 	$Sprite.texture = shot_types[source.shot_type].texture
 
 func _physics_process(delta):

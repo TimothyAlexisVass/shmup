@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceuh25br64vvt"]
+[gd_scene load_steps=5 format=3 uid="uid://ceuh25br64vvt"]
 
 [ext_resource type="Script" path="res://node_classes/player/player.gd" id="1_upu44"]
 [ext_resource type="PackedScene" uid="uid://drnwdolfdun1k" path="res://node_classes/player/cannon_configuration.tscn" id="3_58kp5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ila4y"]
+specular_shininess = 0.6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mg686"]
 radius = 6.0
@@ -14,6 +17,7 @@ script = ExtResource("1_upu44")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1.2, 1.2, 1.4, 1)
+texture = SubResource("CanvasTexture_ila4y")
 
 [node name="HitArea" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mg686")

@@ -17,4 +17,5 @@ func _on_timer_timeout():
 	shot.rotation = global_rotation + line_angle
 	shot.speed = shot_speed
 	shot.get_node("Sprite").modulate = default_color
+	shot.get_node("PointLight2D").color = default_color
 	G.shots_layer.add_child(shot)

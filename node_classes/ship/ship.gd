@@ -22,7 +22,6 @@ enum MOVE {TO_DESTINATION, AHEAD, STATIONARY}
 @export var move: MOVE
 
 # Calculated properties
-var image
 var width
 var height
 var direction
@@ -33,10 +32,10 @@ var velocity = Vector2(0, 0)
 @onready var current_health = total_hit_points
 
 func _enter_tree():
-	image = $ShipBody/Sprite.texture.get_image()
-	width = image.get_size().x
-	height = image.get_size().y
-	explosion_scale = max(width, height) / 200.0
+	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
+	width = image_size.x
+	height = image_size.y
+	explosion_scale = max(width, height) / 300.0
 	global_position = Vector2(randi_range(50, G.play_area.max.x), G.play_area.min.y - height)
 
 func _ready():
