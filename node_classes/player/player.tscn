@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://drnwdolfdun1k" path="res://node_classes/player/cannon_configuration.tscn" id="3_58kp5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ila4y"]
-specular_shininess = 0.6
+specular_shininess = 0.75
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mg686"]
 radius = 6.0
@@ -16,7 +16,6 @@ motion_mode = 1
 script = ExtResource("1_upu44")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(1.2, 1.2, 1.4, 1)
 texture = SubResource("CanvasTexture_ila4y")
 
 [node name="HitArea" type="CollisionShape2D" parent="."]

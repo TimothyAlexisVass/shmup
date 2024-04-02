@@ -28,7 +28,20 @@ static func explode(object):
 	stuff.add_child(explosion)
 
 static func glow(color, strength):
-	return Color(1, 1, 1) + color * strength
+	var modulate = Color(1, 1, 1) + color * strength
+	modulate.a = 1
+	return modulate
+
+static func colored_light(color):
+	var max_component = max(color.r, color.g, color.b)
+	if color.r == max_component:
+		color.r *= 3
+	if color.b == max_component:
+		color.b *= 3
+	if color.g == max_component:
+		color.g *= 3
+	color.a = 1
+	return color
 
 static func diminishing_increase(base, level):
 	return snapped(base * sqrt(level + 1), 0.01)

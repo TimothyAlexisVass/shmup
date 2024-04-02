@@ -5,11 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://b304d0fyllk3h" path="res://assets/sprites/shots/plasma.png" id="3_dmubq"]
 
 [sub_resource type="Gradient" id="Gradient_p8p0u"]
-offsets = PackedFloat32Array(0.0909091, 0.896104)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0.178988, 0.896104)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nye04"]
 gradient = SubResource("Gradient_p8p0u")
+width = 130
+height = 200
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -20,16 +22,13 @@ height = 54.0
 [node name="Shot" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-gravity_space_override = 1
-gravity_point = true
-gravity_point_unit_distance = 32.0
-gravity = 8888.0
+gravity = 0.0
 script = ExtResource("1_ycxi0")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(2, 2.125)
+energy = 2.0
 texture = SubResource("GradientTexture2D_nye04")
-texture_scale = 1.9
 
 [node name="Background" type="Sprite2D" parent="."]
 light_mask = 512

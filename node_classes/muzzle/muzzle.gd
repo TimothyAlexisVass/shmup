@@ -12,9 +12,10 @@ func _ready():
 func _on_timer_timeout():
 	var shot = shot_scene.instantiate()
 	shot.global_position = global_position
-	var line_angle = G.ANGLE_LEFT + get_point_position(1).angle_to(get_point_position(0))
+	var line_angle = get_point_position(1).angle_to(get_point_position(0))
 	shot.rotation = global_rotation + line_angle
 	shot.speed = shot_speed
-	shot.get_node("Sprite").modulate = default_color * 2
-	shot.get_node("PointLight2D").color = default_color
+	shot.hit_effect_scene = hit_effect_scene
+	
+	shot.modulate = G.glow(default_color, 2.5)
 	G.shots_layer.add_child(shot)

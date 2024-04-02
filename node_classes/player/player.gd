@@ -46,10 +46,6 @@ var width
 var height
 var explosion_scale
 
-var shot_scene = preload("res://node_classes/shot/shot.tscn")
-var shot_instance
-var shot_offset
-
 var is_playing = true
 var just_spawned = 20
 
@@ -67,13 +63,11 @@ func initialize(data, levels):
 	$Sprite.texture.normal_texture = normal_map
 	width = image_size.x
 	height = image_size.y
-	explosion_scale = max(width, height) / 200.0
+	explosion_scale = max(width, height) / 300.0
 	graze_area.set_name(ship_name + "GrazeArea")
 	add_child(graze_area)
 
 func _ready():
-	shot_instance = shot_scene.instantiate()
-	shot_offset = shot_instance.shot_types[shot_type].offset
 	play()
 
 func _physics_process(delta):
@@ -103,9 +97,4 @@ func clear():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_shoot_timer_timeout():
-	for muzzle in $CannonConfiguration.get_children():
-		var shot = shot_instance.duplicate()
-		shot.initialize(self)
-		shot.rotation = muzzle.rotation
-		shot.global_position = muzzle.global_position - shot_offset
-		G.player_stuff.add_child(shot)
+	pass

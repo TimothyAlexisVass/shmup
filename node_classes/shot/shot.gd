@@ -1,43 +1,19 @@
-class_name Shot extends Area2D
+extends Area2D
 
-var acceleration = 0
-var source
-
-var hit_effect_scenes = {
-	"plasma": preload("res://scenes/hit_effects/plasma.tscn")
-}
-var shot_types = {
-	0: {
-		"type": "plasma",
-		"texture": preload("res://assets/sprites/shots/plasma.png"),
-		"offset": Vector2(0, 22),
-		"hit_effect": hit_effect_scenes.plasma
-	}
-}
-
-@onready var direction = Vector2.UP.rotated(rotation)
-@onready var game = get_node('/root/Game')
-@onready var speed = source.shot_speed
-
-func initialize(_source):
-	source = _source
+@onready var hit_effect_scene: PackedScene = preload("res://scenes/hit_effects/plasma.tscn")
+var direction
+var speed
 
 func _ready():
-	$Sprite.modulate = G.glow(source.shot_color, 1.5)
-	$PointLight2D.color = source.shot_color
-	$Sprite.texture = shot_types[source.shot_type].texture
+	direction = Vector2.DOWN.rotated(rotation).normalized()
+	$PointLight2D.color = G.colored_light(modulate / 2)
 
 func _physics_process(delta):
 	translate(direction * speed * delta)
-	var angle = abs(direction.angle_to(Vector2.UP))
-	var direction_to = Vector2.UP if angle < 1 else Vector2.DOWN
-	direction = direction.lerp(direction_to, angle / 150)
-	speed += speed * acceleration * delta
-	rotation = G.ANGLE_DOWN + direction.angle()
 
 func hit(target):
-	var hit_effect = shot_types[source.shot_type].hit_effect.instantiate()
-	hit_effect.modulate = G.glow(source.shot_color, 1.5)
+	var hit_effect = hit_effect_scene.instantiate()
+	hit_effect.modulate = modulate
 	hit_effect.position = (self.global_position - target.global_position) - (self.global_position - target.global_position)/3.0
 	hit_effect.rotation = G.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
 	hit_effect.emitting = true
