@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqcl3qeq63b6l"
-path="res://.godot/imported/GreenGo.png-efdaa62d989cb630d2d581f615a051df.ctex"
+uid="uid://bg6c1jj2hl4nl"
+path="res://.godot/imported/vash_starling.png-252240f7f9a44bdaa679c3108aa13f4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player_ships/GreenGo.png"
-dest_files=["res://.godot/imported/GreenGo.png-efdaa62d989cb630d2d581f615a051df.ctex"]
+source_file="res://assets/sprites/ships/vash/vash_starling.png"
+dest_files=["res://.godot/imported/vash_starling.png-252240f7f9a44bdaa679c3108aa13f4b.ctex"]
 
 [params]
 

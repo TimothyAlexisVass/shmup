@@ -5,10 +5,7 @@ var player_ship_scene = preload("res://node_classes/player/player.tscn")
 var spawn_ships = true
 
 var ships = {
-	"spaceShips_001": preload("res://scenes/ships/spaceShips_001.tscn"),
-	"spaceShips_002": preload("res://scenes/ships/spaceShips_002.tscn"),
-	"spaceShips_003": preload("res://scenes/ships/spaceShips_003.tscn"),
-	"spaceShips_004": preload("res://scenes/ships/spaceShips_004.tscn")
+	"SabreTight": preload("res://scenes/ships/SabreTight.tscn")
 }
 
 var explosions = {
@@ -26,7 +23,7 @@ var player_ships = {
 		"movement_speed_base": 10,
 		"fire_power_base": 1,
 		"fire_rate_base": 1,
-		"shot_color": Color(1, 1.2, 4),
+		"shot_color": Color(0, 0.2, 1),
 		"shot_type": 0,
 		"explosion": explosions["fire_explosion"]
 	}

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt3qjbxts3o3n"
-path="res://.godot/imported/Naranja.png-9bb37505659e4e6313f435f602a804ff.ctex"
+uid="uid://b20klqa7rd4wp"
+path="res://.godot/imported/vash_crescent.png-988334e531d95e301311db89ab6c5c84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player_ships/Naranja.png"
-dest_files=["res://.godot/imported/Naranja.png-9bb37505659e4e6313f435f602a804ff.ctex"]
+source_file="res://assets/sprites/ships/vash/vash_crescent.png"
+dest_files=["res://.godot/imported/vash_crescent.png-988334e531d95e301311db89ab6c5c84.ctex"]
 
 [params]
 

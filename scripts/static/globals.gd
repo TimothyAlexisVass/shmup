@@ -27,6 +27,9 @@ static func explode(object):
 		particle.emitting = true
 	stuff.add_child(explosion)
 
+static func glow(color, strength):
+	return Color(1, 1, 1) + color * strength
+
 static func diminishing_increase(base, level):
 	return snapped(base * sqrt(level + 1), 0.01)
 

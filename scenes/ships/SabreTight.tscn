@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://doov2xtv2r0ru"]
+
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_a1muq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
+resource_local_to_scene = true
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Ship" instance=ExtResource("1_a1muq")]
+
+[node name="HitPoints" parent="." index="1"]
+theme_override_styles/fill = SubResource("StyleBoxFlat_2r0gs")

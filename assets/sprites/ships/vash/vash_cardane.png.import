@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgckd1718ty6g"
-path="res://.godot/imported/Blade.png-4c829b0b10379625e4fcc2f1e493cffb.ctex"
+uid="uid://dl86cm67osvdk"
+path="res://.godot/imported/vash_cardane.png-82cfe349531f861f0a7471d6aa6a3654.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player_ships/Blade.png"
-dest_files=["res://.godot/imported/Blade.png-4c829b0b10379625e4fcc2f1e493cffb.ctex"]
+source_file="res://assets/sprites/ships/vash/vash_cardane.png"
+dest_files=["res://.godot/imported/vash_cardane.png-82cfe349531f861f0a7471d6aa6a3654.ctex"]
 
 [params]
 

@@ -23,7 +23,7 @@ func initialize(_source):
 	source = _source
 
 func _ready():
-	$Sprite.modulate = source.shot_color
+	$Sprite.modulate = G.glow(source.shot_color, 1.5)
 	$PointLight2D.color = source.shot_color
 	$Sprite.texture = shot_types[source.shot_type].texture
 
@@ -37,7 +37,7 @@ func _physics_process(delta):
 
 func hit(target):
 	var hit_effect = shot_types[source.shot_type].hit_effect.instantiate()
-	hit_effect.modulate = source.shot_color * 2
+	hit_effect.modulate = G.glow(source.shot_color, 1.5)
 	hit_effect.position = (self.global_position - target.global_position) - (self.global_position - target.global_position)/3.0
 	hit_effect.rotation = G.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
 	hit_effect.emitting = true
