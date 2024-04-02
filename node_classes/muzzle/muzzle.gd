@@ -17,5 +17,5 @@ func _on_timer_timeout():
 	shot.speed = shot_speed
 	shot.hit_effect_scene = hit_effect_scene
 	
-	shot.modulate = G.glow(default_color, 2.5)
+	shot.modulate = default_color
 	G.shots_layer.add_child(shot)

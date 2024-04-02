@@ -34,14 +34,7 @@ static func glow(color, strength):
 
 static func colored_light(color):
 	var max_component = max(color.r, color.g, color.b)
-	if color.r == max_component:
-		color.r *= 3
-	if color.b == max_component:
-		color.b *= 3
-	if color.g == max_component:
-		color.g *= 3
-	color.a = 1
-	return color
+	return color * (1 / max_component) * color * 2.5
 
 static func diminishing_increase(base, level):
 	return snapped(base * sqrt(level + 1), 0.01)

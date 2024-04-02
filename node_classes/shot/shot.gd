@@ -1,12 +1,14 @@
-extends Area2D
+class_name Shot extends Area2D
 
 @onready var hit_effect_scene: PackedScene = preload("res://scenes/hit_effects/plasma.tscn")
 var direction
 var speed
+var source
 
 func _ready():
 	direction = Vector2.DOWN.rotated(rotation).normalized()
-	$PointLight2D.color = G.colored_light(modulate / 2)
+	$PointLight2D.color = G.colored_light(modulate)
+	modulate = G.glow(modulate, 3)
 
 func _physics_process(delta):
 	translate(direction * speed * delta)
