@@ -20,8 +20,8 @@ radius = 4.0
 height = 54.0
 
 [node name="Shot" type="Area2D"]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 gravity = 0.0
 script = ExtResource("1_ycxi0")
 
@@ -39,3 +39,6 @@ texture = ExtResource("3_dmubq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nnupo")
+
+[connection signal="area_entered" from="." to="." method="_on_target_hit"]
+[connection signal="body_entered" from="." to="." method="_on_target_hit"]

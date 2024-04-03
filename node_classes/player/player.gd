@@ -12,8 +12,7 @@ var fire_rate_base
 var fire_rate_level = 0:
 	set(value):
 		fire_rate_level = value
-		shots_per_second = 1 / G.diminishing_increase(fire_rate_base, fire_rate_level)
-		$ShootTimer.wait_time = shots_per_second
+		shots_per_second = G.diminishing_increase(fire_rate_base, fire_rate_level)
 
 var fire_power
 var fire_power_base
@@ -64,7 +63,7 @@ func initialize(data, levels):
 	width = image_size.x
 	height = image_size.y
 	explosion_scale = max(width, height) / 300.0
-	graze_area.set_name(ship_name + "GrazeArea")
+	graze_area.set_name("GrazeArea")
 	add_child(graze_area)
 
 func _ready():
@@ -80,21 +79,23 @@ func _physics_process(delta):
 		just_spawned -= 1
 
 func play():
-	$ShootTimer.start()
+	for muzzle in $CannonConfiguration.get_children():
+		muzzle.get_node("Timer").start()
 	visible = true
 	is_playing = true
-	get_node(ship_name + "GrazeArea").call_deferred("set_disabled", false)
+	$GrazeArea.call_deferred("set_disabled", false)
 	$HitArea.call_deferred("set_disabled", false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+func handle_hit(_shot):
+	clear()
+
 func clear():
-	$ShootTimer.stop()
+	for muzzle in $CannonConfiguration.get_children():
+		muzzle.get_node("Timer").stop()
 	visible = false
 	is_playing = false
 	G.explode(self)
-	get_node(ship_name + "GrazeArea").call_deferred("set_disabled", true)
+	$GrazeArea.call_deferred("set_disabled", true)
 	$HitArea.call_deferred("set_disabled", true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-func _on_shoot_timer_timeout():
-	pass

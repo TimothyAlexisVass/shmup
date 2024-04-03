@@ -62,5 +62,4 @@ theme_override_styles/fill = ExtResource("8_bhdqd")
 value = 25.0
 show_percentage = false
 
-[connection signal="area_entered" from="ShipBody" to="." method="_on_collision"]
 [connection signal="body_entered" from="ShipBody" to="." method="_on_collision"]

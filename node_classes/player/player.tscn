@@ -21,8 +21,4 @@ texture = SubResource("CanvasTexture_ila4y")
 [node name="HitArea" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mg686")
 
-[node name="ShootTimer" type="Timer" parent="."]
-
 [node name="CannonConfiguration" parent="." instance=ExtResource("3_58kp5")]
-
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

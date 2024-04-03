@@ -9,6 +9,12 @@ func _ready():
 	direction = Vector2.DOWN.rotated(rotation).normalized()
 	$PointLight2D.color = G.colored_light(modulate)
 	modulate = G.glow(modulate, 2)
+	if source is Player:
+		set_collision_layer_value(3, true)
+		set_collision_mask_value(2, true)
+	else:
+		set_collision_layer_value(4, true)
+		set_collision_mask_value(1, true)
 
 func _physics_process(delta):
 	translate(direction * speed * delta)
@@ -21,3 +27,9 @@ func hit(target):
 	hit_effect.emitting = true
 	target.add_child(hit_effect)
 	queue_free()
+
+func _on_target_hit(target):
+	if target is Player:
+		target.handle_hit(self)
+	else:
+		target.get_parent().handle_hit(self)

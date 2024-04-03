@@ -75,10 +75,11 @@ func _on_collision(object):
 	if object is Player:
 		object.clear()
 		take_damage(current_health)
-	if object is Shot and object.source is Player:
-		take_damage(object.source.fire_power)
-		if $HitPoints.value > 0:
-			object.hit(self)
+
+func handle_hit(shot):
+	take_damage(shot.source.fire_power)
+	if $HitPoints.value > 0:
+		shot.hit(self)
 
 func take_damage(amount):
 	current_health -= amount

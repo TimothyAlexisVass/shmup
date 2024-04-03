@@ -1,9 +1,11 @@
 class_name Muzzle extends Line2D
 
-@export var shot_scene: PackedScene
-@export var hit_effect_scene: PackedScene
+@export var shot_scene: PackedScene = preload("res://scenes/shots/plasma.tscn")
+@export var hit_effect_scene: PackedScene = preload("res://scenes/hit_effects/plasma.tscn")
 @export var rate_of_fire: float = 1.0
 @export var shot_speed: float = 200.0
+
+@onready var source = get_parent().get_parent()
 
 func _ready():
 	$Timer.wait_time = 1.0 / rate_of_fire
@@ -16,6 +18,11 @@ func _on_timer_timeout():
 	shot.rotation = global_rotation + line_angle
 	shot.speed = shot_speed
 	shot.hit_effect_scene = hit_effect_scene
+	shot.source = source
 	
 	shot.modulate = default_color
-	G.shots_layer.add_child(shot)
+
+	if source is Player:
+		G.player_stuff.add_child(shot)
+	else:
+		G.shots_layer.add_child(shot)
