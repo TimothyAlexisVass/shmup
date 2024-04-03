@@ -8,7 +8,7 @@ var source
 func _ready():
 	direction = Vector2.DOWN.rotated(rotation).normalized()
 	$PointLight2D.color = G.colored_light(modulate)
-	modulate = G.glow(modulate, 3)
+	modulate = G.glow(modulate, 2)
 
 func _physics_process(delta):
 	translate(direction * speed * delta)

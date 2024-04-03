@@ -8,9 +8,9 @@ const LIGHT_ROTATION_MIN = deg_to_rad(-115.0)
 const LIGHT_ROTATION_SPAN = deg_to_rad(50)
 const LIGHT_ROTATION_FREQ = 30.0
 
-const LIGHT_ENERGY_MIN = 0.4
-const LIGHT_ENERGY_SPAN = 0.2
-const LIGHT_ENERGY_FREQ = 33.2
+const LIGHT_ENERGY_MIN = 1.7
+const LIGHT_ENERGY_SPAN = 0.5
+const LIGHT_ENERGY_FREQ = 33.3
 
 var time = 0.0
 

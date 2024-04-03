@@ -14,6 +14,7 @@ motion_mirroring = Vector2(0, 5098)
 
 [node name="SpaceBackground" type="Sprite2D" parent="-999"]
 modulate = Color(1.4, 1.4, 1.4, 1)
+light_mask = 512
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(540, 0)
@@ -26,6 +27,7 @@ motion_mirroring = Vector2(0, 3840)
 
 [node name="Stars" type="TextureRect" parent="-888"]
 modulate = Color(100, 100, 100, 1)
+light_mask = 512
 offset_right = 1080.0
 offset_bottom = 3840.0
 texture = ExtResource("3_jvkac")
@@ -40,6 +42,7 @@ motion_mirroring = Vector2(0, 5760)
 
 [node name="Stars" type="TextureRect" parent="-777"]
 modulate = Color(75, 75, 75, 1)
+light_mask = 512
 offset_right = 1080.0
 offset_bottom = 3840.0
 scale = Vector2(1.5, 1.5)
@@ -56,6 +59,7 @@ motion_mirroring = Vector2(0, 7680)
 
 [node name="Stars" type="TextureRect" parent="-555"]
 modulate = Color(30, 30, 30, 1)
+light_mask = 512
 offset_right = 1080.0
 offset_bottom = 3840.0
 scale = Vector2(2, 2)
@@ -72,6 +76,7 @@ motion_mirroring = Vector2(0, 9600)
 
 [node name="Stars" type="TextureRect" parent="-444"]
 modulate = Color(30, 30, 30, 1)
+light_mask = 512
 offset_right = 1080.0
 offset_bottom = 3840.0
 scale = Vector2(2.5, 2.5)
@@ -88,6 +93,7 @@ motion_mirroring = Vector2(0, 11520)
 
 [node name="Stars" type="TextureRect" parent="-333"]
 modulate = Color(20, 20, 20, 1)
+light_mask = 512
 offset_right = 1080.0
 offset_bottom = 3840.0
 scale = Vector2(3, 3)
