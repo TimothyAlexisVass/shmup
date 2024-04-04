@@ -5,6 +5,5 @@ func _ready():
 	global_position = Vector2(G.center.x, G.center.y + 200)
 
 func _on_exited(object):
-	if object.get_parent() is Ship:
-		object = object.get_parent()
-	object.queue_free()
+	if not object is Player:
+		object.queue_free()

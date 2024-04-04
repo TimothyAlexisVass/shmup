@@ -10,11 +10,9 @@ func _ready():
 	$PointLight2D.color = G.colored_light(modulate)
 	modulate = G.glow(modulate, 2)
 	if source is Player:
-		set_collision_layer_value(3, true)
-		set_collision_mask_value(2, true)
+		set_collision_mask_value(G.COLLISION_LAYERS.NONPLAYER, true)
 	else:
-		set_collision_layer_value(4, true)
-		set_collision_mask_value(1, true)
+		set_collision_mask_value(G.COLLISION_LAYERS.PLAYER, true)
 
 func _physics_process(delta):
 	translate(direction * speed * delta)

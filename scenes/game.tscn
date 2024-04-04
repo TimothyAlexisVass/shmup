@@ -39,8 +39,8 @@ script = ExtResource("1_15kp8")
 
 [node name="GameArea" type="Area2D" parent="."]
 position = Vector2(540, 980)
-collision_layer = 16
-collision_mask = 14
+collision_layer = 128
+collision_mask = 7
 script = ExtResource("5_o6sog")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameArea"]
