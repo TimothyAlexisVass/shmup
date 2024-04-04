@@ -10,8 +10,10 @@ func _ready():
 	$PointLight2D.color = G.colored_light(modulate)
 	modulate = G.glow(modulate, 2)
 	if source is Player:
+		set_collision_layer_value(G.COLLISION_LAYERS.PLAYERSTUFF, true)
 		set_collision_mask_value(G.COLLISION_LAYERS.NONPLAYER, true)
 	else:
+		set_collision_layer_value(G.COLLISION_LAYERS.NONPLAYERSTUFF, true)
 		set_collision_mask_value(G.COLLISION_LAYERS.PLAYER, true)
 
 func _physics_process(delta):
@@ -27,7 +29,5 @@ func hit(target):
 	queue_free()
 
 func _on_target_hit(target):
-	if target is Player:
-		target.graze()
-	else:
+	if not target is Player:
 		target.get_parent().handle_hit(self)

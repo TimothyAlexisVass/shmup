@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceuh25br64vvt"]
+[gd_scene load_steps=10 format=3 uid="uid://ceuh25br64vvt"]
 
 [ext_resource type="Script" path="res://node_classes/player/player.gd" id="1_upu44"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_ftlxp"]
 [ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="2_ysavb"]
 [ext_resource type="PackedScene" uid="uid://drnwdolfdun1k" path="res://node_classes/player/cannon_configuration.tscn" id="3_58kp5"]
 
@@ -25,12 +26,19 @@ height = 600
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="Area2D" groups=["player"]]
 z_index = -100
 scale = Vector2(0.2, 0.2)
-collision_mask = 2
-motion_mode = 1
+collision_mask = 10
 script = ExtResource("1_upu44")
+
+[node name="Jet" parent="." instance=ExtResource("2_ftlxp")]
+position = Vector2(-90, -160)
+scale = Vector2(1, 1)
+
+[node name="Jet2" parent="." instance=ExtResource("2_ftlxp")]
+position = Vector2(90, -160)
+scale = Vector2(1, 1)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_ila4y")
@@ -57,3 +65,6 @@ debug_color = Color(1, 0.839216, 0, 0.254902)
 modulate = Color(2, 2, 4, 0.0627451)
 light_mask = 512
 texture = SubResource("GradientTexture2D_l51i7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

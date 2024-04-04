@@ -43,7 +43,8 @@ reset={
 
 2d_physics/layer_1="PLAYER"
 2d_physics/layer_2="NONPLAYER"
-2d_physics/layer_3="OTHER"
+2d_physics/layer_3="PLAYERSTUFF"
+2d_physics/layer_4="NONPLAYERSTUFF"
 
 [rendering]
 

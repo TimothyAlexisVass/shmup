@@ -35,7 +35,7 @@ func _enter_tree():
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
 	width = image_size.x
 	height = image_size.y
-	explosion_scale = max(width, height) / 300.0
+	explosion_scale = (width * scale.x if width > height else height * scale.y) / 300.0
 	global_position = Vector2(randi_range(50, G.play_area.max.x), G.play_area.min.y - height)
 
 func _ready():
@@ -51,13 +51,11 @@ func _ready():
 	elif destination == DESTINATION.FACING_DIRECTION:
 		target = (Vector2.DOWN * 9999).rotated($ShipBody.rotation)
 
-func _process(_delta):
+func _process(delta):
 	if $HitPoints.value <= 0:
 		clear()
 	if destination == DESTINATION.RANDOM && ($ShipBody.global_position - target).length() < 100:
 		target = G.random_position_in_camera_view()
-
-func _physics_process(delta):
 	if get_node_or_null("ShipBody"):
 		if face_towards == FACE_TOWARDS.DESTINATION:
 			G.rotate_towards_target($ShipBody, target, rotation_speed)
@@ -73,7 +71,7 @@ func _physics_process(delta):
 			translate(velocity * speed * delta)
 
 func _on_collision(object):
-	if object is Player and G.player.is_playing:
+	if object is Player and G.player.is_playing and current_health > 0:
 		object.clear()
 		take_damage(current_health)
 
@@ -90,15 +88,14 @@ func take_damage(amount):
 	var tween = create_tween()
 	tween.set_parallel()
 	if current_health <= 0:
-		$ShipBody/CollisionPolygon2D.set_deferred("disabled", true)
-		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2) # shine
+		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.5) # shine
 	if $HitPoints.value > 0:
 		var ratio = $HitPoints.value / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
 		var green_component = min(1, 2 * ratio)
 		$HitPoints.get_theme_stylebox("fill").bg_color = Color(red_component, green_component, 0)
 		$HitPoints.modulate = Color(max(1.7, 1.7 + 1 - green_component), 1.7, 1, 1)
-		tween.tween_property($HitPoints, "value", current_health, 0.2)
+		tween.tween_property($HitPoints, "value", current_health, 0.5)
 
 func clear():
 	G.explode(self)

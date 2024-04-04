@@ -98,7 +98,6 @@ texture_scale = 3.0
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Camera2D/Lights"]
 position = Vector2(-360, -90)
 rotation = -1.69995
-energy = 3.3
 blend_mode = 2
 height = 0.55
 

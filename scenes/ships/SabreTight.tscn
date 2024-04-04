@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://doov2xtv2r0ru"]
+[gd_scene load_steps=3 format=3 uid="uid://doov2xtv2r0ru"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_a1muq"]
-[ext_resource type="PackedScene" uid="uid://bgrh3v338xpf6" path="res://scenes/shots/plasma.tscn" id="2_m2lxy"]
-[ext_resource type="PackedScene" uid="uid://36ey03pwxccf" path="res://scenes/hit_effects/plasma.tscn" id="3_8ccxg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -14,16 +12,12 @@ corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_a1muq")]
 
-[node name="Muzzle" parent="ShipBody" index="2"]
+[node name="Muzzle" parent="ShipBody" index="4"]
 default_color = Color(1, 0.207843, 0, 1)
-shot_scene = ExtResource("2_m2lxy")
-hit_effect_scene = ExtResource("3_8ccxg")
 shot_speed = 400.0
 
-[node name="Muzzle2" parent="ShipBody" index="3"]
+[node name="Muzzle2" parent="ShipBody" index="5"]
 default_color = Color(1, 0.207843, 0, 1)
-shot_scene = ExtResource("2_m2lxy")
-hit_effect_scene = ExtResource("3_8ccxg")
 shot_speed = 400.0
 
 [node name="HitPoints" parent="." index="1"]

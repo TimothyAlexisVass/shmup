@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody2D
+class_name Player extends Area2D
 
 var shot_speed
 var shot_speed_base
@@ -46,6 +46,10 @@ var explosion_scale
 
 var is_playing = true
 var just_spawned = 20
+var grazing_with = []
+var graze_power = 0.0
+
+var t = 0.0
 
 func initialize(data, levels):
 	for property in data.keys():
@@ -68,6 +72,13 @@ func initialize(data, levels):
 func _ready():
 	play()
 
+func _process(delta):
+	graze_power = snapped(graze_power + len(grazing_with) * delta, 0.001)
+	t += delta
+	if t > 1:
+		print(graze_power)
+		t = 0.0
+
 func _physics_process(delta):
 	if is_playing:
 		global_position = global_position.lerp(get_global_mouse_position(), delta * movement_speed)
@@ -82,15 +93,12 @@ func play():
 		muzzle.get_node("Timer").start()
 	visible = true
 	is_playing = true
-	#$GrazeArea.set_deferred("disabled", false)
+	$GrazeArea.set_deferred("disabled", false)
 	$HitArea/CollisionShape2D.set_deferred("disabled", false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func handle_hit(_shot):
 	clear()
-
-func graze():
-	print("Grazed")
 
 func clear():
 	for muzzle in $CannonConfiguration.get_children():
@@ -98,6 +106,14 @@ func clear():
 	visible = false
 	is_playing = false
 	G.explode(self)
-	#$GrazeArea.set_deferred("disabled", true)
+	$GrazeArea.set_deferred("disabled", true)
 	$HitArea/CollisionShape2D.set_deferred("disabled", true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _on_area_entered(area):
+	if area is Shot:
+		grazing_with.append(area)
+
+func _on_area_exited(area):
+	if area is Shot:
+		grazing_with.erase(area)
