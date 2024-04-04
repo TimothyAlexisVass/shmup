@@ -58,21 +58,22 @@ func _process(_delta):
 		target = G.random_position_in_camera_view()
 
 func _physics_process(delta):
-	if face_towards == FACE_TOWARDS.DESTINATION:
-		G.rotate_towards_target($ShipBody, target, rotation_speed)
-	elif face_towards == FACE_TOWARDS.PLAYER && is_instance_valid(G.player) && G.player.is_playing:
-		G.rotate_towards_target($ShipBody, G.player.global_position, rotation_speed)
+	if get_node_or_null("ShipBody"):
+		if face_towards == FACE_TOWARDS.DESTINATION:
+			G.rotate_towards_target($ShipBody, target, rotation_speed)
+		elif face_towards == FACE_TOWARDS.PLAYER && is_instance_valid(G.player) && G.player.is_playing:
+			G.rotate_towards_target($ShipBody, G.player.global_position, rotation_speed)
 
-	if move == MOVE.TO_DESTINATION:
-		var desired_velocity = (target - global_position).normalized()
-		velocity = lerp(velocity, desired_velocity, acceleration)
-	elif move == MOVE.AHEAD:
-		velocity = Vector2.DOWN.rotated($ShipBody.rotation)
-	if velocity != Vector2(0, 0):
-		translate(velocity * speed * delta)
+		if move == MOVE.TO_DESTINATION:
+			var desired_velocity = (target - global_position).normalized()
+			velocity = lerp(velocity, desired_velocity, acceleration)
+		elif move == MOVE.AHEAD:
+			velocity = Vector2.DOWN.rotated($ShipBody.rotation)
+		if velocity != Vector2(0, 0):
+			translate(velocity * speed * delta)
 
 func _on_collision(object):
-	if object is Player:
+	if object is Player and G.player.is_playing:
 		object.clear()
 		take_damage(current_health)
 
@@ -89,6 +90,7 @@ func take_damage(amount):
 	var tween = create_tween()
 	tween.set_parallel()
 	if current_health <= 0:
+		$ShipBody/CollisionPolygon2D.set_deferred("disabled", true)
 		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.2) # shine
 	if $HitPoints.value > 0:
 		var ratio = $HitPoints.value / $HitPoints.max_value

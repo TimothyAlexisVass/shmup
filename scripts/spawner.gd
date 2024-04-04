@@ -28,27 +28,6 @@ var player_ships = {
 		"explosion": explosions["fire_explosion"]
 	}
 }
-"""
-	"Naranja": {
-		"shot_speed_base": 600,
-		"movement_speed_base": 10,
-		"fire_power_base": 2,
-		"fire_rate_base": 0.5,
-		"shot_color": Color(4, 1.2, 1),
-		"shot_type": 0,
-		"explosion": explosions["fire_explosion"]
-	},
-	"GreenGo": {
-		"shot_speed_base": 600,
-		"movement_speed_base": 10,
-		"fire_power_base": 1,
-		"fire_rate_base": 1,
-		"shot_color": Color(1, 4, 1.2),
-		"shot_type": 0,
-		"explosion": explosions["fire_explosion"]
-	}
-}
-"""
 
 func _ready():
 	for player_ship in player_ships:

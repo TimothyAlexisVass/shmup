@@ -22,7 +22,7 @@ var fire_power_level = 0:
 		fire_power = G.diminishing_increase(fire_power_base, fire_power_level)
 
 var movement_speed
-var movement_speed_base
+@export var movement_speed_base = 10
 var movement_speed_increase
 var movement_speed_level = 0:
 	set(value):
@@ -30,7 +30,6 @@ var movement_speed_level = 0:
 		movement_speed = G.linear_increase(movement_speed_base, movement_speed_level, (10 - movement_speed_base) / 1000.0)
 
 # Basic properties
-var ship_name
 var cannon_level
 var image
 var texture
@@ -54,7 +53,6 @@ func initialize(data, levels):
 	for property in levels.keys():
 		set(property, int(levels[property]))
 
-	scale = Vector2(0.2, 0.2)
 	rotation = PI
 	image = texture.get_image()
 	var image_size = Vector2(image.get_size()) * scale
@@ -63,8 +61,9 @@ func initialize(data, levels):
 	width = image_size.x
 	height = image_size.y
 	explosion_scale = max(width, height) / 300.0
-	graze_area.set_name("GrazeArea")
-	add_child(graze_area)
+	graze_area.queue_free()
+	#graze_area.set_name("GrazeArea")
+	#add_child(graze_area)
 
 func _ready():
 	play()
@@ -83,12 +82,15 @@ func play():
 		muzzle.get_node("Timer").start()
 	visible = true
 	is_playing = true
-	$GrazeArea.call_deferred("set_disabled", false)
-	$HitArea.call_deferred("set_disabled", false)
+	#$GrazeArea.set_deferred("disabled", false)
+	$HitArea/CollisionShape2D.set_deferred("disabled", false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func handle_hit(_shot):
 	clear()
+
+func graze():
+	print("Grazed")
 
 func clear():
 	for muzzle in $CannonConfiguration.get_children():
@@ -96,6 +98,6 @@ func clear():
 	visible = false
 	is_playing = false
 	G.explode(self)
-	$GrazeArea.call_deferred("set_disabled", true)
-	$HitArea.call_deferred("set_disabled", true)
+	#$GrazeArea.set_deferred("disabled", true)
+	$HitArea/CollisionShape2D.set_deferred("disabled", true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

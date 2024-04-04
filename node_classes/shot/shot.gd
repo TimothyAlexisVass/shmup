@@ -28,6 +28,6 @@ func hit(target):
 
 func _on_target_hit(target):
 	if target is Player:
-		target.handle_hit(self)
+		target.graze()
 	else:
 		target.get_parent().handle_hit(self)
