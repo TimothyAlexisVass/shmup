@@ -34,7 +34,6 @@ var cannon_level
 var image
 var texture
 var normal_map
-var graze_area
 var shot_color
 var shot_type
 var explosion
@@ -65,19 +64,12 @@ func initialize(data, levels):
 	width = image_size.x
 	height = image_size.y
 	explosion_scale = max(width, height) / 300.0
-	graze_area.queue_free()
-	#graze_area.set_name("GrazeArea")
-	#add_child(graze_area)
 
 func _ready():
 	play()
 
 func _process(delta):
 	graze_power = snapped(graze_power + len(grazing_with) * delta, 0.001)
-	t += delta
-	if t > 1:
-		print(graze_power)
-		t = 0.0
 
 func _physics_process(delta):
 	if is_playing:

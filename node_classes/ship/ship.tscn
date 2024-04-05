@@ -55,12 +55,29 @@ move = 1
 
 [node name="ShipBody" type="Node2D" parent="."]
 
-[node name="Jet" parent="ShipBody" instance=ExtResource("3_ppcqj")]
+[node name="Jets" type="Node2D" parent="ShipBody"]
+scale = Vector2(1, 1)
+
+[node name="Jet" parent="ShipBody/Jets" instance=ExtResource("3_ppcqj")]
 position = Vector2(-110, -150)
+scale = Vector2(1, 1)
 process_material = SubResource("ParticleProcessMaterial_sjjbr")
 
-[node name="Jet2" parent="ShipBody" instance=ExtResource("3_ppcqj")]
+[node name="Jet2" parent="ShipBody/Jets" instance=ExtResource("3_ppcqj")]
 position = Vector2(110, -150)
+scale = Vector2(1, 1)
+process_material = SubResource("ParticleProcessMaterial_sjjbr")
+
+[node name="Jet3" parent="ShipBody/Jets" instance=ExtResource("3_ppcqj")]
+position = Vector2(305, -370)
+scale = Vector2(0.2, 0.2)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_sjjbr")
+
+[node name="Jet4" parent="ShipBody/Jets" instance=ExtResource("3_ppcqj")]
+position = Vector2(-305, -370)
+scale = Vector2(0.2, 0.2)
+amount = 10
 process_material = SubResource("ParticleProcessMaterial_sjjbr")
 
 [node name="Area2D" type="Area2D" parent="ShipBody"]
@@ -76,12 +93,16 @@ polygon = PackedVector2Array(0, -460, -29, -370, -37, -177, -59, -133, -78, -267
 modulate = Color(0.95, 0.95, 0.95, 1)
 texture = SubResource("CanvasTexture_wrah3")
 
-[node name="Muzzle" parent="ShipBody" instance=ExtResource("6_61h0c")]
-position = Vector2(-150, 200)
+[node name="Muzzles" type="Node2D" parent="ShipBody"]
+
+[node name="Muzzle" parent="ShipBody/Muzzles" instance=ExtResource("6_61h0c")]
+position = Vector2(-100, 250)
+scale = Vector2(1, 1)
 shot_speed = 300.0
 
-[node name="Muzzle2" parent="ShipBody" instance=ExtResource("6_61h0c")]
-position = Vector2(150, 200)
+[node name="Muzzle2" parent="ShipBody/Muzzles" instance=ExtResource("6_61h0c")]
+position = Vector2(100, 250)
+scale = Vector2(1, 1)
 shot_speed = 300.0
 
 [node name="HitPoints" type="ProgressBar" parent="."]

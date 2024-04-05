@@ -32,8 +32,6 @@ var player_ships = {
 func _ready():
 	for player_ship in player_ships:
 		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
-		player_ships[player_ship]["graze_area"] = CollisionShapeGenerator.generate(player_ships[player_ship]["texture"].get_image())
-		player_ships[player_ship]["ship_name"] = player_ship
 
 func spawn_ship(ship_scene):
 	var ship = ship_scene.instantiate()

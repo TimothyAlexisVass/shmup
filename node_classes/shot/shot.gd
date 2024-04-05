@@ -22,10 +22,10 @@ func _physics_process(delta):
 func hit(target):
 	var hit_effect = hit_effect_scene.instantiate()
 	hit_effect.modulate = modulate
-	hit_effect.position = (self.global_position - target.global_position) - (self.global_position - target.global_position)/3.0
+	hit_effect.global_position = self.global_position
 	hit_effect.rotation = G.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
 	hit_effect.emitting = true
-	target.add_child(hit_effect)
+	G.player_stuff.add_child(hit_effect)
 	queue_free()
 
 func _on_target_hit(target):

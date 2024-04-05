@@ -57,16 +57,19 @@ func _process(delta):
 	if destination == DESTINATION.RANDOM && ($ShipBody.global_position - target).length() < 100:
 		target = G.random_position_in_camera_view()
 	if get_node_or_null("ShipBody"):
-		if face_towards == FACE_TOWARDS.DESTINATION:
-			G.rotate_towards_target($ShipBody, target, rotation_speed)
-		elif face_towards == FACE_TOWARDS.PLAYER && is_instance_valid(G.player) && G.player.is_playing:
-			G.rotate_towards_target($ShipBody, G.player.global_position, rotation_speed)
+		if current_health > 0:
+			if face_towards == FACE_TOWARDS.DESTINATION:
+				G.rotate_towards_target($ShipBody, target, rotation_speed)
+			elif face_towards == FACE_TOWARDS.PLAYER && is_instance_valid(G.player) && G.player.is_playing:
+				G.rotate_towards_target($ShipBody, G.player.global_position, rotation_speed)
 
-		if move == MOVE.TO_DESTINATION:
-			var desired_velocity = (target - global_position).normalized()
-			velocity = lerp(velocity, desired_velocity, acceleration)
-		elif move == MOVE.AHEAD:
-			velocity = Vector2.DOWN.rotated($ShipBody.rotation)
+			if move == MOVE.TO_DESTINATION:
+				var desired_velocity = (target - global_position).normalized()
+				velocity = lerp(velocity, desired_velocity, acceleration)
+			elif move == MOVE.AHEAD:
+				velocity = Vector2.DOWN.rotated($ShipBody.rotation)
+		else:
+			velocity *= 0.99
 		if velocity != Vector2(0, 0):
 			translate(velocity * speed * delta)
 
@@ -90,14 +93,20 @@ func take_damage(amount):
 	if current_health <= 0:
 		$ShipBody/Area2D.set_deferred("monitoring", false)
 		$ShipBody/Area2D.set_deferred("monitorable", false)
-		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.5) # shine
+		for jet in $ShipBody/Jets.get_children():
+			jet.lifetime = 0.2
+			jet.emitting = false
+		var muzzles = $ShipBody.get_node_or_null("Muzzles")
+		if muzzles:
+			muzzles.queue_free()
+		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.4) # shine
 	if $HitPoints.value > 0:
 		var ratio = $HitPoints.value / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
 		var green_component = min(1, 2 * ratio)
 		$HitPoints.get_theme_stylebox("fill").bg_color = Color(red_component, green_component, 0)
 		$HitPoints.modulate = Color(max(1.7, 1.7 + 1 - green_component), 1.7, 1, 1)
-		tween.tween_property($HitPoints, "value", current_health, 0.5)
+		tween.tween_property($HitPoints, "value", current_health, 0.4)
 
 func clear():
 	G.explode(self)

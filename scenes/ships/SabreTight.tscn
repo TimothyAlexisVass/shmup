@@ -12,13 +12,5 @@ corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_a1muq")]
 
-[node name="Muzzle" parent="ShipBody" index="4"]
-default_color = Color(1, 0.207843, 0, 1)
-shot_speed = 400.0
-
-[node name="Muzzle2" parent="ShipBody" index="5"]
-default_color = Color(1, 0.207843, 0, 1)
-shot_speed = 400.0
-
 [node name="HitPoints" parent="." index="1"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_2r0gs")
