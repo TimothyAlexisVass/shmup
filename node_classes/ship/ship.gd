@@ -88,6 +88,8 @@ func take_damage(amount):
 	var tween = create_tween()
 	tween.set_parallel()
 	if current_health <= 0:
+		$ShipBody/Area2D.set_deferred("monitoring", false)
+		$ShipBody/Area2D.set_deferred("monitorable", false)
 		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.5) # shine
 	if $HitPoints.value > 0:
 		var ratio = $HitPoints.value / $HitPoints.max_value

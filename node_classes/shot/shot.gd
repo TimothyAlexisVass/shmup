@@ -30,4 +30,4 @@ func hit(target):
 
 func _on_target_hit(target):
 	if not target is Player:
-		target.get_parent().handle_hit(self)
+		target.owner.handle_hit(self)
