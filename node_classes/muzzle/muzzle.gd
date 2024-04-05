@@ -23,6 +23,6 @@ func _on_timer_timeout():
 	shot.modulate = default_color
 
 	if source is Player:
-		G.player_stuff.add_child(shot)
+		G.player_layer.add_child(shot)
 	else:
 		G.shots_layer.add_child(shot)

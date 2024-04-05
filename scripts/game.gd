@@ -6,10 +6,11 @@ func _enter_tree():
 	G.play_area = { "min": -G.GAME_AREA_OFFSET, "max": Vector2(get_viewport().size) + G.GAME_AREA_OFFSET }
 
 func _ready():
-	G.stuff = $Stuff
-	G.player_stuff = $Stuff/PlayerStuff
-	G.ships_layer = $Stuff/TopLayer/Ships
-	G.shots_layer = $Stuff/TopLayer/Shots
+	G.bottom_layer = $ViewLayers/BottomLayer
+	G.ships_layer = $ViewLayers/ShipsLayer
+	G.player_layer = $ViewLayers/PlayerLayer
+	G.top_layer = $ViewLayers/TopLayer
+	G.shots_layer = $ViewLayers/ShotsLayer
 	G.viewport_size = get_viewport().get_size()
 	DataManager.load_data()
 	G.player = $Spawner.spawn_player_ship($Spawner.player_ships.keys().pick_random())

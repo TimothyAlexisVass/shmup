@@ -11,9 +11,11 @@ static var game
 static var stuff
 static var center
 static var play_area
-static var ships_layer
-static var shots_layer
-static var player_stuff
+static var bottom_layer # For visual effects
+static var ships_layer # For non-player ships
+static var player_layer # For player ships and stuff
+static var top_layer # For powerups and important things
+static var shots_layer # For shots and most important things
 static var viewport_size
 
 static var camera
@@ -26,7 +28,7 @@ static func explode(object):
 		particle.get_process_material().scale_min *= object.explosion_scale
 		particle.get_process_material().scale_max *= object.explosion_scale
 		particle.emitting = true
-	stuff.add_child(explosion)
+	bottom_layer.add_child(explosion)
 
 static func glow(color, strength):
 	var modulate = Color(1, 1, 1) + color * strength

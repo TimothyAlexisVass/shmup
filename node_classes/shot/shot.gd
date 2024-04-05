@@ -25,7 +25,7 @@ func hit(target):
 	hit_effect.global_position = self.global_position
 	hit_effect.rotation = G.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
 	hit_effect.emitting = true
-	G.player_stuff.add_child(hit_effect)
+	G.player_layer.add_child(hit_effect)
 	queue_free()
 
 func _on_target_hit(target):

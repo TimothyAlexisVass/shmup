@@ -93,9 +93,11 @@ func take_damage(amount):
 	if current_health <= 0:
 		$ShipBody/Area2D.set_deferred("monitoring", false)
 		$ShipBody/Area2D.set_deferred("monitorable", false)
-		for jet in $ShipBody/Jets.get_children():
-			jet.lifetime = 0.2
-			jet.emitting = false
+		var jets = $ShipBody.get_node_or_null("Jets")
+		if jets:
+			for jet in jets.get_children():
+				jet.lifetime = 0.2
+				jet.emitting = false
 		var muzzles = $ShipBody.get_node_or_null("Muzzles")
 		if muzzles:
 			muzzles.queue_free()

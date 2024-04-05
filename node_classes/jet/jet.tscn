@@ -1,18 +1,18 @@
 [gd_scene load_steps=6 format=3 uid="uid://f3bqt3x13sk"]
 
-[sub_resource type="Curve" id="Curve_wnxxw"]
+[sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_5hw0l"]
-curve = SubResource("Curve_wnxxw")
+curve = SubResource("Curve_x3n7m")
 
-[sub_resource type="Curve" id="Curve_rsx44"]
+[sub_resource type="Curve" id="Curve_btand"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.333847), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_rkj31"]
-curve = SubResource("Curve_rsx44")
+curve = SubResource("Curve_btand")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u3v48"]
 particle_flag_disable_z = true

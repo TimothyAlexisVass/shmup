@@ -40,7 +40,7 @@ script = ExtResource("1_15kp8")
 [node name="GameArea" type="Area2D" parent="."]
 position = Vector2(540, 980)
 collision_layer = 128
-collision_mask = 7
+collision_mask = 14
 script = ExtResource("5_o6sog")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameArea"]
@@ -51,17 +51,19 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="Spawner" parent="." instance=ExtResource("3_opaq1")]
 
-[node name="Stuff" type="Node2D" parent="."]
+[node name="ViewLayers" type="Node2D" parent="."]
 
-[node name="PlayerStuff" type="Node2D" parent="Stuff"]
+[node name="BottomLayer" type="Node2D" parent="ViewLayers"]
+
+[node name="ShipsLayer" type="Node2D" parent="ViewLayers"]
+
+[node name="PlayerLayer" type="Node2D" parent="ViewLayers"]
 z_index = -111
 
-[node name="TopLayer" type="Node2D" parent="Stuff"]
+[node name="TopLayer" type="Node2D" parent="ViewLayers"]
 z_index = 999
 
-[node name="Ships" type="Node2D" parent="Stuff/TopLayer"]
-
-[node name="Shots" type="Node2D" parent="Stuff/TopLayer"]
+[node name="ShotsLayer" type="Node2D" parent="ViewLayers"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_jnuwh")

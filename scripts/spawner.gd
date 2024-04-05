@@ -5,7 +5,8 @@ var player_ship_scene = preload("res://node_classes/player/player.tscn")
 var spawn_ships = true
 
 var ships = {
-	"SabreTight": preload("res://scenes/ships/SabreTight.tscn")
+	"SabreTight": preload("res://scenes/ships/SabreTight.tscn"),
+	"VashPurpura": preload("res://scenes/ships/VashPurpura.tscn")
 }
 
 var explosions = {
@@ -46,4 +47,4 @@ func spawn_player_ship(player_ship_type):
 
 func _on_ship_spawn_timer_timeout():
 	if spawn_ships:
-		spawn_ship(ships[ships.keys()[0]])#.pick_random()])
+		spawn_ship(ships[ships.keys().pick_random()])

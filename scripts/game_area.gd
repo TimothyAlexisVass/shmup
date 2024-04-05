@@ -5,5 +5,6 @@ func _ready():
 	global_position = Vector2(G.center.x, G.center.y + 200)
 
 func _on_exited(object):
-	if not object is Player:
-		object.queue_free()
+	if object.owner:
+		object = object.owner
+	object.queue_free()
