@@ -4,18 +4,6 @@ var player_ship_scene = preload("res://node_classes/player/player.tscn")
 
 var spawn_ships = true
 
-"""
-level 1:
-	max 3 spawn points:
-		[0 ,  1,  2]
-		[-1,  0,  1]
-		[-2, -1,  0]
-		[-2,  0,  2]
-	no firing ships
-	only from top
-	level 1 ships
-"""
-
 var ships = {
 	"SabreTight": preload("res://scenes/ships/SabreTight.tscn"),
 	"VashPurpura": preload("res://scenes/ships/VashPurpura.tscn")
@@ -70,5 +58,5 @@ func spawn_player_ship(player_ship_type):
 	return player_ship
 
 func _on_ship_spawn_timer_timeout():
-	if spawn_ships:
+	if get_tree().get_nodes_in_group("Ships").size() == 0:
 		spawn_ship(ships[ships.keys().pick_random()], spawn_points[spawn_points.keys().pick_random()])

@@ -12,7 +12,7 @@ diffuse_texture = ExtResource("3_qw1yb")
 normal_texture = ExtResource("4_jikg6")
 specular_shininess = 0.85
 
-[node name="Ship" type="Node2D"]
+[node name="Ship" type="Node2D" groups=["Ships"]]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_u2d0h")
 speed = 200.0
