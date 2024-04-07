@@ -11,6 +11,7 @@ static var game
 static var stuff
 static var center
 static var play_area
+static var play_area_fourth
 static var bottom_layer # For visual effects
 static var ships_layer # For non-player ships
 static var player_layer # For player ships and stuff

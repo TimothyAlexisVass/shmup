@@ -1,8 +1,8 @@
 extends Area2D
 
 func _ready():
-	$CollisionShape2D.shape.size = Vector2(G.play_area.max.x + 400, G.play_area.max.y + 200)
-	global_position = Vector2(G.center.x, G.center.y + 200)
+	$CollisionShape2D.shape.size = Vector2(G.play_area.max.x + 200, G.play_area.max.y + 200)
+	global_position = Vector2(G.center.x, G.center.y + 100)
 
 func _on_exited(object):
 	if object.owner:

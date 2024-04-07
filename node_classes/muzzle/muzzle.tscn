@@ -9,6 +9,6 @@ script = ExtResource("1_wty60")
 rate_of_fire = 0.1
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
+one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="first_shot"]

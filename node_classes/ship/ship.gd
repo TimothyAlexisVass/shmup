@@ -30,20 +30,29 @@ var target
 var velocity = Vector2(0, 0)
 
 @onready var current_health = total_hit_points
+@onready var muzzles = $ShipBody.get_node_or_null("Muzzles")
+@onready var shooting = false
 
 func _enter_tree():
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
-	width = image_size.x
-	height = image_size.y
-	explosion_scale = (width * scale.x if width > height else height * scale.y) / 300.0
-	global_position = Vector2(randi_range(50, G.play_area.max.x), G.play_area.min.y - height)
+	width = image_size.x * scale.x
+	height = image_size.y * scale.y
+	explosion_scale = (width if width > height else height) / 300.0
 
 func _ready():
+	if global_position == Vector2(0, 0):
+		global_position = Vector2(randi_range(50, G.play_area.max.x), G.play_area.min.y - height)
+	if global_position.y < 0:
+		global_position.y = G.play_area.min.y - height
+	if global_position.x > 0:
+		global_position.x = G.play_area.max.x + width
+	if global_position.x < 0:
+		global_position.x = G.play_area.min.x - width
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING
 	$HitPoints.position.y = -(height / 2 + $HitPoints.size.y + PADDING)
-	$HitPoints.size.x = width - PADDING * 2
+	$HitPoints.size.x = width / scale.x - PADDING * 2
 	if destination == DESTINATION.RANDOM:
 		target = G.random_position_in_camera_view()
 	elif destination == DESTINATION.FIXED:
@@ -68,7 +77,7 @@ func _process(delta):
 				velocity = lerp(velocity, desired_velocity, acceleration)
 			elif move == MOVE.AHEAD:
 				velocity = Vector2.DOWN.rotated($ShipBody.rotation)
-		else:
+		else:                  
 			velocity *= 0.99
 		if velocity != Vector2(0, 0):
 			translate(velocity * speed * delta)
@@ -93,17 +102,11 @@ func take_damage(amount):
 	if current_health <= 0:
 		$ShipBody/Area2D.set_deferred("monitoring", false)
 		$ShipBody/Area2D.set_deferred("monitorable", false)
-		var jets = $ShipBody.get_node_or_null("Jets")
-		if jets:
-			for jet in jets.get_children():
-				jet.lifetime = 0.2
-				jet.emitting = false
-		var muzzles = $ShipBody.get_node_or_null("Muzzles")
-		if muzzles:
-			muzzles.queue_free()
+		stop_jets()
+		muzzles_status(false)
 		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.4) # shine
 	if $HitPoints.value > 0:
-		var ratio = $HitPoints.value / $HitPoints.max_value
+		var ratio = current_health / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
 		var green_component = min(1, 2 * ratio)
 		$HitPoints.get_theme_stylebox("fill").bg_color = Color(red_component, green_component, 0)
@@ -113,3 +116,24 @@ func take_damage(amount):
 func clear():
 	G.explode(self)
 	queue_free()
+
+func stop_jets():
+	var jets = $ShipBody.get_node_or_null("Jets")
+	if jets:
+		for jet in jets.get_children():
+			jet.lifetime = 0.2
+			jet.emitting = false
+
+func _on_visible_on_screen_enabler_2d_screen_entered():
+	if not shooting:
+		muzzles_status(true)
+
+func muzzles_status(status):
+	if muzzles:
+		if status:
+			for muzzle in muzzles.get_children():
+				if status:
+					muzzle.timer.start()
+		else:
+			muzzles.queue_free()
+			muzzles = null

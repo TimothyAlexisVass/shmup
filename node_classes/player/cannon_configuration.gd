@@ -30,6 +30,7 @@ func add_muzzle(x, y, cannon_number):
 	muzzle.shot_speed = parent.shot_speed
 	muzzle.default_color = parent.shot_color
 	add_child(muzzle)
+	muzzle.timer.start()
 
 func get_top_pixel(x):
 	for y in range(height):

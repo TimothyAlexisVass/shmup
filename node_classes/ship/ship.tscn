@@ -25,12 +25,10 @@ move = 1
 [node name="ShipBody" type="Node2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="ShipBody"]
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShipBody/Area2D"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(0, -460, -29, -370, -37, -177, -59, -133, -78, -267, -151, -249, -127, -43, -86, -47, -130, 18, -211, -188, -210, -305, -174, -464, -269, -274, -290, -382, -321, -360, -312, -198, -240, 87, -203, 113, -108, 366, -2, 453, 109, 363, 207, 118, 245, 81, 313, -199, 322, -370, 287, -383, 272, -272, 178, -460, 213, -274, 210, -184, 142, 19, 87, -44, 122, -41, 154, -245, 80, -269, 64, -132, 34, -178, 28, -370)
 
 [node name="Sprite" type="Sprite2D" parent="ShipBody"]
@@ -56,4 +54,8 @@ theme_override_styles/fill = ExtResource("8_bhdqd")
 value = 25.0
 show_percentage = false
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="area_entered" from="ShipBody/Area2D" to="." method="_on_collision"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

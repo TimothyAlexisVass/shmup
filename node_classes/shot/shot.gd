@@ -2,8 +2,8 @@ class_name Shot extends Area2D
 
 @onready var hit_effect_scene: PackedScene = preload("res://scenes/hit_effects/plasma.tscn")
 var direction
-var speed
 var source
+var speed
 
 func _ready():
 	direction = Vector2.DOWN.rotated(rotation).normalized()
