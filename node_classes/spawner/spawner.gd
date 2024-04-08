@@ -32,6 +32,11 @@ var player_ships = {
 }
 
 @onready var spawn_points = {
+	-5: Vector2(G.play_area.min.x, G.play_area.max.y - G.play_area_fourth.y),
+	-4: Vector2(G.play_area.min.x, G.center.y),
+	-3: Vector2(G.play_area.min.x, G.play_area.min.y + G.play_area_fourth.y),
+	-2: Vector2(G.play_area.min.x, G.play_area.min.y),
+	-1: Vector2(G.play_area.min.x + G.play_area_fourth.x, G.play_area.min.y),
 	0: Vector2(G.center.x, G.play_area.min.y),
 	1: Vector2(G.play_area.max.x - G.play_area_fourth.x, G.play_area.min.y),
 	2: Vector2(G.play_area.max.x, G.play_area.min.y),
@@ -49,10 +54,32 @@ func _ready():
 	for player_ship in player_ships:
 		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
 
+func spawn(wave_number):
+	var wave_level = waves[wave_number]
+	var wave_type = Spawn.wave_type()
+	var wave_modification = Spawn.wave_modification()
+	var wave_max_spawn_point = max_spawn_point[wave_level]
+	var spawn_at_points = Spawn.at_points(wave_max_spawn_point, wave_type, wave_modification)
+	
+	prints("Wave:", wave, "level of wave:", wave_level, "spawning at points:", spawn_at_points, "max spawn point:", wave_max_spawn_point, "wave_type:", Spawn.WAVE_TYPE.keys()[wave_type-1], "modification:", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
+	match wave_type:
+		Spawn.WAVE_TYPE.MIRROR:
+			for spawn_point in spawn_at_points:
+				spawn_ship(ships["SabreTight"], spawn_points[spawn_point])
+				if spawn_point != 0:
+					spawn_ship(ships["SabreTight"], spawn_points[-spawn_point])
+		Spawn.WAVE_TYPE.ALTERNATE:
+			for spawn_point in spawn_at_points:
+				spawn_ship(ships["SabreTight"], spawn_points[spawn_point])
+		Spawn.WAVE_TYPE.FLOW:
+			for spawn_point in spawn_at_points:
+				spawn_ship(ships["SabreTight"], spawn_points[spawn_point])
+	print("#####################")
+
 func spawn_ship(ship_scene, spawn_point = null):
 	var ship = ship_scene.instantiate()
+	print("spawning: ", ship, "at: ", spawn_point)
 	if spawn_point:
-		spawn_point.x = G.random_sign(spawn_point.x)
 		ship.global_position = spawn_point
 	G.ships_layer.add_child(ship)
 
@@ -69,9 +96,5 @@ func _on_spawn_timer_timeout():
 		G.game.win()
 	elif wave < number_of_waves:
 		if get_tree().get_nodes_in_group("Ships").size() <= ships_left_for_next_wave:
-			var _wave_level = waves[wave]
-			var _wave_type = Spawn.wave_type()
-			var _wave_modification = Spawn.wave_modification()
-			spawn_ship(ships[ships.keys().pick_random()], spawn_points[spawn_points.keys().pick_random()])
+			spawn(wave)
 			wave += 1
-			prints("Wave:", wave, "level of wave:", _wave_level, "type:", Spawn.WAVE_TYPE.keys()[_wave_type-1], "modification:", Spawn.WAVE_MODIFICATION.keys()[_wave_modification-1])

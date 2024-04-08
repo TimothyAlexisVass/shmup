@@ -63,12 +63,54 @@ static func wave_modification():
 	else:
 		return WAVE_MODIFICATION.ZIG_ZAG
 
+static func at_points(maximum, type, modification):
+	var spawn_at_points = [0] if modification == Spawn.WAVE_MODIFICATION.WITH_MID else []
+
+	if type == Spawn.WAVE_TYPE.FLOW:
+		for i in range(1, randi_range(2, maximum + 1)):
+			var point = G.random_sign(i) if modification == Spawn.WAVE_MODIFICATION.ZIG_ZAG else i
+			spawn_at_points = [-point] + spawn_at_points + [point]
+	else:
+		for spawn_point in range(1, maximum + 1):
+			if G.random_boolean():
+				spawn_at_points.append(G.random_sign(spawn_point) if modification == Spawn.WAVE_MODIFICATION.ZIG_ZAG else spawn_point)
+		if spawn_at_points.is_empty():
+			spawn_at_points = [randi_range(1, maximum)]
+	return spawn_at_points
+
 const SPAWN_COMBINATION = {
-	1: [[0], [1], [2], [3], [4], [5]],
-	2: [[1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]],
-	3: [[1, 2, 3], [1, 2, 4], [1, 2, 5], [1, 3, 4], [1, 3, 5], [1, 4, 5], [2, 3, 4], [2, 3, 5], [2, 4, 5], [3, 4, 5]],
-	4: [[1, 2, 3, 4], [1, 2, 3, 5], [1, 2, 4, 5], [1, 3, 4, 5], [2, 3, 4, 5]],
-	5: [[1, 2, 3, 4, 5]]
+	1: [[0], [1]],
+	2: [[0], [1], [2], [1, 2]],
+	3: [[3], [1, 2], [1, 3], [2, 3], [1, 2, 3]],
+	4: [[4], [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4], [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4], [1, 2, 3, 4]],
+	5: [[5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5], [1, 2, 3], [1, 2, 4], [1, 2, 5], [1, 3, 4], [1, 3, 5], [1, 4, 5], [2, 3, 4], [2, 3, 5], [2, 4, 5], [3, 4, 5], [1, 2, 3, 4], [1, 2, 3, 5], [1, 2, 4, 5], [1, 3, 4, 5], [2, 3, 4, 5], [1, 2, 3, 4, 5]],
+}
+
+func spawn_combination(maximum):
+	return SPAWN_COMBINATION[maximum]
+	
+
+const SPAWN_AMOUNT = {
+	1: {"min": 8, "max": 16},
+	2: {"min": 7, "max": 15},
+	3: {"min": 6, "max": 14},
+	4: {"min": 5, "max": 13},
+	5: {"min": 5, "max": 12},
+	6: {"min": 5, "max": 11},
+	7: {"min": 5, "max": 10},
+	8: {"min": 4, "max": 9},
+	9: {"min": 4, "max": 8},
+	10: {"min": 4, "max": 7},
+	11: {"min": 3, "max": 6},
+	12: {"min": 3, "max": 5},
+	13: {"min": 2, "max": 4},
+	14: {"min": 2, "max": 4},
+	15: {"min": 1, "max": 3},
+	16: {"min": 1, "max": 3},
+	17: {"min": 1, "max": 2},
+	18: {"min": 1, "max": 2},
+	19: {"min": 1, "max": 1},
+	20: {"min": 1, "max": 1}
 }
 
 static func stage(level):

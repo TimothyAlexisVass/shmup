@@ -40,14 +40,6 @@ func _enter_tree():
 	explosion_scale = (width if width > height else height) / 300.0
 
 func _ready():
-	if global_position == Vector2(0, 0):
-		global_position = Vector2(randi_range(50, G.play_area.max.x), G.play_area.min.y - height)
-	if global_position.y < 0:
-		global_position.y = G.play_area.min.y - height
-	if global_position.x > 0:
-		global_position.x = G.play_area.max.x + width
-	if global_position.x < 0:
-		global_position.x = G.play_area.min.x - width
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING

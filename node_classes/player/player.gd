@@ -87,7 +87,7 @@ func play():
 	is_playing = true
 	$GrazeArea.set_deferred("disabled", false)
 	$HitArea/CollisionShape2D.set_deferred("disabled", false)
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func handle_hit(_shot):
 	clear()
