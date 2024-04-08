@@ -104,14 +104,14 @@ func take_damage(amount):
 		$ShipBody/Area2D.set_deferred("monitorable", false)
 		stop_jets()
 		muzzles_status(false)
-		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), 0.4) # shine
+		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), G.HEALTH_TWEEN_TIME) # shine
 	if $HitPoints.value > 0:
 		var ratio = current_health / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
 		var green_component = min(1, 2 * ratio)
 		$HitPoints.get_theme_stylebox("fill").bg_color = Color(red_component, green_component, 0)
-		$HitPoints.modulate = Color(max(1.7, 1.7 + 1 - green_component), 1.7, 1, 1)
-		tween.tween_property($HitPoints, "value", current_health, 0.4)
+		tween.tween_property($HitPoints, "modulate", Color(max(1.7, 1.7 + 1 - green_component), 1.7, 1, 1), G.HEALTH_TWEEN_TIME)
+		tween.tween_property($HitPoints, "value", current_health, G.HEALTH_TWEEN_TIME)
 
 func clear():
 	G.explode(self)

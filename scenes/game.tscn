@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bxuuwmlma1xmm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_15kp8"]
-[ext_resource type="PackedScene" uid="uid://t35pb2ajkk0d" path="res://scenes/spawner.tscn" id="3_opaq1"]
+[ext_resource type="PackedScene" uid="uid://t35pb2ajkk0d" path="res://node_classes/spawner/spawner.tscn" id="3_opaq1"]
 [ext_resource type="PackedScene" uid="uid://nf2q1p0e06qp" path="res://scenes/parallax_background.tscn" id="4_2sncd"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_jnuwh"]
 [ext_resource type="Script" path="res://scripts/game_area.gd" id="5_o6sog"]

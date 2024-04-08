@@ -1,5 +1,8 @@
 class_name Game extends Node2D
 
+var level = 1
+var challenge = G.CHALLENGE.NONE
+
 func _enter_tree():
 	G.game = self
 	G.center = get_viewport().size / 2.0
@@ -21,3 +24,6 @@ func _process(_delta):
 		get_tree().quit()
 	elif Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
+
+func win():
+	print("You win!")
