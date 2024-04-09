@@ -17,7 +17,7 @@ func _ready():
 	G.shots_layer = $ViewLayers/ShotsLayer
 	G.viewport_size = get_viewport().get_size()
 	DataManager.load_data()
-	G.player = $Spawner.spawn_player_ship($Spawner.player_ships.keys().pick_random())
+	G.player = $SpawnManager.spawn_player_ship($SpawnManager.player_ships.keys().pick_random())
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://t35pb2ajkk0d"]
+[gd_scene load_steps=2 format=3 uid="uid://ekt375ghnrei"]
 
 [ext_resource type="Script" path="res://node_classes/spawner/spawner.gd" id="1_lthhu"]
 
@@ -6,7 +6,5 @@
 script = ExtResource("1_lthhu")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

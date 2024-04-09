@@ -78,18 +78,6 @@ static func at_points(maximum, type, modification):
 			spawn_at_points = [randi_range(1, maximum)]
 	return spawn_at_points
 
-const SPAWN_COMBINATION = {
-	1: [[0], [1]],
-	2: [[0], [1], [2], [1, 2]],
-	3: [[3], [1, 2], [1, 3], [2, 3], [1, 2, 3]],
-	4: [[4], [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4], [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4], [1, 2, 3, 4]],
-	5: [[5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5], [1, 2, 3], [1, 2, 4], [1, 2, 5], [1, 3, 4], [1, 3, 5], [1, 4, 5], [2, 3, 4], [2, 3, 5], [2, 4, 5], [3, 4, 5], [1, 2, 3, 4], [1, 2, 3, 5], [1, 2, 4, 5], [1, 3, 4, 5], [2, 3, 4, 5], [1, 2, 3, 4, 5]],
-}
-
-func spawn_combination(maximum):
-	return SPAWN_COMBINATION[maximum]
-	
-
 const SPAWN_AMOUNT = {
 	1: {"min": 8, "max": 16},
 	2: {"min": 7, "max": 15},
@@ -112,6 +100,10 @@ const SPAWN_AMOUNT = {
 	19: {"min": 1, "max": 1},
 	20: {"min": 1, "max": 1}
 }
+
+static func spawn_amount(wave_level):
+	wave_level = SPAWN_AMOUNT[wave_level]
+	return randi_range(wave_level.min, wave_level.max)
 
 static func stage(level):
 	if   level < 10:  return 1
@@ -764,4 +756,16 @@ for stage in range(26):
 	if level == 556:
 		break
 print("}")
+
+
+const SPAWN_COMBINATION = {
+	1: [[0], [1]],
+	2: [[0], [1], [2], [1, 2]],
+	3: [[3], [1, 2], [1, 3], [2, 3], [1, 2, 3]],
+	4: [[4], [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4], [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4], [1, 2, 3, 4]],
+	5: [[5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5], [1, 2, 3], [1, 2, 4], [1, 2, 5], [1, 3, 4], [1, 3, 5], [1, 4, 5], [2, 3, 4], [2, 3, 5], [2, 4, 5], [3, 4, 5], [1, 2, 3, 4], [1, 2, 3, 5], [1, 2, 4, 5], [1, 3, 4, 5], [2, 3, 4, 5], [1, 2, 3, 4, 5]],
+}
+
+func spawn_combination(maximum):
+	return SPAWN_COMBINATION[maximum]
 """
