@@ -72,21 +72,24 @@ func spawn(wave_number):
 	var wave_modification = Spawn.wave_modification()
 	var wave_max_spawn_point = max_spawn_point[wave_level]
 	var spawn_at_points = Spawn.at_points(wave_max_spawn_point, wave_type, wave_modification)
-	
-	prints("Wave:", wave, "level of wave:", wave_level, "spawning at points:", spawn_at_points, "max spawn point:", wave_max_spawn_point, "wave_type:", Spawn.WAVE_TYPE.keys()[wave_type-1], "modification:", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
+	var total_amount = Spawn.spawn_amount(wave_level)
+	var amount_per_spawn_point = ceil(total_amount / float(spawn_at_points.size()))
+
+	prints("Wave:", wave, "level of wave:", wave_level, "spawning at points:", spawn_at_points, "max spawn point:", wave_max_spawn_point, "total_amount:", total_amount, "per spawn point:", amount_per_spawn_point, "wave_type:", Spawn.WAVE_TYPE.keys()[wave_type-1], "modification:", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
 	match wave_type:
 		Spawn.WAVE_TYPE.MIRROR:
+			amount_per_spawn_point = ceil(amount_per_spawn_point / 2.0)
 			for spawn_point in spawn_at_points:
 				for spawner in [spawners[-spawn_point], spawners[spawn_point]]:
-					spawners[spawn_point].spawn(ships[wave_level].values().pick_random(), Spawn.spawn_amount(wave_level))
+					spawners[spawn_point].spawn(ships[wave_level].values().pick_random(), amount_per_spawn_point)
 					if spawn_point == 0:
 						break
 		Spawn.WAVE_TYPE.ALTERNATE:
 			for spawn_point in spawn_at_points:
-				spawners[spawn_point].spawn(ships[wave_level].values().pick_random(), Spawn.spawn_amount(wave_level))
+				spawners[spawn_point].spawn(ships[wave_level].values().pick_random(), amount_per_spawn_point)
 		Spawn.WAVE_TYPE.FLOW:
 			for spawn_point in spawn_at_points:
-				spawners[spawn_point].spawn(ships[wave_level].values().pick_random(), Spawn.spawn_amount(wave_level))
+				spawners[spawn_point].spawn(ships[wave_level].values().pick_random(), amount_per_spawn_point)
 
 func spawn_player_ship(player_ship_type):
 	get_viewport().warp_mouse(Vector2(540, 1540))
