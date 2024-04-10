@@ -10,6 +10,7 @@ enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
 enum CHALLENGE { NONE, EASY, MEDIUM, ELITE }
 
 static var game
+static var spawn_manager
 static var stuff
 static var center
 static var play_area

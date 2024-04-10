@@ -1,20 +1,20 @@
 extends Node
 
-var queue = []
+var spawn_queue = []
 
-func spawn(spawn_scene, amount):
-	prints(self.name, "adding", spawn_scene, "amount", amount, "to queue")
-	queue.append({"spawn_scene": spawn_scene, "amount": amount})
+func enqueue_spawn(scene_to_spawn, amount):
+	spawn_queue.append({"scene_to_spawn": scene_to_spawn, "amount": amount})
 	$SpawnTimer.start()
 
 func _on_spawn_timer_timeout():
-	if queue.size() > 0:
-		if queue[0].amount > 0:
-			var instance_to_spawn = queue[0].spawn_scene.instantiate()
+	if spawn_queue.size() > 0:
+		if spawn_queue[0].amount > 0:
+			var instance_to_spawn = spawn_queue[0].scene_to_spawn.instantiate()
 			instance_to_spawn.global_position = self.global_position
 			G.ships_layer.add_child(instance_to_spawn)
-			queue[0].amount -= 1
+			spawn_queue[0].amount -= 1
 		else:
-			queue.pop_front()
+			spawn_queue.pop_front()
 	else:
+		G.spawn_manager.waiting_for -= 1
 		$SpawnTimer.stop()
