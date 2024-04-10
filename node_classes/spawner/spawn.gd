@@ -143,7 +143,7 @@ static func stage(level):
 	elif level < 540: return 25
 	else:             return 26
 
-const WAVE_LEVEL = {
+const WAVE_TIER = {
 	1: [1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
 	2: [1, 1, 1, 1, 1, 1, 1, 1, 2, 2],
 	3: [1, 1, 1, 1, 1, 1, 1, 2, 2, 2],
@@ -756,7 +756,7 @@ initial_waves = [
 ]
 
 level = 1
-print("const WAVE_LEVELS = {")
+print("const WAVE_TIERS = {")
 for stage in range(26):
   waves = initial_waves[stage]
   for i in range(10 + min(stage, 20)):

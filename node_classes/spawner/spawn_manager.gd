@@ -40,9 +40,9 @@ var spawners = {}
 var wave_queue = []
 var waiting_for = []
 
-@onready var ships_left_for_next_wave = Spawn.ships_left_for_next_wave(G.game.level)[G.game.challenge]
-@onready var max_spawn_point = Spawn.max_spawn_point(G.game.level)
-@onready var waves = Spawn.WAVE_LEVEL[G.game.level]
+@onready var ships_left_for_next_wave = Spawn.ships_left_for_next_wave(G.level.number)[G.level.challenge]
+@onready var max_spawn_point = Spawn.max_spawn_point(G.level.number)
+@onready var waves = Spawn.WAVE_TIER[G.level.number]
 @onready var number_of_waves = waves.size()
 
 func _enter_tree():
@@ -69,22 +69,22 @@ func _ready():
 		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
 
 func enqueue_wave(wave_number):
-	var wave_level = waves[wave_number]
+	var wave_tier = waves[wave_number]
 	var wave_type = Spawn.wave_type()
-	wave_type = Spawn.WAVE_TYPE.ALTERNATE
 	var wave_modification = Spawn.wave_modification()
-	wave_modification = Spawn.WAVE_MODIFICATION.WITH_MID
-	var spawn_at_points = Spawn.at_points(max_spawn_point[wave_level], wave_type, wave_modification)
-	var total_amount = Spawn.spawn_amount(wave_level)
+	var spawn_at_points = Spawn.at_points(max_spawn_point[wave_tier], wave_type, wave_modification)
+	var total_amount = Spawn.spawn_amount(wave_tier)
 	var amount_per_spawn_point = ceil(total_amount / float(spawn_at_points.size()))
 
-	prints("Wave:", wave, "level of wave:", wave_level, "spawning at points:", spawn_at_points, "total_amount:", total_amount, "wave_type:", Spawn.WAVE_TYPE.keys()[wave_type-1], "modification:", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
+	print("\n--------------------------------------")
+	print("Wave: ", wave, " (level ", wave_tier, ")")
+	print("Spawning at points: ", spawn_at_points, " - ", Spawn.WAVE_TYPE.keys()[wave_type-1], "/", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
 
 	match wave_type:
 		Spawn.WAVE_TYPE.MIRROR:
 			amount_per_spawn_point = ceil(amount_per_spawn_point / 2.0)
 			wave_queue.append({
-				"wave_level": wave_level,
+				"wave_tier": wave_tier,
 				"amount": amount_per_spawn_point,
 				"sequence": spawn_at_points + Spawn.points_at_opposite_side(spawn_at_points)
 			})
@@ -92,14 +92,14 @@ func enqueue_wave(wave_number):
 			amount_per_spawn_point = ceil(amount_per_spawn_point / 1.5)
 			for sequence in [spawn_at_points, Spawn.points_at_opposite_side(spawn_at_points)]:
 				wave_queue.append({
-					"wave_level": wave_level,
+					"wave_tier": wave_tier,
 					"amount": amount_per_spawn_point,
 					"sequence": sequence
 				})
 		Spawn.WAVE_TYPE.FLOW:
 			for spawn_point in spawn_at_points:
 				wave_queue.append({
-					"wave_level": wave_level,
+					"wave_tier": wave_tier,
 					"amount": amount_per_spawn_point,
 					"sequence": [spawn_point]
 				})
@@ -109,17 +109,17 @@ func spawn_player_ship(player_ship_type):
 	get_viewport().warp_mouse(Vector2(540, 1540))
 	var player_ship = player_ship_scene.instantiate()
 	player_ship.initialize(player_ships[player_ship_type], DataManager.player_data.levels)
-	G.game.add_child(player_ship)
+	G.level.add_child(player_ship)
 	return player_ship
 
 func _on_wave_timer_timeout():
 	if level_completed:
 		$WaveTimer.stop()
-		G.game.win()
+		G.level.win()
 	elif wave_queue.size() > 0 and waiting_for.is_empty():
 		var spawn = wave_queue.pop_front()
 		for spawn_point in spawn.sequence:
-			var spawn_scene = ships[spawn.wave_level].values().pick_random()
+			var spawn_scene = ships[spawn.wave_tier].values().pick_random()
 			spawners[spawn_point].enqueue_spawn(spawn_scene, spawn.amount)
 			prints("enqueued:", spawn.amount, "at:", spawn_point)
 	elif wave < number_of_waves and waiting_for.is_empty():

@@ -9,7 +9,7 @@ const HEALTH_TWEEN_TIME = 0.4
 enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
 enum CHALLENGE { NONE, EASY, MEDIUM, ELITE }
 
-static var game
+static var level
 static var spawn_manager
 static var stuff
 static var center
@@ -43,11 +43,11 @@ static func colored_light(color):
 	var max_component = max(color.r, color.g, color.b)
 	return color * (1 / max_component) * color * 2.5
 
-static func diminishing_increase(base, level):
-	return snapped(base * sqrt(level + 1), 0.01)
+static func diminishing_increase(base, skill_level):
+	return snapped(base * sqrt(skill_level + 1), 0.01)
 
-static func linear_increase(base, level, magnitude):
-	return base + level * magnitude
+static func linear_increase(base, skill_level, magnitude):
+	return base + skill_level * magnitude
 
 static func random_position_in_camera_view():
 	var camera_position = camera.global_position

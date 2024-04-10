@@ -64,7 +64,6 @@ func initialize(data, levels):
 	explosion_scale = max(width, height) / 300.0
 
 func _ready():
-	print(get_viewport().size)
 	play()
 
 func _physics_process(delta):
@@ -80,7 +79,7 @@ func _physics_process(delta):
 func play():
 	for muzzle in $CannonConfiguration.get_children():
 		muzzle.get_node("Timer").start()
-	visible = true
+	set_visible(true)
 	is_playing = true
 	$GrazeArea.set_deferred("disabled", false)
 	$HitArea/CollisionShape2D.set_deferred("disabled", false)
@@ -92,7 +91,7 @@ func handle_hit(_shot):
 func clear():
 	for muzzle in $CannonConfiguration.get_children():
 		muzzle.get_node("Timer").stop()
-	visible = false
+	set_visible(false)
 	is_playing = false
 	G.explode(self)
 	$GrazeArea.set_deferred("disabled", true)

@@ -1,10 +1,10 @@
-class_name Game extends Node2D
+class_name Level extends Node2D
 
-var level = 1
+var number = 1
 var challenge = G.CHALLENGE.NONE
 
 func _enter_tree():
-	G.game = self
+	G.level = self
 	G.center = get_viewport().size / 2.0
 	G.play_area = { "min": -G.GAME_AREA_OFFSET, "max": Vector2(get_viewport().size) + G.GAME_AREA_OFFSET }
 	G.play_area_fourth = (G.play_area.max - G.play_area.min) / 4.0
@@ -27,4 +27,5 @@ func _process(_delta):
 		get_tree().reload_current_scene()
 
 func win():
-	print("You win!")
+	
+	("You win!")
