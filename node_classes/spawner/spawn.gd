@@ -63,28 +63,29 @@ static func wave_modification():
 	else:
 		return WAVE_MODIFICATION.ZIG_ZAG
 
-static func at_points(maximum, type, modification):
+static func at_points(maximum_point, type, modification):
 	var spawn_at_points = [0] if modification == Spawn.WAVE_MODIFICATION.WITH_MID else []
 
 	if type == Spawn.WAVE_TYPE.FLOW:
-		for i in range(1, randi_range(2, maximum + 1)):
+		var reversed = spawn_at_points.duplicate()
+		for i in range(1, randi_range(2, maximum_point + 1)):
 			var point = G.random_sign(i) if modification == Spawn.WAVE_MODIFICATION.ZIG_ZAG else i
 			spawn_at_points = [-point] + spawn_at_points + [point]
+			reversed = [point] + reversed + [-point]
+		spawn_at_points += reversed
 	else:
-		for spawn_point in range(1, maximum + 1):
+		for spawn_point in range(1, maximum_point + 1):
 			if G.random_boolean():
 				spawn_at_points.append(G.random_sign(spawn_point) if modification == Spawn.WAVE_MODIFICATION.ZIG_ZAG else spawn_point)
 		if spawn_at_points.is_empty():
-			spawn_at_points = [randi_range(1, maximum)]
+			spawn_at_points = [randi_range(1, maximum_point)]
 	spawn_at_points.reverse()
 	return spawn_at_points
 
 static func points_at_opposite_side(points):
 	var result = []
 	for point in points:
-		if point > 0:
-			result.append(-point)
-	result.reverse()
+		result.append(-point)
 	return result
 
 const SPAWN_AMOUNT = {
@@ -775,6 +776,6 @@ const SPAWN_COMBINATION = {
 	5: [[5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5], [1, 2, 3], [1, 2, 4], [1, 2, 5], [1, 3, 4], [1, 3, 5], [1, 4, 5], [2, 3, 4], [2, 3, 5], [2, 4, 5], [3, 4, 5], [1, 2, 3, 4], [1, 2, 3, 5], [1, 2, 4, 5], [1, 3, 4, 5], [2, 3, 4, 5], [1, 2, 3, 4, 5]],
 }
 
-func spawn_combination(maximum):
+func spawn_combination(maximum_point):
 	return SPAWN_COMBINATION[maximum]
 """

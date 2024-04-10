@@ -71,7 +71,9 @@ func _ready():
 func enqueue_wave(wave_number):
 	var wave_level = waves[wave_number]
 	var wave_type = Spawn.wave_type()
+	wave_type = Spawn.WAVE_TYPE.MIRROR
 	var wave_modification = Spawn.wave_modification()
+	wave_modification = Spawn.WAVE_MODIFICATION.WITH_MID
 	var spawn_at_points = Spawn.at_points(max_spawn_point[wave_level], wave_type, wave_modification)
 	var total_amount = Spawn.spawn_amount(wave_level)
 	var amount_per_spawn_point = ceil(total_amount / float(spawn_at_points.size()))
@@ -87,6 +89,7 @@ func enqueue_wave(wave_number):
 				"sequence": spawn_at_points + Spawn.points_at_opposite_side(spawn_at_points)
 			})
 		Spawn.WAVE_TYPE.ALTERNATE:
+			amount_per_spawn_point = ceil(amount_per_spawn_point / 1.5)
 			for sequence in [spawn_at_points, Spawn.points_at_opposite_side(spawn_at_points)]:
 				wave_queue.append({
 					"wave_level": wave_level,
@@ -94,16 +97,12 @@ func enqueue_wave(wave_number):
 					"sequence": sequence
 				})
 		Spawn.WAVE_TYPE.FLOW:
-			amount_per_spawn_point = ceil(amount_per_spawn_point / 4.0)
-			var all_points = spawn_at_points + Spawn.points_at_opposite_side(spawn_at_points)
-			for e in range(2):
-				for spawn_point in all_points:
-					wave_queue.append({
-						"wave_level": wave_level,
-						"amount": amount_per_spawn_point,
-						"sequence": [spawn_point]
-					})
-				all_points.reverse()
+			for spawn_point in spawn_at_points:
+				wave_queue.append({
+					"wave_level": wave_level,
+					"amount": amount_per_spawn_point,
+					"sequence": [spawn_point]
+				})
 	
 
 func spawn_player_ship(player_ship_type):
