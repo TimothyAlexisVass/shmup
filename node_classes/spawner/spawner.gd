@@ -4,7 +4,7 @@ var spawn_queue = []
 
 func enqueue_spawn(scene_to_spawn, amount):
 	spawn_queue.append({"scene_to_spawn": scene_to_spawn, "amount": amount})
-	$SpawnTimer.start()
+	G.spawn_manager.waiting_for.append(self)
 
 func _on_spawn_timer_timeout():
 	if spawn_queue.size() > 0:
@@ -16,5 +16,4 @@ func _on_spawn_timer_timeout():
 		else:
 			spawn_queue.pop_front()
 	else:
-		G.spawn_manager.waiting_for -= 1
-		$SpawnTimer.stop()
+		G.spawn_manager.waiting_for.erase(self)
