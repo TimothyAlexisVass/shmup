@@ -76,7 +76,8 @@ func enqueue_wave(wave_number):
 	var total_amount = Spawn.spawn_amount(wave_level)
 	var amount_per_spawn_point = ceil(total_amount / float(spawn_at_points.size()))
 
-	prints("Wave:", wave, "level of wave:", wave_level, "spawning at points:", spawn_at_points, "total_amount:", total_amount, "per spawn point:", amount_per_spawn_point, "wave_type:", Spawn.WAVE_TYPE.keys()[wave_type-1], "modification:", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
+	prints("Wave:", wave, "level of wave:", wave_level, "spawning at points:", spawn_at_points, "total_amount:", total_amount, "wave_type:", Spawn.WAVE_TYPE.keys()[wave_type-1], "modification:", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
+
 	match wave_type:
 		Spawn.WAVE_TYPE.MIRROR:
 			amount_per_spawn_point = ceil(amount_per_spawn_point / 2.0)
@@ -95,7 +96,7 @@ func enqueue_wave(wave_number):
 		Spawn.WAVE_TYPE.FLOW:
 			amount_per_spawn_point = ceil(amount_per_spawn_point / 4.0)
 			var all_points = spawn_at_points + Spawn.points_at_opposite_side(spawn_at_points)
-			for i in range(2):
+			for e in range(2):
 				for spawn_point in all_points:
 					wave_queue.append({
 						"wave_level": wave_level,
@@ -113,18 +114,19 @@ func spawn_player_ship(player_ship_type):
 	return player_ship
 
 func _on_wave_timer_timeout():
+	assert(waiting_for >= 0)
 	if level_completed:
 		$WaveTimer.stop()
 		G.game.win()
-	elif wave < number_of_waves and waiting_for == 0:
-		if get_tree().get_nodes_in_group("Ships").size() <= ships_left_for_next_wave:
-			enqueue_wave(wave)
-			wave += 1
-	assert(waiting_for >= 0)
-	if wave_queue.size() > 0 and waiting_for == 0:
+	elif wave_queue.size() > 0 and waiting_for == 0:
 		var spawn = wave_queue.pop_front()
 		for spawn_point in spawn.sequence:
 			var spawn_scene = ships[spawn.wave_level].values().pick_random()
 			spawners[spawn_point].enqueue_spawn(spawn_scene, spawn.amount)
 			waiting_for += 1
 			prints("enqueued:", spawn.amount, "at:", spawn_point)
+	elif wave < number_of_waves and waiting_for == 0:
+		if get_tree().get_nodes_in_group("Ships").size() <= ships_left_for_next_wave:
+			enqueue_wave(wave)
+			wave += 1
+	

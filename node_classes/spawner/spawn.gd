@@ -76,7 +76,6 @@ static func at_points(maximum, type, modification):
 				spawn_at_points.append(G.random_sign(spawn_point) if modification == Spawn.WAVE_MODIFICATION.ZIG_ZAG else spawn_point)
 		if spawn_at_points.is_empty():
 			spawn_at_points = [randi_range(1, maximum)]
-	spawn_at_points.sort()
 	spawn_at_points.reverse()
 	return spawn_at_points
 
