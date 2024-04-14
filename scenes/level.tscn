@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxuuwmlma1xmm"]
+[gd_scene load_steps=10 format=3 uid="uid://bxuuwmlma1xmm"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_15kp8"]
 [ext_resource type="PackedScene" uid="uid://t35pb2ajkk0d" path="res://node_classes/spawner/spawn_manager.tscn" id="3_opaq1"]
@@ -20,19 +20,6 @@ height = 100
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Environment" id="Environment_1a5l6"]
-background_mode = 3
-ambient_light_energy = 6.61
-glow_enabled = true
-glow_levels/1 = 4.0
-glow_levels/2 = 2.0
-glow_levels/4 = 3.0
-glow_levels/5 = 0.0
-glow_intensity = 0.3
-glow_strength = 0.8
-glow_blend_mode = 1
-glow_hdr_threshold = 0.75
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_15kp8")
@@ -100,9 +87,6 @@ position = Vector2(-360, -90)
 rotation = -1.69995
 blend_mode = 2
 height = 0.55
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1a5l6")
 
 [connection signal="area_exited" from="SpawnManager/GameArea" to="SpawnManager/GameArea" method="_on_exited"]
 [connection signal="body_exited" from="SpawnManager/GameArea" to="SpawnManager/GameArea" method="_on_exited"]

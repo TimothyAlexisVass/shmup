@@ -1,7 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx8bpqmkmu833"]
+[gd_scene load_steps=3 format=3 uid="uid://dx8bpqmkmu833"]
 
 [ext_resource type="PackedScene" uid="uid://drsphabfu17h7" path="res://scenes/level_selection.tscn" id="1_hc4vd"]
+
+[sub_resource type="Environment" id="Environment_pty44"]
+background_mode = 3
+ambient_light_energy = 6.61
+glow_enabled = true
+glow_levels/1 = 4.0
+glow_levels/2 = 2.0
+glow_levels/4 = 3.0
+glow_levels/5 = 0.0
+glow_intensity = 0.3
+glow_strength = 0.8
+glow_blend_mode = 1
+glow_hdr_threshold = 0.75
 
 [node name="Shmup" type="Node2D"]
 
 [node name="LevelSelection" parent="." instance=ExtResource("1_hc4vd")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pty44")
