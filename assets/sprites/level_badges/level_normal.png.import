@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ny4b3jiig0mk"
-path="res://.godot/imported/Levelbadges.png-cc7bed896c928416f186b0afe6edc028.ctex"
+uid="uid://rnp067mqtk0j"
+path="res://.godot/imported/level_normal.png-e23f98c0d2d0c75d9630ad26e4320c93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level_badges/Levelbadges.png"
-dest_files=["res://.godot/imported/Levelbadges.png-cc7bed896c928416f186b0afe6edc028.ctex"]
+source_file="res://assets/sprites/level_badges/level_normal.png"
+dest_files=["res://.godot/imported/level_normal.png-e23f98c0d2d0c75d9630ad26e4320c93.ctex"]
 
 [params]
 

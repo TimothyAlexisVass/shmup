@@ -1,9 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://drsphabfu17h7"]
+[gd_scene load_steps=17 format=3 uid="uid://drsphabfu17h7"]
 
 [ext_resource type="Script" path="res://scripts/level_selection.gd" id="1_btxd3"]
 [ext_resource type="Script" path="res://scripts/level_button.gd" id="2_vpbvk"]
+[ext_resource type="PackedScene" uid="uid://50squfico0kk" path="res://scenes/level_selection_background.tscn" id="3_q6qwf"]
 [ext_resource type="Texture2D" uid="uid://belrdumguxqpf" path="res://assets/sprites/level_badges/level.png" id="3_xce7d"]
 [ext_resource type="Script" path="res://scenes/touch_camera_controller.gd" id="5_mf7nh"]
+[ext_resource type="Texture2D" uid="uid://um0v6mgu1ri2" path="res://assets/sprites/level_badges/disabled.png" id="6_g707x"]
+[ext_resource type="Texture2D" uid="uid://rnp067mqtk0j" path="res://assets/sprites/level_badges/level_normal.png" id="6_laot0"]
+[ext_resource type="Texture2D" uid="uid://b24a8m613iaij" path="res://assets/sprites/level_badges/backglow.png" id="8_p11nd"]
+
+[sub_resource type="Gradient" id="Gradient_rdepl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hc8uk"]
+gradient = SubResource("Gradient_rdepl")
+width = 100
+height = 100
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_h007r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.66537, 0.670447), -1.01154, -1.01154, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_oh6re"]
+curve = SubResource("Curve_h007r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6see5"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 0, 0)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 7.0
+alpha_curve = SubResource("CurveTexture_oh6re")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3ih2c"]
+diffuse_texture = ExtResource("3_xce7d")
+normal_texture = ExtResource("6_laot0")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vpi4f"]
+diffuse_texture = ExtResource("6_g707x")
+normal_texture = ExtResource("6_laot0")
 
 [sub_resource type="BitMap" id="BitMap_g220u"]
 
@@ -15,34 +57,79 @@ position = Vector2(540, 980)
 limit_top = -10000
 script = ExtResource("5_mf7nh")
 
+[node name="Lights" type="Node2D" parent="Camera2D"]
+
+[node name="Red" type="PointLight2D" parent="Camera2D/Lights"]
+position = Vector2(405, -903)
+scale = Vector2(3.70233, 4.19736)
+color = Color(1, 0.466667, 0.396078, 1)
+energy = 1.84
+texture = SubResource("GradientTexture2D_hc8uk")
+texture_scale = 5.3
+
+[node name="Yellow" type="PointLight2D" parent="Camera2D/Lights"]
+position = Vector2(-505, 38)
+scale = Vector2(6.8367, 5.37762)
+color = Color(1, 1, 0.498039, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_hc8uk")
+texture_scale = 3.0
+
+[node name="ParallaxBackground" parent="Camera2D" instance=ExtResource("3_q6qwf")]
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Lines"]
+visible = false
+modulate = Color(1.5, 1.5, 5, 0.529)
+points = PackedVector2Array(729, 408, 386, 651)
+default_color = Color(1, 1, 1, 0.286275)
+
 [node name="Levels" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="CurrentLevel" type="GPUParticles2D" parent="Levels"]
+modulate = Color(7, 3, 1, 0.105882)
+position = Vector2(300, 176)
+scale = Vector2(0.2, 0.2)
+amount = 800
+process_material = SubResource("ParticleProcessMaterial_6see5")
+lifetime = 8.0
+preprocess = 8.0
+
 [node name="LevelButton" type="TextureButton" parent="Levels"]
 layout_mode = 2
-offset_left = 670.0
-offset_top = 100.0
-offset_right = 1682.0
-offset_bottom = 1098.0
+offset_left = 200.0
+offset_top = 85.0
+offset_right = 1212.0
+offset_bottom = 1083.0
 scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("3_xce7d")
+texture_normal = SubResource("CanvasTexture_3ih2c")
+texture_disabled = SubResource("CanvasTexture_vpi4f")
 texture_click_mask = SubResource("BitMap_g220u")
 script = ExtResource("2_vpbvk")
 
 [node name="Label" type="Label" parent="Levels/LevelButton"]
+modulate = Color(1, 1, 1.6, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.299
 anchor_top = 0.311
 anchor_right = 0.689
 anchor_bottom = 0.588
-offset_left = -2.58801
-offset_top = -17.378
-offset_right = 9.73199
-offset_bottom = -20.824
+offset_left = -2.58798
+offset_top = -2.37799
+offset_right = -2.26801
+offset_bottom = -5.82397
 theme_override_font_sizes/font_size = 200
 text = "1"
 horizontal_alignment = 1
+
+[node name="BackGlow" type="Sprite2D" parent="Levels/LevelButton"]
+modulate = Color(1, 1, 4, 0.105882)
+show_behind_parent = true
+position = Vector2(505, 500)
+texture = ExtResource("8_p11nd")

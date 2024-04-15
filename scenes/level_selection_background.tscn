@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://50squfico0kk"]
+
+[ext_resource type="PackedScene" uid="uid://nf2q1p0e06qp" path="res://scenes/parallax_background.tscn" id="1_60e63"]
+[ext_resource type="Texture2D" uid="uid://cpg46fpxmedk5" path="res://assets/space_backgrounds/nebula.png" id="2_r5bt5"]
+
+[node name="ParallaxBackground" instance=ExtResource("1_60e63")]
+
+[node name="-999" parent="." index="0"]
+motion_mirroring = Vector2(0, 4096)
+
+[node name="SpaceBackground" parent="-999" index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_r5bt5")
