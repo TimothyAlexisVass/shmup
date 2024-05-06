@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diitn6jmermyk"
-path="res://.godot/imported/vash_normal.png-0dc43f3e3ca6f66b7a8f60481627f2e6.ctex"
+uid="uid://bldsgxqa2bd1h"
+path="res://.godot/imported/sabir_3.png-eac6d5725f8b76febd6f7f245b3f9d4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/vash/vash_normal.png"
-dest_files=["res://.godot/imported/vash_normal.png-0dc43f3e3ca6f66b7a8f60481627f2e6.ctex"]
+source_file="res://assets/sprites/ships/sabir/sabir_3.png"
+dest_files=["res://.godot/imported/sabir_3.png-eac6d5725f8b76febd6f7f245b3f9d4c.ctex"]
 
 [params]
 

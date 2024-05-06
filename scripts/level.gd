@@ -27,5 +27,4 @@ func _process(_delta):
 		get_tree().reload_current_scene()
 
 func win():
-	
 	("You win!")

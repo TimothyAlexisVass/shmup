@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diitn6jmermyk"
-path="res://.godot/imported/vash_normal.png-0dc43f3e3ca6f66b7a8f60481627f2e6.ctex"
+uid="uid://c28g4a2wfklk4"
+path="res://.godot/imported/garra_2.png-ee2f5f501da8d6205711f7cd3aab1800.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/vash/vash_normal.png"
-dest_files=["res://.godot/imported/vash_normal.png-0dc43f3e3ca6f66b7a8f60481627f2e6.ctex"]
+source_file="res://assets/sprites/ships/garra/garra_2.png"
+dest_files=["res://.godot/imported/garra_2.png-ee2f5f501da8d6205711f7cd3aab1800.ctex"]
 
 [params]
 

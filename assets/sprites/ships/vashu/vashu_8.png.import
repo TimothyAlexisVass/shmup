@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diitn6jmermyk"
-path="res://.godot/imported/vash_normal.png-0dc43f3e3ca6f66b7a8f60481627f2e6.ctex"
+uid="uid://76m0lmxb1edf"
+path="res://.godot/imported/vashu_8.png-129cc2fd216997f54619cf1ecd9b0684.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/vash/vash_normal.png"
-dest_files=["res://.godot/imported/vash_normal.png-0dc43f3e3ca6f66b7a8f60481627f2e6.ctex"]
+source_file="res://assets/sprites/ships/vashu/vashu_8.png"
+dest_files=["res://.godot/imported/vashu_8.png-129cc2fd216997f54619cf1ecd9b0684.ctex"]
 
 [params]
 
