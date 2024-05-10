@@ -40,9 +40,9 @@ var player_ships = {
 }
 
 var spawner_scene = preload("res://node_classes/spawner/spawner.tscn")
-var spawners = {}
-var wave_queue = []
 var waiting_for = []
+var wave_queue = []
+var spawn_points
 
 @onready var ships_left_for_next_wave = Spawn.ships_left_for_next_wave(G.level.number)[G.level.challenge]
 @onready var max_spawn_point = Spawn.max_spawn_point(G.level.number)
@@ -50,7 +50,7 @@ var waiting_for = []
 @onready var number_of_waves = waves.size()
 
 func _enter_tree():
-	var spawn_points = {
+	spawn_points = {
 		-5: Vector2(G.play_area.min.x, G.play_area.max.y - G.play_area_fourth.y),
 		-4: Vector2(G.play_area.min.x, G.center.y),
 		-3: Vector2(G.play_area.min.x, G.play_area.min.y + G.play_area_fourth.y),
@@ -63,10 +63,6 @@ func _enter_tree():
 		4: Vector2(G.play_area.max.x, G.center.y),
 		5: Vector2(G.play_area.max.x, G.play_area.max.y - G.play_area_fourth.y),
 	}
-	for key in spawn_points:
-		spawners[key] = spawner_scene.instantiate()
-		spawners[key].global_position = spawn_points[key]
-		add_child(spawners[key])
 
 func _ready():
 	for player_ship in player_ships:
@@ -124,7 +120,10 @@ func _on_wave_timer_timeout():
 		var spawn = wave_queue.pop_front()
 		for spawn_point in spawn.sequence:
 			var spawn_scene = ships[spawn.wave_tier].values().pick_random()
-			spawners[spawn_point].enqueue_spawn(spawn_scene, spawn.amount)
+			var spawner_instance = spawner_scene.instantiate()
+			spawner_instance.global_position = spawn_points[spawn_point]
+			add_child(spawner_instance)
+			spawner_instance.spawn(spawn_scene, spawn.amount)
 			prints("enqueued:", spawn.amount, "at:", spawn_point)
 	elif wave < number_of_waves and waiting_for.is_empty():
 		if get_tree().get_nodes_in_group("Ships").size() <= ships_left_for_next_wave:

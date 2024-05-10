@@ -9,6 +9,7 @@ const PADDING = 10
 @export var explosion: PackedScene
 @export var rotation_speed: float = 0.01
 @export var acceleration: float = 0.001
+@export var spawn_wait_time: float = 1.0
 
 enum DESTINATION {RANDOM, FIXED, FACING_DIRECTION}
 @export var destination: DESTINATION
