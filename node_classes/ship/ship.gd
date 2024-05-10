@@ -35,16 +35,16 @@ var velocity = Vector2(0, 0)
 
 func _enter_tree():
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
-	width = image_size.x * scale.x
-	height = image_size.y * scale.y
-	explosion_scale = (width if width > height else height) / 300.0
+	width = image_size.x
+	height = image_size.y
+	explosion_scale = (scale.x * width if width > height else scale.y * height) / 300.0
 
 func _ready():
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING
 	$HitPoints.position.y = -(height / 2 + $HitPoints.size.y + PADDING)
-	$HitPoints.size.x = width / scale.x - PADDING * 2
+	$HitPoints.size.x = width - PADDING * 2
 	if destination == DESTINATION.RANDOM:
 		target = G.random_position_in_camera_view()
 	elif destination == DESTINATION.FIXED:

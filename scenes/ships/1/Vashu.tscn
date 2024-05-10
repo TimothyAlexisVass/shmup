@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://n4od4kam7im1"]
+
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_p363d"]
+[ext_resource type="Texture2D" uid="uid://cuypodlfqwv3l" path="res://assets/sprites/ships/vashu/vashu_3.png" id="2_d8604"]
+[ext_resource type="Texture2D" uid="uid://cl7346jnjuy7x" path="res://assets/sprites/ships/vashu/vashu_normal.png" id="3_l2we4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_807q7"]
+diffuse_texture = ExtResource("2_d8604")
+normal_texture = ExtResource("3_l2we4")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrm5i"]
+resource_local_to_scene = true
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Ship" instance=ExtResource("1_p363d")]
+face_towards = 1
+
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(29, -370)
+polygon = PackedVector2Array(6, 0, 36, -10, 41, -130, 11, -130, 0.999998, -55, -59, -55, -69, -125, -99, -125, -99, -20, -64, 0, -84, 140, -124, 145, -274, 250, -324, 30, -484, 90, -444, 415, -94, 870, -54, 835, -124, 685, -124, 470, -84, 255, 26, 255, 66, 465, 76, 680, 6, 835, 36, 870, 391, 415, 426, 85, 271, 35, 231, 240, 66, 145, 31, 145)
+
+[node name="Sprite" parent="ShipBody" index="1"]
+texture = SubResource("CanvasTexture_807q7")
+
+[node name="HitPoints" parent="." index="1"]
+theme_override_styles/fill = SubResource("StyleBoxFlat_hrm5i")
