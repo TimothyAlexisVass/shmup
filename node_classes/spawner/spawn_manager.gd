@@ -9,6 +9,7 @@ var ships = {
 	1: {
 		"Vash": preload("res://scenes/ships/1/Vash.tscn"),
 		"Vashu": preload("res://scenes/ships/1/Vashu.tscn"),
+		"Sabre": preload("res://scenes/ships/1/Sabre.tscn"),
 	},
 	2: {
 		"Sabir": preload("res://scenes/ships/2/Sabir.tscn")

@@ -10,14 +10,14 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_5hw0l"]
+[sub_resource type="CurveTexture" id="CurveTexture_oiy6f"]
 curve = SubResource("Curve_x3n7m")
 
 [sub_resource type="Curve" id="Curve_btand"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.333847), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_rkj31"]
+[sub_resource type="CurveTexture" id="CurveTexture_ua5pe"]
 curve = SubResource("Curve_btand")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gq27g"]
@@ -32,8 +32,8 @@ initial_velocity_max = 2400.0
 gravity = Vector3(0, 0, 0)
 scale_min = 5.0
 scale_max = 5.0
-scale_curve = SubResource("CurveTexture_rkj31")
-alpha_curve = SubResource("CurveTexture_5hw0l")
+scale_curve = SubResource("CurveTexture_ua5pe")
+alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f4y87"]
 diffuse_texture = ExtResource("3_gd2rg")

@@ -1,8 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://n4od4kam7im1"]
+[gd_scene load_steps=12 format=3 uid="uid://n4od4kam7im1"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_p363d"]
 [ext_resource type="Texture2D" uid="uid://cuypodlfqwv3l" path="res://assets/sprites/ships/vashu/vashu_3.png" id="2_d8604"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_n2wci"]
 [ext_resource type="Texture2D" uid="uid://cl7346jnjuy7x" path="res://assets/sprites/ships/vashu/vashu_normal.png" id="3_l2we4"]
+
+[sub_resource type="Curve" id="Curve_g44fs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5hw0l"]
+curve = SubResource("Curve_g44fs")
+
+[sub_resource type="Curve" id="Curve_rlgdc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.333847), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rkj31"]
+curve = SubResource("Curve_rlgdc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_128tw"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(25, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 2400.0
+initial_velocity_max = 2400.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_rkj31")
+alpha_curve = SubResource("CurveTexture_5hw0l")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_807q7"]
 diffuse_texture = ExtResource("2_d8604")
@@ -17,13 +47,22 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_p363d")]
+scale = Vector2(0.12, 0.12)
 face_towards = 1
+
+[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+scale = Vector2(1, 1)
+
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("2_n2wci")]
+modulate = Color(8, 3, 1, 0.3)
+position = Vector2(0, -414)
+process_material = SubResource("ParticleProcessMaterial_128tw")
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
 position = Vector2(29, -370)
 polygon = PackedVector2Array(6, 0, 36, -10, 41, -130, 11, -130, 0.999998, -55, -59, -55, -69, -125, -99, -125, -99, -20, -64, 0, -84, 140, -124, 145, -274, 250, -324, 30, -484, 90, -444, 415, -94, 870, -54, 835, -124, 685, -124, 470, -84, 255, 26, 255, 66, 465, 76, 680, 6, 835, 36, 870, 391, 415, 426, 85, 271, 35, 231, 240, 66, 145, 31, 145)
 
-[node name="Sprite" parent="ShipBody" index="1"]
+[node name="Sprite" parent="ShipBody" index="2"]
 texture = SubResource("CanvasTexture_807q7")
 
 [node name="HitPoints" parent="." index="1"]
