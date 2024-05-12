@@ -51,7 +51,6 @@ scale = Vector2(0.12, 0.12)
 face_towards = 1
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="0"]
-scale = Vector2(1, 1)
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("2_n2wci")]
 modulate = Color(8, 3, 1, 0.3)

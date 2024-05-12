@@ -13,7 +13,8 @@ var ships = {
 		"Sabran": preload("res://scenes/ships/1/Sabran.tscn"),
 	},
 	2: {
-		"Sabir": preload("res://scenes/ships/2/Sabir.tscn")
+		"Sabir": preload("res://scenes/ships/2/Sabir.tscn"),
+		"Garra": preload("res://scenes/ships/2/Garra.tscn")
 	},
 	3: {
 		

@@ -49,7 +49,6 @@ corner_radius_bottom_left = 4
 [node name="Ship" instance=ExtResource("1_acwdw")]
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="0"]
-scale = Vector2(1, 1)
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("2_sa1uy")]
 modulate = Color(4, 1.5, 0, 0.3)
