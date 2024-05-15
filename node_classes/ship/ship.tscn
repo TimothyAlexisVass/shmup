@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp30aay75h42t"]
+[gd_scene load_steps=11 format=3 uid="uid://dp30aay75h42t"]
 
 [ext_resource type="Script" path="res://node_classes/ship/ship.gd" id="1_u2d0h"]
 [ext_resource type="PackedScene" uid="uid://j72yxl2kkkoo" path="res://scenes/explosions/fire_explosion.tscn" id="2_lvfla"]
 [ext_resource type="Texture2D" uid="uid://btcvqsqyq3618" path="res://assets/sprites/ships/vash/vash_1.png" id="3_gkbpv"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="3_md3vc"]
+[ext_resource type="Texture2D" uid="uid://c21ftcjd257ec" path="res://assets/sprites/ships/tier_star.png" id="3_n34rk"]
 [ext_resource type="Texture2D" uid="uid://diitn6jmermyk" path="res://assets/sprites/ships/vash/vash_normal.png" id="4_g7ory"]
 [ext_resource type="StyleBox" uid="uid://c8xpn58skk06e" path="res://styles/hit_points_bar_background.tres" id="7_nydlk"]
 [ext_resource type="StyleBox" uid="uid://cvnn0obm23hqj" path="res://styles/hit_points_bar_fill.tres" id="8_bhdqd"]
@@ -28,6 +29,11 @@ points = 200.0
 explosion = ExtResource("2_lvfla")
 destination = 2
 move = 1
+
+[node name="TierSprite" type="Sprite2D" parent="."]
+light_mask = 512
+scale = Vector2(6, 6)
+texture = ExtResource("3_n34rk")
 
 [node name="ShipBody" type="Node2D" parent="."]
 

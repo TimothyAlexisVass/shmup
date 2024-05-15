@@ -8,11 +8,11 @@ const GAME_AREA_OFFSET = Vector2(400, 200)
 const HEALTH_TWEEN_TIME = 0.4
 const TIER_COLOR = {
 	0: Color(0, 0, 0),
-	1: Color(0, 0, 1),
-	2: Color(1, 0, 1),
-	3: Color(1, 0.5, 1),
-	4: Color(1, 1, 0),
-	5: Color(0, 1, 1),
+	1: Color(0.2, 0.2, 1),
+	2: Color(1, 0.2, 1),
+	3: Color(1, 0.5, 0.2),
+	4: Color(1, 1, 0.2),
+	5: Color(0.2, 1, 1),
 	9: Color(1, 1, 1)
 }
 enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }

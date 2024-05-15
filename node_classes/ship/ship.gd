@@ -66,6 +66,9 @@ func _enter_tree():
 	$ShipBody/Sprite.material.set_shader_parameter("line_color", G.TIER_COLOR[ship_tier])
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
+		$TierSprite.self_modulate = G.TIER_COLOR[ship_tier] * 1.5
+	else:
+		$TierSprite.set_visible(false)
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
 	width = image_size.x
 	height = image_size.y
@@ -84,7 +87,8 @@ func _ready():
 	elif destination == DESTINATION.FACING_DIRECTION:
 		target = (Vector2.DOWN * 9999).rotated($ShipBody.rotation)
 
-func _process(delta):
+func _physics_process(delta):
+	$TierSprite.rotation -= delta * 2
 	if $HitPoints.value <= 0:
 		clear()
 	if destination == DESTINATION.RANDOM && ($ShipBody.global_position - target).length() < 100:

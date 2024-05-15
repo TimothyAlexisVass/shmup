@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rw6ekegg28k6"
-path="res://.godot/imported/scorch_02.png-d4baca9a90e433210b8101be1aa7e94e.ctex"
+uid="uid://c21ftcjd257ec"
+path="res://.godot/imported/tier_star.png-636223fc2d632874750f4f832134ae9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particles/scorch_02.png"
-dest_files=["res://.godot/imported/scorch_02.png-d4baca9a90e433210b8101be1aa7e94e.ctex"]
+source_file="res://assets/sprites/ships/tier_star.png"
+dest_files=["res://.godot/imported/tier_star.png-636223fc2d632874750f4f832134ae9e.ctex"]
 
 [params]
 
