@@ -37,6 +37,7 @@ var velocity = Vector2(0, 0)
 @onready var shooting = false
 
 var ship_sprites = []
+var ship_tier = 0
 
 func _enter_tree():
 	var shipbody_texture = null
@@ -45,18 +46,24 @@ func _enter_tree():
 		ship_value += 1
 	if ship_value == 0:
 		shipbody_texture = crystal
+		ship_tier = 9
 	else:
 		if ship_value <= 2 && len(sprites) == 5:
 			shipbody_texture = sprites[4]
+			ship_tier = 5
 		elif ship_value <= 5 && len(sprites) >= 4:
 			shipbody_texture = sprites[3]
+			ship_tier = 4
 		elif ship_value <= 10 && len(sprites) >= 3:
 			shipbody_texture = sprites[2]
+			ship_tier = 3
 		elif ship_value <= 100 && len(sprites) >= 2:
 			shipbody_texture = sprites[1]
+			ship_tier = 2
 		elif ship_value <= 1000 && len(sprites) >= 1:
 			shipbody_texture = sprites[0]
-	prints(ship_value, shipbody_texture)
+			ship_tier = 1
+	$ShipBody/Sprite.material.set_shader_parameter("line_color", G.TIER_COLOR[ship_tier])
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
