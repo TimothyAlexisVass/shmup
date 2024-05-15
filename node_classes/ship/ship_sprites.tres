@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ShipSprites" load_steps=2 format=3 uid="uid://d04l2gbrs3b6b"]
+
+[ext_resource type="Script" path="res://ship_sprites.gd" id="1_smsjc"]
+
+[resource]
+script = ExtResource("1_smsjc")

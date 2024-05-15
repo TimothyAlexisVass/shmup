@@ -3,6 +3,8 @@ class_name Ship extends Node2D
 const PADDING = 10
 
 # Basic properties
+@export var sprites : Array[CompressedTexture2D] = []
+@export var crystal : CompressedTexture2D
 @export var speed: float
 @export var total_hit_points: float
 @export var points: float
@@ -34,7 +36,29 @@ var velocity = Vector2(0, 0)
 @onready var muzzles = $ShipBody.get_node_or_null("Muzzles")
 @onready var shooting = false
 
+var ship_sprites = []
+
 func _enter_tree():
+	var shipbody_texture = null
+	var ship_value = randi_range(0, 10000)
+	if crystal == null:
+		ship_value += 1
+	if ship_value == 0:
+		shipbody_texture = crystal
+	else:
+		if ship_value <= 2 && len(sprites) == 5:
+			shipbody_texture = sprites[4]
+		elif ship_value <= 5 && len(sprites) >= 4:
+			shipbody_texture = sprites[3]
+		elif ship_value <= 10 && len(sprites) >= 3:
+			shipbody_texture = sprites[2]
+		elif ship_value <= 100 && len(sprites) >= 2:
+			shipbody_texture = sprites[1]
+		elif ship_value <= 1000 && len(sprites) >= 1:
+			shipbody_texture = sprites[0]
+	prints(ship_value, shipbody_texture)
+	if shipbody_texture != null:
+		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
 	width = image_size.x
 	height = image_size.y

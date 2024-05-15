@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7t7iwhnovm7o"
-path="res://.godot/imported/verimus_2.png-abc24e9fcf3037e0a970c938d7e5034b.ctex"
+uid="uid://c4wj6b6ocbl0l"
+path="res://.godot/imported/tamarana_normal.png-06b5d716d730b3bb0f474033f49265e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/verimus/verimus_2.png"
-dest_files=["res://.godot/imported/verimus_2.png-abc24e9fcf3037e0a970c938d7e5034b.ctex"]
+source_file="res://assets/sprites/ships/tamarana/tamarana_normal.png"
+dest_files=["res://.godot/imported/tamarana_normal.png-06b5d716d730b3bb0f474033f49265e3.ctex"]
 
 [params]
 

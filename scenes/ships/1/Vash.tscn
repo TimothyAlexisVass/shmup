@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnaai6r0qm57p"]
+[gd_scene load_steps=16 format=3 uid="uid://bnaai6r0qm57p"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_gxyjf"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_k68wi"]
+[ext_resource type="Texture2D" uid="uid://stgyl3pl4cic" path="res://assets/sprites/ships/vash/vash_2.png" id="3_ct6v6"]
 [ext_resource type="Texture2D" uid="uid://btcvqsqyq3618" path="res://assets/sprites/ships/vash/vash_1.png" id="3_gd2rg"]
 [ext_resource type="Texture2D" uid="uid://diitn6jmermyk" path="res://assets/sprites/ships/vash/vash_normal.png" id="4_0m3ud"]
+[ext_resource type="Texture2D" uid="uid://cnlecjlatxji7" path="res://assets/sprites/ships/vash/vash_3.png" id="4_xlybs"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="5_lqwpn"]
+[ext_resource type="Texture2D" uid="uid://c3ly8c4dey8w2" path="res://assets/sprites/ships/vash/vash_4.png" id="5_nmx4t"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -36,6 +39,7 @@ scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f4y87"]
+resource_local_to_scene = true
 diffuse_texture = ExtResource("3_gd2rg")
 normal_texture = ExtResource("4_0m3ud")
 specular_shininess = 0.8
@@ -50,6 +54,7 @@ corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_gxyjf")]
 scale = Vector2(0.14, 0.14)
+sprites = Array[CompressedTexture2D]([ExtResource("3_ct6v6"), ExtResource("4_xlybs"), ExtResource("5_nmx4t")])
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
