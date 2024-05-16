@@ -30,6 +30,9 @@ corner_radius_bottom_left = 4
 sprites = Array[CompressedTexture2D]([ExtResource("2_0rvot"), ExtResource("3_p4qt1")])
 crystal = ExtResource("4_en7v0")
 
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+polygon = PackedVector2Array(-265, 125, -155, 30, -220, -60, -100, -405, 0, -465, 100, -400, 220, -60, 155, 30, 265, 125, 95, 455, -95, 455)
+
 [node name="Sprite" parent="ShipBody" index="1"]
 material = SubResource("ShaderMaterial_45cw7")
 texture = SubResource("CanvasTexture_20wat")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://j72yxl2kkkoo"]
 
-[ext_resource type="Texture2D" uid="uid://csvvxej7xrfhj" path="res://assets/particles/fire_smudge.png" id="1_08gul"]
-[ext_resource type="Texture2D" uid="uid://dwyt5o6th80s4" path="res://assets/particles/smoke_04.png" id="1_hjb6y"]
-[ext_resource type="Texture2D" uid="uid://bvrpgr8hsv0g4" path="res://assets/particles/smoke_07.png" id="2_5n1gh"]
+[ext_resource type="Texture2D" uid="uid://b444q3csoexlx" path="res://assets/particles/fire_smudge.png" id="1_08gul"]
+[ext_resource type="Texture2D" uid="uid://bawhkbejaj80y" path="res://assets/particles/smoke_04.png" id="1_hjb6y"]
+[ext_resource type="Texture2D" uid="uid://dmn27ok2uldeu" path="res://assets/particles/smoke_07.png" id="2_5n1gh"]
 
 [sub_resource type="Curve" id="Curve_b3iey"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.114537, 1), 0.0, 0.0, 0, 0, Vector2(0.807636, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
