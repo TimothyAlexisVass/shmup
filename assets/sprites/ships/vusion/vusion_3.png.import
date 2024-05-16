@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c67ayoy74dd6x"
-path="res://.godot/imported/vusion_2.png-2b653774bb2171ee336ebde9e7e00cbb.ctex"
+uid="uid://lxh85jgf2ldp"
+path="res://.godot/imported/vusion_3.png-b1e1fdcfa253ba1c10f64b0887567978.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/vusion/vusion_2.png"
-dest_files=["res://.godot/imported/vusion_2.png-2b653774bb2171ee336ebde9e7e00cbb.ctex"]
+source_file="res://assets/sprites/ships/vusion/vusion_3.png"
+dest_files=["res://.godot/imported/vusion_3.png-b1e1fdcfa253ba1c10f64b0887567978.ctex"]
 
 [params]
 

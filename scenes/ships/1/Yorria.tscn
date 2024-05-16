@@ -1,14 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://bbhgw7v3qwbgv"]
+[gd_scene load_steps=18 format=3 uid="uid://bbhgw7v3qwbgv"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_6tb0i"]
-[ext_resource type="Texture2D" uid="uid://b76md2ude40ho" path="res://assets/sprites/ships/vash/vash_1.png" id="2_sdu17"]
-[ext_resource type="Texture2D" uid="uid://c1omxxvdcbils" path="res://assets/sprites/ships/vash/vash_2.png" id="3_qdn33"]
-[ext_resource type="Texture2D" uid="uid://kvph6cajdrv8" path="res://assets/sprites/ships/vash/vash_3.png" id="4_s70vo"]
-[ext_resource type="Texture2D" uid="uid://dqht0cg4f48d1" path="res://assets/sprites/ships/vash/vash_crystal.png" id="5_vlthd"]
+[ext_resource type="Texture2D" uid="uid://cv6jgtubq5nqj" path="res://assets/sprites/ships/yorria/yorria_1.png" id="2_55dm2"]
+[ext_resource type="Texture2D" uid="uid://ouhwuupdhpcv" path="res://assets/sprites/ships/yorria/yorria_2.png" id="3_qqy28"]
+[ext_resource type="Texture2D" uid="uid://dcsdto17a78m8" path="res://assets/sprites/ships/yorria/yorria_crystal.png" id="4_hs02n"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_bbgnp"]
+[ext_resource type="Texture2D" uid="uid://x3eosig2aqvt" path="res://assets/sprites/ships/yorria/yorria_0.png" id="7_2ra63"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_b1oli"]
-[ext_resource type="Texture2D" uid="uid://6jpkqqckxo4q" path="res://assets/sprites/ships/vash/vash_0.png" id="8_66sku"]
-[ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://assets/sprites/ships/vash/vash_normal.png" id="9_38mp5"]
+[ext_resource type="Texture2D" uid="uid://bwrivkmiuvc42" path="res://assets/sprites/ships/yorria/yorria_normal.png" id="8_1gdtg"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_1vbb6"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
@@ -29,7 +28,7 @@ curve = SubResource("Curve_btand")
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 0, 0)
 emission_shape = 3
-emission_box_extents = Vector3(25, 1, 1)
+emission_box_extents = Vector3(40, 1, 1)
 direction = Vector3(0, -1, 0)
 spread = 0.0
 initial_velocity_min = 2400.0
@@ -46,11 +45,9 @@ shader = ExtResource("7_b1oli")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 shader_parameter/line_thickness = 20.0
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_f4y87"]
-resource_local_to_scene = true
-diffuse_texture = ExtResource("8_66sku")
-normal_texture = ExtResource("9_38mp5")
-specular_shininess = 0.5
+[sub_resource type="CanvasTexture" id="CanvasTexture_4knyd"]
+diffuse_texture = ExtResource("7_2ra63")
+normal_texture = ExtResource("8_1gdtg")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -62,8 +59,8 @@ corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_6tb0i")]
 scale = Vector2(0.14, 0.14)
-sprites = Array[CompressedTexture2D]([ExtResource("2_sdu17"), ExtResource("3_qdn33"), ExtResource("4_s70vo")])
-crystal = ExtResource("5_vlthd")
+sprites = Array[CompressedTexture2D]([ExtResource("2_55dm2"), ExtResource("3_qqy28")])
+crystal = ExtResource("4_hs02n")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -71,39 +68,43 @@ acceleration = 0.01
 destination = 0
 move = 0
 
+[node name="Muzzles" type="Node2D" parent="." index="1"]
+position = Vector2(0, 280)
+
+[node name="Muzzle" parent="Muzzles" index="0" instance=ExtResource("10_1vbb6")]
+position = Vector2(70, -150)
+points = PackedVector2Array(0, 0, 16, 100)
+default_color = Color(1, 0.168627, 0, 1)
+shot_speed = 300.0
+
+[node name="Muzzle2" parent="Muzzles" index="1" instance=ExtResource("10_1vbb6")]
+position = Vector2(-70, -150)
+points = PackedVector2Array(0, 0, -16, 100)
+default_color = Color(1, 0.168627, 0, 1)
+shot_speed = 300.0
+
 [node name="Jets" type="Node2D" parent="ShipBody" index="0"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_bbgnp")]
-position = Vector2(-100, -170)
-process_material = SubResource("ParticleProcessMaterial_gq27g")
-
-[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("6_bbgnp")]
-position = Vector2(100, -170)
+modulate = Color(1, 8, 1.4, 0.3)
+position = Vector2(0, -120)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
 [node name="Area2D" parent="ShipBody" index="1"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
-polygon = PackedVector2Array(-30, -380, -55, -195, -115, -180, -145, -225, -145, -470, -290, -445, -270, -65, -460, 0, -125, 470, -50, 445, -45, -75, 65, -80, 65, 445, 150, 475, 475, 5, 280, -70, 300, -440, 145, -465, 150, -235, 125, -175, 65, -185, 35, -380)
+polygon = PackedVector2Array(-421.429, -428.571, -435.714, -242.857, -385.714, -150, -500, -185.714, -435.714, -7.14286, -228.571, 107.143, -200, 157.143, -114.286, 185.714, -57.1429, 271.429, -71.4286, 385.714, -21.4286, 500, 28.5714, 500, 71.4286, 385.714, 64.2857, 271.429, 114.286, 185.714, 207.143, 164.286, 228.571, 107.143, 435.714, -7.14286, 492.857, -185.714, 392.857, -157.143, 435.714, -250, 428.571, -428.571, 285.714, -307.143, 242.857, -492.857, 78.5714, -121.429, 0, -150, -78.5714, -121.429, -250, -500, -285.714, -300)
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="2"]
 material = SubResource("ShaderMaterial_gjmwv")
-texture = SubResource("CanvasTexture_f4y87")
+texture = SubResource("CanvasTexture_4knyd")
 metadata/_edit_lock_ = true
 
-[node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
-position = Vector2(28.5714, -178.571)
-
-[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_1vbb6")]
-position = Vector2(0, -150)
-default_color = Color(1, 0.168627, 0, 1)
-shot_speed = 300.0
-
-[node name="HitPoints" parent="." index="2"]
+[node name="HitPoints" parent="." index="3"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_2r0gs")
 metadata/_edit_lock_ = true
 
-[node name="VisibleOnScreenEnabler2D" parent="." index="3"]
+[node name="VisibleOnScreenEnabler2D" parent="." index="4"]
 metadata/_edit_lock_ = true
