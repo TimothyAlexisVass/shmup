@@ -1,9 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://n4od4kam7im1"]
+[gd_scene load_steps=20 format=3 uid="uid://n4od4kam7im1"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_p363d"]
-[ext_resource type="Texture2D" uid="uid://cuypodlfqwv3l" path="res://assets/sprites/ships/vashu/vashu_3.png" id="2_d8604"]
+[ext_resource type="Texture2D" uid="uid://rjkqvg4e3ojw" path="res://assets/sprites/ships/vashu/vashu_3.png" id="2_d8604"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_n2wci"]
-[ext_resource type="Texture2D" uid="uid://cl7346jnjuy7x" path="res://assets/sprites/ships/vashu/vashu_normal.png" id="3_l2we4"]
+[ext_resource type="Texture2D" uid="uid://5ijwv3jdptlj" path="res://assets/sprites/ships/vashu/vashu_1.png" id="2_y8lfe"]
+[ext_resource type="Texture2D" uid="uid://by3kotqrvl02g" path="res://assets/sprites/ships/vashu/vashu_2.png" id="3_iaatv"]
+[ext_resource type="Texture2D" uid="uid://c0cmyr8eln5ok" path="res://assets/sprites/ships/vashu/vashu_normal.png" id="3_l2we4"]
+[ext_resource type="Texture2D" uid="uid://c5h5u7k0awuwu" path="res://assets/sprites/ships/vashu/vashu_4.png" id="5_oa4s5"]
+[ext_resource type="Texture2D" uid="uid://b01w5ffhdc37i" path="res://assets/sprites/ships/vashu/vashu_5.png" id="6_u34aw"]
+[ext_resource type="Texture2D" uid="uid://dtgrv8eu875qb" path="res://assets/sprites/ships/vashu/vashu_crystal.png" id="7_joh1l"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="9_q6vwq"]
+[ext_resource type="Texture2D" uid="uid://bwaebbbtyc50r" path="res://assets/sprites/ships/vashu/vashu_0.png" id="10_eia0g"]
 
 [sub_resource type="Curve" id="Curve_g44fs"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -34,8 +41,14 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_rkj31")
 alpha_curve = SubResource("CurveTexture_5hw0l")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_807q7"]
-diffuse_texture = ExtResource("2_d8604")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oufop"]
+resource_local_to_scene = true
+shader = ExtResource("9_q6vwq")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 20.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wdbp4"]
+diffuse_texture = ExtResource("10_eia0g")
 normal_texture = ExtResource("3_l2we4")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrm5i"]
@@ -48,6 +61,8 @@ corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_p363d")]
 scale = Vector2(0.12, 0.12)
+sprites = Array[CompressedTexture2D]([ExtResource("2_y8lfe"), ExtResource("3_iaatv"), ExtResource("2_d8604"), ExtResource("5_oa4s5"), ExtResource("6_u34aw")])
+crystal = ExtResource("7_joh1l")
 face_towards = 1
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="0"]
@@ -62,7 +77,8 @@ position = Vector2(29, -370)
 polygon = PackedVector2Array(6, 0, 36, -10, 41, -130, 11, -130, 0.999998, -55, -59, -55, -69, -125, -99, -125, -99, -20, -64, 0, -84, 140, -124, 145, -274, 250, -324, 30, -484, 90, -444, 415, -94, 870, -54, 835, -124, 685, -124, 470, -84, 255, 26, 255, 66, 465, 76, 680, 6, 835, 36, 870, 391, 415, 426, 85, 271, 35, 231, 240, 66, 145, 31, 145)
 
 [node name="Sprite" parent="ShipBody" index="2"]
-texture = SubResource("CanvasTexture_807q7")
+material = SubResource("ShaderMaterial_oufop")
+texture = SubResource("CanvasTexture_wdbp4")
 
-[node name="HitPoints" parent="." index="1"]
+[node name="HitPoints" parent="." index="2"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_hrm5i")

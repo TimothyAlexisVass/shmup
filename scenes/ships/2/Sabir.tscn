@@ -1,10 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://doov2xtv2r0ru"]
+[gd_scene load_steps=21 format=3 uid="uid://doov2xtv2r0ru"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_1cukb"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_6207a"]
-[ext_resource type="Texture2D" uid="uid://cac7k1nrls5mp" path="res://assets/sprites/ships/sabir/sabir_1.png" id="3_fbosh"]
-[ext_resource type="Texture2D" uid="uid://cefypgx6kdf5b" path="res://assets/sprites/ships/sabir/sabir_normal.png" id="4_e3eof"]
+[ext_resource type="Texture2D" uid="uid://bhf7a33v5dw0" path="res://assets/sprites/ships/sabir/sabir_1.png" id="3_fbosh"]
+[ext_resource type="Texture2D" uid="uid://cot2w12awqqx2" path="res://assets/sprites/ships/sabir/sabir_2.png" id="3_isaxs"]
+[ext_resource type="Texture2D" uid="uid://o1pn2he4xbyn" path="res://assets/sprites/ships/sabir/sabir_normal.png" id="4_e3eof"]
+[ext_resource type="Texture2D" uid="uid://cs08dq1amf62n" path="res://assets/sprites/ships/sabir/sabir_3.png" id="4_ronlh"]
+[ext_resource type="Texture2D" uid="uid://dm328wkthhdoq" path="res://assets/sprites/ships/sabir/sabir_4.png" id="5_dcqxs"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="5_fqurm"]
+[ext_resource type="Texture2D" uid="uid://eenfq2bwrbwd" path="res://assets/sprites/ships/sabir/sabir_5.png" id="6_vwc2r"]
+[ext_resource type="Texture2D" uid="uid://d1x521omy2yra" path="res://assets/sprites/ships/sabir/sabir_crystal.png" id="7_6fwx0"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="9_clsbd"]
+[ext_resource type="Texture2D" uid="uid://6sxq7qwt1y56" path="res://assets/sprites/ships/sabir/sabir_0.png" id="10_6ef85"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -35,10 +42,15 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_rkj31")
 alpha_curve = SubResource("CurveTexture_5hw0l")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_tc347"]
-diffuse_texture = ExtResource("3_fbosh")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ambao"]
+resource_local_to_scene = true
+shader = ExtResource("9_clsbd")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 20.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wic3u"]
+diffuse_texture = ExtResource("10_6ef85")
 normal_texture = ExtResource("4_e3eof")
-specular_shininess = 0.85
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -49,6 +61,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_1cukb")]
+sprites = Array[CompressedTexture2D]([ExtResource("3_fbosh"), ExtResource("3_isaxs"), ExtResource("4_ronlh"), ExtResource("5_dcqxs"), ExtResource("6_vwc2r")])
+crystal = ExtResource("7_6fwx0")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="0"]
 
@@ -73,7 +87,8 @@ amount = 10
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
 [node name="Sprite" parent="ShipBody" index="2"]
-texture = SubResource("CanvasTexture_tc347")
+material = SubResource("ShaderMaterial_ambao")
+texture = SubResource("CanvasTexture_wic3u")
 
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
 
@@ -87,5 +102,5 @@ position = Vector2(100, 250)
 default_color = Color(1, 0.168627, 0, 1)
 shot_speed = 300.0
 
-[node name="HitPoints" parent="." index="1"]
+[node name="HitPoints" parent="." index="2"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_2r0gs")

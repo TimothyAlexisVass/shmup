@@ -1,9 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://ypv7wwd1rl0t"]
+[gd_scene load_steps=19 format=3 uid="uid://ypv7wwd1rl0t"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_hcpna"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_1m600"]
-[ext_resource type="Texture2D" uid="uid://dq7a1veo12roo" path="res://assets/sprites/ships/sabran/sabran_2.png" id="3_5ba5y"]
-[ext_resource type="Texture2D" uid="uid://dgetoodj6bi5c" path="res://assets/sprites/ships/sabran/sabran_normal.png" id="4_puwfk"]
+[ext_resource type="Texture2D" uid="uid://chneqr1udapk2" path="res://assets/sprites/ships/sabran/sabran_1.png" id="2_68huf"]
+[ext_resource type="Texture2D" uid="uid://dh0g654ctkwjs" path="res://assets/sprites/ships/sabran/sabran_2.png" id="3_5ba5y"]
+[ext_resource type="Texture2D" uid="uid://bbi1o5ffyili8" path="res://assets/sprites/ships/sabran/sabran_normal.png" id="4_puwfk"]
+[ext_resource type="Texture2D" uid="uid://bq7erw0a8qqv3" path="res://assets/sprites/ships/sabran/sabran_3.png" id="4_tnwi6"]
+[ext_resource type="Texture2D" uid="uid://bbt7rb8erkh3m" path="res://assets/sprites/ships/sabran/sabran_4.png" id="5_mepc4"]
+[ext_resource type="Texture2D" uid="uid://ci72p2lyrexb6" path="res://assets/sprites/ships/sabran/sabran_crystal.png" id="6_r5l53"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_t6jue"]
+[ext_resource type="Texture2D" uid="uid://b72a10ltoorl4" path="res://assets/sprites/ships/sabran/sabran_0.png" id="9_cs1qo"]
 
 [sub_resource type="Curve" id="Curve_6jcrg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -34,8 +40,14 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_a537j")
 alpha_curve = SubResource("CurveTexture_drtbg")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61dkg"]
+resource_local_to_scene = true
+shader = ExtResource("8_t6jue")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 20.0
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_nw5or"]
-diffuse_texture = ExtResource("3_5ba5y")
+diffuse_texture = ExtResource("9_cs1qo")
 normal_texture = ExtResource("4_puwfk")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywl1u"]
@@ -47,6 +59,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_hcpna")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_68huf"), ExtResource("3_5ba5y"), ExtResource("4_tnwi6"), ExtResource("5_mepc4")])
+crystal = ExtResource("6_r5l53")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="0"]
 
@@ -66,8 +80,9 @@ process_material = SubResource("ParticleProcessMaterial_kmwr1")
 polygon = PackedVector2Array(-30, -370, -205, -360, -185, -120, -115, -115, -135, -65, -185, -50, -265, -170, -280, -330, -240, -470, -360, -350, -405, -145, -375, -20, -270, 45, -135, 360, 5, 490, 135, 350, 275, 50, 370, -15, 420, -140, 355, -335, 235, -475, 280, -325, 280, -185, 190, -45, 140, -50, 120, -115, 185, -120, 205, -350, 35, -375, 0, -465)
 
 [node name="Sprite" parent="ShipBody" index="2"]
+material = SubResource("ShaderMaterial_61dkg")
 texture = SubResource("CanvasTexture_nw5or")
 metadata/_edit_lock_ = true
 
-[node name="HitPoints" parent="." index="1"]
+[node name="HitPoints" parent="." index="2"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_ywl1u")
