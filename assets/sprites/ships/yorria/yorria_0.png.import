@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3j6ptmtb18iq"
-path="res://.godot/imported/yahran_2.png-68efa75d0610f010165872a1e22f1514.ctex"
+uid="uid://x3eosig2aqvt"
+path="res://.godot/imported/yorria_0.png-27b0454095d58b82bad986a971401a57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/yahran/yahran_2.png"
-dest_files=["res://.godot/imported/yahran_2.png-68efa75d0610f010165872a1e22f1514.ctex"]
+source_file="res://assets/sprites/ships/yorria/yorria_0.png"
+dest_files=["res://.godot/imported/yorria_0.png-27b0454095d58b82bad986a971401a57.ctex"]
 
 [params]
 

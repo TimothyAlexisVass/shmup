@@ -1,0 +1,39 @@
+[gd_scene load_steps=12 format=3 uid="uid://qk21pv21mkm2"]
+
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_q2nks"]
+[ext_resource type="Texture2D" uid="uid://bnosb5q0lfepk" path="res://assets/sprites/ships/slyce/slyce_1.png" id="2_8co4j"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="2_cixwy"]
+[ext_resource type="Texture2D" uid="uid://l6bvya6b8ik1" path="res://assets/sprites/ships/slyce/slyce_2.png" id="3_0xo4d"]
+[ext_resource type="Texture2D" uid="uid://dfm5j7dtcthcf" path="res://assets/sprites/ships/slyce/slyce_0.png" id="3_8hm7q"]
+[ext_resource type="Texture2D" uid="uid://xxxu072i05ao" path="res://assets/sprites/ships/slyce/slyce_3.png" id="4_2v0vl"]
+[ext_resource type="Texture2D" uid="uid://coe2qjdoup8q6" path="res://assets/sprites/ships/slyce/slyce_normal.png" id="4_tlrxu"]
+[ext_resource type="Texture2D" uid="uid://bpy6o6ck617xy" path="res://assets/sprites/ships/slyce/slyce_crystal.png" id="5_7un4d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bq7cn"]
+resource_local_to_scene = true
+shader = ExtResource("2_cixwy")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 20.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b8umj"]
+diffuse_texture = ExtResource("3_8hm7q")
+normal_texture = ExtResource("4_tlrxu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcvm5"]
+resource_local_to_scene = true
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Ship" instance=ExtResource("1_q2nks")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_8co4j"), ExtResource("3_0xo4d"), ExtResource("4_2v0vl")])
+crystal = ExtResource("5_7un4d")
+
+[node name="Sprite" parent="ShipBody" index="1"]
+material = SubResource("ShaderMaterial_bq7cn")
+texture = SubResource("CanvasTexture_b8umj")
+
+[node name="HitPoints" parent="." index="2"]
+theme_override_styles/fill = SubResource("StyleBoxFlat_dcvm5")

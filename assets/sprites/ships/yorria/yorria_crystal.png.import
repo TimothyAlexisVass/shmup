@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcsdto17a78m8"
-path="res://.godot/imported/yahria_crystal.png-6b703d8d8c44bab8965818d7d52f8002.ctex"
+path="res://.godot/imported/yorria_crystal.png-6194fb5c588b4c89d1802b4ec3a528db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/yahria/yahria_crystal.png"
-dest_files=["res://.godot/imported/yahria_crystal.png-6b703d8d8c44bab8965818d7d52f8002.ctex"]
+source_file="res://assets/sprites/ships/yorria/yorria_crystal.png"
+dest_files=["res://.godot/imported/yorria_crystal.png-6194fb5c588b4c89d1802b4ec3a528db.ctex"]
 
 [params]
 

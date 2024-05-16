@@ -1,0 +1,109 @@
+[gd_scene load_steps=19 format=3 uid="uid://b7fh0vilixxm"]
+
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_yk81k"]
+[ext_resource type="Texture2D" uid="uid://b76md2ude40ho" path="res://assets/sprites/ships/vash/vash_1.png" id="2_1l4gl"]
+[ext_resource type="Texture2D" uid="uid://c1omxxvdcbils" path="res://assets/sprites/ships/vash/vash_2.png" id="3_xbhtc"]
+[ext_resource type="Texture2D" uid="uid://kvph6cajdrv8" path="res://assets/sprites/ships/vash/vash_3.png" id="4_icufe"]
+[ext_resource type="Texture2D" uid="uid://dqht0cg4f48d1" path="res://assets/sprites/ships/vash/vash_crystal.png" id="5_mua0s"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_iu4vp"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_y8gof"]
+[ext_resource type="Texture2D" uid="uid://6jpkqqckxo4q" path="res://assets/sprites/ships/vash/vash_0.png" id="8_w3qeo"]
+[ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://assets/sprites/ships/vash/vash_normal.png" id="9_1b8y5"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_gu4vg"]
+
+[sub_resource type="Curve" id="Curve_x3n7m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oiy6f"]
+curve = SubResource("Curve_x3n7m")
+
+[sub_resource type="Curve" id="Curve_btand"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.333847), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ua5pe"]
+curve = SubResource("Curve_btand")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gq27g"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(25, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 2400.0
+initial_velocity_max = 2400.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_ua5pe")
+alpha_curve = SubResource("CurveTexture_oiy6f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
+resource_local_to_scene = true
+shader = ExtResource("7_y8gof")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 20.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_f4y87"]
+resource_local_to_scene = true
+diffuse_texture = ExtResource("8_w3qeo")
+normal_texture = ExtResource("9_1b8y5")
+specular_shininess = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
+resource_local_to_scene = true
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Ship" instance=ExtResource("1_yk81k")]
+scale = Vector2(0.14, 0.14)
+sprites = Array[CompressedTexture2D]([ExtResource("2_1l4gl"), ExtResource("3_xbhtc"), ExtResource("4_icufe")])
+crystal = ExtResource("5_mua0s")
+speed = 400.0
+total_hit_points = 5.0
+rotation_speed = 0.05
+acceleration = 0.01
+destination = 0
+move = 0
+
+[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_iu4vp")]
+position = Vector2(-100, -170)
+process_material = SubResource("ParticleProcessMaterial_gq27g")
+
+[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("6_iu4vp")]
+position = Vector2(100, -170)
+process_material = SubResource("ParticleProcessMaterial_gq27g")
+
+[node name="Area2D" parent="ShipBody" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+polygon = PackedVector2Array(-30, -380, -55, -195, -115, -180, -145, -225, -145, -470, -290, -445, -270, -65, -460, 0, -125, 470, -50, 445, -45, -75, 65, -80, 65, 445, 150, 475, 475, 5, 280, -70, 300, -440, 145, -465, 150, -235, 125, -175, 65, -185, 35, -380)
+metadata/_edit_lock_ = true
+
+[node name="Sprite" parent="ShipBody" index="2"]
+material = SubResource("ShaderMaterial_gjmwv")
+texture = SubResource("CanvasTexture_f4y87")
+metadata/_edit_lock_ = true
+
+[node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
+position = Vector2(28.5714, -178.571)
+
+[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_gu4vg")]
+position = Vector2(0, -150)
+default_color = Color(1, 0.168627, 0, 1)
+shot_speed = 300.0
+
+[node name="HitPoints" parent="." index="2"]
+theme_override_styles/fill = SubResource("StyleBoxFlat_2r0gs")
+metadata/_edit_lock_ = true
+
+[node name="VisibleOnScreenEnabler2D" parent="." index="3"]
+metadata/_edit_lock_ = true

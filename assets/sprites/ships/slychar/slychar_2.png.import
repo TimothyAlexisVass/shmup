@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv6jgtubq5nqj"
-path="res://.godot/imported/yahria_1.png-d063d86fe8fb544cdceecb0475f07968.ctex"
+uid="uid://bp78xy2penfes"
+path="res://.godot/imported/slychar_2.png-9846c1c17c57e1c2f0dcbdca0e4d12ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/yahria/yahria_1.png"
-dest_files=["res://.godot/imported/yahria_1.png-d063d86fe8fb544cdceecb0475f07968.ctex"]
+source_file="res://assets/sprites/ships/slychar/slychar_2.png"
+dest_files=["res://.godot/imported/slychar_2.png-9846c1c17c57e1c2f0dcbdca0e4d12ef.ctex"]
 
 [params]
 

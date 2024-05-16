@@ -7,16 +7,38 @@ var wave = 0
 
 var ships = {
 	1: {
+		"Sabre": preload("res://scenes/ships/1/Sabre.tscn"),
+		"Sabran": preload("res://scenes/ships/1/Sabran.tscn"),
+		"Slyce": preload("res://scenes/ships/1/Slyce.tscn"),
+		"Slychar": preload("res://scenes/ships/1/Slychar.tscn"),
+		"Somanda": preload("res://scenes/ships/1/Somanda.tscn"),
+		"Styx": preload("res://scenes/ships/1/Styx.tscn"),
+		"Tamarana": preload("res://scenes/ships/1/Tamarana.tscn"),
+		"Trusha": preload("res://scenes/ships/1/Trusha.tscn"),
+		"Tuur": preload("res://scenes/ships/1/Tuur.tscn"),
+		"Vaboom": preload("res://scenes/ships/1/Vaboom.tscn"),
+		"Vallin": preload("res://scenes/ships/1/Vallin.tscn"),
+		"Varilan": preload("res://scenes/ships/1/Varilan.tscn"),
 		"Vash": preload("res://scenes/ships/1/Vash.tscn"),
+		"Vashu": preload("res://scenes/ships/1/Vashu.tscn"),
+		"Velin": preload("res://scenes/ships/1/Velin.tscn"),
+		"Verimus": preload("res://scenes/ships/1/Verimus.tscn"),
+		"Volyn": preload("res://scenes/ships/1/Volyn.tscn"),
+		"Vusion": preload("res://scenes/ships/1/Vusion.tscn"),
+		"Wail": preload("res://scenes/ships/1/Wail.tscn"),
+		"Weruna": preload("res://scenes/ships/1/Weruna.tscn"),
+		"Xenor": preload("res://scenes/ships/1/Xenor.tscn"),
+		"Yorran": preload("res://scenes/ships/1/Yorran.tscn"),
+		"Yorria": preload("res://scenes/ships/1/Yorria.tscn"),
+		"Zaryan": preload("res://scenes/ships/1/Vallin.tscn"),
+		"Zaryshan": preload("res://scenes/ships/1/Zaryshan.tscn"),
+		"Zleukh": preload("res://scenes/ships/1/Zleukh.tscn"),
 	},
 	2: {
 		"Sabir": preload("res://scenes/ships/2/Sabir.tscn"),
 		"Garra": preload("res://scenes/ships/2/Garra.tscn"),
 	},
 	3: {
-		"Vashu": preload("res://scenes/ships/1/Vashu.tscn"),
-		"Sabre": preload("res://scenes/ships/1/Sabre.tscn"),
-		"Sabran": preload("res://scenes/ships/1/Sabran.tscn"),
 	}
 }
 
