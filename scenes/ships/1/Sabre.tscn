@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkc4gv5txe5nn"]
+[gd_scene load_steps=18 format=3 uid="uid://bkc4gv5txe5nn"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_acwdw"]
+[ext_resource type="Texture2D" uid="uid://duqc0jt3qiwc4" path="res://assets/sprites/ships/sabre/sabre_1.png" id="2_pmp1v"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_sa1uy"]
+[ext_resource type="Texture2D" uid="uid://cfbjlxbrvt24h" path="res://assets/sprites/ships/sabre/sabre_2.png" id="3_h057a"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="3_j0qrt"]
 [ext_resource type="Texture2D" uid="uid://0h7mqid12ro2" path="res://assets/sprites/ships/sabre/sabre_0.png" id="4_0exqo"]
+[ext_resource type="Texture2D" uid="uid://dbtbm51nnjs2k" path="res://assets/sprites/ships/sabre/sabre_3.png" id="4_fvj0m"]
 [ext_resource type="Texture2D" uid="uid://cakxc4o31gn6u" path="res://assets/sprites/ships/sabre/sabre_normal.png" id="4_me5v0"]
+[ext_resource type="Texture2D" uid="uid://ch6g8ot4ukwhr" path="res://assets/sprites/ships/sabre/sabre_crystal.png" id="5_2bo5f"]
 
 [sub_resource type="Curve" id="Curve_6jcrg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -42,7 +46,7 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vx7sh"]
-local_to_scene = true
+resource_local_to_scene = true
 diffuse_texture = ExtResource("4_0exqo")
 normal_texture = ExtResource("4_me5v0")
 
@@ -55,6 +59,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_acwdw")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_pmp1v"), ExtResource("3_h057a"), ExtResource("4_fvj0m")])
+crystal = ExtResource("5_2bo5f")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="0"]
 

@@ -7,8 +7,14 @@ var wave = 0
 
 var ships = {
 	1: {
+		"Garra": preload("res://scenes/ships/2/Garra.tscn"),
+	},
+	2: {
 		"Sabre": preload("res://scenes/ships/1/Sabre.tscn"),
 		"Sabran": preload("res://scenes/ships/1/Sabran.tscn"),
+		"Sabir": preload("res://scenes/ships/2/Sabir.tscn"),
+	},
+	3: {
 		"Slyce": preload("res://scenes/ships/1/Slyce.tscn"),
 		"Slychar": preload("res://scenes/ships/1/Slychar.tscn"),
 		"Somanda": preload("res://scenes/ships/1/Somanda.tscn"),
@@ -33,12 +39,6 @@ var ships = {
 		"Zaryan": preload("res://scenes/ships/1/Vallin.tscn"),
 		"Zaryshan": preload("res://scenes/ships/1/Zaryshan.tscn"),
 		"Zleukh": preload("res://scenes/ships/1/Zleukh.tscn"),
-	},
-	2: {
-		"Sabir": preload("res://scenes/ships/2/Sabir.tscn"),
-		"Garra": preload("res://scenes/ships/2/Garra.tscn"),
-	},
-	3: {
 	}
 }
 
@@ -100,9 +100,10 @@ func enqueue_wave(wave_number):
 	var total_amount = Spawn.spawn_amount(wave_tier)
 	var amount_per_spawn_point = ceil(total_amount / float(spawn_at_points.size()))
 
-	print("\n--------------------------------------")
-	print("Wave: ", wave, " (level ", wave_tier, ")")
-	print("Spawning at points: ", spawn_at_points, " - ", Spawn.WAVE_TYPE.keys()[wave_type-1], "/", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
+	if G.DEBUG:
+		print("\n--------------------------------------")
+		print("Wave: ", wave, " (level ", wave_tier, ")")
+		print("Spawning at points: ", spawn_at_points, " - ", Spawn.WAVE_TYPE.keys()[wave_type-1], "/", Spawn.WAVE_MODIFICATION.keys()[wave_modification-1])
 
 	match wave_type:
 		Spawn.WAVE_TYPE.MIRROR:
@@ -148,7 +149,8 @@ func _on_wave_timer_timeout():
 			spawner_instance.global_position = spawn_points[spawn_point]
 			add_child(spawner_instance)
 			spawner_instance.spawn(spawn_scene, spawn.amount)
-			prints("enqueued:", spawn.amount, "at:", spawn_point)
+			if G.DEBUG:
+				prints("enqueued:", spawn.amount, "at:", spawn_point)
 	elif wave < number_of_waves and waiting_for.is_empty():
 		if get_tree().get_nodes_in_group("Ships").size() <= ships_left_for_next_wave:
 			enqueue_wave(wave)

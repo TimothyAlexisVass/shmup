@@ -49,7 +49,7 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wic3u"]
-local_to_scene = true
+resource_local_to_scene = true
 diffuse_texture = ExtResource("10_6ef85")
 normal_texture = ExtResource("4_e3eof")
 
@@ -86,6 +86,9 @@ position = Vector2(-305, -370)
 scale = Vector2(0.2, 0.2)
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_gq27g")
+
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+polygon = PackedVector2Array(105, 370, 225, 95, 310, -200, 320, -370, 235, -355, 180, -455, 215, -200, 150, -245, 40, -275, 0, -460, -35, -275, -145, -245, -210, -200, -180, -455, -245, -350, -325, -365, -310, -200, -225, 95, -100, 370, 0, 470)
 
 [node name="Sprite" parent="ShipBody" index="2"]
 material = SubResource("ShaderMaterial_ambao")

@@ -36,11 +36,10 @@ var velocity = Vector2(0, 0)
 @onready var muzzles = $ShipBody.get_node_or_null("Muzzles")
 @onready var shooting = false
 
-var ship_sprites = []
+var shipbody_texture = null
 var ship_tier = 0
 
 func _enter_tree():
-	var shipbody_texture = null
 	var ship_value = randi_range(0, 10000)
 	if crystal == null:
 		ship_value += 1
