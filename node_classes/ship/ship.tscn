@@ -13,7 +13,7 @@
 resource_local_to_scene = true
 shader = ExtResource("3_md3vc")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 20.0
+shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wrah3"]
 local_to_scene = true

@@ -43,7 +43,7 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 resource_local_to_scene = true
 shader = ExtResource("7_kcnpu")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 20.0
+shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bex3f"]
 local_to_scene = true
