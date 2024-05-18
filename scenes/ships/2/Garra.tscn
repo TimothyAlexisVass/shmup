@@ -45,11 +45,13 @@ alpha_curve = SubResource("CurveTexture_5hw0l")
 resource_local_to_scene = true
 shader = ExtResource("9_kmopf")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
+shader_parameter/line_thickness = 5.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_lwmwo"]
+resource_local_to_scene = true
 diffuse_texture = ExtResource("10_xunfk")
 normal_texture = ExtResource("4_1beu1")
+specular_shininess = 0.8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -77,6 +79,9 @@ process_material = SubResource("ParticleProcessMaterial_gq27g")
 modulate = Color(2, 1, 5, 0.3)
 position = Vector2(115, -310)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
+
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+polygon = PackedVector2Array(140, 50, 220, -155, 135, -180, 160, -335, 75.0841, -336.807, 75, -240, -70, -230, -75, -340, -160, -325, -130, -185, -215, -150, -140, 50, -45, 190, 5, 410, 45, 190)
 
 [node name="Sprite" parent="ShipBody" index="2"]
 material = SubResource("ShaderMaterial_pnxlt")

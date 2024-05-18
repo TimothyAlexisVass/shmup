@@ -62,7 +62,7 @@ script = ExtResource("9_405bv")
 position = Vector2(-105, 2201)
 scale = Vector2(17.5469, 17.9219)
 color = Color(0, 0.752941, 0.878431, 1)
-energy = 3.0
+energy = 4.0
 texture = SubResource("GradientTexture2D_2vd6a")
 texture_scale = 3.33
 
@@ -70,7 +70,7 @@ texture_scale = 3.33
 position = Vector2(1473, 517)
 scale = Vector2(17.5469, 17.9219)
 color = Color(1, 0.466667, 0.396078, 1)
-energy = 2.0
+energy = 3.0
 texture = SubResource("GradientTexture2D_2vd6a")
 texture_scale = 4.23
 
@@ -78,7 +78,7 @@ texture_scale = 4.23
 position = Vector2(-112, 340)
 scale = Vector2(17.5469, 17.9219)
 color = Color(1, 1, 0.498039, 1)
-energy = 2.0
+energy = 3.0
 texture = SubResource("GradientTexture2D_2vd6a")
 texture_scale = 3.0
 

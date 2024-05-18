@@ -44,7 +44,7 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 shader_parameter/line_thickness = 5.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_khhvi"]
-local_to_scene = true
+resource_local_to_scene = true
 diffuse_texture = ExtResource("6_5ur44")
 normal_texture = ExtResource("7_y5y4p")
 
