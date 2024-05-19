@@ -9,13 +9,13 @@ const ANGLE_LEFT = PI
 const GAME_AREA_OFFSET = Vector2(400, 200)
 const HEALTH_TWEEN_TIME = 0.4
 const TIER_COLOR = {
-	0: Color(0, 0, 0),
-	1: Color(0.2, 0.2, 1),
-	2: Color(1, 0.2, 1),
-	3: Color(1, 0.5, 0.2),
-	4: Color(1, 1, 0.2),
-	5: Color(0.2, 1, 1),
-	9: Color(1, 1, 1)
+	0: Color(0, 0, 0, 0.5),
+	1: Color(0.8, 0.8, 2.7, 0.5),
+	2: Color(2.7, 0.8, 2.7, 0.5),
+	3: Color(2.7, 0.5, 0.8, 0.5),
+	4: Color(2.7, 2.7, 0.8, 0.5),
+	5: Color(0.8, 2.7, 2.7, 0.5),
+	9: Color(2.7, 2.7, 2.7, 0.5)
 }
 enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
 enum CHALLENGE { NONE, EASY, MEDIUM, ELITE }

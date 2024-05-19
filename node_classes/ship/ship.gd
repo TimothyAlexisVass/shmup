@@ -69,7 +69,8 @@ func _enter_tree():
 	$ShipBody/Sprite.material.set_shader_parameter("line_thickness", 5.0)
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
-		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier] * Color(1.5, 1.5, 1.5, 0.2)
+		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier]
+		$ShipBody/TierGlow.modulate = G.TIER_COLOR[ship_tier] * 0.9
 	else:
 		$ShipBody/TierGlow.queue_free()
 	
