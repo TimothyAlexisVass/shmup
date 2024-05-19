@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgx5uw2sljbk8"]
+[gd_scene load_steps=12 format=3 uid="uid://dgx5uw2sljbk8"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_4x4vw"]
-[ext_resource type="Texture2D" uid="uid://boxmlgxa50eu1" path="res://assets/sprites/ships/trusha/trusha_1.png" id="2_w3s0x"]
-[ext_resource type="Texture2D" uid="uid://ble0605x0n47x" path="res://assets/sprites/ships/trusha/trusha_2.png" id="3_0un2h"]
+[ext_resource type="Texture2D" uid="uid://lmi7cg65qw2v" path="res://assets/sprites/ships/trusha/trusha_1.png" id="2_w3s0x"]
+[ext_resource type="Texture2D" uid="uid://bvn7f6ql8cpam" path="res://assets/sprites/ships/trusha/trusha_2.png" id="3_0un2h"]
 [ext_resource type="Texture2D" uid="uid://dw538dqkbiy6r" path="res://assets/sprites/ships/trusha/trusha_crystal.png" id="4_scko3"]
+[ext_resource type="Script" path="res://node_classes/ship/crystal_star.gd" id="5_yxorg"]
 [ext_resource type="Texture2D" uid="uid://b6ylvehhwhgbx" path="res://assets/sprites/ships/trusha/trusha_0.png" id="7_ptun7"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_awrry"]
 [ext_resource type="Texture2D" uid="uid://chr6hhadhi2v3" path="res://assets/sprites/ships/trusha/trusha_normal.png" id="8_m1y0c"]
@@ -31,10 +32,21 @@ corner_radius_bottom_left = 4
 sprites = Array[CompressedTexture2D]([ExtResource("2_w3s0x"), ExtResource("3_0un2h")])
 crystal = ExtResource("4_scko3")
 
-[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
-polygon = PackedVector2Array(-30, -370, -205, -360, -185, -120, -115, -115, -135, -65, -185, -50, -265, -170, -280, -330, -240, -470, -360, -350, -405, -145, -375, -20, -270, 45, -135, 360, 5, 490, 135, 350, 275, 50, 370, -15, 420, -140, 355, -335, 235, -475, 280, -325, 280, -185, 190, -45, 140, -50, 120, -115, 185, -120, 205, -350, 35, -375, 0, -465)
+[node name="CrystalStar" parent="." index="0"]
+modulate = Color(1.50196, 1.50196, 1.50196, 0.556863)
+script = ExtResource("5_yxorg")
 
-[node name="Sprite" parent="ShipBody" index="1"]
+[node name="ShipBody" parent="." index="1"]
+modulate = Color(1, 1, 4, 1)
+
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("8_m1y0c")
+
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+polygon = PackedVector2Array(-90, -140, -80, -445, -155, -55, -205, -55, -160, -430, -300, -105, -335, 60, -325, 340, -100, 455, -50, 385, -55, 240, 0, -5, 65, 240, 45, 380, 105, 455, 325, 335, 345, 50, 305, -110, 155, -440, 205, -45, 165, -65, 75, -445, 90, -135, 0, -195)
+
+[node name="Sprite" parent="ShipBody" index="2"]
+modulate = Color(0.949, 0.949, 0.949, 1)
 material = SubResource("ShaderMaterial_61dkg")
 texture = SubResource("CanvasTexture_3d4rs")
 metadata/_edit_lock_ = true

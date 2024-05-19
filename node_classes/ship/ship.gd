@@ -43,8 +43,8 @@ func _enter_tree():
 	var ship_value = randi_range(0, 10000)
 	if crystal == null:
 		ship_value += 1
+	
 	if ship_value == 0:
-		shipbody_texture = crystal
 		ship_tier = 9
 	else:
 		if ship_value <= 2 && len(sprites) == 5:
@@ -62,16 +62,27 @@ func _enter_tree():
 		elif ship_value <= 1000 && len(sprites) >= 1:
 			shipbody_texture = sprites[0]
 			ship_tier = 1
+
+	if ship_tier == 9:
+		shipbody_texture = crystal
+
+	scale *= 1 + 0.07 * ship_tier
+	total_hit_points *= 1 + ship_tier
 	$ShipBody/Sprite.material.set_shader_parameter("line_color", G.TIER_COLOR[ship_tier])
+
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
-		$TierSprite.self_modulate = G.TIER_COLOR[ship_tier] * 1.5
+		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier] * Color(1.5, 1.5, 1.5, 0.2)
 	else:
-		$TierSprite.set_visible(false)
+		$ShipBody/TierGlow.queue_free()
+	
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
 	width = image_size.x
 	height = image_size.y
 	explosion_scale = (scale.x * width if width > height else scale.y * height) / 300.0
+
+	if ship_tier < 9:
+		$CrystalStar.queue_free()
 
 func _ready():
 	$HitPoints.value = current_health
@@ -87,7 +98,6 @@ func _ready():
 		target = (Vector2.DOWN * 9999).rotated($ShipBody.rotation)
 
 func _physics_process(delta):
-	$TierSprite.rotation -= delta * 2
 	if $HitPoints.value <= 0:
 		clear()
 	if destination == DESTINATION.RANDOM && ($ShipBody.global_position - target).length() < 100:

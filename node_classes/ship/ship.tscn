@@ -13,10 +13,8 @@
 resource_local_to_scene = true
 shader = ExtResource("3_md3vc")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wrah3"]
-local_to_scene = true
 diffuse_texture = ExtResource("3_gkbpv")
 normal_texture = ExtResource("4_g7ory")
 specular_shininess = 0.85
@@ -31,12 +29,18 @@ explosion = ExtResource("2_lvfla")
 destination = 2
 move = 1
 
-[node name="TierSprite" type="Sprite2D" parent="."]
+[node name="CrystalStar" type="Sprite2D" parent="."]
+modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 512
 scale = Vector2(6, 6)
 texture = ExtResource("3_n34rk")
 
 [node name="ShipBody" type="Node2D" parent="."]
+
+[node name="TierGlow" type="Sprite2D" parent="ShipBody"]
+light_mask = 512
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("4_g7ory")
 
 [node name="Area2D" type="Area2D" parent="ShipBody"]
 collision_layer = 2
