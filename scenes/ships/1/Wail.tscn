@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_3m22y"]
 [ext_resource type="Texture2D" uid="uid://dn85oyubhpan4" path="res://assets/sprites/ships/wail/wail_1.png" id="2_xvtdk"]
 [ext_resource type="Texture2D" uid="uid://cnmvx0sy6hyr5" path="res://assets/sprites/ships/wail/wail_2.png" id="3_877ro"]
-[ext_resource type="Texture2D" uid="uid://xhldg7qrx6t0" path="res://assets/sprites/ships/wail/wail_3.png" id="4_af3oo"]
-[ext_resource type="Texture2D" uid="uid://c6wpxd4e66u3h" path="res://assets/sprites/ships/wail/wail_4.png" id="5_ft4mu"]
+[ext_resource type="Texture2D" uid="uid://b7kxewof58uhl" path="res://assets/sprites/ships/wail/wail_3.png" id="4_af3oo"]
+[ext_resource type="Texture2D" uid="uid://d3kvch87c1640" path="res://assets/sprites/ships/wail/wail_4.png" id="5_ft4mu"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_mn1qr"]
 [ext_resource type="Texture2D" uid="uid://5c5ahixt3g5x" path="res://assets/sprites/ships/wail/wail_5.png" id="6_mn6d0"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_nehir"]
@@ -45,12 +45,12 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 resource_local_to_scene = true
 shader = ExtResource("7_nehir")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8pirs"]
 resource_local_to_scene = true
 diffuse_texture = ExtResource("10_pjjdf")
 normal_texture = ExtResource("11_2y0vn")
+specular_shininess = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -60,8 +60,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_3m22y")]
-scale = Vector2(0.14, 0.14)
+[node name="0_2" instance=ExtResource("1_3m22y")]
 sprites = Array[CompressedTexture2D]([ExtResource("2_xvtdk"), ExtResource("3_877ro"), ExtResource("4_af3oo"), ExtResource("5_ft4mu"), ExtResource("6_mn6d0")])
 crystal = ExtResource("7_p0xgt")
 speed = 400.0
@@ -71,23 +70,29 @@ acceleration = 0.01
 destination = 0
 move = 0
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("11_2y0vn")
+offset = Vector2(0, -200)
+
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_mn1qr")]
-position = Vector2(0, -400)
+position = Vector2(0, -600)
 scale = Vector2(0.5, 1)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Area2D" parent="ShipBody" index="1"]
+[node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(0, -200)
 polygon = PackedVector2Array(-114.286, 64.2857, -157.143, 92.8571, -192.857, -107.143, -235.714, 100, -292.857, 35.7143, -492.857, 14.2857, -492.857, 50, -200, 264.286, -135.714, 221.429, -85.7143, 400, -28.5714, 485.714, 28.5714, 485.714, 85.7143, 400, 142.857, 221.429, 214.286, 257.143, 485.714, 57.1429, 485.714, 14.2857, 300, 35.7143, 235.714, 100, 192.857, -100, 157.143, 100, 114.286, 71.4286, 100, -64.2857, 50, -221.429, 200, -357.143, 35.7143, -371.429, 0, -492.857, -35.7143, -371.429, -200, -357.143, -50, -221.429, -100, -64.2857)
 metadata/_edit_lock_ = true
 
-[node name="Sprite" parent="ShipBody" index="2"]
+[node name="Sprite" parent="ShipBody" index="3"]
 material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_8pirs")
+offset = Vector2(0, -200)
 metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]

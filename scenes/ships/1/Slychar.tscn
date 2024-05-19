@@ -12,7 +12,6 @@
 resource_local_to_scene = true
 shader = ExtResource("5_csjfk")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_20wat"]
 resource_local_to_scene = true
@@ -31,10 +30,13 @@ corner_radius_bottom_left = 4
 sprites = Array[CompressedTexture2D]([ExtResource("2_0rvot"), ExtResource("3_p4qt1")])
 crystal = ExtResource("4_en7v0")
 
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("7_smmwu")
+
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
 polygon = PackedVector2Array(-265, 125, -155, 30, -220, -60, -100, -405, 0, -465, 100, -400, 220, -60, 155, 30, 265, 125, 95, 455, -95, 455)
 
-[node name="Sprite" parent="ShipBody" index="1"]
+[node name="Sprite" parent="ShipBody" index="2"]
 material = SubResource("ShaderMaterial_45cw7")
 texture = SubResource("CanvasTexture_20wat")
 

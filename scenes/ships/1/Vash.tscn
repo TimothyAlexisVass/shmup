@@ -44,10 +44,8 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 resource_local_to_scene = true
 shader = ExtResource("7_m6175")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f4y87"]
-local_to_scene = true
 resource_local_to_scene = true
 diffuse_texture = ExtResource("8_rscph")
 normal_texture = ExtResource("4_0m3ud")
@@ -72,7 +70,7 @@ acceleration = 0.01
 destination = 0
 move = 0
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("2_k68wi")]
 position = Vector2(-100, -170)
@@ -82,16 +80,11 @@ process_material = SubResource("ParticleProcessMaterial_gq27g")
 position = Vector2(100, -170)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Area2D" parent="ShipBody" index="1"]
+[node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
 polygon = PackedVector2Array(-30, -380, -55, -195, -115, -180, -145, -225, -145, -470, -290, -445, -270, -65, -460, 0, -125, 470, -50, 445, -45, -75, 65, -80, 65, 445, 150, 475, 475, 5, 280, -70, 300, -440, 145, -465, 150, -235, 125, -175, 65, -185, 35, -380)
-metadata/_edit_lock_ = true
-
-[node name="Sprite" parent="ShipBody" index="2"]
-material = SubResource("ShaderMaterial_gjmwv")
-texture = SubResource("CanvasTexture_f4y87")
 metadata/_edit_lock_ = true
 
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
@@ -101,6 +94,11 @@ position = Vector2(28.5714, -178.571)
 position = Vector2(0, -150)
 default_color = Color(1, 0.168627, 0, 1)
 shot_speed = 300.0
+
+[node name="Sprite" parent="ShipBody" index="4"]
+material = SubResource("ShaderMaterial_gjmwv")
+texture = SubResource("CanvasTexture_f4y87")
+metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_2r0gs")

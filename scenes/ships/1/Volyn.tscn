@@ -42,12 +42,12 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 resource_local_to_scene = true
 shader = ExtResource("7_nm4nh")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_su7v1"]
 resource_local_to_scene = true
 diffuse_texture = ExtResource("7_m8x4v")
 normal_texture = ExtResource("8_c6dfr")
+specular_shininess = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -58,7 +58,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_5cgeb")]
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.18, 0.18)
 sprites = Array[CompressedTexture2D]([ExtResource("2_y5vgu"), ExtResource("3_cf33m")])
 crystal = ExtResource("4_etxug")
 speed = 400.0
@@ -68,26 +68,39 @@ acceleration = 0.01
 destination = 0
 move = 0
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("8_c6dfr")
+offset = Vector2(0, 100)
+
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_83yvk")]
-position = Vector2(-100, -170)
+position = Vector2(-95, -280)
+scale = Vector2(0.4, 0.6)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
 [node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("6_83yvk")]
-position = Vector2(100, -170)
+position = Vector2(95, -280)
+scale = Vector2(0.4, 0.6)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Area2D" parent="ShipBody" index="1"]
+[node name="Jet3" parent="ShipBody/Jets" index="2" instance=ExtResource("6_83yvk")]
+position = Vector2(0, -280)
+scale = Vector2(0.8, 0.9)
+process_material = SubResource("ParticleProcessMaterial_gq27g")
+
+[node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(0, 100)
 polygon = PackedVector2Array(164.286, -335.714, 128.571, -392.857, 57.1429, -392.857, 0, -442.857, -57.1429, -392.857, -121.429, -392.857, -157.143, -335.714, -207.143, -357.143, -485.714, -471.429, -507.143, -414.286, -357.143, -321.429, -428.571, -250, -221.429, 21.4286, -221.429, 135.714, -107.143, 242.857, -92.8571, 350, -50, 445, 0, 471.429, 42.8571, 442.857, 85.7143, 350, 107.143, 242.857, 214.286, 128.571, 221.429, 14.2857, 428.571, -250, 357.143, -321.429, 507.143, -421.429, 492.857, -471.429, 207.143, -357.143)
 metadata/_edit_lock_ = true
 
-[node name="Sprite" parent="ShipBody" index="2"]
+[node name="Sprite" parent="ShipBody" index="3"]
 material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_su7v1")
+offset = Vector2(0, 100)
 metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]

@@ -45,7 +45,6 @@ alpha_curve = SubResource("CurveTexture_5hw0l")
 resource_local_to_scene = true
 shader = ExtResource("9_kmopf")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 5.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_lwmwo"]
 resource_local_to_scene = true
@@ -64,11 +63,14 @@ corner_radius_bottom_left = 4
 [node name="Ship" instance=ExtResource("1_nusdn")]
 sprites = Array[CompressedTexture2D]([ExtResource("3_bdnya"), ExtResource("3_v2kud"), ExtResource("4_y83cx"), ExtResource("5_cmkab"), ExtResource("6_dvttp")])
 crystal = ExtResource("7_eqgj3")
+spawn_wait_time = 3.0
 
-[node name="TierSprite" parent="." index="0"]
-position = Vector2(0, -20)
+[node name="TierGlow" parent="ShipBody" index="0"]
+position = Vector2(0, 140)
+texture = ExtResource("4_1beu1")
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
+scale = Vector2(1, 1)
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("2_ffjhc")]
 modulate = Color(2, 1, 5, 0.3)
@@ -80,10 +82,22 @@ modulate = Color(2, 1, 5, 0.3)
 position = Vector2(115, -310)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
-polygon = PackedVector2Array(140, 50, 220, -155, 135, -180, 160, -335, 75.0841, -336.807, 75, -240, -70, -230, -75, -340, -160, -325, -130, -185, -215, -150, -140, 50, -45, 190, 5, 410, 45, 190)
+[node name="Jet3" parent="ShipBody/Jets" index="2" instance=ExtResource("2_ffjhc")]
+modulate = Color(2, 1, 5, 0.3)
+position = Vector2(-195, -160)
+scale = Vector2(0.3, 0.3)
+process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Sprite" parent="ShipBody" index="2"]
+[node name="Jet4" parent="ShipBody/Jets" index="3" instance=ExtResource("2_ffjhc")]
+modulate = Color(2, 1, 5, 0.3)
+position = Vector2(195, -160)
+scale = Vector2(0.3, 0.3)
+process_material = SubResource("ParticleProcessMaterial_gq27g")
+
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+polygon = PackedVector2Array(130, 55, 290, 180, 240, 610, 360, 350, 395, 180, 210, -10, 220, -155, 135, -180, 160, -335, 75.0841, -336.807, 75, -240, -65, -240, -75, -340, -160, -325, -130, -185, -215, -150, -215, -5, -390, 175, -345, 385, -240, 620, -290, 195, -140, 50, -45, 190, 5, 410, 45, 190)
+
+[node name="Sprite" parent="ShipBody" index="3"]
 material = SubResource("ShaderMaterial_pnxlt")
 texture = SubResource("CanvasTexture_lwmwo")
 offset = Vector2(0, 140)

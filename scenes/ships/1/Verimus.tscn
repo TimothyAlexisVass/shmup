@@ -10,12 +10,12 @@
 resource_local_to_scene = true
 shader = ExtResource("7_ea6vc")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6mops"]
 resource_local_to_scene = true
 diffuse_texture = ExtResource("5_7ofxo")
 normal_texture = ExtResource("6_mdvpk")
+specular_shininess = 0.6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -26,7 +26,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_0wghb")]
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.18, 0.18)
 crystal = ExtResource("2_7gjty")
 speed = 400.0
 total_hit_points = 5.0
@@ -35,16 +35,22 @@ acceleration = 0.01
 destination = 0
 move = 0
 
-[node name="Area2D" parent="ShipBody" index="0"]
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("6_mdvpk")
+offset = Vector2(0, 100)
+
+[node name="Area2D" parent="ShipBody" index="1"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(0, 100)
 polygon = PackedVector2Array(-235.714, -414.286, -342.857, -307.143, -335.714, -214.286, -242.857, -128.571, -157.143, 64.2857, -128.571, 242.857, -28.5714, 471.429, 28.5714, 471.429, 142.857, 235.714, 157.143, 71.4286, 250, -128.571, 342.857, -214.286, 357.143, -314.286, 250, -407.143, 7.14286, -485.714)
 metadata/_edit_lock_ = true
 
-[node name="Sprite" parent="ShipBody" index="1"]
+[node name="Sprite" parent="ShipBody" index="2"]
 material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_6mops")
+offset = Vector2(0, 100)
 metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]

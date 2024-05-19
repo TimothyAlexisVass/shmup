@@ -47,16 +47,16 @@ func _enter_tree():
 	if ship_value <= 1000:
 		ship_tier = 9
 	else:
-		if ship_value <= 2 && len(sprites) == 5:
+		if ship_value <= 3000 && len(sprites) == 5:
 			shipbody_texture = sprites[4]
 			ship_tier = 5
-		elif ship_value <= 5 && len(sprites) >= 4:
+		elif ship_value <= 4000 && len(sprites) >= 4:
 			shipbody_texture = sprites[3]
 			ship_tier = 4
-		elif ship_value <= 3000 && len(sprites) >= 3:
+		elif ship_value <= 5000 && len(sprites) >= 3:
 			shipbody_texture = sprites[2]
 			ship_tier = 3
-		elif ship_value <= 5000 && len(sprites) >= 2:
+		elif ship_value <= 6000 && len(sprites) >= 2:
 			shipbody_texture = sprites[1]
 			ship_tier = 2
 		elif ship_value <= 7000 && len(sprites) >= 1:

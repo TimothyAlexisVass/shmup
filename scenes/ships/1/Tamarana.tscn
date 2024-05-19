@@ -44,7 +44,6 @@ alpha_curve = SubResource("CurveTexture_drtbg")
 resource_local_to_scene = true
 shader = ExtResource("6_0qavv")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f833l"]
 resource_local_to_scene = true
@@ -63,7 +62,11 @@ corner_radius_bottom_left = 4
 sprites = Array[CompressedTexture2D]([ExtResource("2_j8yny"), ExtResource("3_2f8l2"), ExtResource("4_w8uga"), ExtResource("5_88vjf")])
 crystal = ExtResource("6_hmiqk")
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("10_5qtdo")
+
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
+scale = Vector2(1, 1)
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("5_rmgt7")]
 modulate = Color(4, 0.6, 3, 0.3)
@@ -74,7 +77,7 @@ process_material = SubResource("ParticleProcessMaterial_kmwr1")
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
 polygon = PackedVector2Array(255, 50, 150, 150, 40, 505, -45, 505, -135, 155, -255, 50, -260, 375, -375, 375, -345, -475, -285, -475, -260, -90, -140, -40, -145, -355, -125, -445, -85, -310, 90, -315, 125, -445, 140, -365, 140, -40, 265, -95, 284.508, -474.52, 345, -475, 370, 370, 260, 370)
 
-[node name="Sprite" parent="ShipBody" index="2"]
+[node name="Sprite" parent="ShipBody" index="3"]
 material = SubResource("ShaderMaterial_61dkg")
 texture = SubResource("CanvasTexture_f833l")
 metadata/_edit_lock_ = true
