@@ -44,7 +44,7 @@ func _enter_tree():
 	if crystal == null:
 		ship_value += 1
 	
-	if ship_value == 0:
+	if ship_value <= 1000:
 		ship_tier = 9
 	else:
 		if ship_value <= 2 && len(sprites) == 5:
@@ -56,17 +56,20 @@ func _enter_tree():
 		elif ship_value <= 10 && len(sprites) >= 3:
 			shipbody_texture = sprites[2]
 			ship_tier = 3
-		elif ship_value <= 100 && len(sprites) >= 2:
+		elif ship_value <= 3000 && len(sprites) >= 2:
 			shipbody_texture = sprites[1]
 			ship_tier = 2
-		elif ship_value <= 1000 && len(sprites) >= 1:
+		elif ship_value <= 5000 && len(sprites) >= 1:
 			shipbody_texture = sprites[0]
 			ship_tier = 1
 
+	if ship_tier == 9:
+		shipbody_texture = crystal
+
 	scale *= 1 + 0.07 * ship_tier
-	# total_hit_points *= 1 + ship_tier
+	total_hit_points *= 1 + ship_tier
+	
 	$ShipBody/Sprite.material.set_shader_parameter("line_color", G.TIER_COLOR[ship_tier])
-	$ShipBody/Sprite.material.set_shader_parameter("line_thickness", 5.0)
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
 		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier]

@@ -41,7 +41,7 @@ script = ExtResource("4_bqnhj")
 
 [node name="TierGlow" type="Sprite2D" parent="ShipBody"]
 light_mask = 512
-scale = Vector2(1.01, 1.01)
+scale = Vector2(1.05, 1.05)
 texture = ExtResource("4_g7ory")
 
 [node name="Area2D" type="Area2D" parent="ShipBody"]

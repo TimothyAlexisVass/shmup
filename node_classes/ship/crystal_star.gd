@@ -1,14 +1,9 @@
 extends Sprite2D
 
 var hue = 0.0
-var parent
-var ship_sprite
-
-func _enter_tree():
-	parent = get_parent()
-
-func _ready():
-	ship_sprite = parent.get_node("ShipBody/Sprite")
+@onready var parent = get_parent()
+@onready var ship_sprite = parent.get_node("ShipBody/Sprite")
+@onready var tier_glow = parent.get_node("ShipBody/TierGlow")
 
 func _physics_process(delta):
 	rotation -= delta * 2
@@ -16,4 +11,6 @@ func _physics_process(delta):
 	hue = fmod(hue, 1.0)  # Wrap hue around 0.0 to 1.0
 	var color_from_hsv = Color.from_hsv(hue, 1.0, 2.0)
 	self.self_modulate = color_from_hsv
+	self.self_modulate.a = 0.2
+	tier_glow.modulate = color_from_hsv
 	ship_sprite.material.set_shader_parameter("line_color", color_from_hsv)

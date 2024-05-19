@@ -42,7 +42,6 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 resource_local_to_scene = true
 shader = ExtResource("7_lri3c")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vi4sp"]
 resource_local_to_scene = true
@@ -58,35 +57,40 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_jf77a")]
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.22, 0.22)
 sprites = Array[CompressedTexture2D]([ExtResource("2_6ynwq"), ExtResource("3_jskx8")])
 crystal = ExtResource("4_77wgt")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
 acceleration = 0.01
+spawn_wait_time = 2.0
 destination = 0
 move = 0
-
-[node name="TierSprite" parent="." index="0"]
-position = Vector2(0, -80)
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="0"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_sw7su")]
-position = Vector2(0, -440)
+position = Vector2(0, -240)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Area2D" parent="ShipBody" index="1"]
+[node name="TierGlow" parent="ShipBody" index="1"]
+position = Vector2(0, 5)
+texture = ExtResource("8_1uofh")
+offset = Vector2(0, 200)
+
+[node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(0, 200)
 polygon = PackedVector2Array(214.286, -450, 171.429, -450, 150, -285.714, 78.5714, -292.857, 71.4286, -485.714, -71.4286, -485.714, -85.7143, -292.857, -150, -285.714, -171.429, -457.143, -214.286, -457.143, -228.571, -300, -285.714, -300, -364.286, -235.714, -364.286, -200, -285.714, -150, -121.429, -164.286, -71.4286, -128.571, -92.8571, 0, -92.8571, 64.2857, -50, 250, -42.8571, 485.714, 42.8571, 485.714, 50, 250, 92.8571, 64.2857, 92.8571, 0, 71.4286, -128.571, 114.286, -164.286, 285.714, -150, 364.286, -200, 364.286, -250, 292.857, -300, 235.714, -300)
 metadata/_edit_lock_ = true
 
-[node name="Sprite" parent="ShipBody" index="2"]
+[node name="Sprite" parent="ShipBody" index="3"]
 material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_vi4sp")
+offset = Vector2(0, 200)
 metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]

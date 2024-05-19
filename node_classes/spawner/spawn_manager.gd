@@ -7,7 +7,7 @@ var wave = 0
 
 var ships = {
 	1: {
-		"Tuur": preload("res://scenes/ships/1/Tuur.tscn"),
+		"Vallin": preload("res://scenes/ships/1/Vallin.tscn"),
 	},
 	2: {
 		"Garra": preload("res://scenes/ships/2/Garra.tscn"),
@@ -15,10 +15,10 @@ var ships = {
 		"Sabran": preload("res://scenes/ships/1/Sabran.tscn"),
 		"Sabir": preload("res://scenes/ships/2/Sabir.tscn"),
 		"Trusha": preload("res://scenes/ships/1/Trusha.tscn"),
+		"Tuur": preload("res://scenes/ships/1/Tuur.tscn"),
+		"Vaboom": preload("res://scenes/ships/1/Vaboom.tscn"),
 	},
 	3: {
-		"Vaboom": preload("res://scenes/ships/1/Vaboom.tscn"),
-		"Vallin": preload("res://scenes/ships/1/Vallin.tscn"),
 		"Varilan": preload("res://scenes/ships/1/Varilan.tscn"),
 		"Vash": preload("res://scenes/ships/1/Vash.tscn"),
 		"Vashu": preload("res://scenes/ships/1/Vashu.tscn"),
