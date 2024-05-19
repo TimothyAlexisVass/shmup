@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgx5uw2sljbk8"]
+[gd_scene load_steps=11 format=3 uid="uid://dgx5uw2sljbk8"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_4x4vw"]
 [ext_resource type="Texture2D" uid="uid://lmi7cg65qw2v" path="res://assets/sprites/ships/trusha/trusha_1.png" id="2_w3s0x"]
 [ext_resource type="Texture2D" uid="uid://bvn7f6ql8cpam" path="res://assets/sprites/ships/trusha/trusha_2.png" id="3_0un2h"]
 [ext_resource type="Texture2D" uid="uid://dw538dqkbiy6r" path="res://assets/sprites/ships/trusha/trusha_crystal.png" id="4_scko3"]
-[ext_resource type="Script" path="res://node_classes/ship/crystal_star.gd" id="5_yxorg"]
 [ext_resource type="Texture2D" uid="uid://b6ylvehhwhgbx" path="res://assets/sprites/ships/trusha/trusha_0.png" id="7_ptun7"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_awrry"]
 [ext_resource type="Texture2D" uid="uid://chr6hhadhi2v3" path="res://assets/sprites/ships/trusha/trusha_normal.png" id="8_m1y0c"]
@@ -13,7 +12,6 @@
 resource_local_to_scene = true
 shader = ExtResource("8_awrry")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3d4rs"]
 resource_local_to_scene = true
@@ -34,7 +32,6 @@ crystal = ExtResource("4_scko3")
 
 [node name="CrystalStar" parent="." index="0"]
 modulate = Color(1.50196, 1.50196, 1.50196, 0.556863)
-script = ExtResource("5_yxorg")
 
 [node name="ShipBody" parent="." index="1"]
 modulate = Color(1, 1, 4, 1)

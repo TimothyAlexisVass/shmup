@@ -63,13 +63,10 @@ func _enter_tree():
 			shipbody_texture = sprites[0]
 			ship_tier = 1
 
-	if ship_tier == 9:
-		shipbody_texture = crystal
-
 	scale *= 1 + 0.07 * ship_tier
-	total_hit_points *= 1 + ship_tier
+	# total_hit_points *= 1 + ship_tier
 	$ShipBody/Sprite.material.set_shader_parameter("line_color", G.TIER_COLOR[ship_tier])
-
+	$ShipBody/Sprite.material.set_shader_parameter("line_thickness", 5.0)
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
 		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier] * Color(1.5, 1.5, 1.5, 0.2)
