@@ -7,8 +7,6 @@ var timer
 @export var rate_of_fire: float = 1.0
 @export var shot_speed: float = 200.0
 
-@onready var line_angle = get_point_position(1).angle_to(get_point_position(0))
-
 func _enter_tree():
 	owner = get_parent().owner
 	timer = $Timer
@@ -24,7 +22,7 @@ func first_shot():
 func shoot():
 	var shot = shot_scene.instantiate()
 	shot.global_position = global_position
-	shot.rotation = global_rotation + line_angle
+	shot.rotation = global_rotation
 	shot.speed = shot_speed
 	shot.hit_effect_scene = hit_effect_scene
 	shot.source = owner
