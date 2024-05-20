@@ -42,7 +42,6 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 resource_local_to_scene = true
 shader = ExtResource("7_y8gof")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6tx2y"]
 resource_local_to_scene = true
@@ -58,7 +57,6 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_yk81k")]
-scale = Vector2(0.14, 0.14)
 sprites = Array[CompressedTexture2D]([ExtResource("2_amyv6"), ExtResource("3_86tdc")])
 crystal = ExtResource("4_xny0u")
 speed = 400.0
@@ -68,23 +66,30 @@ acceleration = 0.01
 destination = 0
 move = 0
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("9_o6yea")
+offset = Vector2(0, -120)
+
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_iu4vp")]
-modulate = Color(6, 1, 6, 0.3)
-position = Vector2(0, 0)
+modulate = Color(1.5, 6, 1, 0.3)
+position = Vector2(0, -140)
+scale = Vector2(1.5, 0.7)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Area2D" parent="ShipBody" index="1"]
+[node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(0, -120)
 polygon = PackedVector2Array(-28.5714, -71.4286, -107.143, -42.8571, -428.571, -357.143, -435.714, -178.571, -364.286, -85.7143, -478.571, -92.8571, -421.429, 64.2857, -200, 185.714, -107.143, 257.143, -57.1429, 364.286, 50, 364.286, 107.143, 257.143, 221.429, 185.714, 435.714, 50, 500, -114.286, 385.714, -85.7143, 435.714, -185.714, 421.429, -357.143, 114.286, -35.7143, 28.5714, -71.4286)
 metadata/_edit_lock_ = true
 
-[node name="Sprite" parent="ShipBody" index="2"]
+[node name="Sprite" parent="ShipBody" index="3"]
 material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_6tx2y")
+offset = Vector2(0, -120)
 metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]
