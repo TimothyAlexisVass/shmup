@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://rhr21f1k344n"]
+[gd_scene load_steps=21 format=3 uid="uid://rhr21f1k344n"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_3m22y"]
 [ext_resource type="Texture2D" uid="uid://dn85oyubhpan4" path="res://assets/sprites/ships/wail/wail_1.png" id="2_xvtdk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://5c5ahixt3g5x" path="res://assets/sprites/ships/wail/wail_5.png" id="6_mn6d0"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_nehir"]
 [ext_resource type="Texture2D" uid="uid://gb4pcimreb07" path="res://assets/sprites/ships/wail/wail_crystal.png" id="7_p0xgt"]
+[ext_resource type="Texture2D" uid="uid://dwgt0d7ui2oad" path="res://assets/sprites/ships/wail/wail_border.png" id="8_rj7n0"]
 [ext_resource type="Texture2D" uid="uid://cfowhol37h1au" path="res://assets/sprites/ships/wail/wail_0.png" id="10_pjjdf"]
 [ext_resource type="Texture2D" uid="uid://sexv7h114r72" path="res://assets/sprites/ships/wail/wail_normal.png" id="11_2y0vn"]
 
@@ -50,7 +51,7 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 resource_local_to_scene = true
 diffuse_texture = ExtResource("10_pjjdf")
 normal_texture = ExtResource("11_2y0vn")
-specular_shininess = 0.5
+specular_shininess = 0.3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -71,7 +72,8 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("11_2y0vn")
+scale = Vector2(1, 1)
+texture = ExtResource("8_rj7n0")
 offset = Vector2(0, -200)
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]

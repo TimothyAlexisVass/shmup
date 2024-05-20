@@ -9,8 +9,8 @@ func _physics_process(delta):
 	rotation -= delta * 2
 	hue += delta * 0.5 # Adjust increment value for speed
 	hue = fmod(hue, 1.0)  # Wrap hue around 0.0 to 1.0
-	var color_from_hsv = Color.from_hsv(hue, 1.0, 2.0)
-	self.self_modulate = color_from_hsv
-	self.self_modulate.a = 0.2
+	var color_from_hsv = Color.from_hsv(hue, 1.0, 3.0)
+	self_modulate = color_from_hsv
+	self_modulate.a = 0.1
 	tier_glow.modulate = color_from_hsv
 	ship_sprite.material.set_shader_parameter("line_color", color_from_hsv)

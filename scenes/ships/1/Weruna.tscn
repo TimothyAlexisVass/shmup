@@ -44,12 +44,12 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 resource_local_to_scene = true
 shader = ExtResource("7_jwwqj")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 10.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_qqkdr"]
 resource_local_to_scene = true
 diffuse_texture = ExtResource("8_cxfod")
 normal_texture = ExtResource("9_qlirs")
+specular_shininess = 0.4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -60,7 +60,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_illnx")]
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.25, 0.25)
 sprites = Array[CompressedTexture2D]([ExtResource("2_me87o"), ExtResource("3_dnf8i"), ExtResource("4_00ch1")])
 crystal = ExtResource("5_hwqb4")
 speed = 400.0
@@ -70,7 +70,10 @@ acceleration = 0.01
 destination = 0
 move = 0
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("9_qlirs")
+
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_jp06c")]
 position = Vector2(-107, -435)
@@ -82,31 +85,31 @@ position = Vector2(107, -435)
 scale = Vector2(0.5, 1)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Area2D" parent="ShipBody" index="1"]
+[node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
 polygon = PackedVector2Array(-42.8571, -407.143, -71.4286, -485.714, -200, -485.714, -250, -71.4286, -207.143, 257.143, -85.7143, 314.286, -50, 445, -35.7143, 492.857, 42.8571, 492.857, 57.1429, 442.857, 92.8571, 314.286, 207.143, 264.286, 250, -92.8571, 200, -485.714, 71.4286, -485.714, 42.8571, -407.143)
 metadata/_edit_lock_ = true
 
-[node name="Sprite" parent="ShipBody" index="2"]
-material = SubResource("ShaderMaterial_gjmwv")
-texture = SubResource("CanvasTexture_qqkdr")
-metadata/_edit_lock_ = true
-
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
 
 [node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_7v6p5")]
 position = Vector2(228, 275)
-points = PackedVector2Array(0, 0, -14, 100)
+rotation = 0.20944
 default_color = Color(1, 0.168627, 0, 1)
 shot_speed = 300.0
 
 [node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("10_7v6p5")]
 position = Vector2(-228, 275)
-points = PackedVector2Array(0, 0, 14, 100)
+rotation = -0.20944
 default_color = Color(1, 0.168627, 0, 1)
 shot_speed = 300.0
+
+[node name="Sprite" parent="ShipBody" index="4"]
+material = SubResource("ShaderMaterial_gjmwv")
+texture = SubResource("CanvasTexture_qqkdr")
+metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_2r0gs")
