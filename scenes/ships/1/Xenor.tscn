@@ -47,6 +47,7 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 resource_local_to_scene = true
 diffuse_texture = ExtResource("7_seq7s")
 normal_texture = ExtResource("8_t4j21")
+specular_shininess = 0.4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -57,7 +58,6 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_oc81w")]
-scale = Vector2(0.14, 0.14)
 sprites = Array[CompressedTexture2D]([ExtResource("2_w1yfq"), ExtResource("3_gddlk")])
 crystal = ExtResource("4_4vyx2")
 speed = 400.0
@@ -73,6 +73,9 @@ move = 0
 modulate = Color(4, 1, 1, 0.3)
 position = Vector2(0, 0)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
+
+[node name="TierGlow" parent="ShipBody" index="1"]
+texture = ExtResource("8_t4j21")
 
 [node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true
