@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://w4qrxnhbtys0"]
+[gd_scene load_steps=17 format=3 uid="uid://w4qrxnhbtys0"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_t1ya6"]
-[ext_resource type="Texture2D" uid="uid://cfqfk6hnksyag" path="res://assets/sprites/ships/somanda/somanda_1.png" id="2_qa8b2"]
-[ext_resource type="Texture2D" uid="uid://8css8skloweo" path="res://assets/sprites/ships/somanda/somanda_crystal.png" id="3_maee2"]
-[ext_resource type="Texture2D" uid="uid://kyx3xbl1b7xi" path="res://assets/sprites/ships/somanda/somanda_0.png" id="6_5ur44"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_wvdff"]
-[ext_resource type="Texture2D" uid="uid://dneqs4sqvxrus" path="res://assets/sprites/ships/somanda/somanda_normal.png" id="7_y5y4p"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_yjerv"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_fergg"]
+[ext_resource type="Texture2D" uid="uid://cfqfk6hnksyag" path="res://assets/sprites/ships/somanda/somanda_1.png" id="2_pn0xf"]
+[ext_resource type="Texture2D" uid="uid://8css8skloweo" path="res://assets/sprites/ships/somanda/somanda_crystal.png" id="3_2ptwu"]
+[ext_resource type="Texture2D" uid="uid://bkdlxwixo3a42" path="res://assets/sprites/ships/somanda/somanda_border.png" id="4_m6fw2"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="5_t8x55"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="6_t1wgh"]
+[ext_resource type="Texture2D" uid="uid://kyx3xbl1b7xi" path="res://assets/sprites/ships/somanda/somanda_0.png" id="7_wnfbu"]
+[ext_resource type="Texture2D" uid="uid://dneqs4sqvxrus" path="res://assets/sprites/ships/somanda/somanda_normal.png" id="8_xsp1c"]
 
 [sub_resource type="Curve" id="Curve_6jcrg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -39,13 +40,13 @@ alpha_curve = SubResource("CurveTexture_drtbg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_61dkg"]
 resource_local_to_scene = true
-shader = ExtResource("8_yjerv")
+shader = ExtResource("6_t1wgh")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_khhvi"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("6_5ur44")
-normal_texture = ExtResource("7_y5y4p")
+diffuse_texture = ExtResource("7_wnfbu")
+normal_texture = ExtResource("8_xsp1c")
 specular_shininess = 0.77
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywl1u"]
@@ -56,17 +57,17 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_t1ya6")]
-sprites = Array[CompressedTexture2D]([ExtResource("2_qa8b2")])
-crystal = ExtResource("3_maee2")
+[node name="Ship" instance=ExtResource("1_fergg")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_pn0xf")])
+crystal = ExtResource("3_2ptwu")
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("7_y5y4p")
+texture = ExtResource("4_m6fw2")
 offset = Vector2(0, 140)
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("7_wvdff")]
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("5_t8x55")]
 modulate = Color(4, 0.6, 3, 0.3)
 position = Vector2(0, -300)
 scale = Vector2(1.7, 1)

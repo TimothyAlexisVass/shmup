@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bd037rwqwyfyp"]
+[gd_scene load_steps=19 format=3 uid="uid://bd037rwqwyfyp"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_iw53o"]
-[ext_resource type="Texture2D" uid="uid://by3j0levp6woi" path="res://assets/sprites/ships/varilan/varilan_1.png" id="2_4jcai"]
-[ext_resource type="Texture2D" uid="uid://b22t33xe3r5na" path="res://assets/sprites/ships/varilan/varilan_2.png" id="3_7oqks"]
-[ext_resource type="Texture2D" uid="uid://c5uhkyjy1ef1b" path="res://assets/sprites/ships/varilan/varilan_crystal.png" id="4_xotws"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_g2cgt"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_gtcvp"]
-[ext_resource type="Texture2D" uid="uid://bwdr8uc3q6h3x" path="res://assets/sprites/ships/varilan/varilan_0.png" id="7_pvg30"]
-[ext_resource type="Texture2D" uid="uid://droq3r5c4swrs" path="res://assets/sprites/ships/varilan/varilan_normal.png" id="8_ryumt"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_axsqh"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_bco4o"]
+[ext_resource type="Texture2D" uid="uid://by3j0levp6woi" path="res://assets/sprites/ships/varilan/varilan_1.png" id="2_qgoyx"]
+[ext_resource type="Texture2D" uid="uid://b22t33xe3r5na" path="res://assets/sprites/ships/varilan/varilan_2.png" id="3_rm5d3"]
+[ext_resource type="Texture2D" uid="uid://c5uhkyjy1ef1b" path="res://assets/sprites/ships/varilan/varilan_crystal.png" id="4_x8wux"]
+[ext_resource type="Texture2D" uid="uid://bjjywyrf6co0f" path="res://assets/sprites/ships/varilan/varilan_border.png" id="5_0p0uh"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_g28ic"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="7_8n7l4"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_d1udx"]
+[ext_resource type="Texture2D" uid="uid://bwdr8uc3q6h3x" path="res://assets/sprites/ships/varilan/varilan_0.png" id="9_3v2gd"]
+[ext_resource type="Texture2D" uid="uid://droq3r5c4swrs" path="res://assets/sprites/ships/varilan/varilan_normal.png" id="10_tdpji"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -41,13 +42,15 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_gtcvp")
+shader = ExtResource("8_d1udx")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7jvs5"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("7_pvg30")
-normal_texture = ExtResource("8_ryumt")
+diffuse_texture = ExtResource("9_3v2gd")
+normal_texture = ExtResource("10_tdpji")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.77
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -57,10 +60,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_iw53o")]
+[node name="Ship" instance=ExtResource("1_bco4o")]
 scale = Vector2(0.14, 0.14)
-sprites = Array[CompressedTexture2D]([ExtResource("2_4jcai"), ExtResource("3_7oqks")])
-crystal = ExtResource("4_xotws")
+sprites = Array[CompressedTexture2D]([ExtResource("2_qgoyx"), ExtResource("3_rm5d3")])
+crystal = ExtResource("4_x8wux")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -69,11 +72,11 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("8_ryumt")
+texture = ExtResource("5_0p0uh")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_g2cgt")]
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_g28ic")]
 position = Vector2(0, -222)
 scale = Vector2(0.5, 0.7)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
@@ -88,7 +91,7 @@ metadata/_edit_lock_ = true
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
 position = Vector2(28.5714, -178.571)
 
-[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_axsqh")]
+[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("7_8n7l4")]
 position = Vector2(0, -150)
 default_color = Color(1, 0.168627, 0, 1)
 shot_speed = 300.0

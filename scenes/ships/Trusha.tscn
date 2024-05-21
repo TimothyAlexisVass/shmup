@@ -1,0 +1,54 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgx5uw2sljbk8"]
+
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_27034"]
+[ext_resource type="Texture2D" uid="uid://lmi7cg65qw2v" path="res://assets/sprites/ships/trusha/trusha_1.png" id="2_s3k7j"]
+[ext_resource type="Texture2D" uid="uid://bvn7f6ql8cpam" path="res://assets/sprites/ships/trusha/trusha_2.png" id="3_cecou"]
+[ext_resource type="Texture2D" uid="uid://dw538dqkbiy6r" path="res://assets/sprites/ships/trusha/trusha_crystal.png" id="4_kfaaj"]
+[ext_resource type="Texture2D" uid="uid://chr6hhadhi2v3" path="res://assets/sprites/ships/trusha/trusha_normal.png" id="5_40x6s"]
+[ext_resource type="Texture2D" uid="uid://bt1u5cndqfam0" path="res://assets/sprites/ships/trusha/trusha_border.png" id="5_unnb5"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="6_56vqx"]
+[ext_resource type="Texture2D" uid="uid://b6ylvehhwhgbx" path="res://assets/sprites/ships/trusha/trusha_0.png" id="7_chqex"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61dkg"]
+resource_local_to_scene = true
+shader = ExtResource("6_56vqx")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3d4rs"]
+resource_local_to_scene = true
+diffuse_texture = ExtResource("7_chqex")
+normal_texture = ExtResource("5_40x6s")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.77
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywl1u"]
+resource_local_to_scene = true
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Ship" instance=ExtResource("1_27034")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_s3k7j"), ExtResource("3_cecou")])
+crystal = ExtResource("4_kfaaj")
+
+[node name="CrystalStar" parent="." index="0"]
+modulate = Color(1.50196, 1.50196, 1.50196, 0.317647)
+
+[node name="ShipBody" parent="." index="1"]
+modulate = Color(1, 1, 4, 1)
+
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("5_unnb5")
+
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+polygon = PackedVector2Array(-90, -140, -80, -445, -155, -55, -205, -55, -160, -430, -300, -105, -335, 60, -325, 340, -100, 455, -50, 385, -55, 240, 0, -5, 65, 240, 45, 380, 105, 455, 325, 335, 345, 50, 305, -110, 155, -440, 205, -45, 165, -65, 75, -445, 90, -135, 0, -195)
+
+[node name="Sprite" parent="ShipBody" index="2"]
+material = SubResource("ShaderMaterial_61dkg")
+texture = SubResource("CanvasTexture_3d4rs")
+metadata/_edit_lock_ = true
+
+[node name="HitPoints" parent="." index="2"]
+theme_override_styles/fill = SubResource("StyleBoxFlat_ywl1u")

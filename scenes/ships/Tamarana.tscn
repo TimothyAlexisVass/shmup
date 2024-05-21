@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://ddqakt4haow5m"]
+[gd_scene load_steps=20 format=3 uid="uid://ddqakt4haow5m"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_e521i"]
-[ext_resource type="Texture2D" uid="uid://s2jucv7v2lfg" path="res://assets/sprites/ships/tamarana/tamarana_1.png" id="2_j8yny"]
-[ext_resource type="Texture2D" uid="uid://daudrcxh7yxu7" path="res://assets/sprites/ships/tamarana/tamarana_2.png" id="3_2f8l2"]
-[ext_resource type="Texture2D" uid="uid://dik0lwneqphs5" path="res://assets/sprites/ships/tamarana/tamarana_3.png" id="4_w8uga"]
-[ext_resource type="Texture2D" uid="uid://cf4kay3e6ukt1" path="res://assets/sprites/ships/tamarana/tamarana_4.png" id="5_88vjf"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="5_rmgt7"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="6_0qavv"]
-[ext_resource type="Texture2D" uid="uid://jcn8rlq48btp" path="res://assets/sprites/ships/tamarana/tamarana_crystal.png" id="6_hmiqk"]
-[ext_resource type="Texture2D" uid="uid://d1d7ndkrps2e8" path="res://assets/sprites/ships/tamarana/tamarana_0.png" id="9_4nx75"]
-[ext_resource type="Texture2D" uid="uid://bca1eg5o7mjmp" path="res://assets/sprites/ships/tamarana/tamarana_normal.png" id="10_5qtdo"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_g5va2"]
+[ext_resource type="Texture2D" uid="uid://s2jucv7v2lfg" path="res://assets/sprites/ships/tamarana/tamarana_1.png" id="2_nvwsy"]
+[ext_resource type="Texture2D" uid="uid://daudrcxh7yxu7" path="res://assets/sprites/ships/tamarana/tamarana_2.png" id="3_ltrq3"]
+[ext_resource type="Texture2D" uid="uid://dik0lwneqphs5" path="res://assets/sprites/ships/tamarana/tamarana_3.png" id="4_k4ev0"]
+[ext_resource type="Texture2D" uid="uid://cf4kay3e6ukt1" path="res://assets/sprites/ships/tamarana/tamarana_4.png" id="5_p1svm"]
+[ext_resource type="Texture2D" uid="uid://jcn8rlq48btp" path="res://assets/sprites/ships/tamarana/tamarana_crystal.png" id="6_2lcir"]
+[ext_resource type="Texture2D" uid="uid://csc2xmfnvuhb" path="res://assets/sprites/ships/tamarana/tamarana_border.png" id="7_db500"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_e6mku"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="9_o7e80"]
+[ext_resource type="Texture2D" uid="uid://d1d7ndkrps2e8" path="res://assets/sprites/ships/tamarana/tamarana_0.png" id="10_ra8a0"]
+[ext_resource type="Texture2D" uid="uid://bca1eg5o7mjmp" path="res://assets/sprites/ships/tamarana/tamarana_normal.png" id="11_2gr05"]
 
 [sub_resource type="Curve" id="Curve_6jcrg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -42,14 +43,15 @@ alpha_curve = SubResource("CurveTexture_drtbg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_61dkg"]
 resource_local_to_scene = true
-shader = ExtResource("6_0qavv")
+shader = ExtResource("9_o7e80")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f833l"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("9_4nx75")
-normal_texture = ExtResource("10_5qtdo")
-specular_shininess = 0.3
+diffuse_texture = ExtResource("10_ra8a0")
+normal_texture = ExtResource("11_2gr05")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywl1u"]
 resource_local_to_scene = true
@@ -59,16 +61,16 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_e521i")]
-sprites = Array[CompressedTexture2D]([ExtResource("2_j8yny"), ExtResource("3_2f8l2"), ExtResource("4_w8uga"), ExtResource("5_88vjf")])
-crystal = ExtResource("6_hmiqk")
+[node name="Ship" instance=ExtResource("1_g5va2")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_nvwsy"), ExtResource("3_ltrq3"), ExtResource("4_k4ev0"), ExtResource("5_p1svm")])
+crystal = ExtResource("6_2lcir")
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("10_5qtdo")
+texture = ExtResource("7_db500")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("5_rmgt7")]
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("8_e6mku")]
 modulate = Color(4, 0.6, 3, 0.3)
 position = Vector2(0, -250)
 scale = Vector2(4, 1)

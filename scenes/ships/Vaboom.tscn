@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://7bst81yejgeq"]
+[gd_scene load_steps=18 format=3 uid="uid://7bst81yejgeq"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_jf77a"]
-[ext_resource type="Texture2D" uid="uid://i0oxgwsbey0o" path="res://assets/sprites/ships/vaboom/vaboom_1.png" id="2_6ynwq"]
-[ext_resource type="Texture2D" uid="uid://dhsqvlbemdrt5" path="res://assets/sprites/ships/vaboom/vaboom_2.png" id="3_jskx8"]
-[ext_resource type="Texture2D" uid="uid://cxier0xxs484x" path="res://assets/sprites/ships/vaboom/vaboom_crystal.png" id="4_77wgt"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_sw7su"]
-[ext_resource type="Texture2D" uid="uid://cqpyf3f7e4joe" path="res://assets/sprites/ships/vaboom/vaboom_0.png" id="7_dfeqk"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_lri3c"]
-[ext_resource type="Texture2D" uid="uid://bmjprpiwpjukg" path="res://assets/sprites/ships/vaboom/vaboom_normal.png" id="8_1uofh"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_rwmf2"]
+[ext_resource type="Texture2D" uid="uid://i0oxgwsbey0o" path="res://assets/sprites/ships/vaboom/vaboom_1.png" id="2_6witi"]
+[ext_resource type="Texture2D" uid="uid://dhsqvlbemdrt5" path="res://assets/sprites/ships/vaboom/vaboom_2.png" id="3_xbg8a"]
+[ext_resource type="Texture2D" uid="uid://cxier0xxs484x" path="res://assets/sprites/ships/vaboom/vaboom_crystal.png" id="4_ohcjr"]
+[ext_resource type="Texture2D" uid="uid://vcngaeibgu37" path="res://assets/sprites/ships/vaboom/vaboom_border.png" id="5_01sly"]
+[ext_resource type="Texture2D" uid="uid://bmjprpiwpjukg" path="res://assets/sprites/ships/vaboom/vaboom_normal.png" id="5_aucmo"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_2ym3q"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_3ufiy"]
+[ext_resource type="Texture2D" uid="uid://cqpyf3f7e4joe" path="res://assets/sprites/ships/vaboom/vaboom_0.png" id="8_3ssr0"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -40,13 +41,15 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_lri3c")
+shader = ExtResource("7_3ufiy")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vi4sp"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("7_dfeqk")
-normal_texture = ExtResource("8_1uofh")
+diffuse_texture = ExtResource("8_3ssr0")
+normal_texture = ExtResource("5_aucmo")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.77
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -56,10 +59,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_jf77a")]
+[node name="Ship" instance=ExtResource("1_rwmf2")]
 scale = Vector2(0.22, 0.22)
-sprites = Array[CompressedTexture2D]([ExtResource("2_6ynwq"), ExtResource("3_jskx8")])
-crystal = ExtResource("4_77wgt")
+sprites = Array[CompressedTexture2D]([ExtResource("2_6witi"), ExtResource("3_xbg8a")])
+crystal = ExtResource("4_ohcjr")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -68,16 +71,16 @@ spawn_wait_time = 2.0
 destination = 0
 move = 0
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="TierGlow" parent="ShipBody" index="0"]
+position = Vector2(0, 5)
+texture = ExtResource("5_01sly")
+offset = Vector2(0, 200)
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_sw7su")]
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
+
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_2ym3q")]
 position = Vector2(0, -240)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
-
-[node name="TierGlow" parent="ShipBody" index="1"]
-position = Vector2(0, 5)
-texture = ExtResource("8_1uofh")
-offset = Vector2(0, 200)
 
 [node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true

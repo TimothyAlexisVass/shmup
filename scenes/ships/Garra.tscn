@@ -1,16 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://ctpt408fs7dmw"]
+[gd_scene load_steps=21 format=3 uid="uid://ctpt408fs7dmw"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_nusdn"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_ffjhc"]
-[ext_resource type="Texture2D" uid="uid://cfe37chaaedkr" path="res://assets/sprites/ships/garra/garra_1.png" id="3_bdnya"]
-[ext_resource type="Texture2D" uid="uid://cndoj4deoi3k7" path="res://assets/sprites/ships/garra/garra_2.png" id="3_v2kud"]
-[ext_resource type="Texture2D" uid="uid://dpo160ade7750" path="res://assets/sprites/ships/garra/garra_normal.png" id="4_1beu1"]
-[ext_resource type="Texture2D" uid="uid://c2s7rnuhr8kp6" path="res://assets/sprites/ships/garra/garra_3.png" id="4_y83cx"]
-[ext_resource type="Texture2D" uid="uid://ghg3uu44l6h" path="res://assets/sprites/ships/garra/garra_4.png" id="5_cmkab"]
-[ext_resource type="Texture2D" uid="uid://brmbbpi35qorg" path="res://assets/sprites/ships/garra/garra_5.png" id="6_dvttp"]
-[ext_resource type="Texture2D" uid="uid://8t72qq34jgex" path="res://assets/sprites/ships/garra/garra_crystal.png" id="7_eqgj3"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="9_kmopf"]
-[ext_resource type="Texture2D" uid="uid://cdsnhn50vr1fe" path="res://assets/sprites/ships/garra/garra_0.png" id="10_xunfk"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_a4m7m"]
+[ext_resource type="Texture2D" uid="uid://cfe37chaaedkr" path="res://assets/sprites/ships/garra/garra_1.png" id="2_c8676"]
+[ext_resource type="Texture2D" uid="uid://cndoj4deoi3k7" path="res://assets/sprites/ships/garra/garra_2.png" id="3_ve5wi"]
+[ext_resource type="Texture2D" uid="uid://c2s7rnuhr8kp6" path="res://assets/sprites/ships/garra/garra_3.png" id="4_bv21s"]
+[ext_resource type="Texture2D" uid="uid://ghg3uu44l6h" path="res://assets/sprites/ships/garra/garra_4.png" id="5_udg0x"]
+[ext_resource type="Texture2D" uid="uid://brmbbpi35qorg" path="res://assets/sprites/ships/garra/garra_5.png" id="6_lflch"]
+[ext_resource type="Texture2D" uid="uid://8t72qq34jgex" path="res://assets/sprites/ships/garra/garra_crystal.png" id="7_hhfry"]
+[ext_resource type="Texture2D" uid="uid://qi1tg5y107lt" path="res://assets/sprites/ships/garra/garra_border.png" id="8_hog1q"]
+[ext_resource type="Texture2D" uid="uid://dpo160ade7750" path="res://assets/sprites/ships/garra/garra_normal.png" id="8_y6oyu"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_qyq2c"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_3unia"]
+[ext_resource type="Texture2D" uid="uid://cdsnhn50vr1fe" path="res://assets/sprites/ships/garra/garra_0.png" id="11_nn0vo"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -43,14 +44,15 @@ alpha_curve = SubResource("CurveTexture_5hw0l")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pnxlt"]
 resource_local_to_scene = true
-shader = ExtResource("9_kmopf")
+shader = ExtResource("10_3unia")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_lwmwo"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("10_xunfk")
-normal_texture = ExtResource("4_1beu1")
-specular_shininess = 0.8
+diffuse_texture = ExtResource("11_nn0vo")
+normal_texture = ExtResource("8_y6oyu")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.77
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -60,35 +62,34 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_nusdn")]
-sprites = Array[CompressedTexture2D]([ExtResource("3_bdnya"), ExtResource("3_v2kud"), ExtResource("4_y83cx"), ExtResource("5_cmkab"), ExtResource("6_dvttp")])
-crystal = ExtResource("7_eqgj3")
+[node name="Ship" instance=ExtResource("1_a4m7m")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_c8676"), ExtResource("3_ve5wi"), ExtResource("4_bv21s"), ExtResource("5_udg0x"), ExtResource("6_lflch")])
+crystal = ExtResource("7_hhfry")
 spawn_wait_time = 3.0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
 position = Vector2(0, 140)
-texture = ExtResource("4_1beu1")
+texture = ExtResource("8_hog1q")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
-scale = Vector2(1, 1)
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("2_ffjhc")]
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("9_qyq2c")]
 modulate = Color(2, 1, 5, 0.3)
 position = Vector2(-115, -310)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("2_ffjhc")]
+[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("9_qyq2c")]
 modulate = Color(2, 1, 5, 0.3)
 position = Vector2(115, -310)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Jet3" parent="ShipBody/Jets" index="2" instance=ExtResource("2_ffjhc")]
+[node name="Jet3" parent="ShipBody/Jets" index="2" instance=ExtResource("9_qyq2c")]
 modulate = Color(2, 1, 5, 0.3)
 position = Vector2(-195, -160)
 scale = Vector2(0.3, 0.3)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Jet4" parent="ShipBody/Jets" index="3" instance=ExtResource("2_ffjhc")]
+[node name="Jet4" parent="ShipBody/Jets" index="3" instance=ExtResource("9_qyq2c")]
 modulate = Color(2, 1, 5, 0.3)
 position = Vector2(195, -160)
 scale = Vector2(0.3, 0.3)
