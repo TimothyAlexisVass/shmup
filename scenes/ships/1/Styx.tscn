@@ -47,6 +47,8 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 resource_local_to_scene = true
 diffuse_texture = ExtResource("7_lqng0")
 normal_texture = ExtResource("8_276dj")
+specular_color = Color(0.466667, 0.466667, 0.466667, 1)
+specular_shininess = 0.77
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywl1u"]
 resource_local_to_scene = true
@@ -62,9 +64,9 @@ crystal = ExtResource("4_hw3k4")
 
 [node name="TierGlow" parent="ShipBody" index="0"]
 texture = ExtResource("8_276dj")
+offset = Vector2(0, 177)
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
-scale = Vector2(1, 1)
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("4_acuxl")]
 modulate = Color(4, 0.6, 3, 0.3)
@@ -73,11 +75,13 @@ scale = Vector2(1.7, 1)
 process_material = SubResource("ParticleProcessMaterial_kmwr1")
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(0, 177)
 polygon = PackedVector2Array(180, -35, 5, 465, -180, -30, -340, 60, -120, -260, -385, -440, -330, -465, 5, -395, 330, -470, 395, -450, 120, -260, 335, 55)
 
 [node name="Sprite" parent="ShipBody" index="3"]
 material = SubResource("ShaderMaterial_61dkg")
 texture = SubResource("CanvasTexture_nrp2m")
+offset = Vector2(0, 177)
 metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]

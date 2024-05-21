@@ -7,11 +7,14 @@ var wave = 0
 
 var ships = {
 	1: {
-		"Yorria": preload("res://scenes/ships/1/Yorria.tscn"),
+		"Zleukh": preload("res://scenes/ships/1/Zleukh.tscn"),
 	},
 	2: {
 		"Sabre": preload("res://scenes/ships/1/Sabre.tscn"),
 		"Sabran": preload("res://scenes/ships/1/Sabran.tscn"),
+		"Slyce": preload("res://scenes/ships/1/Slyce.tscn"),
+		
+		"Tamarana": preload("res://scenes/ships/1/Tamarana.tscn"),
 		"Trusha": preload("res://scenes/ships/1/Trusha.tscn"),
 		"Tuur": preload("res://scenes/ships/1/Tuur.tscn"),
 		"Vaboom": preload("res://scenes/ships/1/Vaboom.tscn"),
@@ -27,20 +30,16 @@ var ships = {
 		"Weruna": preload("res://scenes/ships/1/Weruna.tscn"),
 		"Xenor": preload("res://scenes/ships/1/Xenor.tscn"),
 		"Yorran": preload("res://scenes/ships/1/Yorran.tscn"),
+		"Yorria": preload("res://scenes/ships/1/Yorria.tscn"),
 		
 		"Garra": preload("res://scenes/ships/2/Garra.tscn"),
 		"Sabir": preload("res://scenes/ships/2/Sabir.tscn"),
-	},
-	3: {
-		
-		"Zaryan": preload("res://scenes/ships/1/Vallin.tscn"),
-		"Zaryshan": preload("res://scenes/ships/1/Zaryshan.tscn"),
-		"Zleukh": preload("res://scenes/ships/1/Zleukh.tscn"),
-		"Slyce": preload("res://scenes/ships/1/Slyce.tscn"),
 		"Slychar": preload("res://scenes/ships/1/Slychar.tscn"),
 		"Somanda": preload("res://scenes/ships/1/Somanda.tscn"),
 		"Styx": preload("res://scenes/ships/1/Styx.tscn"),
-		"Tamarana": preload("res://scenes/ships/1/Tamarana.tscn"),
+		"Zaryan": preload("res://scenes/ships/1/Zaryan.tscn"),
+	},	"Zaryshan": preload("res://scenes/ships/1/Zaryshan.tscn"),
+	3: {
 	}
 }
 

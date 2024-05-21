@@ -18,6 +18,8 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 resource_local_to_scene = true
 diffuse_texture = ExtResource("3_8hm7q")
 normal_texture = ExtResource("4_tlrxu")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.76
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcvm5"]
 resource_local_to_scene = true

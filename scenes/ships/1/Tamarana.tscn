@@ -49,6 +49,7 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 resource_local_to_scene = true
 diffuse_texture = ExtResource("9_4nx75")
 normal_texture = ExtResource("10_5qtdo")
+specular_shininess = 0.3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywl1u"]
 resource_local_to_scene = true
@@ -66,7 +67,6 @@ crystal = ExtResource("6_hmiqk")
 texture = ExtResource("10_5qtdo")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
-scale = Vector2(1, 1)
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("5_rmgt7")]
 modulate = Color(4, 0.6, 3, 0.3)

@@ -48,6 +48,8 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 resource_local_to_scene = true
 diffuse_texture = ExtResource("7_2ra63")
 normal_texture = ExtResource("8_1gdtg")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -72,7 +74,6 @@ texture = ExtResource("8_1gdtg")
 
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="1"]
 position = Vector2(0, 280)
-scale = Vector2(1, 1)
 
 [node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_1vbb6")]
 position = Vector2(70, -150)

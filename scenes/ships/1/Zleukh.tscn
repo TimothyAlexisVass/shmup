@@ -16,6 +16,8 @@ shader_parameter/line_color = Color(0, 0, 0, 1)
 resource_local_to_scene = true
 diffuse_texture = ExtResource("5_l64eg")
 normal_texture = ExtResource("6_moemg")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -26,7 +28,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_n8xr7")]
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.26, 0.26)
 sprites = Array[CompressedTexture2D]([ExtResource("2_5kkp5")])
 crystal = ExtResource("3_gmjq4")
 speed = 400.0
@@ -36,19 +38,22 @@ acceleration = 0.01
 destination = 0
 move = 0
 
-[node name="TierSprite" parent="." index="0"]
-metadata/_edit_lock_ = true
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("6_moemg")
+offset = Vector2(0, -120)
 
-[node name="Area2D" parent="ShipBody" index="0"]
+[node name="Area2D" parent="ShipBody" index="1"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(0, -120)
 polygon = PackedVector2Array(0, 100, -42.8571, 50, -57.1429, -64.2857, -42.8571, -157.143, -121.429, -50, -157.143, -50, -192.857, -114.286, -185.714, -271.429, -114.286, -450, -207.143, -278.571, -264.286, -85.7143, -285.714, -28.5714, -257.143, 164.286, -235.714, 235.714, -257.143, 321.429, -221.429, 271.429, -200, 314.286, -221.429, 392.857, -178.571, 342.857, -85.7143, 435.714, 71.4286, 435.714, 178.571, 350, 214.286, 407.143, 192.857, 300, 221.429, 264.286, 250, 321.429, 235.714, 221.429, 278.571, -57.1429, 242.857, -114.286, 192.857, -300, 114.286, -450, 185.714, -257.143, 192.857, -107.143, 157.143, -50, 121.429, -50, 35.7143, -157.143, 50, -64.2857, 35.7143, 50)
 metadata/_edit_lock_ = true
 
-[node name="Sprite" parent="ShipBody" index="1"]
+[node name="Sprite" parent="ShipBody" index="2"]
 material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_bhjv0")
+offset = Vector2(0, -120)
 metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]
