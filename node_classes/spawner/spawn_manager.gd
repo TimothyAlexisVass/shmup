@@ -7,9 +7,6 @@ var wave = 0
 
 var ships = {
 	1: {
-		"Zleukh": preload("res://scenes/ships/Zleukh.tscn"),
-	},
-	2: {
 		"Garra": preload("res://scenes/ships/Garra.tscn"),
 		"Sabir": preload("res://scenes/ships/Sabir.tscn"),
 		"Sabre": preload("res://scenes/ships/Sabre.tscn"),
