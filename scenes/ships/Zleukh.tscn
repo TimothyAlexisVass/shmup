@@ -1,21 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://dag3o7qjgrbaf"]
+[gd_scene load_steps=11 format=3 uid="uid://dag3o7qjgrbaf"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_n8xr7"]
-[ext_resource type="Texture2D" uid="uid://17g3t0mrwwwt" path="res://assets/sprites/ships/zleukh/zleukh_1.png" id="2_5kkp5"]
-[ext_resource type="Texture2D" uid="uid://cubiksac7wixi" path="res://assets/sprites/ships/zleukh/zleukh_crystal.png" id="3_gmjq4"]
-[ext_resource type="Texture2D" uid="uid://bs02q400eo22s" path="res://assets/sprites/ships/zleukh/zleukh_0.png" id="5_l64eg"]
-[ext_resource type="Texture2D" uid="uid://ev5s2yk1gm8p" path="res://assets/sprites/ships/zleukh/zleukh_normal.png" id="6_moemg"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_5wwke"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_neuf3"]
+[ext_resource type="Texture2D" uid="uid://17g3t0mrwwwt" path="res://assets/sprites/ships/zleukh/zleukh_1.png" id="2_px2e7"]
+[ext_resource type="Texture2D" uid="uid://cubiksac7wixi" path="res://assets/sprites/ships/zleukh/zleukh_crystal.png" id="3_d7rdu"]
+[ext_resource type="Texture2D" uid="uid://b5iyeg0wpl4f8" path="res://assets/sprites/ships/zleukh/zleukh_border.png" id="4_x0bti"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="5_h6vln"]
+[ext_resource type="Texture2D" uid="uid://bs02q400eo22s" path="res://assets/sprites/ships/zleukh/zleukh_0.png" id="6_1k2my"]
+[ext_resource type="Texture2D" uid="uid://ev5s2yk1gm8p" path="res://assets/sprites/ships/zleukh/zleukh_normal.png" id="7_kdofs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_5wwke")
+shader = ExtResource("5_h6vln")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhjv0"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("5_l64eg")
-normal_texture = ExtResource("6_moemg")
+diffuse_texture = ExtResource("6_1k2my")
+normal_texture = ExtResource("7_kdofs")
 specular_color = Color(0.258824, 0.258824, 0.258824, 1)
 specular_shininess = 0.9
 
@@ -27,10 +28,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_n8xr7")]
+[node name="Ship" instance=ExtResource("1_neuf3")]
 scale = Vector2(0.26, 0.26)
-sprites = Array[CompressedTexture2D]([ExtResource("2_5kkp5")])
-crystal = ExtResource("3_gmjq4")
+sprites = Array[CompressedTexture2D]([ExtResource("2_px2e7")])
+crystal = ExtResource("3_d7rdu")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -39,7 +40,7 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("6_moemg")
+texture = ExtResource("4_x0bti")
 offset = Vector2(0, -120)
 
 [node name="Area2D" parent="ShipBody" index="1"]

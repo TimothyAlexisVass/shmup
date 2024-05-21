@@ -1,16 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://dugla3wfiplby"]
+[gd_scene load_steps=21 format=3 uid="uid://dugla3wfiplby"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_ylb6b"]
-[ext_resource type="Texture2D" uid="uid://fmb81lulp1sc" path="res://assets/sprites/ships/zaryshan/zaryshan_1.png" id="2_2yrhy"]
-[ext_resource type="Texture2D" uid="uid://b0qcycvrgeuoa" path="res://assets/sprites/ships/zaryshan/zaryshan_2.png" id="3_0odok"]
-[ext_resource type="Texture2D" uid="uid://13a2akcpmucd" path="res://assets/sprites/ships/zaryshan/zaryshan_3.png" id="4_ij1gm"]
-[ext_resource type="Texture2D" uid="uid://bfwo3j7m3ntjy" path="res://assets/sprites/ships/zaryshan/zaryshan_4.png" id="5_4nfyp"]
-[ext_resource type="Texture2D" uid="uid://b1otq2xrd47r3" path="res://assets/sprites/ships/zaryshan/zaryshan_crystal.png" id="6_knxhp"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_xmy6m"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_wjcep"]
-[ext_resource type="Texture2D" uid="uid://didv1nu3ske5l" path="res://assets/sprites/ships/zaryshan/zaryshan_0.png" id="9_neety"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_mefin"]
-[ext_resource type="Texture2D" uid="uid://6su2ratbk4yi" path="res://assets/sprites/ships/zaryshan/zaryshan_normal.png" id="10_xwhkq"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_0f6wk"]
+[ext_resource type="Texture2D" uid="uid://fmb81lulp1sc" path="res://assets/sprites/ships/zaryshan/zaryshan_1.png" id="2_bvqca"]
+[ext_resource type="Texture2D" uid="uid://b0qcycvrgeuoa" path="res://assets/sprites/ships/zaryshan/zaryshan_2.png" id="3_jghhi"]
+[ext_resource type="Texture2D" uid="uid://13a2akcpmucd" path="res://assets/sprites/ships/zaryshan/zaryshan_3.png" id="4_uink6"]
+[ext_resource type="Texture2D" uid="uid://bfwo3j7m3ntjy" path="res://assets/sprites/ships/zaryshan/zaryshan_4.png" id="5_b25mr"]
+[ext_resource type="Texture2D" uid="uid://b1otq2xrd47r3" path="res://assets/sprites/ships/zaryshan/zaryshan_crystal.png" id="6_k5icm"]
+[ext_resource type="Texture2D" uid="uid://dll6ejav5k33m" path="res://assets/sprites/ships/zaryshan/zaryshan_border.png" id="7_j5on1"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_bh615"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="9_tnc0v"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_3cbvs"]
+[ext_resource type="Texture2D" uid="uid://didv1nu3ske5l" path="res://assets/sprites/ships/zaryshan/zaryshan_0.png" id="11_etubk"]
+[ext_resource type="Texture2D" uid="uid://6su2ratbk4yi" path="res://assets/sprites/ships/zaryshan/zaryshan_normal.png" id="12_k06fj"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -43,13 +44,13 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_wjcep")
+shader = ExtResource("10_3cbvs")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("9_neety")
-normal_texture = ExtResource("10_xwhkq")
+diffuse_texture = ExtResource("11_etubk")
+normal_texture = ExtResource("12_k06fj")
 specular_color = Color(0.258824, 0.258824, 0.258824, 1)
 specular_shininess = 0.77
 
@@ -61,10 +62,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_ylb6b")]
+[node name="Ship" instance=ExtResource("1_0f6wk")]
 scale = Vector2(0.3, 0.3)
-sprites = Array[CompressedTexture2D]([ExtResource("2_2yrhy"), ExtResource("3_0odok"), ExtResource("4_ij1gm"), ExtResource("5_4nfyp")])
-crystal = ExtResource("6_knxhp")
+sprites = Array[CompressedTexture2D]([ExtResource("2_bvqca"), ExtResource("3_jghhi"), ExtResource("4_uink6"), ExtResource("5_b25mr")])
+crystal = ExtResource("6_k5icm")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -73,15 +74,15 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("10_xwhkq")
+texture = ExtResource("7_j5on1")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_xmy6m")]
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("8_bh615")]
 position = Vector2(-71, -342)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("6_xmy6m")]
+[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("8_bh615")]
 position = Vector2(71, -342)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
@@ -94,19 +95,19 @@ metadata/_edit_lock_ = true
 
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
 
-[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_mefin")]
+[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("9_tnc0v")]
 position = Vector2(0, 140)
 default_color = Color(1, 0.168627, 0, 1)
 shot_speed = 300.0
 
-[node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("10_mefin")]
+[node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("9_tnc0v")]
 position = Vector2(170, -200)
 points = PackedVector2Array(0, 280, 44, 370)
 default_color = Color(1, 0.168627, 0, 1)
 rate_of_fire = 0.17
 shot_speed = 300.0
 
-[node name="Muzzle3" parent="ShipBody/Muzzles" index="2" instance=ExtResource("10_mefin")]
+[node name="Muzzle3" parent="ShipBody/Muzzles" index="2" instance=ExtResource("9_tnc0v")]
 position = Vector2(-170, -200)
 points = PackedVector2Array(0, 280, -44, 370)
 default_color = Color(1, 0.168627, 0, 1)

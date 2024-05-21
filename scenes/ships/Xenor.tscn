@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://ceo015jlvjnng"]
+[gd_scene load_steps=18 format=3 uid="uid://ceo015jlvjnng"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_oc81w"]
-[ext_resource type="Texture2D" uid="uid://brk1tw8ux7yvv" path="res://assets/sprites/ships/xenor/xenor_1.png" id="2_w1yfq"]
-[ext_resource type="Texture2D" uid="uid://8ndgjhe4ffru" path="res://assets/sprites/ships/xenor/xenor_2.png" id="3_gddlk"]
-[ext_resource type="Texture2D" uid="uid://c2gqxhf2mb41o" path="res://assets/sprites/ships/xenor/xenor_crystal.png" id="4_4vyx2"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_uild2"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_1qgbk"]
-[ext_resource type="Texture2D" uid="uid://bq7ytbrqqgsdw" path="res://assets/sprites/ships/xenor/xenor_0.png" id="7_seq7s"]
-[ext_resource type="Texture2D" uid="uid://p6xb2f1fi6ji" path="res://assets/sprites/ships/xenor/xenor_normal.png" id="8_t4j21"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_l75x4"]
+[ext_resource type="Texture2D" uid="uid://brk1tw8ux7yvv" path="res://assets/sprites/ships/xenor/xenor_1.png" id="2_sy87x"]
+[ext_resource type="Texture2D" uid="uid://8ndgjhe4ffru" path="res://assets/sprites/ships/xenor/xenor_2.png" id="3_t3spl"]
+[ext_resource type="Texture2D" uid="uid://c2gqxhf2mb41o" path="res://assets/sprites/ships/xenor/xenor_crystal.png" id="4_5boae"]
+[ext_resource type="Texture2D" uid="uid://dsq57wxry4uia" path="res://assets/sprites/ships/xenor/xenor_border.png" id="5_phc3u"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_xrlmy"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_lnxce"]
+[ext_resource type="Texture2D" uid="uid://bq7ytbrqqgsdw" path="res://assets/sprites/ships/xenor/xenor_0.png" id="8_wbmmo"]
+[ext_resource type="Texture2D" uid="uid://p6xb2f1fi6ji" path="res://assets/sprites/ships/xenor/xenor_normal.png" id="9_ka1ef"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -40,14 +41,15 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_1qgbk")
+shader = ExtResource("7_lnxce")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_pjij2"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("7_seq7s")
-normal_texture = ExtResource("8_t4j21")
-specular_shininess = 0.4
+diffuse_texture = ExtResource("8_wbmmo")
+normal_texture = ExtResource("9_ka1ef")
+specular_color = Color(0.466667, 0.466667, 0.466667, 1)
+specular_shininess = 0.55
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -57,9 +59,9 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_oc81w")]
-sprites = Array[CompressedTexture2D]([ExtResource("2_w1yfq"), ExtResource("3_gddlk")])
-crystal = ExtResource("4_4vyx2")
+[node name="Ship" instance=ExtResource("1_l75x4")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_sy87x"), ExtResource("3_t3spl")])
+crystal = ExtResource("4_5boae")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -67,15 +69,16 @@ acceleration = 0.01
 destination = 0
 move = 0
 
-[node name="Jets" type="Node2D" parent="ShipBody" index="0"]
+[node name="TierGlow" parent="ShipBody" index="0"]
+texture = ExtResource("5_phc3u")
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_uild2")]
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
+scale = Vector2(1, 1)
+
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_xrlmy")]
 modulate = Color(4, 1, 1, 0.3)
 position = Vector2(0, 0)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
-
-[node name="TierGlow" parent="ShipBody" index="1"]
-texture = ExtResource("8_t4j21")
 
 [node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true

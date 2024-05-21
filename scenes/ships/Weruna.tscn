@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnbnnobrxl7e7"]
+[gd_scene load_steps=20 format=3 uid="uid://dnbnnobrxl7e7"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_illnx"]
-[ext_resource type="Texture2D" uid="uid://bny2c2b13dgyh" path="res://assets/sprites/ships/weruna/weruna_1.png" id="2_me87o"]
-[ext_resource type="Texture2D" uid="uid://b3blr38523xq7" path="res://assets/sprites/ships/weruna/weruna_2.png" id="3_dnf8i"]
-[ext_resource type="Texture2D" uid="uid://cjvxgwkj4juto" path="res://assets/sprites/ships/weruna/weruna_3.png" id="4_00ch1"]
-[ext_resource type="Texture2D" uid="uid://cvuktwpu315lj" path="res://assets/sprites/ships/weruna/weruna_crystal.png" id="5_hwqb4"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_jp06c"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_jwwqj"]
-[ext_resource type="Texture2D" uid="uid://bomwjag6k357w" path="res://assets/sprites/ships/weruna/weruna_0.png" id="8_cxfod"]
-[ext_resource type="Texture2D" uid="uid://hqcgrelkxmv0" path="res://assets/sprites/ships/weruna/weruna_normal.png" id="9_qlirs"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_7v6p5"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_jq23w"]
+[ext_resource type="Texture2D" uid="uid://bny2c2b13dgyh" path="res://assets/sprites/ships/weruna/weruna_1.png" id="2_sk16p"]
+[ext_resource type="Texture2D" uid="uid://b3blr38523xq7" path="res://assets/sprites/ships/weruna/weruna_2.png" id="3_qioin"]
+[ext_resource type="Texture2D" uid="uid://cjvxgwkj4juto" path="res://assets/sprites/ships/weruna/weruna_3.png" id="4_lsdcw"]
+[ext_resource type="Texture2D" uid="uid://cvuktwpu315lj" path="res://assets/sprites/ships/weruna/weruna_crystal.png" id="5_2eiqx"]
+[ext_resource type="Texture2D" uid="uid://dk3hbgty5n2wq" path="res://assets/sprites/ships/weruna/weruna_border.png" id="6_f5dye"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_s67hj"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="8_ormut"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="9_ef30m"]
+[ext_resource type="Texture2D" uid="uid://bomwjag6k357w" path="res://assets/sprites/ships/weruna/weruna_0.png" id="10_fv384"]
+[ext_resource type="Texture2D" uid="uid://hqcgrelkxmv0" path="res://assets/sprites/ships/weruna/weruna_normal.png" id="11_66rkv"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -42,14 +43,15 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_jwwqj")
+shader = ExtResource("9_ef30m")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_qqkdr"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("8_cxfod")
-normal_texture = ExtResource("9_qlirs")
-specular_shininess = 0.4
+diffuse_texture = ExtResource("10_fv384")
+normal_texture = ExtResource("11_66rkv")
+specular_color = Color(0.6, 0.6, 0.6, 1)
+specular_shininess = 0.55
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -59,10 +61,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_illnx")]
+[node name="Ship" instance=ExtResource("1_jq23w")]
 scale = Vector2(0.25, 0.25)
-sprites = Array[CompressedTexture2D]([ExtResource("2_me87o"), ExtResource("3_dnf8i"), ExtResource("4_00ch1")])
-crystal = ExtResource("5_hwqb4")
+sprites = Array[CompressedTexture2D]([ExtResource("2_sk16p"), ExtResource("3_qioin"), ExtResource("4_lsdcw")])
+crystal = ExtResource("5_2eiqx")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -71,16 +73,16 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("9_qlirs")
+texture = ExtResource("6_f5dye")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_jp06c")]
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("7_s67hj")]
 position = Vector2(-107, -435)
 scale = Vector2(0.5, 1)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("6_jp06c")]
+[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("7_s67hj")]
 position = Vector2(107, -435)
 scale = Vector2(0.5, 1)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
@@ -94,13 +96,13 @@ metadata/_edit_lock_ = true
 
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
 
-[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_7v6p5")]
+[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("8_ormut")]
 position = Vector2(228, 275)
 rotation = 0.20944
 default_color = Color(1, 0.168627, 0, 1)
 shot_speed = 300.0
 
-[node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("10_7v6p5")]
+[node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("8_ormut")]
 position = Vector2(-228, 275)
 rotation = -0.20944
 default_color = Color(1, 0.168627, 0, 1)

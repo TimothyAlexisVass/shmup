@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbhgw7v3qwbgv"]
+[gd_scene load_steps=19 format=3 uid="uid://bbhgw7v3qwbgv"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_6tb0i"]
-[ext_resource type="Texture2D" uid="uid://cv6jgtubq5nqj" path="res://assets/sprites/ships/yorria/yorria_1.png" id="2_55dm2"]
-[ext_resource type="Texture2D" uid="uid://ouhwuupdhpcv" path="res://assets/sprites/ships/yorria/yorria_2.png" id="3_qqy28"]
-[ext_resource type="Texture2D" uid="uid://dcsdto17a78m8" path="res://assets/sprites/ships/yorria/yorria_crystal.png" id="4_hs02n"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_bbgnp"]
-[ext_resource type="Texture2D" uid="uid://x3eosig2aqvt" path="res://assets/sprites/ships/yorria/yorria_0.png" id="7_2ra63"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_b1oli"]
-[ext_resource type="Texture2D" uid="uid://bwrivkmiuvc42" path="res://assets/sprites/ships/yorria/yorria_normal.png" id="8_1gdtg"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_1vbb6"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_n5oy2"]
+[ext_resource type="Texture2D" uid="uid://cv6jgtubq5nqj" path="res://assets/sprites/ships/yorria/yorria_1.png" id="2_c6fvv"]
+[ext_resource type="Texture2D" uid="uid://ouhwuupdhpcv" path="res://assets/sprites/ships/yorria/yorria_2.png" id="3_dj51h"]
+[ext_resource type="Texture2D" uid="uid://dcsdto17a78m8" path="res://assets/sprites/ships/yorria/yorria_crystal.png" id="4_pmgx8"]
+[ext_resource type="Texture2D" uid="uid://dj2a2j0sk8feg" path="res://assets/sprites/ships/yorria/yorria_border.png" id="5_mjdso"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_fxdc5"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="7_514qd"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_1fnmk"]
+[ext_resource type="Texture2D" uid="uid://x3eosig2aqvt" path="res://assets/sprites/ships/yorria/yorria_0.png" id="9_k3jqi"]
+[ext_resource type="Texture2D" uid="uid://bwrivkmiuvc42" path="res://assets/sprites/ships/yorria/yorria_normal.png" id="10_1oq6e"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -41,13 +42,13 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_b1oli")
+shader = ExtResource("8_1fnmk")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4knyd"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("7_2ra63")
-normal_texture = ExtResource("8_1gdtg")
+diffuse_texture = ExtResource("9_k3jqi")
+normal_texture = ExtResource("10_1oq6e")
 specular_color = Color(0.258824, 0.258824, 0.258824, 1)
 specular_shininess = 0.5
 
@@ -59,9 +60,9 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_6tb0i")]
-sprites = Array[CompressedTexture2D]([ExtResource("2_55dm2"), ExtResource("3_qqy28")])
-crystal = ExtResource("4_hs02n")
+[node name="Ship" instance=ExtResource("1_n5oy2")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_c6fvv"), ExtResource("3_dj51h")])
+crystal = ExtResource("4_pmgx8")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -70,29 +71,30 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("8_1gdtg")
+texture = ExtResource("5_mjdso")
 
-[node name="Muzzles" type="Node2D" parent="ShipBody" index="1"]
+[node name="Jets" type="Node2D" parent="ShipBody" index="1"]
+
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_fxdc5")]
+modulate = Color(1, 5, 1.4, 0.3)
+position = Vector2(0, -120)
+process_material = SubResource("ParticleProcessMaterial_gq27g")
+
+[node name="Muzzles" type="Node2D" parent="ShipBody" index="2"]
 position = Vector2(0, 280)
+scale = Vector2(1, 1)
 
-[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_1vbb6")]
+[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("7_514qd")]
 position = Vector2(70, -150)
 rotation = -0.174533
 default_color = Color(0.169, 1, 0, 1)
 shot_speed = 300.0
 
-[node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("10_1vbb6")]
+[node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("7_514qd")]
 position = Vector2(-70, -150)
 rotation = 0.174533
 default_color = Color(0.168627, 1, 0, 1)
 shot_speed = 300.0
-
-[node name="Jets" type="Node2D" parent="ShipBody" index="2"]
-
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_bbgnp")]
-modulate = Color(1, 5, 1.4, 0.3)
-position = Vector2(0, -120)
-process_material = SubResource("ParticleProcessMaterial_gq27g")
 
 [node name="Area2D" parent="ShipBody" index="3"]
 metadata/_edit_lock_ = true

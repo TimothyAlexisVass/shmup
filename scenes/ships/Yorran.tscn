@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://b7fh0vilixxm"]
+[gd_scene load_steps=18 format=3 uid="uid://b7fh0vilixxm"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_yk81k"]
-[ext_resource type="Texture2D" uid="uid://3t7gstue61k6" path="res://assets/sprites/ships/yorran/yorran_1.png" id="2_amyv6"]
-[ext_resource type="Texture2D" uid="uid://3j6ptmtb18iq" path="res://assets/sprites/ships/yorran/yorran_2.png" id="3_86tdc"]
-[ext_resource type="Texture2D" uid="uid://c0jdom4dqetro" path="res://assets/sprites/ships/yorran/yorran_crystal.png" id="4_xny0u"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_iu4vp"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_y8gof"]
-[ext_resource type="Texture2D" uid="uid://c72ihfy6og2nq" path="res://assets/sprites/ships/yorran/yorran_0.png" id="8_svrqx"]
-[ext_resource type="Texture2D" uid="uid://cu2nkw4syen" path="res://assets/sprites/ships/yorran/yorran_normal.png" id="9_o6yea"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_betmg"]
+[ext_resource type="Texture2D" uid="uid://3t7gstue61k6" path="res://assets/sprites/ships/yorran/yorran_1.png" id="2_senej"]
+[ext_resource type="Texture2D" uid="uid://3j6ptmtb18iq" path="res://assets/sprites/ships/yorran/yorran_2.png" id="3_xhou4"]
+[ext_resource type="Texture2D" uid="uid://c0jdom4dqetro" path="res://assets/sprites/ships/yorran/yorran_crystal.png" id="4_5sq60"]
+[ext_resource type="Texture2D" uid="uid://6ukahlia7bbv" path="res://assets/sprites/ships/yorran/yorran_border.png" id="5_wmowj"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_l7re2"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_hl5mg"]
+[ext_resource type="Texture2D" uid="uid://c72ihfy6og2nq" path="res://assets/sprites/ships/yorran/yorran_0.png" id="8_1jkax"]
+[ext_resource type="Texture2D" uid="uid://cu2nkw4syen" path="res://assets/sprites/ships/yorran/yorran_normal.png" id="9_vwjxx"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -40,13 +41,15 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_y8gof")
+shader = ExtResource("7_hl5mg")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6tx2y"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("8_svrqx")
-normal_texture = ExtResource("9_o6yea")
+diffuse_texture = ExtResource("8_1jkax")
+normal_texture = ExtResource("9_vwjxx")
+specular_color = Color(0.466667, 0.466667, 0.466667, 1)
+specular_shininess = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
 resource_local_to_scene = true
@@ -56,9 +59,9 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_yk81k")]
-sprites = Array[CompressedTexture2D]([ExtResource("2_amyv6"), ExtResource("3_86tdc")])
-crystal = ExtResource("4_xny0u")
+[node name="Ship" instance=ExtResource("1_betmg")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_senej"), ExtResource("3_xhou4")])
+crystal = ExtResource("4_5sq60")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -67,12 +70,12 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("9_o6yea")
+texture = ExtResource("5_wmowj")
 offset = Vector2(0, -120)
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_iu4vp")]
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_l7re2")]
 modulate = Color(1.5, 6, 1, 0.3)
 position = Vector2(0, -140)
 scale = Vector2(1.5, 0.7)

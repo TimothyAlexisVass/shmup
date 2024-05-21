@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8rex6b451ap3"]
+[gd_scene load_steps=18 format=3 uid="uid://b8rex6b451ap3"]
 
-[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_5cgeb"]
-[ext_resource type="Texture2D" uid="uid://cmdm3hy538qa8" path="res://assets/sprites/ships/volyn/volyn_1.png" id="2_y5vgu"]
-[ext_resource type="Texture2D" uid="uid://bme0fk1hi21yj" path="res://assets/sprites/ships/volyn/volyn_2.png" id="3_cf33m"]
-[ext_resource type="Texture2D" uid="uid://cdyxfym0qgbcl" path="res://assets/sprites/ships/volyn/volyn_crystal.png" id="4_etxug"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_83yvk"]
-[ext_resource type="Texture2D" uid="uid://b83o2fmjrkfkg" path="res://assets/sprites/ships/volyn/volyn_0.png" id="7_m8x4v"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_nm4nh"]
-[ext_resource type="Texture2D" uid="uid://bs4yuabibm48v" path="res://assets/sprites/ships/volyn/volyn_normal.png" id="8_c6dfr"]
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_gn2b2"]
+[ext_resource type="Texture2D" uid="uid://cmdm3hy538qa8" path="res://assets/sprites/ships/volyn/volyn_1.png" id="2_sew16"]
+[ext_resource type="Texture2D" uid="uid://bme0fk1hi21yj" path="res://assets/sprites/ships/volyn/volyn_2.png" id="3_m4cbn"]
+[ext_resource type="Texture2D" uid="uid://cdyxfym0qgbcl" path="res://assets/sprites/ships/volyn/volyn_crystal.png" id="4_yabxv"]
+[ext_resource type="Texture2D" uid="uid://cqqdcg14o6los" path="res://assets/sprites/ships/volyn/volyn_border.png" id="5_2h0ju"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_tqbux"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_nc2cu"]
+[ext_resource type="Texture2D" uid="uid://b83o2fmjrkfkg" path="res://assets/sprites/ships/volyn/volyn_0.png" id="8_6lf4u"]
+[ext_resource type="Texture2D" uid="uid://bs4yuabibm48v" path="res://assets/sprites/ships/volyn/volyn_normal.png" id="9_38nn3"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -40,13 +41,14 @@ alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
 resource_local_to_scene = true
-shader = ExtResource("7_nm4nh")
+shader = ExtResource("7_nc2cu")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_su7v1"]
 resource_local_to_scene = true
-diffuse_texture = ExtResource("7_m8x4v")
-normal_texture = ExtResource("8_c6dfr")
+diffuse_texture = ExtResource("8_6lf4u")
+normal_texture = ExtResource("9_38nn3")
+specular_color = Color(0.466667, 0.466667, 0.466667, 1)
 specular_shininess = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
@@ -57,10 +59,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Ship" instance=ExtResource("1_5cgeb")]
+[node name="Ship" instance=ExtResource("1_gn2b2")]
 scale = Vector2(0.18, 0.18)
-sprites = Array[CompressedTexture2D]([ExtResource("2_y5vgu"), ExtResource("3_cf33m")])
-crystal = ExtResource("4_etxug")
+sprites = Array[CompressedTexture2D]([ExtResource("2_sew16"), ExtResource("3_m4cbn")])
+crystal = ExtResource("4_yabxv")
 speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
@@ -69,22 +71,22 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("8_c6dfr")
+texture = ExtResource("5_2h0ju")
 offset = Vector2(0, 100)
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
-[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_83yvk")]
+[node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("6_tqbux")]
 position = Vector2(-95, -280)
 scale = Vector2(0.4, 0.6)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("6_83yvk")]
+[node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("6_tqbux")]
 position = Vector2(95, -280)
 scale = Vector2(0.4, 0.6)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
 
-[node name="Jet3" parent="ShipBody/Jets" index="2" instance=ExtResource("6_83yvk")]
+[node name="Jet3" parent="ShipBody/Jets" index="2" instance=ExtResource("6_tqbux")]
 position = Vector2(0, -280)
 scale = Vector2(0.8, 0.9)
 process_material = SubResource("ParticleProcessMaterial_gq27g")
