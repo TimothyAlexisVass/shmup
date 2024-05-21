@@ -8,6 +8,12 @@ var wave = 0
 var ships = {
 	1: {
 		"Garra": preload("res://scenes/ships/Garra.tscn"),
+	},	
+	3: {
+		"Rugnat": preload("res://scenes/ships/Rugnat.tscn"),
+		"Ryvnian": preload("res://scenes/ships/Ryvnian.tscn"),
+		"Sectoid": preload("res://scenes/ships/Sectoid.tscn"),
+		"Sledge": preload("res://scenes/ships/Sledge.tscn"),
 		"Sabir": preload("res://scenes/ships/Sabir.tscn"),
 		"Sabre": preload("res://scenes/ships/Sabre.tscn"),
 		"Sabran": preload("res://scenes/ships/Sabran.tscn"),
@@ -35,8 +41,6 @@ var ships = {
 		"Zaryan": preload("res://scenes/ships/Zaryan.tscn"),
 		"Zaryshan": preload("res://scenes/ships/Zaryshan.tscn"),
 		"Zleukh": preload("res://scenes/ships/Zleukh.tscn"),
-	},	
-	3: {
 	}
 }
 
