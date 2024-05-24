@@ -63,7 +63,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_e6ko8")]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 sprites = Array[CompressedTexture2D]([ExtResource("2_yy056"), ExtResource("3_r0xsd"), ExtResource("4_08y82"), ExtResource("5_xo6ej"), ExtResource("6_bs6pk")])
 crystal = ExtResource("7_62nqc")
 speed = 400.0

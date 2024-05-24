@@ -7,9 +7,17 @@ var wave = 0
 
 var ships = {
 	1: {
-		"Garra": preload("res://scenes/ships/Garra.tscn"),
+		"Raketa": preload("res://scenes/ships/Raketa.tscn"),
 	},	
 	3: {
+		"Garra": preload("res://scenes/ships/Garra.tscn"),
+		"Ranoka": preload("res://scenes/ships/Ranoka.tscn"),
+		"Raxes": preload("res://scenes/ships/Raxes.tscn"),
+		"Rayaxes": preload("res://scenes/ships/Rayaxes.tscn"),
+		"Relay": preload("res://scenes/ships/Relay.tscn"),
+		"Rillin": preload("res://scenes/ships/Rillin.tscn"),
+		"Rucha": preload("res://scenes/ships/Rucha.tscn"),
+		"Rugnor": preload("res://scenes/ships/Rugnor.tscn"),
 		"Rugnat": preload("res://scenes/ships/Rugnat.tscn"),
 		"Ryvnian": preload("res://scenes/ships/Ryvnian.tscn"),
 		"Sectoid": preload("res://scenes/ships/Sectoid.tscn"),
