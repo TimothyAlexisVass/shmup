@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgqmmjj8jhyid"]
+[gd_scene load_steps=19 format=3 uid="uid://dgqmmjj8jhyid"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_0i46k"]
 [ext_resource type="Texture2D" uid="uid://b525itn1sqa7u" path="res://assets/sprites/ships/ranoka/ranoka_1.png" id="2_4pvqm"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://ctxt476pfj1bb" path="res://assets/sprites/ships/ranoka/ranoka_crystal.png" id="7_lnuro"]
 [ext_resource type="Texture2D" uid="uid://d1bpfkq6mpnsw" path="res://assets/sprites/ships/ranoka/ranoka_border.png" id="8_1fuv1"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_dwcgv"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_itg06"]
 [ext_resource type="Texture2D" uid="uid://bqvb57t8vi5cn" path="res://assets/sprites/ships/ranoka/ranoka_0.png" id="11_bc4e3"]
 [ext_resource type="Texture2D" uid="uid://b00c8lpp44iq7" path="res://assets/sprites/ships/ranoka/ranoka_normal.png" id="12_nmmqu"]
 
@@ -41,11 +40,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("10_itg06")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
 resource_local_to_scene = true
@@ -100,7 +94,6 @@ polygon = PackedVector2Array(4.54545, 509.091, -140.909, 290.909, -122.727, -27.
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_xl2ii")
 offset = Vector2(0, 120)
 metadata/_edit_lock_ = true

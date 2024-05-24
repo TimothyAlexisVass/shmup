@@ -2,7 +2,6 @@ extends Sprite2D
 
 var hue = 0.0
 @onready var parent = get_parent()
-@onready var ship_sprite = parent.get_node("ShipBody/Sprite")
 @onready var tier_glow = parent.get_node("ShipBody/TierGlow")
 
 func _physics_process(delta):
@@ -13,4 +12,3 @@ func _physics_process(delta):
 	self_modulate = color_from_hsv
 	self_modulate.a = 0.1
 	tier_glow.modulate = color_from_hsv
-	ship_sprite.material.set_shader_parameter("line_color", color_from_hsv)

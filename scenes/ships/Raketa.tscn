@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ccoka0jep38wy"]
+[gd_scene load_steps=19 format=3 uid="uid://ccoka0jep38wy"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_ma03t"]
 [ext_resource type="Texture2D" uid="uid://c8jwduc8tnnh5" path="res://assets/sprites/ships/raketa/raketa_1.png" id="2_ej3dy"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://d3dgx6qclrjfa" path="res://assets/sprites/ships/raketa/raketa_crystal.png" id="7_5orrf"]
 [ext_resource type="Texture2D" uid="uid://sc4xh57h4jtg" path="res://assets/sprites/ships/raketa/raketa_border.png" id="8_phhyw"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_6e088"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_appxb"]
 [ext_resource type="Texture2D" uid="uid://25ptnqxyndb7" path="res://assets/sprites/ships/raketa/raketa_0.png" id="11_aeykr"]
 [ext_resource type="Texture2D" uid="uid://bwtoghob0cwhg" path="res://assets/sprites/ships/raketa/raketa_normal.png" id="12_c45r7"]
 
@@ -42,16 +41,11 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("10_appxb")
-shader_parameter/line_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_f2hlu"]
 resource_local_to_scene = true
 diffuse_texture = ExtResource("11_aeykr")
 normal_texture = ExtResource("12_c45r7")
-specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_color = Color(0.466667, 0.466667, 0.466667, 1)
 specular_shininess = 0.55
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gs"]
@@ -63,7 +57,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_ma03t")]
-scale = Vector2(0.28, 0.28)
+scale = Vector2(0.23, 0.23)
 sprites = Array[CompressedTexture2D]([ExtResource("2_ej3dy"), ExtResource("3_kxhjn"), ExtResource("4_glgd5"), ExtResource("5_eu4vl"), ExtResource("6_umnpx")])
 crystal = ExtResource("7_5orrf")
 speed = 400.0
@@ -72,9 +66,6 @@ rotation_speed = 0.05
 acceleration = 0.01
 destination = 0
 move = 0
-
-[node name="CrystalStar" parent="." index="0"]
-visible = false
 
 [node name="TierGlow" parent="ShipBody" index="0"]
 visible = false
@@ -98,8 +89,7 @@ polygon = PackedVector2Array(0, 487.143, -110.714, 408.571, -203.571, 76.4286, -
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
-texture = SubResource("CanvasTexture_xl2ii")
+texture = SubResource("CanvasTexture_f2hlu")
 offset = Vector2(0, 120)
 metadata/_edit_lock_ = true
 

@@ -68,8 +68,7 @@ func _enter_tree():
 
 	scale *= 1 + 0.07 * ship_tier
 	total_hit_points *= 1 + ship_tier
-	
-	$ShipBody/Sprite.material.set_shader_parameter("line_color", G.TIER_COLOR[ship_tier])
+
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
 		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier]
