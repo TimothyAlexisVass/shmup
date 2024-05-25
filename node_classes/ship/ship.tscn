@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp30aay75h42t"]
+[gd_scene load_steps=12 format=3 uid="uid://dp30aay75h42t"]
 
 [ext_resource type="Script" path="res://node_classes/ship/ship.gd" id="1_u2d0h"]
 [ext_resource type="PackedScene" uid="uid://j72yxl2kkkoo" path="res://scenes/explosions/fire_explosion.tscn" id="2_lvfla"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://node_classes/ship/tier_glow.gd" id="6_0h2t8"]
 [ext_resource type="StyleBox" uid="uid://c8xpn58skk06e" path="res://styles/hit_points_bar_background.tres" id="7_nydlk"]
 [ext_resource type="StyleBox" uid="uid://cvnn0obm23hqj" path="res://styles/hit_points_bar_fill.tres" id="8_bhdqd"]
+[ext_resource type="PackedScene" uid="uid://bld81khrcmege" path="res://node_classes/off_screen_indicator/off_screen_indicator.tscn" id="10_1f8lk"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wrah3"]
 diffuse_texture = ExtResource("3_gkbpv")
@@ -71,6 +72,9 @@ value = 25.0
 show_percentage = false
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="OffScreenIndicator" parent="." instance=ExtResource("10_1f8lk")]
+scale = Vector2(3, 3)
 
 [connection signal="area_entered" from="ShipBody/Area2D" to="." method="_on_collision"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

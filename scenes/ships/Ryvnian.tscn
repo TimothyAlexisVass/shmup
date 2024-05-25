@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bsnoq0y53yphg" path="res://assets/sprites/ships/ryvnian/ryvnian_crystal.png" id="4_kaefy"]
 [ext_resource type="Texture2D" uid="uid://coj4td3xl4027" path="res://assets/sprites/ships/ryvnian/ryvnian_border.png" id="7_ynrai"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_q6t2m"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_b5afx"]
 [ext_resource type="Texture2D" uid="uid://2avjvhhj5e0f" path="res://assets/sprites/ships/ryvnian/ryvnian_0.png" id="10_xpv76"]
 [ext_resource type="Texture2D" uid="uid://3y1eutnfkht4" path="res://assets/sprites/ships/sectoid/sectoid_normal.png" id="12_qojjh"]
 
@@ -38,11 +37,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("10_b5afx")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
 resource_local_to_scene = true
@@ -97,7 +91,6 @@ polygon = PackedVector2Array(-33, 367, 33, 367, 77, 450, 250, 303, 283, 170, 243
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_xl2ii")
 offset = Vector2(0, 80)
 metadata/_edit_lock_ = true

@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dj2a2j0sk8feg" path="res://assets/sprites/ships/yorria/yorria_border.png" id="5_mjdso"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_fxdc5"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="7_514qd"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_1fnmk"]
 [ext_resource type="Texture2D" uid="uid://x3eosig2aqvt" path="res://assets/sprites/ships/yorria/yorria_0.png" id="9_k3jqi"]
 [ext_resource type="Texture2D" uid="uid://bwrivkmiuvc42" path="res://assets/sprites/ships/yorria/yorria_normal.png" id="10_1oq6e"]
 
@@ -39,11 +38,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("8_1fnmk")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_4knyd"]
 resource_local_to_scene = true
@@ -104,7 +98,6 @@ polygon = PackedVector2Array(-421.429, -428.571, -435.714, -242.857, -385.714, -
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="4"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_4knyd")
 metadata/_edit_lock_ = true
 

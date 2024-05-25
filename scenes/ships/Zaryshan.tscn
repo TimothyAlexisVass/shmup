@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dll6ejav5k33m" path="res://assets/sprites/ships/zaryshan/zaryshan_border.png" id="7_j5on1"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_bh615"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="9_tnc0v"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_3cbvs"]
 [ext_resource type="Texture2D" uid="uid://didv1nu3ske5l" path="res://assets/sprites/ships/zaryshan/zaryshan_0.png" id="11_etubk"]
 [ext_resource type="Texture2D" uid="uid://6su2ratbk4yi" path="res://assets/sprites/ships/zaryshan/zaryshan_normal.png" id="12_k06fj"]
 
@@ -41,11 +40,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("10_3cbvs")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
 resource_local_to_scene = true
@@ -115,7 +109,6 @@ rate_of_fire = 0.17
 shot_speed = 300.0
 
 [node name="Sprite" parent="ShipBody" index="4"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_xl2ii")
 metadata/_edit_lock_ = true
 

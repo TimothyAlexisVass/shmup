@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8qywpiaaw2k8"]
+[gd_scene load_steps=19 format=3 uid="uid://8qywpiaaw2k8"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_26w38"]
 [ext_resource type="Texture2D" uid="uid://ctdfo6fdhawx2" path="res://assets/sprites/ships/rugnor/rugnor_1.png" id="2_um825"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://3xl4vo4wvo1p" path="res://assets/sprites/ships/rugnor/rugnor_crystal.png" id="7_8kxu5"]
 [ext_resource type="Texture2D" uid="uid://bu32rjd8v6ktb" path="res://assets/sprites/ships/rugnor/rugnor_border.png" id="8_5tarp"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_inx45"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_nm3ky"]
 [ext_resource type="Texture2D" uid="uid://dc3myvy18o8nr" path="res://assets/sprites/ships/rugnor/rugnor_0.png" id="11_rypt6"]
 [ext_resource type="Texture2D" uid="uid://bm3riaiic1ybd" path="res://assets/sprites/ships/rugnor/rugnor_normal.png" id="12_ddvxr"]
 
@@ -41,11 +40,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("10_nm3ky")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
 resource_local_to_scene = true
@@ -94,7 +88,6 @@ polygon = PackedVector2Array(220, -363.333, 196.667, -393.333, 130, -390, 73.333
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_xl2ii")
 offset = Vector2(0, 80)
 metadata/_edit_lock_ = true

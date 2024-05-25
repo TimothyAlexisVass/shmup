@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://da6wm2skhjpe7" path="res://assets/sprites/ships/vashu/vashu_crystal.png" id="7_cleab"]
 [ext_resource type="Texture2D" uid="uid://cb3p0dj6myj1r" path="res://assets/sprites/ships/vashu/vashu_border.png" id="8_c04sf"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_sshmv"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_yt8lp"]
 [ext_resource type="Texture2D" uid="uid://bwaebbbtyc50r" path="res://assets/sprites/ships/vashu/vashu_0.png" id="11_pyjfu"]
 [ext_resource type="Texture2D" uid="uid://c0cmyr8eln5ok" path="res://assets/sprites/ships/vashu/vashu_normal.png" id="12_fbnyv"]
 
@@ -41,11 +40,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_rkj31")
 alpha_curve = SubResource("CurveTexture_5hw0l")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oufop"]
-resource_local_to_scene = true
-shader = ExtResource("10_yt8lp")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wdbp4"]
 resource_local_to_scene = true
@@ -84,7 +78,6 @@ position = Vector2(29, -370)
 polygon = PackedVector2Array(6, 0, 36, -10, 41, -130, 11, -130, 0.999998, -55, -59, -55, -69, -125, -99, -125, -99, -20, -64, 0, -84, 140, -124, 145, -274, 250, -324, 30, -484, 90, -444, 415, -94, 870, -54, 835, -124, 685, -124, 470, -84, 255, 26, 255, 66, 465, 76, 680, 6, 835, 36, 870, 391, 415, 426, 85, 271, 35, 231, 240, 66, 145, 31, 145)
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_oufop")
 texture = SubResource("CanvasTexture_wdbp4")
 
 [node name="HitPoints" parent="." index="2"]

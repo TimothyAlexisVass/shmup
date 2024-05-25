@@ -5,14 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bp78xy2penfes" path="res://assets/sprites/ships/slychar/slychar_2.png" id="3_i7eer"]
 [ext_resource type="Texture2D" uid="uid://cq8jqvpuwwv7i" path="res://assets/sprites/ships/slychar/slychar_crystal.png" id="4_05667"]
 [ext_resource type="Texture2D" uid="uid://cnt2uhomhbipa" path="res://assets/sprites/ships/slychar/slychar_border.png" id="5_lpaa6"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="6_av4b6"]
 [ext_resource type="Texture2D" uid="uid://bwwautv5s3nw1" path="res://assets/sprites/ships/slychar/slychar_0.png" id="7_2djam"]
 [ext_resource type="Texture2D" uid="uid://b0y0wy466vbsw" path="res://assets/sprites/ships/slychar/slychar_normal.png" id="8_lf72d"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_45cw7"]
-resource_local_to_scene = true
-shader = ExtResource("6_av4b6")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_20wat"]
 resource_local_to_scene = true
@@ -40,7 +34,6 @@ texture = ExtResource("5_lpaa6")
 polygon = PackedVector2Array(-265, 125, -155, 30, -220, -60, -100, -405, 0, -465, 100, -400, 220, -60, 155, 30, 265, 125, 95, 455, -95, 455)
 
 [node name="Sprite" parent="ShipBody" index="2"]
-material = SubResource("ShaderMaterial_45cw7")
 texture = SubResource("CanvasTexture_20wat")
 
 [node name="HitPoints" parent="." index="2"]

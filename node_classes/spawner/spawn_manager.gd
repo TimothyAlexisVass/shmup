@@ -8,7 +8,13 @@ var wave = 0
 var ships = {
 	1: {
 		"Raketa": preload("res://scenes/ships/Raketa.tscn"),
-	},	
+		"Vallin": preload("res://scenes/ships/Vallin.tscn"),
+		"Vash": preload("res://scenes/ships/Vash.tscn"),
+		"Volyn": preload("res://scenes/ships/Volyn.tscn"),
+	},
+	2: {
+		"Wail": preload("res://scenes/ships/Wail.tscn"),
+	},
 	3: {
 		"Garra": preload("res://scenes/ships/Garra.tscn"),
 		"Ranoka": preload("res://scenes/ships/Ranoka.tscn"),
@@ -33,15 +39,11 @@ var ships = {
 		"Trusha": preload("res://scenes/ships/Trusha.tscn"),
 		"Tuur": preload("res://scenes/ships/Tuur.tscn"),
 		"Vaboom": preload("res://scenes/ships/Vaboom.tscn"),
-		"Vallin": preload("res://scenes/ships/Vallin.tscn"),
 		"Varilan": preload("res://scenes/ships/Varilan.tscn"),
-		"Vash": preload("res://scenes/ships/Vash.tscn"),
 		"Vashu": preload("res://scenes/ships/Vashu.tscn"),
 		"Velin": preload("res://scenes/ships/Velin.tscn"),
 		"Verimus": preload("res://scenes/ships/Verimus.tscn"),
-		"Volyn": preload("res://scenes/ships/Volyn.tscn"),
 		"Vusion": preload("res://scenes/ships/Vusion.tscn"),
-		"Wail": preload("res://scenes/ships/Wail.tscn"),
 		"Weruna": preload("res://scenes/ships/Weruna.tscn"),
 		"Xenor": preload("res://scenes/ships/Xenor.tscn"),
 		"Yorran": preload("res://scenes/ships/Yorran.tscn"),
@@ -83,22 +85,8 @@ var spawn_points
 @onready var waves = Spawn.WAVE_TIER[G.level.number]
 @onready var number_of_waves = waves.size()
 
-func _enter_tree():
-	spawn_points = {
-		-5: Vector2(G.play_area.min.x, G.play_area.max.y - G.play_area_fourth.y),
-		-4: Vector2(G.play_area.min.x, G.center.y),
-		-3: Vector2(G.play_area.min.x, G.play_area.min.y + G.play_area_fourth.y),
-		-2: Vector2(G.play_area.min.x, G.play_area.min.y),
-		-1: Vector2(G.play_area.min.x + G.play_area_fourth.x, G.play_area.min.y),
-		0: Vector2(G.center.x, G.play_area.min.y),
-		1: Vector2(G.play_area.max.x - G.play_area_fourth.x, G.play_area.min.y),
-		2: Vector2(G.play_area.max.x, G.play_area.min.y),
-		3: Vector2(G.play_area.max.x, G.play_area.min.y + G.play_area_fourth.y),
-		4: Vector2(G.play_area.max.x, G.center.y),
-		5: Vector2(G.play_area.max.x, G.play_area.max.y - G.play_area_fourth.y),
-	}
-
 func _ready():
+	spawn_points = $GameArea/SpawnPoints.get_children()
 	for player_ship in player_ships:
 		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
 
@@ -156,8 +144,7 @@ func _on_wave_timer_timeout():
 		for spawn_point in spawn.sequence:
 			var spawn_scene = ships[spawn.wave_tier].values().pick_random()
 			var spawner_instance = spawner_scene.instantiate()
-			spawner_instance.global_position = spawn_points[spawn_point]
-			add_child(spawner_instance)
+			spawn_points[spawn_point].add_child(spawner_instance)
 			spawner_instance.spawn(spawn_scene, spawn.amount)
 			if G.DEBUG:
 				prints("enqueued:", spawn.amount, "at:", spawn_point)

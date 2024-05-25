@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cufh7uuaxt0oe" path="res://assets/sprites/ships/sabir/sabir_border.png" id="8_ljlxn"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_2kd32"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_qg20i"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="11_arst3"]
 [ext_resource type="Texture2D" uid="uid://6sxq7qwt1y56" path="res://assets/sprites/ships/sabir/sabir_0.png" id="12_afm5n"]
 [ext_resource type="Texture2D" uid="uid://o1pn2he4xbyn" path="res://assets/sprites/ships/sabir/sabir_normal.png" id="13_fuqtg"]
 
@@ -42,11 +41,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_rkj31")
 alpha_curve = SubResource("CurveTexture_5hw0l")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ambao"]
-resource_local_to_scene = true
-shader = ExtResource("11_arst3")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wic3u"]
 resource_local_to_scene = true
@@ -109,7 +103,6 @@ default_color = Color(1, 0.168627, 0, 1)
 shot_speed = 300.0
 
 [node name="Sprite" parent="ShipBody" index="4"]
-material = SubResource("ShaderMaterial_ambao")
 texture = SubResource("CanvasTexture_wic3u")
 
 [node name="HitPoints" parent="." index="2"]

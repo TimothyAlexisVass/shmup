@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://duqc0jt3qiwc4" path="res://assets/sprites/ships/sabre/sabre_1.png" id="2_pmp1v"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_sa1uy"]
 [ext_resource type="Texture2D" uid="uid://cfbjlxbrvt24h" path="res://assets/sprites/ships/sabre/sabre_2.png" id="3_h057a"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="3_j0qrt"]
 [ext_resource type="Texture2D" uid="uid://0h7mqid12ro2" path="res://assets/sprites/ships/sabre/sabre_0.png" id="4_0exqo"]
 [ext_resource type="Texture2D" uid="uid://dbtbm51nnjs2k" path="res://assets/sprites/ships/sabre/sabre_3.png" id="4_fvj0m"]
 [ext_resource type="Texture2D" uid="uid://cakxc4o31gn6u" path="res://assets/sprites/ships/sabre/sabre_normal.png" id="4_me5v0"]
@@ -39,11 +38,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_a537j")
 alpha_curve = SubResource("CurveTexture_drtbg")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3k7c"]
-resource_local_to_scene = true
-shader = ExtResource("3_j0qrt")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vx7sh"]
 resource_local_to_scene = true
@@ -95,7 +89,6 @@ process_material = SubResource("ParticleProcessMaterial_kmwr1")
 polygon = PackedVector2Array(-45, -380, -50, -170, -95, -130, -110, -265, -220, -240, -205, -70, -145, -25, -200, 15, -315, -190, -305, -295, -255, -460, -390, -275, -415, -295, -420, -375, -465, -375, -460, -195, -425, -195, -350, 95, -300, 100, -150, 375, 5, 460, 160, 375, 305, 95, 355, 75, 425, -195, 465, -200, 470, -370, 420, -370, 420, -290, 390, -270, 260, -460, 310, -175, 205, 25, 145, 5, 185, -65, 220, -240, 115, -265, 110, -120, 50, -155, 45, -380, 0, -465)
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_l3k7c")
 texture = SubResource("CanvasTexture_vx7sh")
 
 [node name="HitPoints" parent="." index="2"]

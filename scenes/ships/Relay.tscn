@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bq7cuuvrv2011" path="res://assets/sprites/ships/relay/relay_4.png" id="5_ygr8v"]
 [ext_resource type="Texture2D" uid="uid://cdwbth4mlruuh" path="res://assets/sprites/ships/relay/relay_crystal.png" id="6_2vkgh"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_c41xq"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_g4g4q"]
 [ext_resource type="Texture2D" uid="uid://effl3yig1s0t" path="res://assets/sprites/ships/relay/relay_border.png" id="7_hu356"]
 [ext_resource type="Texture2D" uid="uid://ds46s8c2ceheh" path="res://assets/sprites/ships/relay/relay_0.png" id="10_ckcgs"]
 [ext_resource type="Texture2D" uid="uid://crtf3iuu5jqum" path="res://assets/sprites/ships/relay/relay_normal.png" id="11_skqi3"]
@@ -40,11 +39,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("7_g4g4q")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
 resource_local_to_scene = true
@@ -97,7 +91,6 @@ polygon = PackedVector2Array(27.2727, 86.3636, 77.2727, -68.1818, 118.182, -9.09
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_xl2ii")
 metadata/_edit_lock_ = true
 

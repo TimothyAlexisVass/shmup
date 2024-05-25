@@ -9,13 +9,13 @@ const ANGLE_LEFT = PI
 const GAME_AREA_OFFSET = Vector2(400, 200)
 const HEALTH_TWEEN_TIME = 0.4
 const TIER_COLOR = {
-	0: Color(0, 0, 0, 0.5),
-	1: Color(0.8, 1.7, 3.2, 0.5),
-	2: Color(2.7, 0.8, 2.7, 0.5),
-	3: Color(2.7, 0.5, 0.8, 0.5),
-	4: Color(2.7, 1.7, 0.8, 0.5),
-	5: Color(1.7, 2.7, 0.8, 0.5),
-	9: Color(1.5, 1.5, 1.5, 0.5)
+	0: Color(0, 0, 0, 0.2),
+	1: Color(0.8, 1.7, 3.2, 0.2),
+	2: Color(2.7, 0.8, 2.7, 0.2),
+	3: Color(2.7, 0.5, 0.8, 0.2),
+	4: Color(2.7, 1.7, 0.8, 0.2),
+	5: Color(1.7, 2.7, 0.8, 0.2),
+	9: Color(1.5, 1.5, 1.5, 0.2)
 }
 enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
 enum CHALLENGE { NONE, EASY, MEDIUM, ELITE }
@@ -61,10 +61,9 @@ static func linear_increase(base, skill_level, magnitude):
 	return base + skill_level * magnitude
 
 static func random_position_in_camera_view():
-	var camera_position = camera.global_position
-	var min_position = camera_position - center
-	var max_position = camera_position + center
-	return Vector2(randf_range(min_position.x, max_position.x), randf_range(min_position.y, max_position.y))
+	var camera_min = camera.get_min()
+	var camera_max = camera.get_max()
+	return Vector2(randf_range(camera_min.x, camera_max.x), randf_range(camera_min.y, camera_max.y))
 
 static func random_boolean():
 	return [true, false].pick_random()

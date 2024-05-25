@@ -1,8 +1,8 @@
 extends Sprite2D
 
 # Parameters
-const BASE_SCALE = 1.05
-const SCALE_RANGE = 0.05
+const BASE_SCALE = 1.06
+const SCALE_RANGE = 0.02
 const OSCILLATION_SPEED = 0.3  # Speed of the oscillation
 
 # Time accumulator

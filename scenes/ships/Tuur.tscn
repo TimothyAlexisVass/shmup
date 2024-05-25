@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://u4fnjlac1f64" path="res://assets/sprites/ships/tuur/tuur_crystal.png" id="4_py61a"]
 [ext_resource type="Texture2D" uid="uid://cvt4fuvw2vo4i" path="res://assets/sprites/ships/tuur/tuur_border.png" id="5_nt8uu"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_2kwo5"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_btllf"]
 [ext_resource type="Texture2D" uid="uid://dl2e180gcwdyf" path="res://assets/sprites/ships/tuur/tuur_0.png" id="8_d41ag"]
 [ext_resource type="Texture2D" uid="uid://cr736muxmpifr" path="res://assets/sprites/ships/tuur/tuur_normal.png" id="9_drrkp"]
 
@@ -38,11 +37,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_a537j")
 alpha_curve = SubResource("CurveTexture_drtbg")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_61dkg"]
-resource_local_to_scene = true
-shader = ExtResource("7_btllf")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vaa23"]
 resource_local_to_scene = true
@@ -98,7 +92,6 @@ scale = Vector2(1.7, 1)
 process_material = SubResource("ParticleProcessMaterial_kmwr1")
 
 [node name="Sprite" parent="ShipBody" index="2"]
-material = SubResource("ShaderMaterial_61dkg")
 texture = SubResource("CanvasTexture_vaa23")
 metadata/_edit_lock_ = true
 

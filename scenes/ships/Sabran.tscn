@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bbt7rb8erkh3m" path="res://assets/sprites/ships/sabran/sabran_4.png" id="5_mepc4"]
 [ext_resource type="Texture2D" uid="uid://ci72p2lyrexb6" path="res://assets/sprites/ships/sabran/sabran_crystal.png" id="6_r5l53"]
 [ext_resource type="Texture2D" uid="uid://b5j5q65yyfqpq" path="res://assets/sprites/ships/sabran/sabran_border.png" id="7_fnkao"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_t6jue"]
 [ext_resource type="Texture2D" uid="uid://b72a10ltoorl4" path="res://assets/sprites/ships/sabran/sabran_0.png" id="9_cs1qo"]
 
 [sub_resource type="Curve" id="Curve_6jcrg"]
@@ -40,11 +39,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_a537j")
 alpha_curve = SubResource("CurveTexture_drtbg")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_61dkg"]
-resource_local_to_scene = true
-shader = ExtResource("8_t6jue")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nw5or"]
 resource_local_to_scene = true
@@ -86,7 +80,6 @@ process_material = SubResource("ParticleProcessMaterial_kmwr1")
 polygon = PackedVector2Array(-30, -370, -205, -360, -185, -120, -115, -115, -135, -65, -185, -50, -265, -170, -280, -330, -240, -470, -360, -350, -405, -145, -375, -20, -270, 45, -135, 360, 5, 490, 135, 350, 275, 50, 370, -15, 420, -140, 355, -335, 235, -475, 280, -325, 280, -185, 190, -45, 140, -50, 120, -115, 185, -120, 205, -350, 35, -375, 0, -465)
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_61dkg")
 texture = SubResource("CanvasTexture_nw5or")
 metadata/_edit_lock_ = true
 

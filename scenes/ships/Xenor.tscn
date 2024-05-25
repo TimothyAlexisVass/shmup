@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c2gqxhf2mb41o" path="res://assets/sprites/ships/xenor/xenor_crystal.png" id="4_5boae"]
 [ext_resource type="Texture2D" uid="uid://dsq57wxry4uia" path="res://assets/sprites/ships/xenor/xenor_border.png" id="5_phc3u"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_xrlmy"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_lnxce"]
 [ext_resource type="Texture2D" uid="uid://bq7ytbrqqgsdw" path="res://assets/sprites/ships/xenor/xenor_0.png" id="8_wbmmo"]
 [ext_resource type="Texture2D" uid="uid://p6xb2f1fi6ji" path="res://assets/sprites/ships/xenor/xenor_normal.png" id="9_ka1ef"]
 
@@ -38,11 +37,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("7_lnxce")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_pjij2"]
 resource_local_to_scene = true
@@ -88,7 +82,6 @@ polygon = PackedVector2Array(-400, 128.571, -321.429, 328.571, -214.286, 450, -2
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_pjij2")
 metadata/_edit_lock_ = true
 

@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://jcn8rlq48btp" path="res://assets/sprites/ships/tamarana/tamarana_crystal.png" id="6_2lcir"]
 [ext_resource type="Texture2D" uid="uid://csc2xmfnvuhb" path="res://assets/sprites/ships/tamarana/tamarana_border.png" id="7_db500"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_e6mku"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="9_o7e80"]
 [ext_resource type="Texture2D" uid="uid://d1d7ndkrps2e8" path="res://assets/sprites/ships/tamarana/tamarana_0.png" id="10_ra8a0"]
 [ext_resource type="Texture2D" uid="uid://bca1eg5o7mjmp" path="res://assets/sprites/ships/tamarana/tamarana_normal.png" id="11_2gr05"]
 
@@ -40,11 +39,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_a537j")
 alpha_curve = SubResource("CurveTexture_drtbg")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_61dkg"]
-resource_local_to_scene = true
-shader = ExtResource("9_o7e80")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f833l"]
 resource_local_to_scene = true
@@ -80,7 +74,6 @@ process_material = SubResource("ParticleProcessMaterial_kmwr1")
 polygon = PackedVector2Array(255, 50, 150, 150, 40, 505, -45, 505, -135, 155, -255, 50, -260, 375, -375, 375, -345, -475, -285, -475, -260, -90, -140, -40, -145, -355, -125, -445, -85, -310, 90, -315, 125, -445, 140, -365, 140, -40, 265, -95, 284.508, -474.52, 345, -475, 370, 370, 260, 370)
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_61dkg")
 texture = SubResource("CanvasTexture_f833l")
 metadata/_edit_lock_ = true
 

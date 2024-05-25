@@ -32,6 +32,42 @@ collision_layer = 128
 collision_mask = 14
 script = ExtResource("5_o6sog")
 
+[node name="SpawnPoints" type="Node2D" parent="SpawnManager/GameArea"]
+position = Vector2(-540, -980)
+
+[node name="-5" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(-460, 1620)
+
+[node name="-4" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(-460, 980)
+
+[node name="-3" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(-460, 340)
+
+[node name="-2" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(-460, -360)
+
+[node name="-1" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(70, -360)
+
+[node name="0" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(540, -360)
+
+[node name="1" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(1010, -360)
+
+[node name="2" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(1540, -360)
+
+[node name="3" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(1540, 340)
+
+[node name="4" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(1540, 980)
+
+[node name="5" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
+position = Vector2(1540, 1620)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnManager/GameArea"]
 shape = SubResource("RectangleShape2D_3eobj")
 debug_color = Color(0, 0.6, 0.701961, 0)

@@ -7,13 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpy6o6ck617xy" path="res://assets/sprites/ships/slyce/slyce_crystal.png" id="5_kntbb"]
 [ext_resource type="Texture2D" uid="uid://n7f2rwfmn1el" path="res://assets/sprites/ships/slyce/slyce_border.png" id="6_74l86"]
 [ext_resource type="Texture2D" uid="uid://coe2qjdoup8q6" path="res://assets/sprites/ships/slyce/slyce_normal.png" id="6_u5la8"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_1gsih"]
 [ext_resource type="Texture2D" uid="uid://dfm5j7dtcthcf" path="res://assets/sprites/ships/slyce/slyce_0.png" id="8_5i400"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bq7cn"]
-resource_local_to_scene = true
-shader = ExtResource("7_1gsih")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_b8umj"]
 resource_local_to_scene = true
@@ -41,7 +35,6 @@ texture = ExtResource("6_74l86")
 polygon = PackedVector2Array(100, 405, 225, 70, 155, -30, 270, -120, 100, -455, -100, -450, -265, -120, -155, -25, -220, 65, -90, 405, 5, 470)
 
 [node name="Sprite" parent="ShipBody" index="2"]
-material = SubResource("ShaderMaterial_bq7cn")
 texture = SubResource("CanvasTexture_b8umj")
 
 [node name="HitPoints" parent="." index="2"]

@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b0i2h2rmggwgu" path="res://assets/sprites/ships/rayaxes/rayaxes_crystal.png" id="7_intuv"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_xriev"]
 [ext_resource type="Texture2D" uid="uid://dhe4d8eqj8pbw" path="res://assets/sprites/ships/rayaxes/rayaxes_border.png" id="8_xs402"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="9_st7fb"]
 [ext_resource type="Texture2D" uid="uid://chn6q363qauxx" path="res://assets/sprites/ships/rayaxes/rayaxes_0.png" id="11_ndhft"]
 [ext_resource type="Texture2D" uid="uid://52txg8mbh7x8" path="res://assets/sprites/ships/rayaxes/rayaxes_normal.png" id="12_apd4g"]
 
@@ -41,11 +40,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("9_st7fb")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
 resource_local_to_scene = true
@@ -110,7 +104,6 @@ polygon = PackedVector2Array(0, 300, -172.727, 113.636, -127.273, 445.455, -168.
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_xl2ii")
 metadata/_edit_lock_ = true
 

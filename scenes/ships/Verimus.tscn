@@ -4,13 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://l6c4xkw4rw64" path="res://assets/sprites/ships/verimus/verimus_crystal.png" id="2_0hh3e"]
 [ext_resource type="Texture2D" uid="uid://cx2hfo6njllme" path="res://assets/sprites/ships/verimus/verimus_border.png" id="3_5ep0w"]
 [ext_resource type="Texture2D" uid="uid://ck2bdb68yyfts" path="res://assets/sprites/ships/verimus/verimus_normal.png" id="3_6hvfp"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="4_26dat"]
 [ext_resource type="Texture2D" uid="uid://dyxp4oj8o1tsb" path="res://assets/sprites/ships/verimus/verimus_0.png" id="5_532ba"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("4_26dat")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6mops"]
 resource_local_to_scene = true
@@ -50,7 +44,6 @@ polygon = PackedVector2Array(-235.714, -414.286, -342.857, -307.143, -335.714, -
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="2"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_6mops")
 offset = Vector2(0, 100)
 metadata/_edit_lock_ = true

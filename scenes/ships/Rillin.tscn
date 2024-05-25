@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dme2375f03brs"]
+[gd_scene load_steps=16 format=3 uid="uid://dme2375f03brs"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_klvfe"]
 [ext_resource type="Texture2D" uid="uid://g3rb6add23o5" path="res://assets/sprites/ships/rillin/rillin_1.png" id="2_b3uaj"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cphuvnllmujy8" path="res://assets/sprites/ships/rillin/rillin_0.png" id="8_i3uhg"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_2wnvb"]
 [ext_resource type="Texture2D" uid="uid://bityfkbjn11mp" path="res://assets/sprites/ships/rillin/rillin_normal.png" id="9_iko8h"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="10_ywbl1"]
 
 [sub_resource type="Curve" id="Curve_x3n7m"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
@@ -38,11 +37,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("10_ywbl1")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xl2ii"]
 resource_local_to_scene = true
@@ -98,7 +92,6 @@ polygon = PackedVector2Array(72.7273, 270, 122.727, 179.091, 145.455, -61.8182, 
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_xl2ii")
 metadata/_edit_lock_ = true
 

@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c2eucf6si64vu" path="res://assets/sprites/ships/vallin/vallin_crystal.png" id="5_dmb80"]
 [ext_resource type="Texture2D" uid="uid://bmpv7hx6gdegu" path="res://assets/sprites/ships/vallin/vallin_border.png" id="6_6pgvs"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_w4nmi"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="8_g231j"]
 [ext_resource type="Texture2D" uid="uid://twfg1hpqjom0" path="res://assets/sprites/ships/vallin/vallin_0.png" id="9_43nlk"]
 [ext_resource type="Texture2D" uid="uid://cndfi726278g" path="res://assets/sprites/ships/vallin/vallin_normal.png" id="10_bno32"]
 
@@ -39,11 +38,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ua5pe")
 alpha_curve = SubResource("CurveTexture_oiy6f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjmwv"]
-resource_local_to_scene = true
-shader = ExtResource("8_g231j")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rdvxd"]
 resource_local_to_scene = true
@@ -94,7 +88,6 @@ polygon = PackedVector2Array(-207.143, -400, -200, -314.286, -478.571, -357.143,
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_gjmwv")
 texture = SubResource("CanvasTexture_rdvxd")
 offset = Vector2(0, 100)
 metadata/_edit_lock_ = true

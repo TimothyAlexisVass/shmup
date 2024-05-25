@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d2rveh3e86axv" path="res://assets/sprites/ships/styx/styx_crystal.png" id="4_xxuou"]
 [ext_resource type="Texture2D" uid="uid://bc7tfg26adu82" path="res://assets/sprites/ships/styx/styx_border.png" id="5_xda23"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_vy1ts"]
-[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="7_c0ayw"]
 [ext_resource type="Texture2D" uid="uid://dnoh672dg248i" path="res://assets/sprites/ships/styx/styx_0.png" id="8_s8tux"]
 [ext_resource type="Texture2D" uid="uid://byuqhcweprrci" path="res://assets/sprites/ships/styx/styx_normal.png" id="9_0pw3w"]
 
@@ -38,11 +37,6 @@ scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_a537j")
 alpha_curve = SubResource("CurveTexture_drtbg")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_61dkg"]
-resource_local_to_scene = true
-shader = ExtResource("7_c0ayw")
-shader_parameter/line_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nrp2m"]
 resource_local_to_scene = true
@@ -80,7 +74,6 @@ position = Vector2(0, 177)
 polygon = PackedVector2Array(180, -35, 5, 465, -180, -30, -340, 60, -120, -260, -385, -440, -330, -465, 5, -395, 330, -470, 395, -450, 120, -260, 335, 55)
 
 [node name="Sprite" parent="ShipBody" index="3"]
-material = SubResource("ShaderMaterial_61dkg")
 texture = SubResource("CanvasTexture_nrp2m")
 offset = Vector2(0, 177)
 metadata/_edit_lock_ = true
