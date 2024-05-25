@@ -72,7 +72,7 @@ func _enter_tree():
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
 		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier]
-		$ShipBody/TierGlow.modulate = G.TIER_COLOR[ship_tier] * 0.9
+		$ShipBody/TierGlow.modulate = G.TIER_COLOR[ship_tier] * 1.1
 	else:
 		$ShipBody/TierGlow.queue_free()
 	

@@ -68,7 +68,6 @@ destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-visible = false
 texture = ExtResource("8_phhyw")
 offset = Vector2(0, 120)
 
