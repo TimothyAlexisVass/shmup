@@ -44,22 +44,22 @@ func _enter_tree():
 	if crystal == null:
 		ship_value += 1
 	
-	if ship_value == 0:
+	if ship_value <= 2000:
 		ship_tier = 9
 	else:
-		if ship_value <= 2 && len(sprites) == 5:
+		if ship_value <= 3000 && len(sprites) == 5:
 			shipbody_texture = sprites[4]
 			ship_tier = 5
-		elif ship_value <= 5 && len(sprites) >= 4:
+		elif ship_value <= 4000 && len(sprites) >= 4:
 			shipbody_texture = sprites[3]
 			ship_tier = 4
-		elif ship_value <= 10 && len(sprites) >= 3:
+		elif ship_value <= 5000 && len(sprites) >= 3:
 			shipbody_texture = sprites[2]
 			ship_tier = 3
-		elif ship_value <= 100 && len(sprites) >= 2:
+		elif ship_value <= 6000 && len(sprites) >= 2:
 			shipbody_texture = sprites[1]
 			ship_tier = 2
-		elif ship_value <= 1000 && len(sprites) >= 1:
+		elif ship_value <= 7000 && len(sprites) >= 1:
 			shipbody_texture = sprites[0]
 			ship_tier = 1
 
@@ -73,6 +73,7 @@ func _enter_tree():
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
 		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier]
 		$ShipBody/TierGlow.modulate = G.TIER_COLOR[ship_tier] * 1.3
+		$OffScreenIndicator.self_modulate = G.TIER_COLOR[ship_tier] * 2
 	else:
 		$ShipBody/TierGlow.queue_free()
 	
