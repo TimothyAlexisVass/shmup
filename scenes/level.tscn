@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxuuwmlma1xmm"]
+[gd_scene load_steps=15 format=3 uid="uid://bxuuwmlma1xmm"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_15kp8"]
 [ext_resource type="PackedScene" uid="uid://t35pb2ajkk0d" path="res://node_classes/spawner/spawn_manager.tscn" id="3_opaq1"]
@@ -6,6 +6,36 @@
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_jnuwh"]
 [ext_resource type="Script" path="res://scripts/game_area.gd" id="5_o6sog"]
 [ext_resource type="Script" path="res://scripts/main_lighting.gd" id="9_405bv"]
+
+[sub_resource type="Curve2D" id="Curve2D_3p8ia"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, 0, 2000, 1000, 1, 400, 0, -400, 0, 468, 2301, -500, 0, 500, 0, 465, 503, 400, 0, -400, 0, 499, 2265, -400, 0, 400, 0, 471, 955, 400, 0, -400, 0, 501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_nl5xy"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, 0, 2000, 1000, 1, 400, 0, -400, 0, 499, 2265, -400, 0, 400, 0, 471, 955, 400, 0, -400, 0, 501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_jbfrc"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, 0, 3000, -1000, 1, 0, 3000, 13.1697, -2604.32, 0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_cwxam"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, 0, 2000, -1000, 1, -400, 0, 400, 0, -499, 2265, 400, 0, -400, 0, -471, 955, -400, 0, 400, 0, -501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_fsyrs"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, 0, 2000, -1000, 1, -400, 0, 400, 0, -468, 2301, 500, 0, -500, 0, -465, 503, -400, 0, 400, 0, -499, 2265, 400, 0, -400, 0, -471, 955, -400, 0, 400, 0, -501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
+}
+point_count = 7
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eobj"]
 size = Vector2(1880, 2560)
@@ -50,11 +80,34 @@ position = Vector2(-460, -360)
 [node name="-1" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
 position = Vector2(70, -360)
 
+[node name="down_and_up_right" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/-1"]
+visible = false
+curve = SubResource("Curve2D_3p8ia")
+
+[node name="down_loop_once_up_right" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/-1"]
+visible = false
+curve = SubResource("Curve2D_nl5xy")
+
+[node name="down_loop_twice_up_right" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/-1"]
+visible = false
+curve = SubResource("Curve2D_3p8ia")
+
 [node name="0" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
 position = Vector2(540, -360)
 
 [node name="1" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
 position = Vector2(1010, -360)
+
+[node name="down_and_up_left" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/1"]
+visible = false
+curve = SubResource("Curve2D_jbfrc")
+
+[node name="down_loop_once_up_left" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/1"]
+curve = SubResource("Curve2D_cwxam")
+
+[node name="down_loop_twice_up_left" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/1"]
+visible = false
+curve = SubResource("Curve2D_fsyrs")
 
 [node name="2" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
 position = Vector2(1540, -360)
@@ -71,6 +124,7 @@ position = Vector2(1540, 1620)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnManager/GameArea"]
 shape = SubResource("RectangleShape2D_3eobj")
 debug_color = Color(0, 0.6, 0.701961, 0)
+metadata/_edit_lock_ = true
 
 [node name="ViewLayers" type="Node2D" parent="."]
 
@@ -93,6 +147,7 @@ script = ExtResource("4_jnuwh")
 
 [node name="Lights" type="Node2D" parent="Camera2D"]
 script = ExtResource("9_405bv")
+metadata/_edit_lock_ = true
 
 [node name="Blue" type="PointLight2D" parent="Camera2D/Lights"]
 position = Vector2(-105, 2201)
@@ -101,6 +156,7 @@ color = Color(0, 0.752941, 0.878431, 1)
 energy = 4.0
 texture = SubResource("GradientTexture2D_2vd6a")
 texture_scale = 3.33
+metadata/_edit_lock_ = true
 
 [node name="Red" type="PointLight2D" parent="Camera2D/Lights"]
 position = Vector2(1473, 517)
@@ -109,6 +165,7 @@ color = Color(1, 0.466667, 0.396078, 1)
 energy = 3.0
 texture = SubResource("GradientTexture2D_2vd6a")
 texture_scale = 4.23
+metadata/_edit_lock_ = true
 
 [node name="Yellow" type="PointLight2D" parent="Camera2D/Lights"]
 position = Vector2(-112, 340)
@@ -117,12 +174,14 @@ color = Color(1, 1, 0.498039, 1)
 energy = 3.0
 texture = SubResource("GradientTexture2D_2vd6a")
 texture_scale = 3.0
+metadata/_edit_lock_ = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Camera2D/Lights"]
 position = Vector2(-360, -90)
 rotation = -1.69995
 blend_mode = 2
 height = 0.55
+metadata/_edit_lock_ = true
 
 [connection signal="area_exited" from="SpawnManager/GameArea" to="SpawnManager/GameArea" method="_on_exited"]
 [connection signal="body_exited" from="SpawnManager/GameArea" to="SpawnManager/GameArea" method="_on_exited"]

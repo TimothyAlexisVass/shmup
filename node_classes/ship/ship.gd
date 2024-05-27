@@ -13,15 +13,10 @@ const PADDING = 10
 @export var acceleration: float = 0.001
 @export var spawn_wait_time: float = 1.0
 
-enum DESTINATION {RANDOM, FIXED, FACING_DIRECTION}
-@export var destination: DESTINATION
-
-@export var fixed_relative_position: Vector2i
-
 enum FACE_TOWARDS {PLAYER, DESTINATION}
 @export var face_towards: FACE_TOWARDS
 
-enum MOVE {TO_DESTINATION, AHEAD, STATIONARY}
+enum MOVE {RANDOM_DESTINATION, ALONG_PATH, AHEAD, STATIONARY}
 @export var move: MOVE
 
 # Calculated properties
@@ -44,22 +39,22 @@ func _enter_tree():
 	if crystal == null:
 		ship_value += 1
 	
-	if ship_value <= 2000:
+	if ship_value == 0:
 		ship_tier = 9
 	else:
-		if ship_value <= 3000 && len(sprites) == 5:
+		if ship_value <= 2 && len(sprites) == 5:
 			shipbody_texture = sprites[4]
 			ship_tier = 5
-		elif ship_value <= 4000 && len(sprites) >= 4:
+		elif ship_value <= 5 && len(sprites) >= 4:
 			shipbody_texture = sprites[3]
 			ship_tier = 4
-		elif ship_value <= 5000 && len(sprites) >= 3:
+		elif ship_value <= 10 && len(sprites) >= 3:
 			shipbody_texture = sprites[2]
 			ship_tier = 3
-		elif ship_value <= 6000 && len(sprites) >= 2:
+		elif ship_value <= 100 && len(sprites) >= 2:
 			shipbody_texture = sprites[1]
 			ship_tier = 2
-		elif ship_value <= 7000 && len(sprites) >= 1:
+		elif ship_value <= 1000 && len(sprites) >= 1:
 			shipbody_texture = sprites[0]
 			ship_tier = 1
 
@@ -91,17 +86,15 @@ func _ready():
 	$HitPoints.position.x = -width / 2 + PADDING
 	$HitPoints.position.y = -(height / 2 + $HitPoints.size.y + PADDING)
 	$HitPoints.size.x = width - PADDING * 2
-	if destination == DESTINATION.RANDOM:
+	if move == MOVE.RANDOM_DESTINATION:
 		target = G.random_position_in_camera_view()
-	elif destination == DESTINATION.FIXED:
-		target = global_position + Vector2(fixed_relative_position)
-	elif destination == DESTINATION.FACING_DIRECTION:
+	elif move == MOVE.AHEAD:
 		target = (Vector2.DOWN * 9999).rotated($ShipBody.rotation)
 
 func _physics_process(delta):
 	if $HitPoints.value <= 0:
 		clear()
-	if destination == DESTINATION.RANDOM && ($ShipBody.global_position - target).length() < 100:
+	if move == MOVE.RANDOM_DESTINATION && ($ShipBody.global_position - target).length() < 200:
 		target = G.random_position_in_camera_view()
 	if get_node_or_null("ShipBody"):
 		if current_health > 0:
@@ -110,13 +103,14 @@ func _physics_process(delta):
 			elif face_towards == FACE_TOWARDS.PLAYER && is_instance_valid(G.player) && G.player.is_playing:
 				G.rotate_towards_target($ShipBody, G.player.global_position, rotation_speed)
 
-			if move == MOVE.TO_DESTINATION:
+			if move == MOVE.AHEAD:
+				velocity = Vector2.DOWN.rotated($ShipBody.rotation)
+			else:
 				var desired_velocity = (target - global_position).normalized()
 				velocity = lerp(velocity, desired_velocity, acceleration)
-			elif move == MOVE.AHEAD:
-				velocity = Vector2.DOWN.rotated($ShipBody.rotation)
 		else:                  
 			velocity *= 0.99
+
 		if velocity != Vector2(0, 0):
 			translate(velocity * speed * delta)
 

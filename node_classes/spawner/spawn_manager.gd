@@ -78,7 +78,7 @@ var player_ships = {
 var spawner_scene = preload("res://node_classes/spawner/spawner.tscn")
 var waiting_for = []
 var wave_queue = []
-var spawn_points
+var spawn_points = {}
 
 @onready var ships_left_for_next_wave = Spawn.ships_left_for_next_wave(G.level.number)[G.level.challenge]
 @onready var max_spawn_point = Spawn.max_spawn_point(G.level.number)
@@ -86,7 +86,8 @@ var spawn_points
 @onready var number_of_waves = waves.size()
 
 func _ready():
-	spawn_points = $GameArea/SpawnPoints.get_children()
+	for spawn_point_marker in $GameArea/SpawnPoints.get_children():
+		spawn_points[spawn_point_marker.name.to_int()] = spawn_point_marker
 	for player_ship in player_ships:
 		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
 
