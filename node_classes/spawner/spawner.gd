@@ -16,7 +16,16 @@ func _on_spawn_timer_timeout():
 		if instance_to_spawn == null:
 			instance_to_spawn = scene.instantiate()
 		instance_to_spawn.global_position = self.global_position
-		G.ships_layer.add_child(instance_to_spawn)
+		var instance_parent = get_parent()
+		if instance_to_spawn.move == instance_to_spawn.MOVE.ALONG_PATH:
+			var available_paths = get_parent().get_node_or_null("Paths")
+			if available_paths:
+				available_paths = available_paths.get_children()
+				instance_parent = available_paths[randi() % available_paths.size()]
+			else:
+				instance_to_spawn.move = instance_to_spawn.MOVE.RANDOM_DESTINATION
+		
+		instance_parent.add_child(instance_to_spawn)
 		instance_to_spawn = null
 		amount -= 1
 	else:

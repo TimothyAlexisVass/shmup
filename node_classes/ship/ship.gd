@@ -88,7 +88,7 @@ func _ready():
 	$HitPoints.size.x = width - PADDING * 2
 	if move == MOVE.RANDOM_DESTINATION:
 		target = G.random_position_in_camera_view()
-	elif move == MOVE.AHEAD:
+	elif move == MOVE.AHEAD || move == MOVE.ALONG_PATH:
 		target = (Vector2.DOWN * 9999).rotated($ShipBody.rotation)
 
 func _physics_process(delta):

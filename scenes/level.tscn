@@ -93,17 +93,14 @@ position = Vector2(70, -360)
 [node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/-1"]
 
 [node name="down_and_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
-visible = false
 position = Vector2(70, -360)
 curve = SubResource("Curve2D_3p8ia")
 
 [node name="down_loop_once_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
-visible = false
 position = Vector2(70, -360)
 curve = SubResource("Curve2D_nl5xy")
 
 [node name="down_loop_twice_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
-visible = false
 position = Vector2(70, -360)
 curve = SubResource("Curve2D_3p8ia")
 
@@ -116,7 +113,6 @@ position = Vector2(1010, -360)
 [node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/1"]
 
 [node name="down_and_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
-visible = false
 position = Vector2(1010, -360)
 curve = SubResource("Curve2D_jbfrc")
 
@@ -125,7 +121,6 @@ position = Vector2(1010, -360)
 curve = SubResource("Curve2D_cwxam")
 
 [node name="down_loop_twice_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
-visible = false
 position = Vector2(1010, -360)
 curve = SubResource("Curve2D_fsyrs")
 
