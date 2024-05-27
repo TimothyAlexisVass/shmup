@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://scripts/game_area.gd" id="5_o6sog"]
 [ext_resource type="Script" path="res://scripts/main_lighting.gd" id="9_405bv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eobj"]
+size = Vector2(1880, 2560)
+
 [sub_resource type="Curve2D" id="Curve2D_3p8ia"]
 _data = {
 "points": PackedVector2Array(16.4622, -2676.75, 0, 2000, 1000, 1, 400, 0, -400, 0, 468, 2301, -500, 0, 500, 0, 465, 503, 400, 0, -400, 0, 499, 2265, -400, 0, 400, 0, 471, 955, 400, 0, -400, 0, 501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
@@ -37,9 +40,6 @@ _data = {
 }
 point_count = 7
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eobj"]
-size = Vector2(1880, 2560)
-
 [sub_resource type="Gradient" id="Gradient_dv10i"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
@@ -62,65 +62,6 @@ collision_layer = 128
 collision_mask = 14
 script = ExtResource("5_o6sog")
 
-[node name="SpawnPoints" type="Node2D" parent="SpawnManager/GameArea"]
-position = Vector2(-540, -980)
-
-[node name="-5" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(-460, 1620)
-
-[node name="-4" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(-460, 980)
-
-[node name="-3" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(-460, 340)
-
-[node name="-2" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(-460, -360)
-
-[node name="-1" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(70, -360)
-
-[node name="down_and_up_right" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/-1"]
-visible = false
-curve = SubResource("Curve2D_3p8ia")
-
-[node name="down_loop_once_up_right" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/-1"]
-visible = false
-curve = SubResource("Curve2D_nl5xy")
-
-[node name="down_loop_twice_up_right" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/-1"]
-visible = false
-curve = SubResource("Curve2D_3p8ia")
-
-[node name="0" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(540, -360)
-
-[node name="1" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(1010, -360)
-
-[node name="down_and_up_left" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/1"]
-visible = false
-curve = SubResource("Curve2D_jbfrc")
-
-[node name="down_loop_once_up_left" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/1"]
-curve = SubResource("Curve2D_cwxam")
-
-[node name="down_loop_twice_up_left" type="Path2D" parent="SpawnManager/GameArea/SpawnPoints/1"]
-visible = false
-curve = SubResource("Curve2D_fsyrs")
-
-[node name="2" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(1540, -360)
-
-[node name="3" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(1540, 340)
-
-[node name="4" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(1540, 980)
-
-[node name="5" type="Marker2D" parent="SpawnManager/GameArea/SpawnPoints"]
-position = Vector2(1540, 1620)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnManager/GameArea"]
 shape = SubResource("RectangleShape2D_3eobj")
 debug_color = Color(0, 0.6, 0.701961, 0)
@@ -131,6 +72,74 @@ metadata/_edit_lock_ = true
 [node name="BottomLayer" type="Node2D" parent="ViewLayers"]
 
 [node name="ShipsLayer" type="Node2D" parent="ViewLayers"]
+
+[node name="SpawnPoints" type="Node2D" parent="ViewLayers/ShipsLayer"]
+
+[node name="-5" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(-460, 1620)
+
+[node name="-4" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(-460, 980)
+
+[node name="-3" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(-460, 340)
+
+[node name="-2" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(-460, -360)
+
+[node name="-1" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(70, -360)
+
+[node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/-1"]
+
+[node name="down_and_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
+visible = false
+position = Vector2(70, -360)
+curve = SubResource("Curve2D_3p8ia")
+
+[node name="down_loop_once_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
+visible = false
+position = Vector2(70, -360)
+curve = SubResource("Curve2D_nl5xy")
+
+[node name="down_loop_twice_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
+visible = false
+position = Vector2(70, -360)
+curve = SubResource("Curve2D_3p8ia")
+
+[node name="0" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(540, -360)
+
+[node name="1" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(1010, -360)
+
+[node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/1"]
+
+[node name="down_and_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
+visible = false
+position = Vector2(1010, -360)
+curve = SubResource("Curve2D_jbfrc")
+
+[node name="down_loop_once_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
+position = Vector2(1010, -360)
+curve = SubResource("Curve2D_cwxam")
+
+[node name="down_loop_twice_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
+visible = false
+position = Vector2(1010, -360)
+curve = SubResource("Curve2D_fsyrs")
+
+[node name="2" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(1540, -360)
+
+[node name="3" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(1540, 340)
+
+[node name="4" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(1540, 980)
+
+[node name="5" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
+position = Vector2(1540, 1620)
 
 [node name="PlayerLayer" type="Node2D" parent="ViewLayers"]
 z_index = -111

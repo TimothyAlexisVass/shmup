@@ -86,7 +86,7 @@ var spawn_points = {}
 @onready var number_of_waves = waves.size()
 
 func _ready():
-	for spawn_point_marker in $GameArea/SpawnPoints.get_children():
+	for spawn_point_marker in G.ships_layer.get_node("SpawnPoints").get_children():
 		spawn_points[spawn_point_marker.name.to_int()] = spawn_point_marker
 	for player_ship in player_ships:
 		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
@@ -127,7 +127,6 @@ func enqueue_wave(wave_number):
 					"amount": amount_per_spawn_point,
 					"sequence": [spawn_point]
 				})
-	
 
 func spawn_player_ship(player_ship_type):
 	get_viewport().warp_mouse(Vector2(540, 1540))
@@ -153,4 +152,3 @@ func _on_wave_timer_timeout():
 		if get_tree().get_nodes_in_group("Ships").size() <= ships_left_for_next_wave:
 			enqueue_wave(wave)
 			wave += 1
-	
