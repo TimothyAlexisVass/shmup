@@ -1,4 +1,4 @@
-class_name Ship extends Node2D
+class_name Ship extends PathFollow2D
 
 const PADDING = 10
 
@@ -13,8 +13,8 @@ const PADDING = 10
 @export var acceleration: float = 0.001
 @export var spawn_wait_time: float = 1.0
 
-enum FACE_TOWARDS {PLAYER, DESTINATION}
-@export var face_towards: FACE_TOWARDS
+enum FACE {PLAYER, DESTINATION}
+@export var face: FACE
 
 enum MOVE {RANDOM_DESTINATION, ALONG_PATH, AHEAD, STATIONARY}
 @export var move: MOVE
@@ -88,7 +88,7 @@ func _ready():
 	$HitPoints.size.x = width - PADDING * 2
 	if move == MOVE.RANDOM_DESTINATION:
 		target = G.random_position_in_camera_view()
-	elif move == MOVE.AHEAD || move == MOVE.ALONG_PATH:
+	elif move == MOVE.AHEAD:
 		target = (Vector2.DOWN * 9999).rotated($ShipBody.rotation)
 
 func _physics_process(delta):
@@ -98,13 +98,17 @@ func _physics_process(delta):
 		target = G.random_position_in_camera_view()
 	if get_node_or_null("ShipBody"):
 		if current_health > 0:
-			if face_towards == FACE_TOWARDS.DESTINATION:
+			if face == FACE.DESTINATION && move != MOVE.ALONG_PATH:
 				G.rotate_towards_target($ShipBody, target, rotation_speed)
-			elif face_towards == FACE_TOWARDS.PLAYER && is_instance_valid(G.player) && G.player.is_playing:
+			elif face == FACE.PLAYER && is_instance_valid(G.player) && G.player.is_playing:
 				G.rotate_towards_target($ShipBody, G.player.global_position, rotation_speed)
 
 			if move == MOVE.AHEAD:
 				velocity = Vector2.DOWN.rotated($ShipBody.rotation)
+			elif move == MOVE.ALONG_PATH:
+				progress += speed * delta
+				$ShipBody.rotation = rotation - PI/2
+				rotation = 0
 			else:
 				var desired_velocity = (target - global_position).normalized()
 				velocity = lerp(velocity, desired_velocity, acceleration)

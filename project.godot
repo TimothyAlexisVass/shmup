@@ -28,6 +28,10 @@ window/handheld/orientation=1
 
 enabled=PackedStringArray()
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 quit={

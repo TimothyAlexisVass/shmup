@@ -16,14 +16,14 @@ diffuse_texture = ExtResource("3_gkbpv")
 normal_texture = ExtResource("4_g7ory")
 specular_shininess = 0.85
 
-[node name="Ship" type="Node2D" groups=["Ships"]]
+[node name="Ship" type="PathFollow2D" groups=["Ships"]]
 scale = Vector2(0.2, 0.2)
+loop = false
 script = ExtResource("1_u2d0h")
 speed = 200.0
 total_hit_points = 10.0
 points = 200.0
 explosion = ExtResource("2_lvfla")
-destination = 2
 move = 1
 
 [node name="CrystalStar" type="Sprite2D" parent="."]
@@ -79,4 +79,3 @@ scale = Vector2(4, 4)
 
 [connection signal="area_entered" from="ShipBody/Area2D" to="." method="_on_collision"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
