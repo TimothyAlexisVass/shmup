@@ -20,8 +20,7 @@ func _on_spawn_timer_timeout():
 		if instance_to_spawn.move == instance_to_spawn.MOVE.ALONG_PATH:
 			var available_paths = get_parent().get_node_or_null("Paths")
 			if available_paths:
-				available_paths = available_paths.get_children()
-				instance_parent = available_paths[randi() % available_paths.size()]
+				instance_parent = available_paths.get_children().pick_random()
 			else:
 				instance_to_spawn.move = instance_to_spawn.MOVE.RANDOM_DESTINATION
 		

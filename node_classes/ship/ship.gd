@@ -105,15 +105,16 @@ func _physics_process(delta):
 
 			if move == MOVE.AHEAD:
 				velocity = Vector2.DOWN.rotated($ShipBody.rotation)
-			elif move == MOVE.ALONG_PATH:
-				progress += speed * delta
-				$ShipBody.rotation = rotation - PI/2
-				rotation = 0
-			else:
+			elif move != MOVE.ALONG_PATH:
 				var desired_velocity = (target - global_position).normalized()
 				velocity = lerp(velocity, desired_velocity, acceleration)
-		else:                  
-			velocity *= 0.99
+		else:
+			speed *= 0.99
+
+		if move == MOVE.ALONG_PATH:
+			progress += speed * delta
+			$ShipBody.rotation = rotation - PI/2
+			rotation = 0
 
 		if velocity != Vector2(0, 0):
 			translate(velocity * speed * delta)

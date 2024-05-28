@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxuuwmlma1xmm"]
+[gd_scene load_steps=24 format=3 uid="uid://bxuuwmlma1xmm"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_15kp8"]
 [ext_resource type="PackedScene" uid="uid://t35pb2ajkk0d" path="res://node_classes/spawner/spawn_manager.tscn" id="3_opaq1"]
@@ -10,35 +10,89 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eobj"]
 size = Vector2(1880, 2560)
 
-[sub_resource type="Curve2D" id="Curve2D_3p8ia"]
+[sub_resource type="Curve2D" id="Curve2D_i8pr7"]
 _data = {
-"points": PackedVector2Array(16.4622, -2676.75, 0, 2000, 1000, 1, 400, 0, -400, 0, 468, 2301, -500, 0, 500, 0, 465, 503, 400, 0, -400, 0, 499, 2265, -400, 0, 400, 0, 471, 955, 400, 0, -400, 0, 501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
+"points": PackedVector2Array(-2981.09, -2595.11, 2981.09, 2595.11, 550, 0, -2321.98, 4260.9, 2321.98, -4260.9, 527, 0)
 }
-point_count = 7
+point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_nl5xy"]
+[sub_resource type="Curve2D" id="Curve2D_3n3oa"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, 0, 3000, 1000, 1, 0, 3000, 13.1697, -2604.32, 0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_k1tbs"]
 _data = {
 "points": PackedVector2Array(16.4622, -2676.75, 0, 2000, 1000, 1, 400, 0, -400, 0, 499, 2265, -400, 0, 400, 0, 471, 955, 400, 0, -400, 0, 501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_jbfrc"]
+[sub_resource type="Curve2D" id="Curve2D_cq5vr"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, 0, 2000, 1000, 1, 400, 0, -400, 0, 468, 2301, -500, 0, 500, 0, 465, 503, 400, 0, -400, 0, 499, 2265, -400, 0, 400, 0, 471, 955, 400, 0, -400, 0, 501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_63lxy"]
+_data = {
+"points": PackedVector2Array(-740.749, -3004.57, 1500, 3000, 550, 0, -1500, 3000, 1079.12, -2958.85, 527, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_h3txw"]
+_data = {
+"points": PackedVector2Array(-1011.81, -1909.23, 1000, 1900, 471, 10, 444, 0, -444, 0, 470, 2254, -777, 0, 777, 0, 471, 955, 400, 0, -400, 0, 501, 2264, -1000, 2000, 13.1697, -2604.32, 438, 12)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_yli8u"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, 1000, 2000, 496, 0, 400, 0, -400, 0, 481, 2273, -500, 0, 500, 0, 465, 503, 598.839, -11.3622, -598.839, 11.3622, 499, 2265, -695.418, 22.7245, 695.418, -22.7245, 471, 955, 400, 0, -400, 0, 501, 2264, -1000, 2000, 13.1697, -2604.32, 449, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_ak3e6"]
+_data = {
+"points": PackedVector2Array(-740.749, -3004.57, -1500, 3000, -550, 0, 1500, 3000, 1079.12, -2958.85, -527, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_fx6la"]
+_data = {
+"points": PackedVector2Array(-1011.81, -1909.23, -1000, 1900, -471, 10, -444, 0, 444, 0, -470, 2254, 777, 0, -777, 0, -471, 955, -400, 0, 400, 0, -501, 2264, 1000, 2000, 13.1697, -2604.32, -438, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_1t27a"]
+_data = {
+"points": PackedVector2Array(16.4622, -2676.75, -1000, 2000, -496, 0, -400, 0, 400, 0, -481, 2273, 500, 0, -500, 0, -465, 503, -600, 0, 600, 0, -500, 2265, 600.58, 2.84056, -600.58, -2.84056, -471, 955, -400, 0, 400, 0, -500, 2264, 1000, 2000, 13.1697, -2604.32, -500, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_66wew"]
 _data = {
 "points": PackedVector2Array(16.4622, -2676.75, 0, 3000, -1000, 1, 0, 3000, 13.1697, -2604.32, 0, 0)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_cwxam"]
+[sub_resource type="Curve2D" id="Curve2D_2bf2y"]
 _data = {
 "points": PackedVector2Array(16.4622, -2676.75, 0, 2000, -1000, 1, -400, 0, 400, 0, -499, 2265, 400, 0, -400, 0, -471, 955, -400, 0, 400, 0, -501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_fsyrs"]
+[sub_resource type="Curve2D" id="Curve2D_aq2ud"]
 _data = {
 "points": PackedVector2Array(16.4622, -2676.75, 0, 2000, -1000, 1, -400, 0, 400, 0, -468, 2301, 500, 0, -500, 0, -465, 503, -400, 0, 400, 0, -499, 2265, 400, 0, -400, 0, -471, 955, -400, 0, 400, 0, -501, 2264, 0, 2000, 13.1697, -2604.32, 0, 0)
 }
 point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_cvvey"]
+_data = {
+"points": PackedVector2Array(-740.749, -3004.57, -2981, 2595, -550, 0, 2321, 4260, 1079.12, -2958.85, -527, 0)
+}
+point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_dv10i"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -87,45 +141,85 @@ position = Vector2(-460, 340)
 [node name="-2" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
 position = Vector2(-460, -360)
 
+[node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/-2"]
+
+[node name="down_right_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-2/Paths"]
+position = Vector2(-900, -50)
+rotation = -0.584685
+curve = SubResource("Curve2D_i8pr7")
+
 [node name="-1" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
 position = Vector2(70, -360)
 
 [node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/-1"]
 
-[node name="down_and_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
+[node name="down_right_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
 position = Vector2(70, -360)
-curve = SubResource("Curve2D_3p8ia")
+curve = SubResource("Curve2D_3n3oa")
 
-[node name="down_loop_once_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
+[node name="down_right_loop_once_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
 position = Vector2(70, -360)
-curve = SubResource("Curve2D_nl5xy")
+curve = SubResource("Curve2D_k1tbs")
 
-[node name="down_loop_twice_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
+[node name="down_right_loop_twice_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/-1/Paths"]
 position = Vector2(70, -360)
-curve = SubResource("Curve2D_3p8ia")
+curve = SubResource("Curve2D_cq5vr")
 
 [node name="0" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
 position = Vector2(540, -360)
+
+[node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/0"]
+
+[node name="down_right_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/0/Paths"]
+position = Vector2(0, -360)
+curve = SubResource("Curve2D_63lxy")
+
+[node name="down_right_loop_once_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/0/Paths"]
+position = Vector2(70, -360)
+curve = SubResource("Curve2D_h3txw")
+
+[node name="down_loop_twice_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/0/Paths"]
+position = Vector2(74, -360)
+curve = SubResource("Curve2D_yli8u")
+
+[node name="down_left_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/0/Paths"]
+position = Vector2(1100, -360)
+curve = SubResource("Curve2D_ak3e6")
+
+[node name="down_left_loop_once_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/0/Paths"]
+position = Vector2(1020, -360)
+curve = SubResource("Curve2D_fx6la")
+
+[node name="down_left_loop_twice_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/0/Paths"]
+position = Vector2(1050, -360)
+curve = SubResource("Curve2D_1t27a")
 
 [node name="1" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
 position = Vector2(1010, -360)
 
 [node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/1"]
 
-[node name="down_and_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
+[node name="down_left_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
 position = Vector2(1010, -360)
-curve = SubResource("Curve2D_jbfrc")
+curve = SubResource("Curve2D_66wew")
 
-[node name="down_loop_once_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
+[node name="down_left_loop_once_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
 position = Vector2(1010, -360)
-curve = SubResource("Curve2D_cwxam")
+curve = SubResource("Curve2D_2bf2y")
 
-[node name="down_loop_twice_up_left" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
+[node name="down_left_loop_twice_up_right" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/1/Paths"]
 position = Vector2(1010, -360)
-curve = SubResource("Curve2D_fsyrs")
+curve = SubResource("Curve2D_aq2ud")
 
 [node name="2" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
 position = Vector2(1540, -360)
+
+[node name="Paths" type="Node" parent="ViewLayers/ShipsLayer/SpawnPoints/2"]
+
+[node name="down_left_up_right2" type="Path2D" parent="ViewLayers/ShipsLayer/SpawnPoints/2/Paths"]
+position = Vector2(2000, -50)
+rotation = 0.584685
+curve = SubResource("Curve2D_cvvey")
 
 [node name="3" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
 position = Vector2(1540, 340)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://1vqmgibjnaiy"]
+[gd_scene load_steps=18 format=3 uid="uid://1vqmgibjnaiy"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_uj1xx"]
 [ext_resource type="Texture2D" uid="uid://cbmod1vb3h7iv" path="res://assets/sprites/ships/vallin/vallin_1.png" id="2_kf5bl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c2eucf6si64vu" path="res://assets/sprites/ships/vallin/vallin_crystal.png" id="5_dmb80"]
 [ext_resource type="Texture2D" uid="uid://bmpv7hx6gdegu" path="res://assets/sprites/ships/vallin/vallin_border.png" id="6_6pgvs"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_w4nmi"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="8_oao7n"]
 [ext_resource type="Texture2D" uid="uid://twfg1hpqjom0" path="res://assets/sprites/ships/vallin/vallin_0.png" id="9_43nlk"]
 [ext_resource type="Texture2D" uid="uid://cndfi726278g" path="res://assets/sprites/ships/vallin/vallin_normal.png" id="10_bno32"]
 
@@ -62,7 +63,6 @@ speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
 acceleration = 0.01
-destination = 0
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
@@ -87,7 +87,16 @@ position = Vector2(0, 100)
 polygon = PackedVector2Array(-207.143, -400, -200, -314.286, -478.571, -357.143, -478.571, -278.571, -278.571, -107.143, -228.571, 128.571, -178.571, 192.857, -114.286, 142.857, -28.5714, 400, 28.5714, 400, 121.429, 142.857, 178.571, 192.857, 228.571, 128.571, 278.571, -107.143, 478.571, -278.571, 478.571, -364.286, 207.143, -314.286, 207.143, -400)
 metadata/_edit_lock_ = true
 
-[node name="Sprite" parent="ShipBody" index="3"]
+[node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
+position = Vector2(0, 260)
+scale = Vector2(1, 1)
+
+[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("8_oao7n")]
+position = Vector2(0, 200)
+default_color = Color(0, 0.85098, 0.262745, 1)
+shot_speed = 300.0
+
+[node name="Sprite" parent="ShipBody" index="4"]
 texture = SubResource("CanvasTexture_rdvxd")
 offset = Vector2(0, 100)
 metadata/_edit_lock_ = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8rex6b451ap3"]
+[gd_scene load_steps=16 format=3 uid="uid://b8rex6b451ap3"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_gn2b2"]
 [ext_resource type="Texture2D" uid="uid://cmdm3hy538qa8" path="res://assets/sprites/ships/volyn/volyn_1.png" id="2_sew16"]
@@ -61,8 +61,7 @@ speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
 acceleration = 0.01
-destination = 0
-move = 0
+face = 1
 
 [node name="TierGlow" parent="ShipBody" index="0"]
 texture = ExtResource("5_2h0ju")
