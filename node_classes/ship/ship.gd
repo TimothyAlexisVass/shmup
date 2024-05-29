@@ -29,6 +29,8 @@ var velocity = Vector2(0, 0)
 
 @onready var current_health = total_hit_points
 @onready var muzzles = $ShipBody.get_node_or_null("Muzzles")
+@onready var jets = $ShipBody.get_node_or_null("Jets")
+
 @onready var shooting = false
 
 var shipbody_texture = null
@@ -64,14 +66,6 @@ func _enter_tree():
 	scale *= 1 + 0.1 * ship_tier
 	total_hit_points *= 1 + ship_tier
 
-	if shipbody_texture != null:
-		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
-		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier]
-		$ShipBody/TierGlow.modulate = G.TIER_COLOR[ship_tier] * 1.3
-		$OffScreenIndicator.self_modulate = G.TIER_COLOR[ship_tier] * 2
-	else:
-		$ShipBody/TierGlow.queue_free()
-	
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
 	width = image_size.x
 	height = image_size.y
@@ -86,6 +80,18 @@ func _ready():
 	$HitPoints.position.x = -width / 2 + PADDING
 	$HitPoints.position.y = -(height / 2 + $HitPoints.size.y + PADDING)
 	$HitPoints.size.x = width - PADDING * 2
+
+	if shipbody_texture != null:
+		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
+		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier]
+		$ShipBody/TierGlow.modulate = G.TIER_COLOR[ship_tier] * 1.3
+		if jets:
+			for jet in jets.get_children():
+				jet.modulate = G.TIER_COLOR[ship_tier] * 2
+		$OffScreenIndicator.self_modulate = G.TIER_COLOR[ship_tier] * 2
+	else:
+		$ShipBody/TierGlow.queue_free()
+
 	if move == MOVE.RANDOM_DESTINATION:
 		target = G.random_position_in_camera_view()
 	elif move == MOVE.AHEAD:
@@ -155,7 +161,6 @@ func clear():
 	queue_free()
 
 func stop_jets():
-	var jets = $ShipBody.get_node_or_null("Jets")
 	if jets:
 		for jet in jets.get_children():
 			jet.lifetime = 0.2
