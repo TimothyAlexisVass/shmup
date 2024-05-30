@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Switch="*res://scripts/singletons/switch.gd"
+DataManager="*res://scripts/singletons/data_manager.gd"
 
 [display]
 

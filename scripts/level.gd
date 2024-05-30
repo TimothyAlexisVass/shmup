@@ -17,7 +17,6 @@ func _enter_tree():
 
 func _ready():
 	G.viewport_size = get_viewport().get_size()
-	DataManager.load_data()
 	G.player = $SpawnManager.spawn_player_ship($SpawnManager.player_ships.keys().pick_random())
 
 func win():

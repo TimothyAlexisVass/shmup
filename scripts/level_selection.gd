@@ -12,10 +12,14 @@ func _enter_tree():
 	G.level_selection = self
 
 func _ready():
+	var levels_data = DataManager.player_data.levels
+
 	rng.seed = 1
 	$Lines/Line2D.points.set(0, Vector2(0, 0))
 	var button = $Levels/LevelButton
 	var click_mask = BitMap.new()
+	button.completion = levels_data[1]
+	button.set_texture()
 	click_mask.create_from_image_alpha(button.texture_normal.diffuse_texture.get_image())
 	button.texture_click_mask = click_mask
 
@@ -24,15 +28,20 @@ func _ready():
 		line.set_visible(true)
 		$Lines.add_child(line)
 		button = level_button_scene.instantiate()
-		$Levels.add_child(button)
 		button.level = i
+		if not levels_data.has(i):
+			button.disabled = true
+		else:
+			button.completion = levels_data[i]
+		$Levels.add_child(button)
 		
 		line.points[0] = Vector2(previous_x_position, 85 + (i - 2) * 200) + LINE_OFFSET
 		button.position.x = rng.randi_range(200, 360) if previous_x_position > 400 else rng.randi_range(440, 600)
 		previous_x_position = button.position.x
 		button.position.y = 85 + (i-1) * 200
 		line.points[1] = button.position + LINE_OFFSET
-		button.disabled = true
+		button.texture_click_mask = click_mask
+		
 		button.get_node("Label").set_text(str(i))
 		button.get_node("Label").modulate = Color(0.2, 0.2, 0.2)
 		button.get_node("BackGlow").modulate = Color(0.2, 0.2, 0.2)

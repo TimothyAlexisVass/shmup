@@ -1,6 +1,6 @@
 class_name SpawnManager extends Node2D
 
-var player_ship_scene = preload("res://node_classes/player/player.tscn")
+var player_scene = preload("res://node_classes/player/player.tscn")
 
 var level_completed = false
 var wave = 0
@@ -130,8 +130,8 @@ func enqueue_wave(wave_number):
 
 func spawn_player_ship(player_ship_type):
 	get_viewport().warp_mouse(Vector2(540, 1540))
-	var player_ship = player_ship_scene.instantiate()
-	player_ship.initialize(player_ships[player_ship_type], DataManager.player_data.levels)
+	var player_ship = player_scene.instantiate()
+	player_ship.initialize(player_ships[player_ship_type], DataManager.player_data.overall)
 	G.level.add_child(player_ship)
 	return player_ship
 
