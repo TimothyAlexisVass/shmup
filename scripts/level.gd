@@ -20,11 +20,5 @@ func _ready():
 	DataManager.load_data()
 	G.player = $SpawnManager.spawn_player_ship($SpawnManager.player_ships.keys().pick_random())
 
-func _process(_delta):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-	elif Input.is_action_just_pressed("reset"):
-		get_tree().reload_current_scene()
-
 func win():
-	("You win!")
+	Switch.to_level_selection()

@@ -8,6 +8,9 @@ var rng = RandomNumberGenerator.new()
 
 const LINE_OFFSET = Vector2(100, 85)
 
+func _enter_tree():
+	G.level_selection = self
+
 func _ready():
 	rng.seed = 1
 	$Lines/Line2D.points.set(0, Vector2(0, 0))
@@ -35,12 +38,4 @@ func _ready():
 		button.get_node("BackGlow").modulate = Color(0.2, 0.2, 0.2)
 
 	for level_button in $Levels.get_children():
-		level_button.connect("pressed", Callable(self, "play_level").bind(level_button))
-
-func play_level(button):
-	var level_instance = level_scene.instantiate()
-	level_instance.set("number", button.level)
-	get_parent().add_child(level_instance)
-	get_parent().remove_child(self)
-
-
+		level_button.connect("pressed", Callable(Switch, "to_level").bind(level_button.level))
