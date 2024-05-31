@@ -33,6 +33,7 @@ func _ready():
 			button.completion = levels_data[str(i)]
 		else:
 			button.disabled = true
+			button.get_node("Label").modulate = Color(0.2, 0.2, 0.2)
 		$Levels.add_child(button)
 		
 		line.points[0] = Vector2(previous_x_position, 85 + (i - 2) * 200) + LINE_OFFSET
@@ -43,7 +44,6 @@ func _ready():
 		button.texture_click_mask = click_mask
 		
 		button.get_node("Label").set_text(str(i))
-		button.get_node("Label").modulate = Color(0.2, 0.2, 0.2)
 		button.get_node("BackGlow").modulate = Color(0.2, 0.2, 0.2)
 
 	for level_button in $Levels.get_children():

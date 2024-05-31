@@ -14,6 +14,14 @@ func level_up(stat):
 		player_data.overall[stat] += 1
 	save_data()
 
+func win(level):
+	var level_key = str(level)
+	var next_level_key = str(level + 1)
+	player_data.levels[level_key] = min(10, player_data.levels[level_key] + 1)
+	if not player_data.levels.has(next_level_key):
+		player_data.levels[next_level_key] = 0
+	save_data()
+
 func save_data():
 	if not DirAccess.dir_exists_absolute(SAVE_DIR):
 		DirAccess.make_dir_absolute(SAVE_DIR)

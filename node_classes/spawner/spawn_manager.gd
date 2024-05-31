@@ -154,3 +154,6 @@ func _on_wave_timer_timeout():
 		if get_tree().get_nodes_in_group("Ships").size() <= ships_left_for_next_wave:
 			enqueue_wave(wave)
 			wave += 1
+	elif waiting_for.is_empty():
+		if get_tree().get_nodes_in_group("Ships").size() == 0:
+			level_completed = true

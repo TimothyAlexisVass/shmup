@@ -1,6 +1,6 @@
 class_name G extends Node
 
-const DEBUG = false
+const DEBUG = true
 
 const ANGLE_UP = -PI/2
 const ANGLE_RIGHT = 0
