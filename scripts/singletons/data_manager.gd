@@ -9,6 +9,11 @@ var player_data = PlayerData.new()
 func _enter_tree():
 	load_data()
 
+func level_up(stat):
+	if player_data.overall.has(stat):
+		player_data.overall[stat] += 1
+	save_data()
+
 func save_data():
 	if not DirAccess.dir_exists_absolute(SAVE_DIR):
 		DirAccess.make_dir_absolute(SAVE_DIR)
@@ -30,7 +35,7 @@ func load_data():
 		if not file:
 			printerr(FileAccess.get_open_error())
 			return
-		
+
 		var content = file.get_as_text()
 		file.close()
 		
@@ -38,7 +43,9 @@ func load_data():
 		if loaded_data == null:
 			printerr("Cannot parse save file as JSON")
 			return
-		
+
+		print_debug(loaded_data)
+
 		player_data.overall = loaded_data.overall
 		player_data.levels = loaded_data.levels
 	else:

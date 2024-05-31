@@ -48,13 +48,16 @@ var just_spawned = 20
 var grazing_with = 0
 var graze_power = 0.0
 
-func initialize(data, levels):
+func initialize(data, _ship = null, _pilot = null):
+	# Upgrades affecting all ships
+	var overall = DataManager.player_data.overall
+
 	for property in data.keys():
 		set(property, data[property])
-	for property in levels.keys():
-		set(property, int(levels[property]))
+	for property in overall.keys():
+		set(property, int(overall[property]))
 
-	rotation = PI
+	rotation = PI # 180°
 	image = texture.get_image()
 	var image_size = Vector2(image.get_size()) * scale
 	$Sprite.texture.diffuse_texture = texture

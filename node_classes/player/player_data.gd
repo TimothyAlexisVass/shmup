@@ -14,6 +14,12 @@ var overall = {
 	"fire_rate_level": 1
 }
 
+var pilot = {
+	"intelligence": 1,
+	"charm": 1,
+	"rank": 1
+}
+
 var levels = {
 	1: 10,
 	2: 9,

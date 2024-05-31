@@ -18,7 +18,7 @@ func _ready():
 	$Lines/Line2D.points.set(0, Vector2(0, 0))
 	var button = $Levels/LevelButton
 	var click_mask = BitMap.new()
-	button.completion = levels_data[1]
+	button.completion = levels_data["1"]
 	button.initialize()
 	click_mask.create_from_image_alpha(button.texture_normal.diffuse_texture.get_image())
 	button.texture_click_mask = click_mask
@@ -29,10 +29,10 @@ func _ready():
 		$Lines.add_child(line)
 		button = level_button_scene.instantiate()
 		button.level = i
-		if not levels_data.has(i):
-			button.disabled = true
+		if levels_data.has(str(i)):
+			button.completion = levels_data[str(i)]
 		else:
-			button.completion = levels_data[i]
+			button.disabled = true
 		$Levels.add_child(button)
 		
 		line.points[0] = Vector2(previous_x_position, 85 + (i - 2) * 200) + LINE_OFFSET

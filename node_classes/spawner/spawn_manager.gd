@@ -133,7 +133,7 @@ func enqueue_wave(wave_number):
 func spawn_player_ship(player_ship_type):
 	get_viewport().warp_mouse(Vector2(540, 1540))
 	var player_ship = player_scene.instantiate()
-	player_ship.initialize(player_ships[player_ship_type], DataManager.player_data.overall)
+	player_ship.initialize(player_ships[player_ship_type])
 	G.level.add_child(player_ship)
 	return player_ship
 
