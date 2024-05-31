@@ -19,8 +19,11 @@ const badge = {
 @export var level: int = 1
 @export var completion: COMPLETION = COMPLETION.NONE
 
-func _ready():
-	set_texture()
+var challenge
 
-func set_texture():
+func _ready():
+	initialize()
+
+func initialize():
+	challenge = int((completion+3)/3.0)-1
 	texture_normal.diffuse_texture = badge[completion]

@@ -20,9 +20,9 @@ func to_level_selection():
 	if not shmup.get_node_or_null("LevelSelection"):
 		call_deferred("_deferred_to_level_selection")
 
-func to_level(level_number):
+func to_level(level_number, level_challenge):
 	if not shmup.get_node_or_null("Level"):
-		call_deferred("_deferred_to_level", level_number)
+		call_deferred("_deferred_to_level", level_number, level_challenge)
 
 func clear_shmup():
 	for node in shmup.get_children():
@@ -35,8 +35,9 @@ func _deferred_to_level_selection():
 	clear_shmup()
 	shmup.add_child(level_selection)
 
-func _deferred_to_level(level_number):
+func _deferred_to_level(level_number, level_challenge):
 	clear_shmup()
 	var level = level_scene.instantiate()
 	level.number = level_number
+	level.challenge = level_challenge
 	shmup.add_child(level)

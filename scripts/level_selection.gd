@@ -19,7 +19,7 @@ func _ready():
 	var button = $Levels/LevelButton
 	var click_mask = BitMap.new()
 	button.completion = levels_data[1]
-	button.set_texture()
+	button.initialize()
 	click_mask.create_from_image_alpha(button.texture_normal.diffuse_texture.get_image())
 	button.texture_click_mask = click_mask
 
@@ -47,4 +47,4 @@ func _ready():
 		button.get_node("BackGlow").modulate = Color(0.2, 0.2, 0.2)
 
 	for level_button in $Levels.get_children():
-		level_button.connect("pressed", Callable(Switch, "to_level").bind(level_button.level))
+		level_button.connect("pressed", Callable(Switch, "to_level").bind(level_button.level, level_button.challenge))

@@ -1,0 +1,9 @@
+var overall = {
+	"cannon_level": 12,
+	"shot_speed_level": 100,
+	"movement_speed_level": 0,
+	"fire_power_level": 0,
+	"fire_rate_level": 50
+}
+
+l={1:10,2:10,3:10,4:10}

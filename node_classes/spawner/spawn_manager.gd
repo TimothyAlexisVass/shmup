@@ -90,6 +90,8 @@ func _ready():
 		spawn_points[spawn_point_marker.name.to_int()] = spawn_point_marker
 	for player_ship in player_ships:
 		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
+	print("Level: ", G.level.number)
+	print("Challenge: ", G.level.challenge)
 
 func enqueue_wave(wave_number):
 	var wave_tier = waves[wave_number]

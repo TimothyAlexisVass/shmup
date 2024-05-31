@@ -18,7 +18,7 @@ const TIER_COLOR = {
 	9: Color(1.5, 1.5, 1.5, 0.2)
 }
 enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
-enum CHALLENGE { NONE, EASY, MEDIUM, ELITE }
+enum CHALLENGE { NONE, EASY, MEDIUM, ELITE, APEX }
 
 static var level
 static var level_selection

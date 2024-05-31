@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://drsphabfu17h7"]
+[gd_scene load_steps=13 format=3 uid="uid://drsphabfu17h7"]
 
 [ext_resource type="Script" path="res://scripts/level_selection.gd" id="1_btxd3"]
 [ext_resource type="PackedScene" uid="uid://50squfico0kk" path="res://scenes/level_selection_background.tscn" id="3_q6qwf"]
 [ext_resource type="PackedScene" uid="uid://dmcwtfg5vy5dr" path="res://scenes/level_button.tscn" id="4_3sqjx"]
+[ext_resource type="Texture2D" uid="uid://belrdumguxqpf" path="res://assets/sprites/level_badges/level.png" id="5_kbiqw"]
 [ext_resource type="Script" path="res://scenes/touch_camera_controller.gd" id="5_mf7nh"]
+[ext_resource type="Texture2D" uid="uid://rnp067mqtk0j" path="res://assets/sprites/level_badges/level_normal.png" id="6_p5tfd"]
 
 [sub_resource type="Gradient" id="Gradient_rdepl"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -34,6 +36,11 @@ gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 7.0
 alpha_curve = SubResource("CurveTexture_oh6re")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sxys0"]
+resource_local_to_scene = true
+diffuse_texture = ExtResource("5_kbiqw")
+normal_texture = ExtResource("6_p5tfd")
 
 [node name="LevelSelection" type="Node2D"]
 script = ExtResource("1_btxd3")
@@ -92,3 +99,4 @@ offset_left = 199.0
 offset_top = 82.0
 offset_right = 1211.0
 offset_bottom = 1080.0
+texture_normal = SubResource("CanvasTexture_sxys0")
