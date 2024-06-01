@@ -20,7 +20,7 @@ func _ready():
 	G.player = $SpawnManager.spawn_player_ship($SpawnManager.player_ships.keys().pick_random())
 	DataManager.level_up(DataManager.player_data.overall.keys().pick_random())
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("devbomb"):
 		for ship in get_tree().get_nodes_in_group("Ships"):
 			ship.take_damage(ship.current_health)
