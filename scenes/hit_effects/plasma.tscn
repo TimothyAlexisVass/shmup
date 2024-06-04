@@ -27,6 +27,5 @@ one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 randomness = 0.39
-trail_enabled = true
 trail_lifetime = 0.12
 trail_sections = 3

@@ -1,4 +1,4 @@
-class_name G extends Node
+class_name G extends Node2D
 
 const DEBUG = true
 

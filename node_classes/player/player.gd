@@ -75,6 +75,8 @@ func _physics_process(delta):
 		global_position.x = clamp(global_position.x, G.play_area.min.x, G.play_area.max.x)
 		global_position.y = clamp(global_position.y, G.play_area.min.y, G.play_area.max.y)
 	if just_spawned > 0:
+		get_viewport().warp_mouse(Vector2(540, 1540))
+		click()
 		global_position = Vector2(540, 1540 + G.GAME_AREA_OFFSET.y/2 + 14)
 		just_spawned -= 1
 	graze_power = snapped(graze_power + grazing_with * delta, 0.001)
@@ -108,3 +110,13 @@ func _on_area_entered(area):
 func _on_area_exited(area):
 	if area is Shot:
 		grazing_with -= 1
+
+func click():
+	var a = InputEventMouseButton.new()
+	a.position = get_global_mouse_position()
+	a.button_index = MOUSE_BUTTON_LEFT
+	a.pressed = true
+	Input.parse_input_event(a)
+	await get_tree().process_frame
+	a.pressed = false
+	Input.parse_input_event(a)
