@@ -15,8 +15,7 @@ config/description="SHMUP!"
 config/version="0.1.0 alpha"
 run/main_scene="res://scenes/shmup.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://assets/splash/splash_1.png"
+boot_splash/bg_color=Color(1, 1, 1, 1)
 config/icon="res://icon.png"
 
 [autoload]
@@ -77,3 +76,4 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 viewport/hdr_2d=true
+anti_aliasing/quality/screen_space_aa=1

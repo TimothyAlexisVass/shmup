@@ -45,22 +45,16 @@ offset = Vector2(0, 100)
 position = Vector2(-95, -280)
 scale = Vector2(0.4, 0.6)
 process_material = ExtResource("7_e5ycx")
-lifetime = 0.2
-preprocess = 0.2
 
 [node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("6_tqbux")]
 position = Vector2(95, -280)
 scale = Vector2(0.4, 0.6)
 process_material = ExtResource("7_e5ycx")
-lifetime = 0.2
-preprocess = 0.2
 
 [node name="Jet3" parent="ShipBody/Jets" index="2" instance=ExtResource("6_tqbux")]
 position = Vector2(0, -280)
 scale = Vector2(0.8, 0.9)
 process_material = ExtResource("7_e5ycx")
-lifetime = 0.2
-preprocess = 0.2
 
 [node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true
