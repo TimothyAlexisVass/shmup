@@ -17,7 +17,7 @@ normal_texture = ExtResource("4_g7ory")
 specular_shininess = 0.85
 
 [node name="Ship" type="PathFollow2D" groups=["Ships"]]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.8, 0.8)
 loop = false
 script = ExtResource("1_u2d0h")
 speed = 200.0
@@ -62,8 +62,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -50.0
 offset_top = -15.0
-offset_right = 50.0
-offset_bottom = 35.0
+offset_right = -25.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = ExtResource("7_nydlk")
@@ -75,7 +75,6 @@ show_percentage = false
 
 [node name="OffScreenIndicator" parent="." instance=ExtResource("10_1f8lk")]
 self_modulate = Color(0.976471, 0.14902, 0.14902, 0.427451)
-scale = Vector2(4, 4)
 
 [connection signal="area_entered" from="ShipBody/Area2D" to="." method="_on_collision"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

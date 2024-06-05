@@ -85,7 +85,7 @@ func _physics_process(delta):
 	t += delta
 	if t > 1:
 		t = 0
-		print("Camera rect: ", G.camera.get_rect(), "\nViewport visible rect: ", get_viewport().get_visible_rect(), "\nViewport size: ", get_viewport().get_visible_rect().size)
+		print("Viewport rect: ", get_viewport_rect().size, "\nViewport visible rect: ", get_viewport().get_visible_rect().size, "\nViewport: ", get_viewport().size)
 
 func play():
 	for muzzle in $CannonConfiguration.get_children():

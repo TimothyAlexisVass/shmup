@@ -6,11 +6,11 @@
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 0, 0)
 emission_shape = 3
-emission_box_extents = Vector3(25, 1, 1)
+emission_box_extents = Vector3(6, 1, 1)
 direction = Vector3(0, -1, 0)
 spread = 0.0
-initial_velocity_min = 600.0
-initial_velocity_max = 600.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
 gravity = Vector3(0, 0, 0)
 scale_min = 7.0
 scale_max = 7.0

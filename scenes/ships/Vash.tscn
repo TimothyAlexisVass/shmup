@@ -28,7 +28,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Ship" instance=ExtResource("1_o5vy4")]
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.56, 0.56)
 sprites = Array[CompressedTexture2D]([ExtResource("2_by1mc"), ExtResource("3_ldfsx"), ExtResource("4_85vk8")])
 crystal = ExtResource("5_t5qda")
 speed = 300.0
@@ -38,28 +38,29 @@ acceleration = 0.01
 face = 1
 
 [node name="TierGlow" parent="ShipBody" index="0"]
+visible = false
 texture = ExtResource("6_22xl2")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("7_g5pua")]
-position = Vector2(-100, -170)
+position = Vector2(-22, -42)
 process_material = ExtResource("8_2wxet")
 
 [node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("7_g5pua")]
-position = Vector2(100, -170)
+position = Vector2(22, -42)
 process_material = ExtResource("8_2wxet")
 
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="2"]
-position = Vector2(0, 260)
+position = Vector2(0, 35)
 
 [node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("8_e86v0")]
-position = Vector2(-300, 50)
+position = Vector2(-75, 12)
 default_color = Color(0.901961, 0, 0.827451, 1)
 shot_speed = 400.0
 
 [node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("8_e86v0")]
-position = Vector2(300, 50)
+position = Vector2(75, 12)
 default_color = Color(0.901961, 0, 0.827451, 1)
 shot_speed = 400.0
 
@@ -67,7 +68,7 @@ shot_speed = 400.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
-polygon = PackedVector2Array(-30, -380, -55, -195, -115, -180, -145, -225, -145, -470, -290, -445, -270, -65, -460, 0, -125, 470, -50, 445, -45, -75, 65, -80, 65, 445, 150, 475, 475, 5, 280, -70, 300, -440, 145, -465, 150, -235, 125, -175, 65, -185, 35, -380)
+polygon = PackedVector2Array(-7, -95, -13, -48, -28, -45, -36, -56, -36, -117, -75, -108.929, -69.6429, -17.8571, -116.071, 1.78571, -35.7143, 116.071, -12, 111, -11, -18, 16, -20, 16, 111, 37, 118, 118, 1, 70, -17, 75, -110, 36, -116, 37, -58, 31, -43, 16, -46, 8, -95)
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="4"]
