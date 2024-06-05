@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://72p6hkipsrnw" path="res://node_classes/shot/shot.tscn" id="1_1ntor"]
 
 [node name="Shot" instance=ExtResource("1_1ntor")]
+
+[node name="CollisionShape2D" parent="." index="3"]
+light_mask = 512

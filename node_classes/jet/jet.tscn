@@ -30,6 +30,9 @@ color_ramp = SubResource("GradientTexture1D_q4lav")
 
 [node name="Jet" type="GPUParticles2D"]
 modulate = Color(1, 4, 8, 0.3)
+light_mask = 512
+z_index = -1
+z_as_relative = false
 position = Vector2(-220, -350)
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_u3v48")

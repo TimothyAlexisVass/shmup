@@ -153,7 +153,7 @@ func take_damage(amount):
 		var red_component = min(1, 2 * (1 - ratio))
 		var green_component = min(1, 2 * ratio)
 		$HitPoints.get_theme_stylebox("fill").bg_color = Color(red_component, green_component, 0)
-		tween.tween_property($HitPoints, "modulate", Color(max(1.7, 1.7 + 1 - green_component), 1.7, 1, 1), G.HEALTH_TWEEN_TIME)
+		tween.tween_property($HitPoints, "modulate", Color(max(1.2, 1.2 + 1 - green_component), 1.2, 1, 1), G.HEALTH_TWEEN_TIME)
 		tween.tween_property($HitPoints, "value", current_health, G.HEALTH_TWEEN_TIME)
 
 func clear():

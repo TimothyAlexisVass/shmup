@@ -29,6 +29,7 @@ move = 1
 [node name="CrystalStar" type="Sprite2D" parent="."]
 modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 512
+z_index = -1
 scale = Vector2(6, 6)
 texture = ExtResource("3_n34rk")
 script = ExtResource("4_bqnhj")
@@ -54,7 +55,10 @@ texture = SubResource("CanvasTexture_wrah3")
 
 [node name="HitPoints" type="ProgressBar" parent="."]
 visible = false
+modulate = Color(0.5, 0.5, 0.5, 1)
 light_mask = 512
+z_index = 400
+z_as_relative = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -75,6 +79,7 @@ show_percentage = false
 
 [node name="OffScreenIndicator" parent="." instance=ExtResource("10_1f8lk")]
 self_modulate = Color(0.976471, 0.14902, 0.14902, 0.427451)
+light_mask = 512
 
 [connection signal="area_entered" from="ShipBody/Area2D" to="." method="_on_collision"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

@@ -96,9 +96,11 @@ turbulence_noise_strength = 2.32
 turbulence_noise_scale = 5.904
 
 [node name="FireExplosion" type="Node2D"]
+light_mask = 512
 z_index = -111
 
 [node name="BackgroundBoom" type="GPUParticles2D" parent="."]
+light_mask = 512
 emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_obouj")
@@ -109,6 +111,7 @@ explosiveness = 0.91
 
 [node name="Lines" type="GPUParticles2D" parent="."]
 modulate = Color(4, 2, 1, 1)
+light_mask = 512
 emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_l8ouv")
@@ -120,6 +123,7 @@ trail_lifetime = 0.2
 
 [node name="Dots" type="GPUParticles2D" parent="."]
 modulate = Color(6, 2, 1, 1)
+light_mask = 512
 emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_l8ouv")
@@ -130,6 +134,7 @@ explosiveness = 1.0
 trail_lifetime = 0.2
 
 [node name="Smudge" type="GPUParticles2D" parent="."]
+light_mask = 512
 material = SubResource("CanvasItemMaterial_srprw")
 emitting = false
 amount = 100
@@ -140,6 +145,7 @@ one_shot = true
 explosiveness = 0.91
 
 [node name="Smudge2" type="GPUParticles2D" parent="."]
+light_mask = 512
 material = SubResource("CanvasItemMaterial_srprw")
 emitting = false
 amount = 40

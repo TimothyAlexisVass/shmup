@@ -36,8 +36,6 @@ acceleration = 0.01
 face = 1
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-position = Vector2(0, -1.38889)
-scale = Vector2(0.975452, 0.983558)
 texture = ExtResource("5_2h0ju")
 offset = Vector2(0, 25)
 

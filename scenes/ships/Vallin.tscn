@@ -38,9 +38,8 @@ acceleration = 0.01
 move = 0
 
 [node name="TierGlow" parent="ShipBody" index="0"]
-visible = false
 texture = ExtResource("6_6pgvs")
-offset = Vector2(0, 100)
+offset = Vector2(0, 25)
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
