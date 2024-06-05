@@ -48,8 +48,8 @@ modulate = Color(8, 2, 1, 0.3)
 position = Vector2(0, -247)
 scale = Vector2(2.5, 1)
 process_material = ExtResource("10_j08df")
-lifetime = 0.4
-preprocess = 0.4
+lifetime = 0.2
+preprocess = 0.2
 
 [node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true

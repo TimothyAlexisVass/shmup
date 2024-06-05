@@ -37,14 +37,14 @@ script = ExtResource("1_upu44")
 [node name="Jet" parent="." instance=ExtResource("2_ftlxp")]
 position = Vector2(-90, -160)
 process_material = ExtResource("3_v4yfi")
-lifetime = 0.4
-preprocess = 0.4
+lifetime = 0.2
+preprocess = 0.2
 
 [node name="Jet2" parent="." instance=ExtResource("2_ftlxp")]
 position = Vector2(90, -160)
 process_material = ExtResource("3_v4yfi")
-lifetime = 0.4
-preprocess = 0.4
+lifetime = 0.2
+preprocess = 0.2
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_ila4y")
