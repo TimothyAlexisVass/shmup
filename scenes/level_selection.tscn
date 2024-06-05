@@ -18,12 +18,11 @@ use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Curve" id="Curve_h007r"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.66537, 0.670447), -1.01154, -1.01154, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="Gradient" id="Gradient_ntu6r"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="CurveTexture" id="CurveTexture_oh6re"]
-curve = SubResource("Curve_h007r")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ki0p5"]
+gradient = SubResource("Gradient_ntu6r")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6see5"]
 particle_flag_disable_z = true
@@ -35,7 +34,7 @@ initial_velocity_max = 60.0
 gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 7.0
-alpha_curve = SubResource("CurveTexture_oh6re")
+color_ramp = SubResource("GradientTexture1D_ki0p5")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sxys0"]
 resource_local_to_scene = true
@@ -79,7 +78,7 @@ points = PackedVector2Array(729, 408, 386, 651)
 default_color = Color(1, 1, 1, 0.286275)
 
 [node name="CurrentLevel" type="GPUParticles2D" parent="."]
-modulate = Color(5, 4, 1, 1)
+modulate = Color(10, 4, 1, 1)
 position = Vector2(300, 176)
 scale = Vector2(0.2, 0.2)
 amount = 1200

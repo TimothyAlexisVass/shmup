@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ccoka0jep38wy"]
+[gd_scene load_steps=15 format=3 uid="uid://ccoka0jep38wy"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_ma03t"]
 [ext_resource type="Texture2D" uid="uid://c8jwduc8tnnh5" path="res://assets/sprites/ships/raketa/raketa_1.png" id="2_ej3dy"]
@@ -9,37 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://d3dgx6qclrjfa" path="res://assets/sprites/ships/raketa/raketa_crystal.png" id="7_5orrf"]
 [ext_resource type="Texture2D" uid="uid://sc4xh57h4jtg" path="res://assets/sprites/ships/raketa/raketa_border.png" id="8_phhyw"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_6e088"]
+[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="10_j08df"]
 [ext_resource type="Texture2D" uid="uid://25ptnqxyndb7" path="res://assets/sprites/ships/raketa/raketa_0.png" id="11_aeykr"]
 [ext_resource type="Texture2D" uid="uid://bwtoghob0cwhg" path="res://assets/sprites/ships/raketa/raketa_normal.png" id="12_c45r7"]
-
-[sub_resource type="Curve" id="Curve_x3n7m"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_oiy6f"]
-curve = SubResource("Curve_x3n7m")
-
-[sub_resource type="Curve" id="Curve_btand"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.333847), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_ua5pe"]
-curve = SubResource("Curve_btand")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gq27g"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(1, 0, 0)
-emission_shape = 3
-emission_box_extents = Vector3(25, 1, 1)
-direction = Vector3(0, -1, 0)
-spread = 0.0
-initial_velocity_min = 2400.0
-initial_velocity_max = 2400.0
-gravity = Vector3(0, 0, 0)
-scale_min = 5.0
-scale_max = 5.0
-scale_curve = SubResource("CurveTexture_ua5pe")
-alpha_curve = SubResource("CurveTexture_oiy6f")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f2hlu"]
 resource_local_to_scene = true
@@ -72,10 +44,12 @@ offset = Vector2(0, 120)
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("9_6e088")]
-modulate = Color(7, 2, 1, 0.3)
+modulate = Color(8, 2, 1, 0.3)
 position = Vector2(0, -247)
 scale = Vector2(2.5, 1)
-process_material = SubResource("ParticleProcessMaterial_gq27g")
+process_material = ExtResource("10_j08df")
+lifetime = 0.4
+preprocess = 0.4
 
 [node name="Area2D" parent="ShipBody" index="2"]
 metadata/_edit_lock_ = true

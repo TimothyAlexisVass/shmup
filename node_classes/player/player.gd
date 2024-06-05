@@ -112,11 +112,12 @@ func _on_area_exited(area):
 		grazing_with -= 1
 
 func click():
-	var a = InputEventMouseButton.new()
-	a.position = get_global_mouse_position()
-	a.button_index = MOUSE_BUTTON_LEFT
-	a.pressed = true
-	Input.parse_input_event(a)
+	var press = InputEventMouseButton.new()
+	press.position = get_global_mouse_position()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.pressed = true
+	Input.parse_input_event(press)
 	await get_tree().process_frame
-	a.pressed = false
-	Input.parse_input_event(a)
+	var release = InputEventMouseButton.new()
+	release.pressed = false
+	Input.parse_input_event(release)

@@ -47,9 +47,9 @@ static func explode(object):
 	bottom_layer.add_child(explosion)
 
 static func glow(color, strength):
-	var modulate = Color(1, 1, 1) + color * strength
-	modulate.a = 1
-	return modulate
+	var new_modulate = Color(1, 1, 1) + color * strength
+	new_modulate.a = 1
+	return new_modulate
 
 static func colored_light(color):
 	var max_component = max(color.r, color.g, color.b)

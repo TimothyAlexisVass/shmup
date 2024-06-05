@@ -1,14 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://f3bqt3x13sk"]
 
-[sub_resource type="Curve" id="Curve_x3n7m"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Gradient" id="Gradient_do7ib"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="CurveTexture" id="CurveTexture_5hw0l"]
-curve = SubResource("Curve_x3n7m")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q4lav"]
+gradient = SubResource("Gradient_do7ib")
 
 [sub_resource type="Curve" id="Curve_btand"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.333847), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.360568), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_rkj31"]
@@ -21,18 +20,18 @@ emission_shape = 3
 emission_box_extents = Vector3(60, 1, 1)
 direction = Vector3(0, -1, 0)
 spread = 0.0
-initial_velocity_min = 2400.0
-initial_velocity_max = 2400.0
+initial_velocity_min = 1200.0
+initial_velocity_max = 1200.0
 gravity = Vector3(0, 0, 0)
-scale_min = 5.0
-scale_max = 5.0
+scale_min = 20.0
+scale_max = 20.0
 scale_curve = SubResource("CurveTexture_rkj31")
-alpha_curve = SubResource("CurveTexture_5hw0l")
+color_ramp = SubResource("GradientTexture1D_q4lav")
 
 [node name="Jet" type="GPUParticles2D"]
 modulate = Color(1, 4, 8, 0.3)
 position = Vector2(-220, -350)
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_u3v48")
-lifetime = 0.1
-preprocess = 0.1
+lifetime = 0.2
+preprocess = 0.2

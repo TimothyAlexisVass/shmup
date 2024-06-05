@@ -136,7 +136,6 @@ lifetime = 0.9
 one_shot = true
 preprocess = 0.3
 explosiveness = 1.0
-trail_enabled = true
 trail_lifetime = 0.2
 
 [node name="Dots" type="GPUParticles2D" parent="."]
