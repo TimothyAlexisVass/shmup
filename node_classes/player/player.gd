@@ -48,6 +48,8 @@ var just_spawned = 20
 var grazing_with = 0
 var graze_power = 0.0
 
+@onready var t = 0
+
 func initialize(data, _ship = null, _pilot = null):
 	# Upgrades affecting all ships
 	var overall = DataManager.player_data.overall
@@ -72,14 +74,18 @@ func _ready():
 func _physics_process(delta):
 	if is_playing:
 		global_position = global_position.lerp(get_global_mouse_position(), delta * movement_speed)
-		global_position.x = clamp(global_position.x, G.play_area.min.x, G.play_area.max.x)
-		global_position.y = clamp(global_position.y, G.play_area.min.y, G.play_area.max.y)
+		global_position.x = clamp(global_position.x, G.camera.get_min().x, G.camera.get_max().x)
+		global_position.y = clamp(global_position.y, G.camera.get_min().y, G.camera.get_max().y)
 	if just_spawned > 0:
 		get_viewport().warp_mouse(Vector2(540, 1540))
 		click()
 		global_position = Vector2(540, 1540 + G.GAME_AREA_OFFSET.y/2 + 14)
 		just_spawned -= 1
 	graze_power = snapped(graze_power + grazing_with * delta, 0.001)
+	t += delta
+	if t > 1:
+		t = 0
+		print("Camera rect: ", G.camera.get_rect(), "\nViewport visible rect: ", get_viewport().get_visible_rect(), "\nViewport size: ", get_viewport().get_visible_rect().size)
 
 func play():
 	for muzzle in $CannonConfiguration.get_children():

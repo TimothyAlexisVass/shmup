@@ -3,9 +3,12 @@ class_name Level extends Node2D
 var number = 1
 var challenge = G.CHALLENGE.NONE
 
+var fire_explosion = preload("res://scenes/explosions/fire_explosion.tscn")
+
 func _enter_tree():
 	G.level = self
-	G.center = get_viewport().size / 2.0
+	G.viewport_size = get_viewport().get_visible_rect().size
+	G.center = G.viewport_size / 2.0
 	G.play_area = { "min": -G.GAME_AREA_OFFSET, "max": Vector2(get_viewport().size) + G.GAME_AREA_OFFSET }
 	G.play_area_fourth = (G.play_area.max - G.play_area.min) / 4.0
 	G.bottom_layer = $ViewLayers/BottomLayer
@@ -16,7 +19,6 @@ func _enter_tree():
 	G.spawn_manager = $SpawnManager
 
 func _ready():
-	G.viewport_size = get_viewport().get_size()
 	G.player = $SpawnManager.spawn_player_ship($SpawnManager.player_ships.keys().pick_random())
 	DataManager.level_up(DataManager.player_data.overall.keys().pick_random())
 
