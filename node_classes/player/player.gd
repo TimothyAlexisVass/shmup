@@ -1,21 +1,23 @@
 class_name Player extends Area2D
 
+var cannon_level
+
 var shot_speed
-var shot_speed_base
+@export var shot_speed_base = 900
 var shot_speed_level = 0:
 	set(value):
 		shot_speed_level = value
 		shot_speed = G.diminishing_increase(shot_speed_base, shot_speed_level)
 
 var shots_per_second
-var fire_rate_base
+@export var fire_rate_base = 1
 var fire_rate_level = 0:
 	set(value):
 		fire_rate_level = value
 		shots_per_second = G.diminishing_increase(fire_rate_base, fire_rate_level)
 
 var fire_power
-var fire_power_base
+@export var fire_power_base = 1
 var fire_power_level = 0:
 	set(value):
 		fire_power_level = value
@@ -30,15 +32,12 @@ var movement_speed_level = 0:
 		movement_speed = G.linear_increase(movement_speed_base, movement_speed_level, (10 - movement_speed_base) / 1000.0)
 
 # Basic properties
-var cannon_level
-var image
-var texture
-var normal_map
-var shot_color
-var shot_type
-var explosion
+@export var shot_scene = preload("res://scenes/shots/plasma.tscn")
+@export var shot_color = Color(0, 0.2, 1)
+@export var explosion = preload("res://scenes/explosions/fire_explosion.tscn")
 
 # Calculated properties
+var image
 var width
 var height
 var explosion_scale
@@ -48,20 +47,17 @@ var just_spawned = 20
 var grazing_with = 0
 var graze_power = 0.0
 
-func initialize(data, _ship = null, _pilot = null):
+func _enter_tree():
 	# Upgrades affecting all ships
-	var overall = DataManager.player_data.overall
+	var commander_upgrades = DataManager.player_data.commander
 
-	for property in data.keys():
-		set(property, data[property])
-	for property in overall.keys():
-		set(property, int(overall[property]))
-
+	for property in commander_upgrades.keys():
+		set(property, int(commander_upgrades[property]))
+	
 	rotation = PI # 180°
-	image = texture.get_image()
+
+	image = $Sprite.texture.diffuse_texture.get_image()
 	var image_size = Vector2(image.get_size()) * scale
-	$Sprite.texture.diffuse_texture = texture
-	$Sprite.texture.normal_texture = normal_map
 	width = image_size.x
 	height = image_size.y
 	explosion_scale = max(width, height) / 300.0

@@ -6,7 +6,7 @@ func _enter_tree() -> void:
 	# Regular expression pattern to match letters, spaces, hyphens, and apostrophes from various languages
 	name_validator.compile("^[\\p{L}\\p{M}\\ \\-\\']+$")
 
-var overall = {
+var commander = {
 	"cannon_level": 1,
 	"shot_speed_level": 1,
 	"movement_speed_level": 1,

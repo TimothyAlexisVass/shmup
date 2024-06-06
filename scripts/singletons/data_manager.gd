@@ -10,9 +10,9 @@ func _enter_tree():
 	load_data()
 
 func level_up(stat):
-	if player_data.overall.has(stat):
-		player_data.overall[stat] += 1
-		print("Level up: ", stat, " to ", player_data.overall[stat])
+	if player_data.commander.has(stat):
+		player_data.commander[stat] += 1
+		print("Level up: ", stat, " to ", player_data.commander[stat])
 		save_data()
 
 func win(level):
@@ -32,7 +32,7 @@ func save_data():
 		return
 	
 	var data_to_save = {
-		"overall": player_data.overall,
+		"commander": player_data.commander,
 		"levels": player_data.levels
 	}
 	file.store_string(JSON.stringify(data_to_save, "\t"))
@@ -55,7 +55,7 @@ func load_data():
 
 		print_debug(loaded_data)
 
-		player_data.overall = loaded_data.overall
+		player_data.commander = loaded_data.commander
 		player_data.levels = loaded_data.levels
 	else:
 		print("Save file doesn't exist")

@@ -19,7 +19,7 @@ func _enter_tree():
 	G.spawn_manager = $SpawnManager
 
 func _ready():
-	G.player = $SpawnManager.spawn_player_ship($SpawnManager.player_ships.keys().pick_random())
+	G.player = $SpawnManager.spawn_player_ship("Blade")
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("devbomb"):

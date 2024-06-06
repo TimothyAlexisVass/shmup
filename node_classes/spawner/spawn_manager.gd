@@ -54,27 +54,6 @@ var ships = {
 	}
 }
 
-var explosions = {
-	"fire_explosion": preload("res://scenes/explosions/fire_explosion.tscn")
-}
-
-var normal_maps = {
-	"vash": preload("res://assets/sprites/ships/vash/vash_normal.png")
-}
-
-var player_ships = {
-	"Blade": {
-		"normal_map": normal_maps["vash"],
-		"shot_speed_base": 900,
-		"movement_speed_base": 10,
-		"fire_power_base": 1,
-		"fire_rate_base": 1,
-		"shot_color": Color(0, 0.2, 1),
-		"shot_type": 0,
-		"explosion": explosions["fire_explosion"]
-	}
-}
-
 var spawner_scene = preload("res://node_classes/spawner/spawner.tscn")
 var waiting_for = []
 var wave_queue = []
@@ -88,8 +67,6 @@ var spawn_points = {}
 func _ready():
 	for spawn_point_marker in G.ships_layer.get_node("SpawnPoints").get_children():
 		spawn_points[spawn_point_marker.name.to_int()] = spawn_point_marker
-	for player_ship in player_ships:
-		player_ships[player_ship]["texture"] = load("res://assets/sprites/player_ships/" + player_ship + ".png")
 	print("Level: ", G.level.number)
 	print("Challenge: ", G.level.challenge)
 
@@ -130,9 +107,8 @@ func enqueue_wave(wave_number):
 					"sequence": [spawn_point]
 				})
 
-func spawn_player_ship(player_ship_type):
-	var player_ship = player_scene.instantiate()
-	player_ship.initialize(player_ships[player_ship_type])
+func spawn_player_ship(player_scene_name):
+	var player_ship = load("res://scenes/player_ships/" + player_scene_name +".tscn").instantiate()
 	G.level.add_child(player_ship)
 	return player_ship
 

@@ -24,6 +24,7 @@ func _ready():
 
 func add_muzzle(x, y, cannon_number):
 	var muzzle = muzzle_scene.instantiate()
+	muzzle.shot_scene = parent.shot_scene
 	muzzle.position = Vector2(x, y)
 	muzzle.rotation = cannon_number / 21.0
 	muzzle.rate_of_fire = parent.shots_per_second

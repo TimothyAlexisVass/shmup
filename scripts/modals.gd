@@ -28,4 +28,4 @@ func level_up(upgrade_button):
 	set_upgrade_label(upgrade_button)
 
 func set_upgrade_label(button):
-	button.get_node("Label").set_text(str(DataManager.player_data.overall[String(button.name)]))
+	button.get_node("Label").set_text(str(DataManager.player_data.commander[String(button.name)]))
