@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://drsphabfu17h7"]
+[gd_scene load_steps=14 format=3 uid="uid://drsphabfu17h7"]
 
 [ext_resource type="Script" path="res://scripts/level_selection.gd" id="1_btxd3"]
 [ext_resource type="PackedScene" uid="uid://50squfico0kk" path="res://scenes/level_selection_background.tscn" id="3_q6qwf"]
 [ext_resource type="PackedScene" uid="uid://dmcwtfg5vy5dr" path="res://scenes/level_button.tscn" id="4_3sqjx"]
+[ext_resource type="PackedScene" uid="uid://cja3ju4kxn6nu" path="res://scenes/modals.tscn" id="4_j5gpb"]
 [ext_resource type="Texture2D" uid="uid://belrdumguxqpf" path="res://assets/sprites/level_badges/level.png" id="5_kbiqw"]
 [ext_resource type="Script" path="res://scenes/touch_camera_controller.gd" id="5_mf7nh"]
 [ext_resource type="Texture2D" uid="uid://rnp067mqtk0j" path="res://assets/sprites/level_badges/level_normal.png" id="6_p5tfd"]
@@ -69,6 +70,12 @@ texture_scale = 3.0
 
 [node name="ParallaxBackground" parent="Camera2D" instance=ExtResource("3_q6qwf")]
 
+[node name="Modals" parent="Camera2D" instance=ExtResource("4_j5gpb")]
+offset_left = -540.0
+offset_top = -980.0
+offset_right = -540.0
+offset_bottom = -980.0
+
 [node name="Lines" type="Node2D" parent="."]
 
 [node name="Line2D" type="Line2D" parent="Lines"]
@@ -99,3 +106,12 @@ offset_top = 82.0
 offset_right = 1211.0
 offset_bottom = 1080.0
 texture_normal = SubResource("CanvasTexture_sxys0")
+
+[node name="ControlsLeft" type="VBoxContainer" parent="."]
+offset_right = 180.0
+offset_bottom = 1000.0
+
+[node name="ControlsRight" type="VBoxContainer" parent="."]
+offset_left = 900.0
+offset_right = 1080.0
+size_flags_vertical = 3

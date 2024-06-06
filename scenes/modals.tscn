@@ -1,0 +1,287 @@
+[gd_scene load_steps=4 format=3 uid="uid://cja3ju4kxn6nu"]
+
+[ext_resource type="Script" path="res://scripts/modals.gd" id="1_rigs5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
+font_size = 40
+
+[sub_resource type="Theme" id="Theme_hb33l"]
+
+[node name="Modals" type="Control"]
+z_index = 999
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_rigs5")
+
+[node name="Screens" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shop" type="ColorRect" parent="Screens"]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1960.0
+color = Color(0.102, 0.102, 0.102, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Screens/Shop"]
+custom_minimum_size = Vector2(720, 1600)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1780.0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Shop/MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="Screens/Shop/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="Ships" type="ColorRect" parent="Screens"]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1960.0
+color = Color(0.102, 0.102, 0.102, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Screens/Ships"]
+custom_minimum_size = Vector2(720, 1600)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1780.0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Ships/MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="Screens/Ships/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SHIPS"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="Pilots" type="ColorRect" parent="Screens"]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1960.0
+color = Color(0.102, 0.102, 0.102, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Screens/Pilots"]
+custom_minimum_size = Vector2(720, 1600)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1780.0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Pilots/MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="Screens/Pilots/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PILOTS"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="Commander" type="ColorRect" parent="Screens"]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1960.0
+color = Color(0.102, 0.102, 0.102, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Screens/Commander"]
+custom_minimum_size = Vector2(720, 1600)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1780.0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Commander/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="Screens/Commander/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Name"]
+layout_mode = 2
+text = "Name"
+
+[node name="LineEdit" type="LineEdit" parent="Screens/Commander/MarginContainer/VBoxContainer/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Commander"
+max_length = 70
+
+[node name="Upgrades" type="VBoxContainer" parent="Screens/Commander/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades"]
+layout_mode = 2
+text = "UPGRADES"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="Buttons" type="GridContainer" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades"]
+layout_mode = 2
+columns = 5
+
+[node name="cannon_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "CANNON"
+
+[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/cannon_level"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "1"
+horizontal_alignment = 1
+
+[node name="shot_speed_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "SHOT SPEEED"
+
+[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/shot_speed_level"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "1"
+horizontal_alignment = 1
+
+[node name="movement_speed_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "MOVEMENT SPEED"
+
+[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/movement_speed_level"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "1"
+horizontal_alignment = 1
+
+[node name="fire_power_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "FIRE POWER"
+
+[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/fire_power_level"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "1"
+horizontal_alignment = 1
+
+[node name="fire_rate_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "FIRE RATE"
+
+[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/fire_rate_level"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "1"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Screens"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 1030.0
+offset_right = 1080.0
+offset_bottom = 50.0
+theme = SubResource("Theme_hb33l")
+theme_type_variation = &"FlatButton"
+text = "X"
+
+[node name="ControlsBottom" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 1780.0
+offset_right = 1080.0
+offset_bottom = 1960.0
+
+[node name="ShopButton" type="Button" parent="ControlsBottom"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "SHOP"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsBottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ShipsButton" type="Button" parent="ControlsBottom"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "SHIPS"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ControlsBottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PilotsButton" type="Button" parent="ControlsBottom"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "PILOTS"
+
+[node name="MarginContainer3" type="MarginContainer" parent="ControlsBottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CommanderButton" type="Button" parent="ControlsBottom"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+text = "COMMANDER"
+
+[connection signal="pressed" from="Screens/CloseButton" to="." method="hide_screens"]
