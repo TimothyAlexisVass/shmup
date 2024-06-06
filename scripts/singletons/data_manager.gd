@@ -12,7 +12,8 @@ func _enter_tree():
 func level_up(stat):
 	if player_data.overall.has(stat):
 		player_data.overall[stat] += 1
-	save_data()
+		print("Level up: ", stat, " to ", player_data.overall[stat])
+		save_data()
 
 func win(level):
 	var level_key = str(level)

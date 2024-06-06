@@ -249,7 +249,7 @@ offset_top = 1780.0
 offset_right = 1080.0
 offset_bottom = 1960.0
 
-[node name="ShopButton" type="Button" parent="ControlsBottom"]
+[node name="Shop" type="Button" parent="ControlsBottom"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 text = "SHOP"
@@ -259,7 +259,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ShipsButton" type="Button" parent="ControlsBottom"]
+[node name="Ships" type="Button" parent="ControlsBottom"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 text = "SHIPS"
@@ -269,7 +269,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PilotsButton" type="Button" parent="ControlsBottom"]
+[node name="Pilots" type="Button" parent="ControlsBottom"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 text = "PILOTS"
@@ -279,7 +279,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CommanderButton" type="Button" parent="ControlsBottom"]
+[node name="Commander" type="Button" parent="ControlsBottom"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 text = "COMMANDER"
