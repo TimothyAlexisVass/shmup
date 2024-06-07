@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cja3ju4kxn6nu"]
+[gd_scene load_steps=19 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_rigs5"]
 [ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/resources/aluminium.png" id="2_x8vtx"]
@@ -12,10 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://dln6vj44xpif1" path="res://assets/sprites/resources/veritasium.png" id="10_bsfd4"]
 [ext_resource type="Texture2D" uid="uid://b2niry3mi8b16" path="res://assets/sprites/resources/eternium.png" id="11_ftgh8"]
 [ext_resource type="Texture2D" uid="uid://cw6tsd5klfh0q" path="res://assets/sprites/user_interface/arrow_right.png" id="12_0ura4"]
+[ext_resource type="Script" path="res://scripts/exchange_items.gd" id="12_3hfpd"]
 [ext_resource type="Texture2D" uid="uid://3tl4yrjivymy" path="res://assets/sprites/user_interface/arrow_up.png" id="13_5i67r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
 font_size = 40
+
+[sub_resource type="ImageTexture" id="ImageTexture_jo1gd"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_q353p"]
 
 [sub_resource type="Theme" id="Theme_hb33l"]
 
@@ -383,37 +388,55 @@ horizontal_alignment = 1
 [node name="ExchangeItems" type="HBoxContainer" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange"]
 layout_mode = 2
 alignment = 1
+script = ExtResource("12_3hfpd")
 
-[node name="Item1" type="MenuButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
-custom_minimum_size = Vector2(180, 180)
+[node name="Item1" type="OptionButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
+custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 0
-icon = ExtResource("2_x8vtx")
+theme_override_icons/arrow = SubResource("ImageTexture_jo1gd")
 icon_alignment = 1
 expand_icon = true
-item_count = 2
-popup/item_0/text = "Aluminium"
+selected = 0
+item_count = 10
 popup/item_0/icon = ExtResource("2_x8vtx")
-popup/item_1/text = "Cuprum"
 popup/item_1/icon = ExtResource("3_nnjdq")
 popup/item_1/id = 1
+popup/item_2/icon = ExtResource("4_swgvl")
+popup/item_2/id = 2
+popup/item_3/icon = ExtResource("5_vwohk")
+popup/item_3/id = 3
+popup/item_4/icon = ExtResource("6_f8kn7")
+popup/item_4/id = 4
+popup/item_5/icon = ExtResource("7_effy3")
+popup/item_5/id = 5
+popup/item_6/icon = ExtResource("8_0slww")
+popup/item_6/id = 6
+popup/item_7/icon = ExtResource("9_g5nv8")
+popup/item_7/id = 7
+popup/item_8/icon = ExtResource("10_bsfd4")
+popup/item_8/id = 8
+popup/item_9/icon = ExtResource("11_ftgh8")
+popup/item_9/id = 9
 
 [node name="Amounts1" type="VBoxContainer" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
-[node name="Sell" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
+[node name="Item1" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 text = "105"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Buy" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
+[node name="Item2" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 text = "95"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
@@ -436,35 +459,49 @@ stretch_mode = 5
 
 [node name="Amounts2" type="VBoxContainer" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
-[node name="Sell" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
+[node name="Item1" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 text = "1"
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buy" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
+[node name="Item2" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 text = "1"
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Item2" type="MenuButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
-custom_minimum_size = Vector2(180, 180)
+[node name="Item2" type="OptionButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
+custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
-size_flags_vertical = 0
-icon = ExtResource("3_nnjdq")
+size_flags_horizontal = 8
+theme_override_icons/arrow = SubResource("ImageTexture_q353p")
 icon_alignment = 1
 expand_icon = true
-item_count = 2
-popup/item_0/text = "Aluminium"
+selected = 1
+item_count = 10
 popup/item_0/icon = ExtResource("2_x8vtx")
-popup/item_1/text = "Cuprum"
 popup/item_1/icon = ExtResource("3_nnjdq")
 popup/item_1/id = 1
+popup/item_2/icon = ExtResource("4_swgvl")
+popup/item_2/id = 2
+popup/item_3/icon = ExtResource("5_vwohk")
+popup/item_3/id = 3
+popup/item_4/icon = ExtResource("6_f8kn7")
+popup/item_4/id = 4
+popup/item_5/icon = ExtResource("7_effy3")
+popup/item_5/id = 5
+popup/item_6/icon = ExtResource("8_0slww")
+popup/item_6/id = 6
+popup/item_7/icon = ExtResource("9_g5nv8")
+popup/item_7/id = 7
+popup/item_8/icon = ExtResource("10_bsfd4")
+popup/item_8/id = 8
+popup/item_9/icon = ExtResource("11_ftgh8")
+popup/item_9/id = 9
 
 [node name="Ships" type="ColorRect" parent="Screens"]
 visible = false
@@ -728,5 +765,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 text = "COMMANDER"
 
+[connection signal="item_selected" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item1" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_item_selected"]
+[connection signal="item_selected" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item2" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_item_selected"]
 [connection signal="text_changed" from="Screens/Commander/MarginContainer/VBoxContainer/Details/Name/LineEdit" to="." method="_on_name_changed"]
 [connection signal="pressed" from="Screens/CloseButton" to="." method="hide_screens"]

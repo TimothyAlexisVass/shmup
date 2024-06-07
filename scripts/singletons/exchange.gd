@@ -45,13 +45,12 @@ func get_market_prices():
         "Aurum": 76.3931
     }
 
-func exchange(from, to, units):
-    if from == to:
-        return "Can only exchange " + from + " for other types"
-    if from in metals and to not in metals:
-        return "Can only exchange metals for other metals"
-    if from in gems and to in fictional:
-        return "Can only exchange gems for metals and other gems"
-    if from == "Veritasium" and to == "Eternium":
-        return "Can only exchange Veritasium for metals and gems"
-    return units * (rates[from] / rates[to]) * 0.995
+func exchange_rates(item_1, item_2):
+    var rate_1 = rates[item_1]
+    var rate_2 = rates[item_2]
+    if rate_1 > rate_2:
+        var amount = rate_1 / float(rate_2)
+        return [1, int(amount * 0.995), 1, int(amount * 1.005)]
+    else:
+        var amount = rate_2 / float(rate_1)
+        return [int(amount * 1.005), 1, int(amount * 0.995), 1]
