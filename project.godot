@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 
 Switch="*res://scripts/singletons/switch.gd"
 DataManager="*res://scripts/singletons/data_manager.gd"
+Exchange="*res://scripts/singletons/exchange.gd"
 
 [display]
 
