@@ -1,5 +1,8 @@
 extends Control
 
+func _enter_tree():
+	G.modals = self
+
 func _ready():
 	hide_screens()
 	ready_commander_details()
@@ -54,4 +57,4 @@ func ready_upgrade_buttons():
 
 func ready_resources():
 	for resource in DataManager.player_data.resources.keys():
-		$Screens/Market/MarginContainer/VBoxContainer/Resources/List.get_node(resource).get_node("Value").text = str(DataManager.player_data.resources[resource])
+		$Screens/Market/MarginContainer/VBoxContainer/Resources/List.get_node(resource).get_node("Value").text = str(G.smart_snap(DataManager.player_data.resources[resource]))

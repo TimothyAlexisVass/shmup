@@ -23,7 +23,7 @@ var resources = {
 	"Rubinus": 0,
 	"Smaragdus": 0,
 	"Veritasium": 0,
-	"Eternium": 0,
+	"Eternium": 1,
 }
 
 var levels = {

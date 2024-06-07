@@ -22,6 +22,7 @@ enum CHALLENGE { NONE, EASY, MEDIUM, ELITE, APEX }
 
 static var level
 static var level_selection
+static var modals
 static var spawn_manager
 static var stuff
 static var center
@@ -81,4 +82,4 @@ static func smart_snap(value):
 		return snapped(value, 0.01)
 	elif value < 20:
 		return snapped(value, 0.1)
-	return int(value)
+	return snapped(value, 1)

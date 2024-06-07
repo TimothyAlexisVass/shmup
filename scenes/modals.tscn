@@ -411,10 +411,9 @@ alignment = 1
 script = ExtResource("12_3hfpd")
 
 [node name="Item1" type="OptionButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
-custom_minimum_size = Vector2(240, 240)
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 theme_override_icons/arrow = SubResource("ImageTexture_jo1gd")
 icon_alignment = 1
 expand_icon = true
@@ -444,17 +443,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Item1" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
-custom_minimum_size = Vector2(90, 90)
+[node name="From" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("3_7g8ct")
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Item2" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
-custom_minimum_size = Vector2(90, 90)
+[node name="To" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("3_7g8ct")
 text = "0"
 horizontal_alignment = 2
@@ -465,14 +464,14 @@ layout_mode = 2
 alignment = 1
 
 [node name="Item1ToItem2" type="TextureButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer"]
-custom_minimum_size = Vector2(90, 90)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 texture_normal = ExtResource("12_0ura4")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Item2ToItem1" type="TextureButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer"]
-custom_minimum_size = Vector2(90, 90)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 texture_normal = ExtResource("13_5i67r")
 ignore_texture_size = true
@@ -483,22 +482,22 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Item1" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
-custom_minimum_size = Vector2(90, 90)
+[node name="To" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("3_7g8ct")
 text = "0"
 vertical_alignment = 1
 
-[node name="Item2" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
-custom_minimum_size = Vector2(90, 90)
+[node name="From" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("3_7g8ct")
 text = "0"
 vertical_alignment = 1
 
 [node name="Item2" type="OptionButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
-custom_minimum_size = Vector2(240, 240)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_icons/arrow = SubResource("ImageTexture_q353p")
@@ -817,6 +816,8 @@ theme = ExtResource("3_7g8ct")
 text = "COMMANDER"
 
 [connection signal="item_selected" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item1" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_item_selected"]
+[connection signal="pressed" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item1ToItem2" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_to_item_2_pressed"]
+[connection signal="pressed" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item2ToItem1" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_to_item_1_pressed"]
 [connection signal="item_selected" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item2" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_item_selected"]
 [connection signal="text_changed" from="Screens/Commander/MarginContainer/VBoxContainer/Details/Name/LineEdit" to="." method="_on_name_changed"]
 [connection signal="pressed" from="Screens/CloseButton" to="." method="hide_screens"]
