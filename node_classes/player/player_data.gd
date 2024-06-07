@@ -41,9 +41,7 @@ func set_commander_name(name: String):
 
 func filter_invalid_characters(name: String) -> String:
 	var valid_chars = []
-	print(name)
 	for character in name:
-		print(character)
 		if name_validator.search(character):
 			valid_chars.append(character)
 	return "".join(valid_chars)
