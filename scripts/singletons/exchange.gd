@@ -50,12 +50,14 @@ func exchange_rates(item_1, item_2):
 	var rate_2 = rates[item_2]
 	var lower_rate = min(rate_1, rate_2)
 	var higher_rate = max(rate_1, rate_2)
+	var lower_item = item_1 if rate_1 == lower_rate else item_2
+	var higher_item = item_1 if rate_1 == higher_rate else item_2
+
 	var amount = higher_rate / float(lower_rate)
 	var lower_amount = G.smart_snap(amount * 0.98)
 	var higher_amount = G.smart_snap(amount * 1.02)
-	var lower_item = item_1 if rate_1 == lower_rate else item_2
-	var higher_item = item_1 if rate_1 == higher_rate else item_2
+
 	var one_way_exchange = (lower_item in metals and higher_item not in metals) or (lower_item in gems and higher_item in fictional) or (lower_item == "Veritasium" and higher_item == "Eternium")
-	var one_way = [1, lower_amount, 0, 0] if rate_1 > rate_2 else [0, 0, lower_amount, 1]
-	var two_way = [1, lower_amount, 1, higher_amount] if rate_1 > rate_2 else [higher_amount, 1, lower_amount, 1]
+	var one_way = ["-1", "+"+str(lower_amount), "0", "0"] if rate_1 > rate_2 else ["0", "0", "+"+str(lower_amount), "-1"]
+	var two_way = ["-1", "+"+str(lower_amount), "+1", "-"+str(higher_amount)] if rate_1 > rate_2 else ["-"+str(higher_amount), "+1", "+"+str(lower_amount), "-1"]
 	return one_way if one_way_exchange else two_way

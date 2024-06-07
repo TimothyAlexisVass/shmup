@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cja3ju4kxn6nu"]
+[gd_scene load_steps=19 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_rigs5"]
 [ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/resources/aluminium.png" id="2_x8vtx"]
@@ -22,8 +22,6 @@ font_size = 40
 [sub_resource type="ImageTexture" id="ImageTexture_jo1gd"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_q353p"]
-
-[sub_resource type="Theme" id="Theme_hb33l"]
 
 [node name="Modals" type="Control"]
 z_index = 999
@@ -66,6 +64,7 @@ theme_override_constants/margin_bottom = 90
 layout_mode = 2
 
 [node name="Heading" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "INTERGALACTIC MARKET"
 label_settings = SubResource("LabelSettings_1ohth")
@@ -547,6 +546,7 @@ theme_override_constants/margin_bottom = 90
 layout_mode = 2
 
 [node name="Heading" type="Label" parent="Screens/Ships/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "SHIPS"
 label_settings = SubResource("LabelSettings_1ohth")
@@ -573,6 +573,7 @@ theme_override_constants/margin_bottom = 90
 layout_mode = 2
 
 [node name="Heading" type="Label" parent="Screens/Pilots/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "PILOTS"
 label_settings = SubResource("LabelSettings_1ohth")
@@ -599,6 +600,7 @@ theme_override_constants/margin_bottom = 90
 layout_mode = 2
 
 [node name="Heading" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "COMMANDER"
 label_settings = SubResource("LabelSettings_1ohth")
@@ -613,11 +615,13 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Name"]
 layout_mode = 2
+theme = ExtResource("3_7g8ct")
 text = "Name"
 
 [node name="LineEdit" type="LineEdit" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Name"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_7g8ct")
 placeholder_text = "Commander"
 max_length = 70
 
@@ -628,10 +632,12 @@ alignment = 2
 
 [node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Rank"]
 layout_mode = 2
+theme = ExtResource("3_7g8ct")
 text = "Rank"
 
 [node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Rank"]
 layout_mode = 2
+theme = ExtResource("3_7g8ct")
 text = "1"
 
 [node name="HSeparator" type="HSeparator" parent="Screens/Commander/MarginContainer/VBoxContainer"]
@@ -654,6 +660,7 @@ columns = 5
 [node name="cannon_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
+theme = ExtResource("3_7g8ct")
 text = "CANNON"
 
 [node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/cannon_level"]
@@ -665,13 +672,16 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
 [node name="shot_speed_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-text = "SHOT SPEEED"
+theme = ExtResource("3_7g8ct")
+text = "SHOT
+SPEEED"
 
 [node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/shot_speed_level"]
 layout_mode = 1
@@ -682,13 +692,16 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
 [node name="movement_speed_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-text = "MOVEMENT SPEED"
+theme = ExtResource("3_7g8ct")
+text = "MOVEMENT
+SPEED"
 
 [node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/movement_speed_level"]
 layout_mode = 1
@@ -699,13 +712,16 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
 [node name="fire_power_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-text = "FIRE POWER"
+theme = ExtResource("3_7g8ct")
+text = "FIRE
+POWER"
 
 [node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/fire_power_level"]
 layout_mode = 1
@@ -716,13 +732,16 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
 [node name="fire_rate_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-text = "FIRE RATE"
+theme = ExtResource("3_7g8ct")
+text = "FIRE
+RATE"
 
 [node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/fire_rate_level"]
 layout_mode = 1
@@ -733,6 +752,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -742,7 +762,7 @@ layout_mode = 0
 offset_left = 1030.0
 offset_right = 1080.0
 offset_bottom = 50.0
-theme = SubResource("Theme_hb33l")
+theme = ExtResource("3_7g8ct")
 theme_type_variation = &"FlatButton"
 text = "X"
 
