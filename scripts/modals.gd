@@ -5,6 +5,7 @@ func _ready():
 	ready_commander_details()
 	ready_controls_bottom()
 	ready_upgrade_buttons()
+	ready_resources()
 
 func select_screen(screen_name):
 	var screen = $Screens.get_node(String(screen_name))
@@ -34,7 +35,7 @@ func _on_name_changed(new_name):
 		name_line_edit.caret_column = filtered_name.length()
 
 func set_upgrade_label(button):
-	button.get_node("Label").set_text(str(DataManager.player_data.commander[String(button.name)]))
+	button.get_node("Value").set_text(str(DataManager.player_data.commander[String(button.name)]))
 
 # Initialization methods to set values from player data
 func ready_commander_details():
@@ -50,3 +51,7 @@ func ready_upgrade_buttons():
 	for upgrade_button in $Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons.get_children():
 		upgrade_button.connect("pressed", Callable(self, "level_up").bind(upgrade_button))
 		set_upgrade_label(upgrade_button)
+
+func ready_resources():
+	for resource in DataManager.player_data.resources.keys():
+		$Screens/Market/MarginContainer/VBoxContainer/Resources/List.get_node(resource).get_node("Value").text = str(DataManager.player_data.resources[resource])

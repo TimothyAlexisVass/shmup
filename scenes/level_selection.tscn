@@ -57,6 +57,7 @@ position = Vector2(405, -903)
 scale = Vector2(3.70233, 4.19736)
 color = Color(1, 0.466667, 0.396078, 1)
 energy = 1.84
+range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_hc8uk")
 texture_scale = 5.3
 
@@ -65,6 +66,7 @@ position = Vector2(-505, 38)
 scale = Vector2(6.8367, 5.37762)
 color = Color(1, 1, 0.498039, 1)
 energy = 1.44
+range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_hc8uk")
 texture_scale = 3.0
 

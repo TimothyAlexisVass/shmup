@@ -18,6 +18,7 @@ normal_texture = ExtResource("2_qkq08")
 [sub_resource type="BitMap" id="BitMap_g220u"]
 
 [node name="LevelButton" type="TextureButton"]
+light_mask = 2
 offset_left = 200.0
 offset_top = 85.0
 offset_right = 1212.0
