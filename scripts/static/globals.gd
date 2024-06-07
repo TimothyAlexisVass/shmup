@@ -75,3 +75,10 @@ static func random_sign(number):
 static func rotate_towards_target(object_to_rotate, target, rotation_speed):
 	var target_angle = G.ANGLE_UP + object_to_rotate.global_position.angle_to_point(target)
 	object_to_rotate.rotation = lerp_angle(object_to_rotate.rotation, target_angle, rotation_speed)
+	
+static func smart_snap(value):
+	if value < 5:
+		return snapped(value, 0.01)
+	elif value < 20:
+		return snapped(value, 0.1)
+	return int(value)

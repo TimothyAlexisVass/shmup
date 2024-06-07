@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cja3ju4kxn6nu"]
+[gd_scene load_steps=20 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_rigs5"]
 [ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/resources/aluminium.png" id="2_x8vtx"]
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="3_7g8ct"]
 [ext_resource type="Texture2D" uid="uid://c3lsab433vvys" path="res://assets/sprites/resources/cuprum.png" id="3_nnjdq"]
 [ext_resource type="Texture2D" uid="uid://dw75msk8omdbh" path="res://assets/sprites/resources/argentum.png" id="4_swgvl"]
 [ext_resource type="Texture2D" uid="uid://c7vedrhrh0b8v" path="res://assets/sprites/resources/aurum.png" id="5_vwohk"]
@@ -102,6 +103,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Aluminium
 "
 horizontal_alignment = 1
@@ -115,6 +117,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -131,6 +134,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Cuprum"
 horizontal_alignment = 1
 
@@ -143,6 +147,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -159,6 +164,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Argentum"
 horizontal_alignment = 1
 
@@ -171,6 +177,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -187,6 +194,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Aurum"
 horizontal_alignment = 1
 
@@ -199,6 +207,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -215,6 +224,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Rhodium"
 horizontal_alignment = 1
 
@@ -227,6 +237,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -243,6 +254,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Sapphirus"
 horizontal_alignment = 1
 
@@ -255,6 +267,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -271,6 +284,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Rubinus"
 horizontal_alignment = 1
 
@@ -283,6 +297,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -299,6 +314,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Smaragdus"
 horizontal_alignment = 1
 
@@ -311,6 +327,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -327,6 +344,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("3_7g8ct")
 text = "Veritasium
 "
 horizontal_alignment = 1
@@ -340,6 +358,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -356,7 +375,8 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Eternium Crystal"
+theme = ExtResource("3_7g8ct")
+text = "Eternium"
 horizontal_alignment = 1
 
 [node name="Value" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Resources/List/Eternium"]
@@ -368,6 +388,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7g8ct")
 text = "1"
 horizontal_alignment = 1
 
@@ -398,7 +419,6 @@ size_flags_vertical = 0
 theme_override_icons/arrow = SubResource("ImageTexture_jo1gd")
 icon_alignment = 1
 expand_icon = true
-selected = 0
 item_count = 10
 popup/item_0/icon = ExtResource("2_x8vtx")
 popup/item_1/icon = ExtResource("3_nnjdq")
@@ -428,14 +448,16 @@ alignment = 1
 [node name="Item1" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-text = "105"
+theme = ExtResource("3_7g8ct")
+text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Item2" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-text = "95"
+theme = ExtResource("3_7g8ct")
+text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -443,14 +465,14 @@ vertical_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Sell" type="TextureButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer"]
+[node name="Item1ToItem2" type="TextureButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture_normal = ExtResource("12_0ura4")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Buy" type="TextureButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer"]
+[node name="Item2ToItem1" type="TextureButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture_normal = ExtResource("13_5i67r")
@@ -465,13 +487,15 @@ alignment = 1
 [node name="Item1" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-text = "1"
+theme = ExtResource("3_7g8ct")
+text = "0"
 vertical_alignment = 1
 
 [node name="Item2" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-text = "1"
+theme = ExtResource("3_7g8ct")
+text = "0"
 vertical_alignment = 1
 
 [node name="Item2" type="OptionButton" parent="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
@@ -481,7 +505,6 @@ size_flags_horizontal = 8
 theme_override_icons/arrow = SubResource("ImageTexture_q353p")
 icon_alignment = 1
 expand_icon = true
-selected = 1
 item_count = 10
 popup/item_0/icon = ExtResource("2_x8vtx")
 popup/item_1/icon = ExtResource("3_nnjdq")
@@ -730,8 +753,10 @@ offset_right = 1080.0
 offset_bottom = 1960.0
 
 [node name="Market" type="Button" parent="ControlsBottom"]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_7g8ct")
 text = "INTERGALACTIC
 MARKET"
 
@@ -741,8 +766,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Ships" type="Button" parent="ControlsBottom"]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_7g8ct")
 text = "SHIPS"
 
 [node name="MarginContainer2" type="MarginContainer" parent="ControlsBottom"]
@@ -751,8 +778,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Pilots" type="Button" parent="ControlsBottom"]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_7g8ct")
 text = "PILOTS"
 
 [node name="MarginContainer3" type="MarginContainer" parent="ControlsBottom"]
@@ -761,8 +790,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Commander" type="Button" parent="ControlsBottom"]
-custom_minimum_size = Vector2(180, 180)
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_7g8ct")
 text = "COMMANDER"
 
 [connection signal="item_selected" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item1" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_item_selected"]
