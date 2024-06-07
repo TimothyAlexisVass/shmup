@@ -1,10 +1,7 @@
 class_name PlayerData extends Resource
 
-var name_validator = RegEx.new()
-
-func _enter_tree():
-	# Regular expression pattern to match letters, spaces, hyphens, and apostrophes from various languages
-	name_validator.compile("^[\\p{L}\\p{M}\\ \\-\\']+$")
+# Regular expression pattern to match letters, spaces, hyphens, and apostrophes from various languages
+var name_validator = RegEx.create_from_string("^[\\p{L}\\p{M}\\ \\-\\']+$")
 
 var commander = {
 	"name": "",
@@ -37,6 +34,16 @@ var config = {
 	"time_scale": 1
 }
 
-func set_user_name(name: String):
-	if name_validator.search(name) != null:
+func set_commander_name(name: String):
+	if name_validator.search(name):
 		commander.name = name
+		DataManager.save_data()
+
+func filter_invalid_characters(name: String) -> String:
+	var valid_chars = []
+	print(name)
+	for character in name:
+		print(character)
+		if name_validator.search(character):
+			valid_chars.append(character)
+	return "".join(valid_chars)

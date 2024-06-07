@@ -28,13 +28,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Shop" type="ColorRect" parent="Screens"]
+[node name="Market" type="ColorRect" parent="Screens"]
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
 color = Color(0.102, 0.102, 0.102, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Screens/Shop"]
+[node name="MarginContainer" type="MarginContainer" parent="Screens/Market"]
 custom_minimum_size = Vector2(720, 1600)
 layout_mode = 0
 offset_right = 1080.0
@@ -44,12 +44,12 @@ theme_override_constants/margin_top = 90
 theme_override_constants/margin_right = 90
 theme_override_constants/margin_bottom = 90
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Shop/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Market/MarginContainer"]
 layout_mode = 2
 
-[node name="Heading" type="Label" parent="Screens/Shop/MarginContainer/VBoxContainer"]
+[node name="Heading" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "SHOP"
+text = "INTERGALACTIC MARKET"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
 
@@ -122,18 +122,45 @@ theme_override_constants/margin_bottom = 90
 [node name="VBoxContainer" type="VBoxContainer" parent="Screens/Commander/MarginContainer"]
 layout_mode = 2
 
-[node name="Name" type="HBoxContainer" parent="Screens/Commander/MarginContainer/VBoxContainer"]
+[node name="Heading" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "COMMANDER"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="Details" type="HBoxContainer" parent="Screens/Commander/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Name"]
+[node name="Name" type="HBoxContainer" parent="Screens/Commander/MarginContainer/VBoxContainer/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Name"]
 layout_mode = 2
 text = "Name"
 
-[node name="LineEdit" type="LineEdit" parent="Screens/Commander/MarginContainer/VBoxContainer/Name"]
+[node name="LineEdit" type="LineEdit" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Name"]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Commander"
 max_length = 70
+
+[node name="Rank" type="HBoxContainer" parent="Screens/Commander/MarginContainer/VBoxContainer/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Rank"]
+layout_mode = 2
+text = "Rank"
+
+[node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Rank"]
+layout_mode = 2
+text = "1"
+
+[node name="HSeparator" type="HSeparator" parent="Screens/Commander/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
 
 [node name="Upgrades" type="VBoxContainer" parent="Screens/Commander/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -249,10 +276,11 @@ offset_top = 1780.0
 offset_right = 1080.0
 offset_bottom = 1960.0
 
-[node name="Shop" type="Button" parent="ControlsBottom"]
+[node name="Market" type="Button" parent="ControlsBottom"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
-text = "SHOP"
+text = "INTERGALACTIC
+MARKET"
 
 [node name="MarginContainer" type="MarginContainer" parent="ControlsBottom"]
 layout_mode = 2
@@ -284,4 +312,5 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 text = "COMMANDER"
 
+[connection signal="text_changed" from="Screens/Commander/MarginContainer/VBoxContainer/Details/Name/LineEdit" to="." method="_on_name_changed"]
 [connection signal="pressed" from="Screens/CloseButton" to="." method="hide_screens"]
