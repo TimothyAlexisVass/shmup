@@ -16,6 +16,13 @@ const badge = {
 	COMPLETION.PINNACLE: preload("res://assets/sprites/level_badges/pinnacle.png"),
 }
 
+var label_circles = {
+	"CUPRUM": preload("res://assets/sprites/level_badges/cuprum_circle.png"),
+	"ARGENTUM": preload("res://assets/sprites/level_badges/argentum_circle.png"),
+	"AURUM": preload("res://assets/sprites/level_badges/aurum_circle.png"),
+	"PINNACLE": preload("res://assets/sprites/level_badges/pinnacle_circle.png"),
+}
+
 @export var level: int = 1
 @export var completion: COMPLETION = COMPLETION.NONE
 
@@ -28,4 +35,6 @@ func initialize():
 	challenge = int((completion+3)/3.0)-1
 	texture_normal.diffuse_texture = badge[completion]
 	if completion > 0:
-		$Label.position.y += 600
+		$Label.position.y += 877 if completion > 6 else 699
+		$Label/Circle.set_visible(true)
+		$Label/Circle.set_texture(label_circles[COMPLETION.keys()[completion].split("_")[0]])
