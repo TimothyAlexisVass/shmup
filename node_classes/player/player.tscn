@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ceuh25br64vvt"]
+[gd_scene load_steps=9 format=3 uid="uid://ceuh25br64vvt"]
 
 [ext_resource type="Script" path="res://node_classes/player/player.gd" id="1_upu44"]
-[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_ftlxp"]
 [ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="2_ysavb"]
 [ext_resource type="PackedScene" uid="uid://drnwdolfdun1k" path="res://node_classes/player/cannon_configuration.tscn" id="3_58kp5"]
-[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="3_v4yfi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ila4y"]
 diffuse_texture = ExtResource("2_ysavb")
@@ -33,14 +31,6 @@ z_index = -100
 scale = Vector2(0.2, 0.2)
 collision_mask = 10
 script = ExtResource("1_upu44")
-
-[node name="Jet" parent="." instance=ExtResource("2_ftlxp")]
-position = Vector2(-90, -160)
-process_material = ExtResource("3_v4yfi")
-
-[node name="Jet2" parent="." instance=ExtResource("2_ftlxp")]
-position = Vector2(90, -160)
-process_material = ExtResource("3_v4yfi")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_ila4y")

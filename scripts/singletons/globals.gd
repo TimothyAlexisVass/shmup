@@ -40,8 +40,9 @@ var player_layer # For player ships and stuff
 var top_layer # For powerups and important things
 var shots_layer # For shots
 
-var player_ship_scenes = get_filenames_of_type("scenes/player_ships", ".tscn")
+var player_ship_scenes = get_filenames_of_type("scenes/player_ships", "tscn")
 var player_ships = player_ship_scenes.keys()
+var player_ship_sprites = get_filenames_of_type("assets/sprites/player_ships", "png")
 
 func explode(object):
 	var explosion = object.explosion.instantiate()

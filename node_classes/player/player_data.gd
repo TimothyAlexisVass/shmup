@@ -26,9 +26,9 @@ var resources = {
 	"Eternium": 1,
 }
 
-var selected_ship = "Blade"
+var selected_ship = "Justice"
 
-var available_ships = ["Blade"]
+var available_ships = ["Blade", "Justice"]
 
 var levels = {
 	"1": 10,

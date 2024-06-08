@@ -35,6 +35,6 @@ func initialize():
 	challenge = int((completion+3)/3.0)-1
 	texture_normal.diffuse_texture = badge[completion]
 	if completion > 0:
-		$Label.position.y += 877 if completion > 6 else 699
+		$Label.position.y += 855 if completion > 6 else 677
 		$Label/Circle.set_visible(true)
 		$Label/Circle.set_texture(label_circles[COMPLETION.keys()[completion].split("_")[0]])

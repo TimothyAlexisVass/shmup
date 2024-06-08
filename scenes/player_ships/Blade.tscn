@@ -1,5 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://u2a4o83keeke"]
+[gd_scene load_steps=4 format=3 uid="uid://u2a4o83keeke"]
 
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_odwif"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_7bhkw"]
+[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="3_fv3o6"]
 
 [node name="Player" instance=ExtResource("1_odwif")]
+
+[node name="Jet" parent="." index="0" instance=ExtResource("2_7bhkw")]
+position = Vector2(-90, -160)
+scale = Vector2(1, 1)
+process_material = ExtResource("3_fv3o6")
+
+[node name="Jet2" parent="." index="1" instance=ExtResource("2_7bhkw")]
+position = Vector2(90, -160)
+scale = Vector2(1, 1)
+process_material = ExtResource("3_fv3o6")

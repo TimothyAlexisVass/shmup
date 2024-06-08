@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cja3ju4kxn6nu"]
+[gd_scene load_steps=21 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_rigs5"]
 [ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/resources/aluminium.png" id="2_x8vtx"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cw6tsd5klfh0q" path="res://assets/sprites/user_interface/arrow_right.png" id="12_0ura4"]
 [ext_resource type="Script" path="res://scripts/exchange_items.gd" id="12_3hfpd"]
 [ext_resource type="Texture2D" uid="uid://3tl4yrjivymy" path="res://assets/sprites/user_interface/arrow_up.png" id="13_5i67r"]
+[ext_resource type="Script" path="res://scenes/player_ships_grid.gd" id="16_6iycq"]
+[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="17_0pw2r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
 font_size = 40
@@ -45,6 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Market" type="ColorRect" parent="Screens"]
+visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -525,7 +528,6 @@ popup/item_9/icon = ExtResource("11_ftgh8")
 popup/item_9/id = 9
 
 [node name="Ships" type="ColorRect" parent="Screens"]
-visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -550,6 +552,35 @@ layout_mode = 2
 text = "SHIPS"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
+
+[node name="PlayerShipsGrid" type="GridContainer" parent="Screens/Ships/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("16_6iycq")
+
+[node name="Button" type="Button" parent="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsGrid"]
+custom_minimum_size = Vector2(300, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsGrid/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 90)
+texture = ExtResource("17_0pw2r")
+expand_mode = 2
+stretch_mode = 5
+flip_v = true
 
 [node name="Pilots" type="ColorRect" parent="Screens"]
 visible = false
