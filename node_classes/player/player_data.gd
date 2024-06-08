@@ -31,7 +31,7 @@ var selected_ship = "Blade"
 var available_ships = ["Blade"]
 
 var levels = {
-	"1": 0
+	"1": 1
 }
 
 var config = {

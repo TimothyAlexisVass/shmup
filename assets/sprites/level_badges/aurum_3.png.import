@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btfuxveh25jtb"
-path="res://.godot/imported/silver_3.png-d5d00420d8d0328d0ee938c8c911d8cd.ctex"
+uid="uid://b5500gf6fey1x"
+path="res://.godot/imported/aurum_3.png-64fae238b0800bfc3845d49bc4e4602f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level_badges/silver_3.png"
-dest_files=["res://.godot/imported/silver_3.png-d5d00420d8d0328d0ee938c8c911d8cd.ctex"]
+source_file="res://assets/sprites/level_badges/aurum_3.png"
+dest_files=["res://.godot/imported/aurum_3.png-64fae238b0800bfc3845d49bc4e4602f.ctex"]
 
 [params]
 
