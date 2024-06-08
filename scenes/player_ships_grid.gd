@@ -1,9 +1,14 @@
-extends GridContainer
+extends ItemList
+
+# var ship_selection_button_scene = preload("res://node_classes/player/ship_selection_button.tscn")
 
 func _ready():
-	print(G.player_ship_sprites)
+	var index = 0
 	for ship_name in G.player_ship_sprites.keys():
-		var player_ship_button = TextureButton.new()
-		player_ship_button.texture_normal = load(G.player_ship_sprites[ship_name].full_path)
-		print(player_ship_button)
-		self.add_child(player_ship_button)
+		add_item(ship_name, load(G.player_ship_sprites[ship_name].full_path), ship_name in DataManager.player_data.available_ships)
+		if ship_name == DataManager.player_data.selected_ship:
+			select(index)
+		index += 1
+
+func _on_item_selected(index):
+	DataManager.player_data.selected_ship = get_item_text(index)

@@ -26,7 +26,11 @@ var resources = {
 	"Eternium": 1,
 }
 
-var selected_ship = "Justice"
+var selected_ship = "Justice":
+	set(value):
+		selected_ship = value
+		DataManager.save_data()
+	
 
 var available_ships = ["Blade", "Justice"]
 

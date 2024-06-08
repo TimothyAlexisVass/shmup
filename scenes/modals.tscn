@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cja3ju4kxn6nu"]
+[gd_scene load_steps=20 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_rigs5"]
 [ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/resources/aluminium.png" id="2_x8vtx"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://scripts/exchange_items.gd" id="12_3hfpd"]
 [ext_resource type="Texture2D" uid="uid://3tl4yrjivymy" path="res://assets/sprites/user_interface/arrow_up.png" id="13_5i67r"]
 [ext_resource type="Script" path="res://scenes/player_ships_grid.gd" id="16_6iycq"]
-[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="17_0pw2r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
 font_size = 40
@@ -553,34 +552,18 @@ text = "SHIPS"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
 
-[node name="PlayerShipsGrid" type="GridContainer" parent="Screens/Ships/MarginContainer/VBoxContainer"]
+[node name="PlayerShipsList" type="ItemList" parent="Screens/Ships/MarginContainer/VBoxContainer"]
+clip_contents = false
 layout_mode = 2
-columns = 5
+size_flags_vertical = 3
+theme = ExtResource("3_7g8ct")
+auto_height = true
+max_columns = 3
+same_column_width = true
+fixed_column_width = 290
+icon_mode = 0
+fixed_icon_size = Vector2i(280, 180)
 script = ExtResource("16_6iycq")
-
-[node name="Button" type="Button" parent="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsGrid"]
-custom_minimum_size = Vector2(300, 180)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsGrid/Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(90, 90)
-texture = ExtResource("17_0pw2r")
-expand_mode = 2
-stretch_mode = 5
-flip_v = true
 
 [node name="Pilots" type="ColorRect" parent="Screens"]
 visible = false
@@ -850,5 +833,6 @@ text = "COMMANDER"
 [connection signal="pressed" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item1ToItem2" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_to_item_2_pressed"]
 [connection signal="pressed" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item2ToItem1" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_to_item_1_pressed"]
 [connection signal="item_selected" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item2" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_item_selected"]
+[connection signal="item_selected" from="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsList" to="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsList" method="_on_item_selected"]
 [connection signal="text_changed" from="Screens/Commander/MarginContainer/VBoxContainer/Details/Name/LineEdit" to="." method="_on_name_changed"]
 [connection signal="pressed" from="Screens/CloseButton" to="." method="hide_screens"]
