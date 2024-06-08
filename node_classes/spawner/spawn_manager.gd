@@ -107,8 +107,9 @@ func enqueue_wave(wave_number):
 					"sequence": [spawn_point]
 				})
 
-func spawn_player_ship(player_scene_name):
-	var player_ship = load("res://scenes/player_ships/" + player_scene_name +".tscn").instantiate()
+func spawn_player_ship():
+	var selected_player_ship_scene_path = G.player_ship_scenes[DataManager.player_data.selected_ship].full_path
+	var player_ship = load(selected_player_ship_scene_path).instantiate()
 	G.level.add_child(player_ship)
 	return player_ship
 

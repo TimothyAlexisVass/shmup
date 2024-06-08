@@ -10,7 +10,6 @@ func _enter_tree():
 	G.viewport_size = get_viewport().get_visible_rect().size
 	G.center = G.viewport_size / 2.0
 	G.play_area = { "min": -G.GAME_AREA_OFFSET, "max": Vector2(get_viewport().size) + G.GAME_AREA_OFFSET }
-	G.play_area_fourth = (G.play_area.max - G.play_area.min) / 4.0
 	G.bottom_layer = $ViewLayers/BottomLayer
 	G.ships_layer = $ViewLayers/ShipsLayer
 	G.player_layer = $ViewLayers/PlayerLayer
@@ -19,7 +18,7 @@ func _enter_tree():
 	G.spawn_manager = $SpawnManager
 
 func _ready():
-	G.player = $SpawnManager.spawn_player_ship("Blade")
+	G.player = $SpawnManager.spawn_player_ship()
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("devbomb"):

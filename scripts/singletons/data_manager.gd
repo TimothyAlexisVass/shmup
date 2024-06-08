@@ -65,5 +65,6 @@ func load_data():
 		player_data.commander = loaded_data.commander
 		player_data.levels = loaded_data.levels
 		player_data.resources = loaded_data.resources
+		player_data.selected_ship = loaded_data.selected_ship
 	else:
 		print("Save file doesn't exist")

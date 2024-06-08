@@ -1,4 +1,4 @@
-class_name G extends Node2D
+extends Node2D
 
 const DEBUG = true
 
@@ -20,25 +20,30 @@ const TIER_COLOR = {
 enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
 enum CHALLENGE { NONE, EASY, MEDIUM, ELITE, APEX }
 
-static var level
-static var level_selection
-static var modals
-static var spawn_manager
-static var stuff
-static var center
-static var play_area
-static var play_area_fourth
-static var bottom_layer # For visual effects
-static var ships_layer # For non-player ships
-static var player_layer # For player ships and stuff
-static var top_layer # For powerups and important things
-static var shots_layer # For shots and most important things
-static var viewport_size
+# Active instances
+var level
+var level_selection
+var modals
+var spawn_manager
+var camera
+var player
 
-static var camera
-static var player
+# Viewport and play area
+var viewport_size
+var center
+var play_area
 
-static func explode(object):
+# Layers
+var bottom_layer # For visual effects
+var ships_layer # For non-player ships
+var player_layer # For player ships and stuff
+var top_layer # For powerups and important things
+var shots_layer # For shots
+
+var player_ship_scenes = get_filenames_of_type("scenes/player_ships", ".tscn")
+var player_ships = player_ship_scenes.keys()
+
+func explode(object):
 	var explosion = object.explosion.instantiate()
 	explosion.global_position = object.global_position
 	for particle in explosion.get_children():
@@ -47,39 +52,66 @@ static func explode(object):
 		particle.emitting = true
 	bottom_layer.add_child(explosion)
 
-static func glow(color, strength):
+func glow(color, strength):
 	var new_modulate = Color(1, 1, 1) + color * strength
 	new_modulate.a = 1
 	return new_modulate
 
-static func colored_light(color):
+func colored_light(color):
 	var max_component = max(color.r, color.g, color.b)
 	return color * (1 / max_component) * color * 2.5
 
-static func diminishing_increase(base, skill_level):
+func diminishing_increase(base, skill_level):
 	return snapped(base * sqrt(skill_level + 1), 0.01)
 
-static func linear_increase(base, skill_level, magnitude):
+func linear_increase(base, skill_level, magnitude):
 	return base + skill_level * magnitude
 
-static func random_position_in_camera_view():
+func random_position_in_camera_view():
 	var camera_min = camera.get_min()
 	var camera_max = camera.get_max()
 	return Vector2(randf_range(camera_min.x, camera_max.x), randf_range(camera_min.y, camera_max.y))
 
-static func random_boolean():
+func random_boolean():
 	return [true, false].pick_random()
 
-static func random_sign(number):
+func random_sign(number):
 	return [-number, number].pick_random()
 
-static func rotate_towards_target(object_to_rotate, target, rotation_speed):
+func rotate_towards_target(object_to_rotate, target, rotation_speed):
 	var target_angle = G.ANGLE_UP + object_to_rotate.global_position.angle_to_point(target)
 	object_to_rotate.rotation = lerp_angle(object_to_rotate.rotation, target_angle, rotation_speed)
 	
-static func smart_snap(value):
+func smart_snap(value):
 	if value < 5:
 		return snapped(value, 0.01)
 	elif value < 20:
 		return snapped(value, 0.1)
 	return snapped(value, 1)
+
+# Returns a dictionary with file name as key and it's suffix as value
+func get_filenames_of_type(folder, suffix = null):
+	if not folder.begins_with("res://"):
+		folder = "res://" + folder
+	if not folder.ends_with("/"):
+		folder += "/"
+	var dir = DirAccess.open(folder)
+	var file_names = {}
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir():
+				var append_file = true
+				if suffix and not file_name.ends_with(suffix):
+					append_file = false
+				if append_file:
+					var file_name_parts = file_name.split(".")
+					file_names[file_name_parts[0]] = {
+						"full_path": folder + file_name_parts[0] + "." + file_name_parts[1],
+						"folder": folder,
+						"suffix": file_name_parts[1]
+					}
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	return file_names
