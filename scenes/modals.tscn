@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cja3ju4kxn6nu"]
+[gd_scene load_steps=21 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_rigs5"]
 [ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/resources/aluminium.png" id="2_x8vtx"]
@@ -15,7 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cw6tsd5klfh0q" path="res://assets/sprites/user_interface/arrow_right.png" id="12_0ura4"]
 [ext_resource type="Script" path="res://scripts/exchange_items.gd" id="12_3hfpd"]
 [ext_resource type="Texture2D" uid="uid://3tl4yrjivymy" path="res://assets/sprites/user_interface/arrow_up.png" id="13_5i67r"]
-[ext_resource type="Script" path="res://scenes/player_ships_grid.gd" id="16_6iycq"]
+[ext_resource type="Script" path="res://scripts/player_ships_grid.gd" id="16_f823t"]
+[ext_resource type="Script" path="res://scripts/pilots_grid.gd" id="17_nblrf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
 font_size = 40
@@ -563,7 +564,7 @@ same_column_width = true
 fixed_column_width = 290
 icon_mode = 0
 fixed_icon_size = Vector2i(280, 180)
-script = ExtResource("16_6iycq")
+script = ExtResource("16_f823t")
 
 [node name="Pilots" type="ColorRect" parent="Screens"]
 layout_mode = 0
@@ -587,7 +588,7 @@ layout_mode = 2
 [node name="Heading" type="Label" parent="Screens/Pilots/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "SHIPS"
+text = "PILOTS"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
 
@@ -602,7 +603,7 @@ same_column_width = true
 fixed_column_width = 290
 icon_mode = 0
 fixed_icon_size = Vector2i(280, 180)
-script = ExtResource("16_6iycq")
+script = ExtResource("17_nblrf")
 
 [node name="Commander" type="ColorRect" parent="Screens"]
 visible = false

@@ -30,9 +30,15 @@ var selected_ship = "Justice":
 	set(value):
 		selected_ship = value
 		DataManager.save_data()
-	
+
+var selected_pilot = "Lance":
+	set(value):
+		selected_pilot = value
+		DataManager.save_data()
 
 var available_ships = ["Blade", "Justice"]
+
+var available_pilots = ["Lance", "Mia"]
 
 var levels = {
 	"1": 10,
