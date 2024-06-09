@@ -68,3 +68,5 @@ modulate = Color(1, 1, 4, 0.105882)
 show_behind_parent = true
 position = Vector2(505, 500)
 texture = ExtResource("5_ll3r6")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

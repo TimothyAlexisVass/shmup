@@ -32,6 +32,7 @@ var player
 var viewport_size
 var center
 var play_area
+var touching = 0
 
 # Layers
 var bottom_layer # For visual effects
@@ -44,14 +45,21 @@ var player_ship_scenes = get_filenames_of_type("scenes/player_ships", "tscn")
 var player_ships = player_ship_scenes.keys()
 var player_ship_sprites = get_filenames_of_type("assets/sprites/player_ships", "png")
 
+func _input(event):
+	if event is InputEventScreenTouch:
+		if event.is_pressed():
+			touching += 1
+		else:
+			touching = max(0, touching - 1)
+
 func explode(object):
-	var explosion = object.explosion.instantiate()
-	explosion.global_position = object.global_position
-	for particle in explosion.get_children():
+	var explosion_instance = object.explosion.instantiate()
+	explosion_instance.global_position = object.global_position
+	for particle in explosion_instance.get_children():
 		particle.get_process_material().scale_min *= object.explosion_scale
 		particle.get_process_material().scale_max *= object.explosion_scale
 		particle.emitting = true
-	bottom_layer.add_child(explosion)
+	bottom_layer.add_child(explosion_instance)
 
 func glow(color, strength):
 	var new_modulate = Color(1, 1, 1) + color * strength

@@ -566,7 +566,6 @@ fixed_icon_size = Vector2i(280, 180)
 script = ExtResource("16_6iycq")
 
 [node name="Pilots" type="ColorRect" parent="Screens"]
-visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -588,9 +587,22 @@ layout_mode = 2
 [node name="Heading" type="Label" parent="Screens/Pilots/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "PILOTS"
+text = "SHIPS"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
+
+[node name="PilotsList" type="ItemList" parent="Screens/Pilots/MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_7g8ct")
+auto_height = true
+max_columns = 3
+same_column_width = true
+fixed_column_width = 290
+icon_mode = 0
+fixed_icon_size = Vector2i(280, 180)
+script = ExtResource("16_6iycq")
 
 [node name="Commander" type="ColorRect" parent="Screens"]
 visible = false
@@ -834,5 +846,6 @@ text = "COMMANDER"
 [connection signal="pressed" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item2ToItem1" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_to_item_1_pressed"]
 [connection signal="item_selected" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item2" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_item_selected"]
 [connection signal="item_selected" from="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsList" to="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsList" method="_on_item_selected"]
+[connection signal="item_selected" from="Screens/Pilots/MarginContainer/VBoxContainer/PilotsList" to="Screens/Pilots/MarginContainer/VBoxContainer/PilotsList" method="_on_item_selected"]
 [connection signal="text_changed" from="Screens/Commander/MarginContainer/VBoxContainer/Details/Name/LineEdit" to="." method="_on_name_changed"]
 [connection signal="pressed" from="Screens/CloseButton" to="." method="hide_screens"]

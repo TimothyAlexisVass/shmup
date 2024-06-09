@@ -11,3 +11,6 @@ motion_mirroring = Vector2(0, 4096)
 [node name="SpaceBackground" parent="-999" index="0"]
 scale = Vector2(1, 1)
 texture = ExtResource("2_r5bt5")
+
+[node name="Stars" parent="-444" index="0"]
+scale = Vector2(1, 1)

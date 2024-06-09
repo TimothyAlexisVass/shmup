@@ -38,3 +38,6 @@ func initialize():
 		$Label.position.y += 855 if completion > 6 else 677
 		$Label/Circle.set_visible(true)
 		$Label/Circle.set_texture(label_circles[COMPLETION.keys()[completion].split("_")[0]])
+
+func _on_pressed():
+	Switch.to_level(level, challenge)

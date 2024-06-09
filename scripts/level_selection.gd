@@ -45,6 +45,3 @@ func _ready():
 		
 		button.get_node("Label").set_text(str(i))
 		button.get_node("BackGlow").modulate = Color(0.2, 0.2, 0.2)
-
-	for level_button in $Levels.get_children():
-		level_button.connect("pressed", Callable(Switch, "to_level").bind(level_button.level, level_button.challenge))

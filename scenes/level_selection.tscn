@@ -8,17 +8,6 @@
 [ext_resource type="Script" path="res://scenes/touch_camera_controller.gd" id="5_mf7nh"]
 [ext_resource type="Texture2D" uid="uid://rnp067mqtk0j" path="res://assets/sprites/level_badges/level_normal.png" id="6_p5tfd"]
 
-[sub_resource type="Gradient" id="Gradient_rdepl"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hc8uk"]
-gradient = SubResource("Gradient_rdepl")
-width = 100
-height = 100
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [sub_resource type="Gradient" id="Gradient_ntu6r"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
@@ -42,8 +31,65 @@ resource_local_to_scene = true
 diffuse_texture = ExtResource("5_kbiqw")
 normal_texture = ExtResource("6_p5tfd")
 
+[sub_resource type="Gradient" id="Gradient_rdepl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hc8uk"]
+gradient = SubResource("Gradient_rdepl")
+width = 100
+height = 100
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="LevelSelection" type="Node2D"]
 script = ExtResource("1_btxd3")
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Lines"]
+visible = false
+modulate = Color(1.5, 1.5, 5, 0.529)
+points = PackedVector2Array(729, 408, 386, 651)
+default_color = Color(1, 1, 1, 0.286275)
+
+[node name="CurrentLevel" type="GPUParticles2D" parent="."]
+modulate = Color(10, 4, 1, 1)
+position = Vector2(300, 176)
+scale = Vector2(0.2, 0.2)
+amount = 1200
+process_material = SubResource("ParticleProcessMaterial_6see5")
+lifetime = 8.0
+preprocess = 8.0
+
+[node name="Levels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1080.0
+offset_bottom = 1960.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LevelButton" parent="Levels" instance=ExtResource("4_3sqjx")]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 82.0
+offset_right = 1211.0
+offset_bottom = 1080.0
+texture_normal = SubResource("CanvasTexture_sxys0")
+
+[node name="ControlsLeft" type="VBoxContainer" parent="."]
+offset_right = 180.0
+offset_bottom = 1000.0
+
+[node name="ControlsRight" type="VBoxContainer" parent="."]
+offset_left = 900.0
+offset_right = 1080.0
+size_flags_vertical = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(540, 980)
@@ -77,43 +123,3 @@ offset_left = -540.0
 offset_top = -980.0
 offset_right = -540.0
 offset_bottom = -980.0
-
-[node name="Lines" type="Node2D" parent="."]
-
-[node name="Line2D" type="Line2D" parent="Lines"]
-visible = false
-modulate = Color(1.5, 1.5, 5, 0.529)
-points = PackedVector2Array(729, 408, 386, 651)
-default_color = Color(1, 1, 1, 0.286275)
-
-[node name="CurrentLevel" type="GPUParticles2D" parent="."]
-modulate = Color(10, 4, 1, 1)
-position = Vector2(300, 176)
-scale = Vector2(0.2, 0.2)
-amount = 1200
-process_material = SubResource("ParticleProcessMaterial_6see5")
-lifetime = 8.0
-preprocess = 8.0
-
-[node name="Levels" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="LevelButton" parent="Levels" instance=ExtResource("4_3sqjx")]
-layout_mode = 0
-offset_left = 199.0
-offset_top = 82.0
-offset_right = 1211.0
-offset_bottom = 1080.0
-texture_normal = SubResource("CanvasTexture_sxys0")
-
-[node name="ControlsLeft" type="VBoxContainer" parent="."]
-offset_right = 180.0
-offset_bottom = 1000.0
-
-[node name="ControlsRight" type="VBoxContainer" parent="."]
-offset_left = 900.0
-offset_right = 1080.0
-size_flags_vertical = 3

@@ -58,6 +58,9 @@ var spawner_scene = preload("res://node_classes/spawner/spawner.tscn")
 var waiting_for = []
 var wave_queue = []
 var spawn_points = {}
+var player_spawn_position = Vector2(540, 1540 + G.GAME_AREA_OFFSET.y/2 + 14)
+
+var particle_systems = []
 
 @onready var ships_left_for_next_wave = Spawn.ships_left_for_next_wave(G.level.number)[G.level.challenge]
 @onready var max_spawn_point = Spawn.max_spawn_point(G.level.number)
@@ -65,10 +68,12 @@ var spawn_points = {}
 @onready var number_of_waves = waves.size()
 
 func _ready():
+	G.player = spawn_player_ship()
 	for spawn_point_marker in G.ships_layer.get_node("SpawnPoints").get_children():
 		spawn_points[spawn_point_marker.name.to_int()] = spawn_point_marker
 	print("Level: ", G.level.number)
 	print("Challenge: ", G.level.challenge)
+	cache_shaders()
 
 func enqueue_wave(wave_number):
 	var wave_tier = waves[wave_number]
@@ -107,10 +112,28 @@ func enqueue_wave(wave_number):
 					"sequence": [spawn_point]
 				})
 
+func cache_shaders():
+	particle_systems.append(G.player.explosion)
+	for wave_tier in waves:
+		for ship_scene in ships[wave_tier]:
+			var ship_instance = ships[wave_tier][ship_scene].instantiate()
+			ship_instance.global_position = G.center
+			G.ships_layer.add_child(ship_instance)
+			if not ship_instance.explosion in particle_systems:
+				particle_systems.append(ship_instance.explosion)
+			ship_instance.call_deferred("queue_free")
+	for particle_system in particle_systems:
+		var particle_system_instance = particle_system.instantiate()
+		particle_system_instance.global_position = G.center
+		for particle in particle_system_instance.get_children():
+			particle.emitting = true
+		G.bottom_layer.add_child(particle_system_instance)
+
 func spawn_player_ship():
 	var selected_player_ship_scene_path = G.player_ship_scenes[DataManager.player_data.selected_ship].full_path
 	var player_ship = load(selected_player_ship_scene_path).instantiate()
-	G.level.add_child(player_ship)
+	player_ship.global_position = player_spawn_position
+	G.player_layer.add_child(player_ship)
 	return player_ship
 
 func _on_wave_timer_timeout():

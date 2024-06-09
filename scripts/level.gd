@@ -3,8 +3,6 @@ class_name Level extends Node2D
 var number = 1
 var challenge = G.CHALLENGE.NONE
 
-var fire_explosion = preload("res://scenes/explosions/fire_explosion.tscn")
-
 func _enter_tree():
 	G.level = self
 	G.viewport_size = get_viewport().get_visible_rect().size
@@ -16,9 +14,6 @@ func _enter_tree():
 	G.top_layer = $ViewLayers/TopLayer
 	G.shots_layer = $ViewLayers/ShotsLayer
 	G.spawn_manager = $SpawnManager
-
-func _ready():
-	G.player = $SpawnManager.spawn_player_ship()
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("devbomb"):

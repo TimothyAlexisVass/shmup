@@ -19,6 +19,7 @@ color_ramp = SubResource("GradientTexture1D_q5iqj")
 
 [node name="Plasma" type="GPUParticles2D"]
 modulate = Color(10, 3, 1, 1)
+self_modulate = Color(3, 3, 3, 1)
 light_mask = 512
 emitting = false
 amount = 10

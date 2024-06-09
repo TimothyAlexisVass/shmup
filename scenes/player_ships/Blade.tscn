@@ -8,10 +8,11 @@
 
 [node name="Jet" parent="." index="0" instance=ExtResource("2_7bhkw")]
 position = Vector2(-90, -160)
-scale = Vector2(1, 1)
 process_material = ExtResource("3_fv3o6")
 
 [node name="Jet2" parent="." index="1" instance=ExtResource("2_7bhkw")]
 position = Vector2(90, -160)
-scale = Vector2(1, 1)
 process_material = ExtResource("3_fv3o6")
+
+[node name="Sprite2D" parent="GrazeArea" index="0"]
+modulate = Color(2, 2, 4, 0.395)

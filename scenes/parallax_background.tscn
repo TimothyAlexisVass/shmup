@@ -72,14 +72,14 @@ metadata/_edit_use_anchors_ = true
 z_index = -777
 motion_scale = Vector2(4, 4)
 motion_offset = Vector2(0, 2880)
-motion_mirroring = Vector2(0, 9600)
+motion_mirroring = Vector2(0, 4400)
 
 [node name="Stars" type="TextureRect" parent="-444"]
-modulate = Color(30, 30, 30, 1)
+modulate = Color(8, 8, 8, 1)
 light_mask = 512
 offset_right = 1080.0
 offset_bottom = 3840.0
-scale = Vector2(2.5, 2.5)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_hqufs")
 stretch_mode = 1
 flip_h = true
@@ -89,14 +89,14 @@ metadata/_edit_use_anchors_ = true
 [node name="-333" type="ParallaxLayer" parent="."]
 z_index = -888
 motion_scale = Vector2(5, 5)
-motion_mirroring = Vector2(0, 11520)
+motion_mirroring = Vector2(0, 5800)
 
 [node name="Stars" type="TextureRect" parent="-333"]
-modulate = Color(20, 20, 20, 1)
+modulate = Color(3, 3, 3, 1)
 light_mask = 512
 offset_right = 1080.0
 offset_bottom = 3840.0
-scale = Vector2(3, 3)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_hqufs")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true

@@ -20,7 +20,7 @@ for y in range(height):
     # Randomly decide if a circle is drawn
     if random.random() < white_chance:
       # Generate random radius between 1 and 3
-      radius = round(random.uniform(0.01, 0.2), 2)
+      radius = round(random.uniform(0.1, 2), 1)
       # Add circle element to SVG string with random position and white fill
       svg_content += f'<circle cx="{x + radius}" cy="{y + radius}" r="{radius}" fill="white"/>'
 
