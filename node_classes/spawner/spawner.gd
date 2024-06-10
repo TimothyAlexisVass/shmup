@@ -3,6 +3,7 @@ extends Node
 var instance_to_spawn = null
 var amount = null
 var scene = null
+var tier_to_spawn = null
 
 func spawn(scene_to_spawn, amount_to_spawn):
 	G.spawn_manager.waiting_for.append(self)
@@ -16,6 +17,7 @@ func _on_spawn_timer_timeout():
 		if instance_to_spawn == null:
 			instance_to_spawn = scene.instantiate()
 		instance_to_spawn.global_position = self.global_position
+		instance_to_spawn.tier = self.tier_to_spawn
 		var instance_parent = get_parent()
 		if instance_to_spawn.move == instance_to_spawn.MOVE.ALONG_PATH:
 			var available_paths = get_parent().get_node_or_null("Paths")

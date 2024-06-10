@@ -114,9 +114,12 @@ func enqueue_wave(wave_number):
 
 func cache_shaders():
 	particle_systems.append(G.player.explosion)
+	var ship_tiers = {}
 	for wave_tier in waves:
-		for ship_scene in ships[wave_tier]:
-			var ship_instance = ships[wave_tier][ship_scene].instantiate()
+		ship_tiers[wave_tier] = true
+	for ship_tier in ship_tiers.keys():
+		for ship_scene in ships[ship_tier]:
+			var ship_instance = ships[ship_tier][ship_scene].instantiate()
 			ship_instance.global_position = G.center
 			G.ships_layer.add_child(ship_instance)
 			if not ship_instance.explosion in particle_systems:

@@ -34,7 +34,10 @@ var velocity = Vector2(0, 0)
 @onready var shooting = false
 
 var shipbody_texture = null
-var ship_tier = 0
+var rarity = 0
+var tier = 1
+
+signal drop_reward(recipient, at_global_position)
 
 func _enter_tree():
 	var ship_value = randi_range(0, 10000)
@@ -42,39 +45,41 @@ func _enter_tree():
 		ship_value += 1
 	
 	if ship_value == 0:
-		ship_tier = 9
+		rarity = 9
 	else:
 		if ship_value <= 2 && len(sprites) == 5:
 			shipbody_texture = sprites[4]
-			ship_tier = 5
+			rarity = 5
 		elif ship_value <= 5 && len(sprites) >= 4:
 			shipbody_texture = sprites[3]
-			ship_tier = 4
+			rarity = 4
 		elif ship_value <= 10 && len(sprites) >= 3:
 			shipbody_texture = sprites[2]
-			ship_tier = 3
+			rarity = 3
 		elif ship_value <= 100 && len(sprites) >= 2:
 			shipbody_texture = sprites[1]
-			ship_tier = 2
+			rarity = 2
 		elif ship_value <= 1000 && len(sprites) >= 1:
 			shipbody_texture = sprites[0]
-			ship_tier = 1
+			rarity = 1
 
-	if ship_tier == 9:
+	if rarity == 9:
 		shipbody_texture = crystal
 
-	scale *= 1 + 0.1 * ship_tier
-	total_hit_points *= 1 + ship_tier
+	scale *= 1 + 0.1 * rarity
+	total_hit_points *= 1 + rarity
 
 	var image_size = Vector2($ShipBody/Sprite.texture.diffuse_texture.get_image().get_size()) * $ShipBody/Sprite.scale
 	width = image_size.x
 	height = image_size.y
 	explosion_scale = (scale.x * width if width > height else scale.y * height) / 300.0
 
-	if ship_tier < 9:
+	if rarity < 9:
 		$CrystalStar.queue_free()
 
 func _ready():
+	$DropManager.tier = tier
+	$DropManager.reparent(G.top_layer)
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING
@@ -83,12 +88,12 @@ func _ready():
 
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
-		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[ship_tier]
-		$ShipBody/TierGlow.modulate = G.TIER_COLOR[ship_tier] * 1.3
+		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[rarity]
+		$ShipBody/TierGlow.modulate = G.TIER_COLOR[rarity] * 1.3
 		if jets:
 			for jet in jets.get_children():
-				jet.modulate = G.TIER_COLOR[ship_tier] * 2
-		$OffScreenIndicator.self_modulate = G.TIER_COLOR[ship_tier] * 2
+				jet.modulate = G.TIER_COLOR[rarity] * 2
+		$OffScreenIndicator.self_modulate = G.TIER_COLOR[rarity] * 2
 	else:
 		$ShipBody/TierGlow.queue_free()
 
@@ -98,8 +103,6 @@ func _ready():
 		target = (Vector2.DOWN * 9999).rotated($ShipBody.rotation)
 
 func _physics_process(delta):
-	if $HitPoints.value <= 0:
-		clear()
 	if move == MOVE.RANDOM_DESTINATION && ($ShipBody.global_position - target).length() < 200:
 		target = G.random_position_in_camera_view()
 	if get_node_or_null("ShipBody"):
@@ -131,11 +134,12 @@ func _on_collision(object):
 		take_damage(current_health)
 
 func handle_hit(shot):
-	take_damage(shot.source.fire_power)
+	take_damage(shot)
 	if $HitPoints.value > 0:
 		shot.hit(self)
 
-func take_damage(amount):
+func take_damage(shot):
+	var amount = shot.source.fire_power
 	current_health -= amount
 	if not $HitPoints.visible:
 		$HitPoints.visible = true
@@ -148,6 +152,7 @@ func take_damage(amount):
 		stop_jets()
 		muzzles_status(false)
 		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), G.HEALTH_TWEEN_TIME) # shine
+		clear(shot.source)
 	if $HitPoints.value > 0:
 		var ratio = current_health / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
@@ -156,7 +161,8 @@ func take_damage(amount):
 		tween.tween_property($HitPoints, "modulate", Color(max(1.2, 1.2 + 1 - green_component), 1.2, 1, 1), G.HEALTH_TWEEN_TIME)
 		tween.tween_property($HitPoints, "value", current_health, G.HEALTH_TWEEN_TIME)
 
-func clear():
+func clear(source):
+	drop_reward.emit(source, global_position)
 	G.explode(self)
 	queue_free()
 
