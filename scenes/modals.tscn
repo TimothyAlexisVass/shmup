@@ -600,9 +600,9 @@ theme = ExtResource("3_7g8ct")
 auto_height = true
 max_columns = 2
 same_column_width = true
-fixed_column_width = 400
+fixed_column_width = 438
 icon_mode = 0
-fixed_icon_size = Vector2i(380, 380)
+fixed_icon_size = Vector2i(438, 438)
 script = ExtResource("17_nblrf")
 
 [node name="Commander" type="ColorRect" parent="Screens"]
