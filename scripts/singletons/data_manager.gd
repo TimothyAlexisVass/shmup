@@ -41,6 +41,8 @@ func save_data():
 		"commander": player_data.commander,
 		"resources": player_data.resources,
 		"levels": player_data.levels,
+		"selected_pilot": player_data.selected_pilot,
+		"available_pilots": player_data.available_pilots,
 		"selected_ship": player_data.selected_ship,
 		"available_ships": player_data.available_ships
 	}
@@ -67,6 +69,8 @@ func load_data():
 		player_data.commander = loaded_data.commander
 		player_data.levels = loaded_data.levels
 		player_data.resources = loaded_data.resources
+		player_data.selected_pilot = loaded_data.selected_pilot
+		player_data.available_pilots = loaded_data.available_pilots
 		player_data.selected_ship = loaded_data.selected_ship
 		player_data.available_ships = loaded_data.available_ships
 	else:
