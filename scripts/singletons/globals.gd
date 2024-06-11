@@ -1,6 +1,6 @@
 extends Node2D
 
-const DEBUG = true
+const DEBUG = false
 
 const ANGLE_UP = -PI/2
 const ANGLE_RIGHT = 0

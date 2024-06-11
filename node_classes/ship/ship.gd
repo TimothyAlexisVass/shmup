@@ -160,8 +160,8 @@ func take_damage(cause):
 		tween.tween_property($HitPoints, "value", current_health, G.HEALTH_TWEEN_TIME)
 
 func clear(cleared_by):
-	if cleared_by is not float:
-		drop_rewards.emit(cleared_by, global_position)
+	if "source" in cleared_by:
+		drop_rewards.emit(cleared_by.source, global_position)
 	G.explode(self)
 	queue_free()
 

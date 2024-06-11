@@ -6,22 +6,24 @@ var resources = []
 var items = []
 var chests = []
 
-func _enter_tree():
-	set_resource_probabilities()
-	set_item_probabilities()
-	set_chest_probabilities()
-
-var drop_table = {
+@onready var drop_table = {
 	CATEGORY.GENERAL: resources + items + chests,
 	CATEGORY.RESOURCE: resources,
 	CATEGORY.ITEM: items,
 	CATEGORY.CHEST: chests
 }
 
+func _enter_tree():
+	set_resource_probabilities()
+	set_item_probabilities()
+	set_chest_probabilities()
+
 func set_resource_probabilities():
-	for resource in Exchange.rates.keys():
+	var resource_tiers = [1, 2, 4, 7, 10, 12, 14, 16, 18, 20]
+	for resource in Exchange.resources:
 		resources.append(
 			{
+				"tier": resource_tiers[Exchange.resources.find(resource)],
 				"reward": resource,
 				"probability": Exchange.rates["Aluminium"] / Exchange.rates[resource]
 			}

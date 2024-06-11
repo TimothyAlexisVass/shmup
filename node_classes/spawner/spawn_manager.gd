@@ -69,6 +69,7 @@ var particle_systems = []
 
 func _ready():
 	G.player = spawn_player_ship()
+	G.player.name = DataManager.player_data.selected_ship
 	for spawn_point_marker in G.ships_layer.get_node("SpawnPoints").get_children():
 		spawn_points[spawn_point_marker.name.to_int()] = spawn_point_marker
 	print("Level: ", G.level.number)
@@ -148,6 +149,7 @@ func _on_wave_timer_timeout():
 		for spawn_point in spawn.sequence:
 			var spawn_scene = ships[spawn.wave_tier].values().pick_random()
 			var spawner_instance = spawner_scene.instantiate()
+			spawner_instance.tier_to_spawn = spawn.wave_tier
 			spawn_points[spawn_point].add_child(spawner_instance)
 			spawner_instance.spawn(spawn_scene, spawn.amount)
 			if G.DEBUG:
