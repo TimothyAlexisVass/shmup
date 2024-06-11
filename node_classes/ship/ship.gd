@@ -37,7 +37,7 @@ var shipbody_texture = null
 var rarity = 0
 var tier = 1
 
-signal drop_reward(recipient, at_global_position)
+signal drop_rewards(recipient, at_global_position)
 
 func _enter_tree():
 	var ship_value = randi_range(0, 10000)
@@ -78,8 +78,6 @@ func _enter_tree():
 		$CrystalStar.queue_free()
 
 func _ready():
-	$DropManager.tier = tier
-	$DropManager.reparent(G.top_layer)
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING
@@ -130,16 +128,16 @@ func _physics_process(delta):
 
 func _on_collision(object):
 	if object is Player and G.player.is_playing and current_health > 0:
-		object.clear()
-		take_damage(current_health)
+		object.clear(self)
+		take_damage(self)
 
 func handle_hit(shot):
 	take_damage(shot)
 	if $HitPoints.value > 0:
 		shot.hit(self)
 
-func take_damage(shot):
-	var amount = shot.source.fire_power
+func take_damage(cause):
+	var amount = self.current_health if cause == self else cause.source.fire_power
 	current_health -= amount
 	if not $HitPoints.visible:
 		$HitPoints.visible = true
@@ -152,7 +150,7 @@ func take_damage(shot):
 		stop_jets()
 		muzzles_status(false)
 		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), G.HEALTH_TWEEN_TIME) # shine
-		clear(shot.source)
+		clear(cause)
 	if $HitPoints.value > 0:
 		var ratio = current_health / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
@@ -161,8 +159,9 @@ func take_damage(shot):
 		tween.tween_property($HitPoints, "modulate", Color(max(1.2, 1.2 + 1 - green_component), 1.2, 1, 1), G.HEALTH_TWEEN_TIME)
 		tween.tween_property($HitPoints, "value", current_health, G.HEALTH_TWEEN_TIME)
 
-func clear(source):
-	drop_reward.emit(source, global_position)
+func clear(cleared_by):
+	if cleared_by is not float:
+		drop_rewards.emit(cleared_by, global_position)
 	G.explode(self)
 	queue_free()
 

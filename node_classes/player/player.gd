@@ -83,10 +83,10 @@ func play():
 	$HitArea/CollisionShape2D.set_deferred("disabled", false)
 	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-func handle_hit(_shot):
-	clear()
+func handle_hit(shot):
+	clear(shot)
 
-func clear():
+func clear(_cause):
 	for muzzle in $CannonConfiguration.get_children():
 		muzzle.get_node("Timer").stop()
 	set_visible(false)
