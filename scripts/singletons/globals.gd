@@ -35,6 +35,7 @@ var play_area
 var touching = 0
 
 # Layers
+var view_layers
 var bottom_layer # For visual effects
 var ships_layer # For non-player ships
 var player_layer # For player ships and stuff

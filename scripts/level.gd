@@ -8,6 +8,7 @@ func _enter_tree():
 	G.viewport_size = get_viewport().get_visible_rect().size
 	G.center = G.viewport_size / 2.0
 	G.play_area = { "min": -G.GAME_AREA_OFFSET, "max": Vector2(get_viewport().size) + G.GAME_AREA_OFFSET }
+	G.view_layers = $ViewLayers
 	G.bottom_layer = $ViewLayers/BottomLayer
 	G.ships_layer = $ViewLayers/ShipsLayer
 	G.player_layer = $ViewLayers/PlayerLayer

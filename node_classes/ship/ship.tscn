@@ -10,7 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://c8xpn58skk06e" path="res://styles/hit_points_bar_background.tres" id="7_nydlk"]
 [ext_resource type="StyleBox" uid="uid://cvnn0obm23hqj" path="res://styles/hit_points_bar_fill.tres" id="8_bhdqd"]
 [ext_resource type="PackedScene" uid="uid://bld81khrcmege" path="res://node_classes/off_screen_indicator/off_screen_indicator.tscn" id="10_1f8lk"]
-[ext_resource type="Script" path="res://node_classes/drop_manager/drop_manager.gd" id="11_bw02j"]
+[ext_resource type="Script" path="res://node_classes/drop_manager/drop_handler.gd" id="11_hirmi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wrah3"]
 diffuse_texture = ExtResource("3_gkbpv")
@@ -82,8 +82,8 @@ show_percentage = false
 self_modulate = Color(0.976471, 0.14902, 0.14902, 0.427451)
 light_mask = 512
 
-[node name="DropManager" type="Node2D" parent="."]
-script = ExtResource("11_bw02j")
+[node name="DropHandler" type="Node2D" parent="."]
+script = ExtResource("11_hirmi")
 
 [connection signal="area_entered" from="ShipBody/Area2D" to="." method="_on_collision"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
