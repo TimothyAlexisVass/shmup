@@ -2,6 +2,8 @@ extends Control
 
 var resource_button_scene = preload("res://node_classes/resource_button/resource_button.tscn")
 
+@onready var resource_list = $Screens/Market/MarginContainer/VBoxContainer/Resources/List
+
 func _enter_tree():
 	G.modals = self
 
@@ -10,7 +12,7 @@ func _ready():
 	ready_commander_details()
 	ready_controls_bottom()
 	ready_upgrade_buttons()
-	ready_resources()
+	add_resource_buttons()
 
 func select_screen(screen_name):
 	var screen = $Screens.get_node(String(screen_name))
@@ -57,11 +59,15 @@ func ready_upgrade_buttons():
 		upgrade_button.connect("pressed", Callable(self, "level_up").bind(upgrade_button))
 		set_upgrade_label(upgrade_button)
 
-func ready_resources():
-	var resource_list = $Screens/Market/MarginContainer/VBoxContainer/Resources/List
-	for resource in DataManager.player_data.resources.keys():
+func add_resource_buttons():
+	for resource in Exchange.resources:
 		var resource_button_instance = resource_button_scene.instantiate()
 		resource_button_instance.texture = load(G.resource_sprites[resource].full_path)
-		resource_button_instance.get_node("Value").text = str(G.smart_snap(DataManager.player_data.resources[resource]))
+		resource_button_instance.get_node("Label").text = resource
 		resource_button_instance.name = resource
 		resource_list.add_child(resource_button_instance)
+	update_resource_values()
+
+func update_resource_values():
+	for resource in Exchange.resources:
+		resource_list.get_node(resource).get_node("Value").text = str(G.smart_snap(DataManager.player_data.resources[resource]))

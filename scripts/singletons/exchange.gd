@@ -13,6 +13,8 @@ const metals = ["Aluminium", "Cuprum", "Argentum", "Aurum", "Rhodium"]
 const gems = ["Sapphirus", "Rubinus", "Smaragdus"]
 const fictional = ["Veritasium", "Eternium"]
 
+var resources = metals + gems + fictional
+
 var rates = {
 	"Aluminium": 0.0026,
 	"Cuprum": 0.0103,
