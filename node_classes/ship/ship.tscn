@@ -10,7 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://c8xpn58skk06e" path="res://styles/hit_points_bar_background.tres" id="7_nydlk"]
 [ext_resource type="StyleBox" uid="uid://cvnn0obm23hqj" path="res://styles/hit_points_bar_fill.tres" id="8_bhdqd"]
 [ext_resource type="PackedScene" uid="uid://bld81khrcmege" path="res://node_classes/off_screen_indicator/off_screen_indicator.tscn" id="10_1f8lk"]
-[ext_resource type="Script" path="res://node_classes/drop_manager/drop_handler.gd" id="11_hirmi"]
+[ext_resource type="Script" path="res://node_classes/drop_handler/drop_handler.gd" id="11_hirmi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wrah3"]
 diffuse_texture = ExtResource("3_gkbpv")

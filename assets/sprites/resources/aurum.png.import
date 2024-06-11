@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7vedrhrh0b8v"
-path="res://.godot/imported/aurum.png-8fe6d23ddc4f12e30773f001628a1784.ctex"
+path="res://.godot/imported/Aurum.png-0131376c241b131715fcbf9597be2a05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/aurum.png"
-dest_files=["res://.godot/imported/aurum.png-8fe6d23ddc4f12e30773f001628a1784.ctex"]
+source_file="res://assets/sprites/resources/Aurum.png"
+dest_files=["res://.godot/imported/Aurum.png-0131376c241b131715fcbf9597be2a05.ctex"]
 
 [params]
 

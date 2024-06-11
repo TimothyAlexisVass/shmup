@@ -1,5 +1,7 @@
 extends Control
 
+var resource_button_scene = preload("res://node_classes/resource_button/resource_button.tscn")
+
 func _enter_tree():
 	G.modals = self
 
@@ -56,5 +58,10 @@ func ready_upgrade_buttons():
 		set_upgrade_label(upgrade_button)
 
 func ready_resources():
+	var resource_list = $Screens/Market/MarginContainer/VBoxContainer/Resources/List
 	for resource in DataManager.player_data.resources.keys():
-		$Screens/Market/MarginContainer/VBoxContainer/Resources/List.get_node(resource).get_node("Value").text = str(G.smart_snap(DataManager.player_data.resources[resource]))
+		var resource_button_instance = resource_button_scene.instantiate()
+		resource_button_instance.texture = load(G.resource_sprites[resource].full_path)
+		resource_button_instance.get_node("Value").text = str(G.smart_snap(DataManager.player_data.resources[resource]))
+		resource_button_instance.name = resource
+		resource_list.add_child(resource_button_instance)

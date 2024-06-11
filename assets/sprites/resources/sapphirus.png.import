@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbr73ygwykriq"
-path="res://.godot/imported/sapphirus.png-1bca855d0b45afa029aedbbd1fe2f265.ctex"
+path="res://.godot/imported/Sapphirus.png-19dd1d98e664a997f6cf3f00f8c134b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/sapphirus.png"
-dest_files=["res://.godot/imported/sapphirus.png-1bca855d0b45afa029aedbbd1fe2f265.ctex"]
+source_file="res://assets/sprites/resources/Sapphirus.png"
+dest_files=["res://.godot/imported/Sapphirus.png-19dd1d98e664a997f6cf3f00f8c134b5.ctex"]
 
 [params]
 

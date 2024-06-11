@@ -4,8 +4,8 @@ extends ItemList
 
 func _ready():
 	var index = 0
-	for pilot_name in G.pilots_sprites.keys():
-		add_item(pilot_name, load(G.pilots_sprites[pilot_name].full_path), pilot_name in DataManager.player_data.available_pilots)
+	for pilot_name in G.pilot_sprites.keys():
+		add_item(pilot_name, load(G.pilot_sprites[pilot_name].full_path), pilot_name in DataManager.player_data.available_pilots)
 		if pilot_name == DataManager.player_data.selected_pilot:
 			select(index)
 		index += 1

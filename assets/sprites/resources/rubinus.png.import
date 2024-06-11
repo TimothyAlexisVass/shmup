@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dteamxxjqmy1s"
-path="res://.godot/imported/rubinus.png-ea6048fe651c198df3ee32fa92f4b89e.ctex"
+path="res://.godot/imported/Rubinus.png-95c518fb61f3a05ebeb424bc32d31e3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/rubinus.png"
-dest_files=["res://.godot/imported/rubinus.png-ea6048fe651c198df3ee32fa92f4b89e.ctex"]
+source_file="res://assets/sprites/resources/Rubinus.png"
+dest_files=["res://.godot/imported/Rubinus.png-95c518fb61f3a05ebeb424bc32d31e3e.ctex"]
 
 [params]
 

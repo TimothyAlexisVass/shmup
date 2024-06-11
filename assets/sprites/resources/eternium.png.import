@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2niry3mi8b16"
-path="res://.godot/imported/eternium.png-38e600bd4415336d566292c9b54b6822.ctex"
+path="res://.godot/imported/Eternium.png-e1bd28f3643a83412b6284dd60dcadf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/eternium.png"
-dest_files=["res://.godot/imported/eternium.png-38e600bd4415336d566292c9b54b6822.ctex"]
+source_file="res://assets/sprites/resources/Eternium.png"
+dest_files=["res://.godot/imported/Eternium.png-e1bd28f3643a83412b6284dd60dcadf0.ctex"]
 
 [params]
 

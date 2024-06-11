@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3lsab433vvys"
-path="res://.godot/imported/cuprum.png-7d91ed318e48f3440d8c49b56681fcce.ctex"
+path="res://.godot/imported/Cuprum.png-b451b7a70cd90efc44d0671dd889065c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/cuprum.png"
-dest_files=["res://.godot/imported/cuprum.png-7d91ed318e48f3440d8c49b56681fcce.ctex"]
+source_file="res://assets/sprites/resources/Cuprum.png"
+dest_files=["res://.godot/imported/Cuprum.png-b451b7a70cd90efc44d0671dd889065c.ctex"]
 
 [params]
 

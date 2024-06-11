@@ -7,4 +7,7 @@ func _ready():
 func _on_exited(object):
 	if object.owner:
 		object = object.owner
+	if object.has_meta("instances_owned"):
+		for owned_instance in object.get_meta("instances_owned"):
+			owned_instance.queue_free()
 	object.queue_free()

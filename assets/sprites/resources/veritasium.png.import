@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dln6vj44xpif1"
-path="res://.godot/imported/veritasium.png-935fc961df623d13a11fe131dfa37942.ctex"
+path="res://.godot/imported/Veritasium.png-814a424aca693896cf84ee80ab168cab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/veritasium.png"
-dest_files=["res://.godot/imported/veritasium.png-935fc961df623d13a11fe131dfa37942.ctex"]
+source_file="res://assets/sprites/resources/Veritasium.png"
+dest_files=["res://.godot/imported/Veritasium.png-814a424aca693896cf84ee80ab168cab.ctex"]
 
 [params]
 

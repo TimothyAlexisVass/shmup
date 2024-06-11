@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dif8lofhn4a1b"
-path="res://.godot/imported/smaragdus.png-17e3fff4d8b184b50b3c1a5fb6f9dcc6.ctex"
+path="res://.godot/imported/Smaragdus.png-e81e5bf81cfe8257e2b2d171e2489b6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/smaragdus.png"
-dest_files=["res://.godot/imported/smaragdus.png-17e3fff4d8b184b50b3c1a5fb6f9dcc6.ctex"]
+source_file="res://assets/sprites/resources/Smaragdus.png"
+dest_files=["res://.godot/imported/Smaragdus.png-e81e5bf81cfe8257e2b2d171e2489b6a.ctex"]
 
 [params]
 
