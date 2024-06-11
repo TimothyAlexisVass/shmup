@@ -31,13 +31,13 @@ func _ready():
 	prepare_rewards()
 
 func prepare_rewards():
-	var main_roll = randf()
+	var roll_value = randf()
 	for drop in drop_table:
 		if rolls == 0:
 			return
-		var current_roll = main_roll * (self.tier / float(drop.tier))
-		if drop.probability >= current_roll:
-			if randf() < drop_chance:
+		if roll_value <= drop.probability * self.tier / float(drop.tier):
+			var drop_try = randf()
+			if drop_try < drop_chance:
 				rewards_to_drop.append(drop.reward)
 				if rolls > 1:
 					drop_chance *= multi_drop_factor

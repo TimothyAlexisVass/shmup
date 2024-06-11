@@ -19,7 +19,8 @@ func _enter_tree():
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("devbomb"):
 		for ship in get_tree().get_nodes_in_group("Ships"):
-			ship.take_damage(ship.current_health)
+			ship.drop_rewards.emit(G.player, ship.global_position)
+			ship.take_damage(ship)
 
 func win():
 	DataManager.win(number)

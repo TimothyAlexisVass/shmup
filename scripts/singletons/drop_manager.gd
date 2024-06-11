@@ -18,6 +18,9 @@ func _enter_tree():
 	set_item_probabilities()
 	set_chest_probabilities()
 
+func by_probability(a, b):
+	return b["probability"] > a["probability"]
+
 func set_resource_probabilities():
 	var resource_tiers = [1, 2, 4, 7, 10, 12, 14, 16, 18, 20]
 	for resource in Exchange.resources:
@@ -28,6 +31,7 @@ func set_resource_probabilities():
 				"probability": Exchange.rates["Aluminium"] / Exchange.rates[resource]
 			}
 		)
+	resources.sort_custom(by_probability)
 
 func set_item_probabilities():
 	pass
