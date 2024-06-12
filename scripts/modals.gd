@@ -60,14 +60,16 @@ func ready_upgrade_buttons():
 		set_upgrade_label(upgrade_button)
 
 func add_resource_buttons():
-	for resource in Exchange.resources:
+	for resource in Stuff.RESOURCE:
+		var resource_data = Stuff.resources[Stuff.RESOURCE[resource]]
 		var resource_button_instance = resource_button_scene.instantiate()
-		resource_button_instance.texture = load(G.resource_sprites[resource].full_path)
+		resource_button_instance.texture = resource_data.texture
 		resource_button_instance.get_node("Label").text = resource
 		resource_button_instance.name = resource
 		resource_list.add_child(resource_button_instance)
+		resource_list.move_child(resource_button_instance, 0)
 	update_resource_values()
 
 func update_resource_values():
-	for resource in Exchange.resources:
+	for resource in DataManager.player_data.resources:
 		resource_list.get_node(resource).get_node("Value").text = str(G.smart_snap(DataManager.player_data.resources[resource]))

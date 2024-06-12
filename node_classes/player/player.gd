@@ -45,6 +45,7 @@ var explosion_scale
 var is_playing = true
 var move_player = false
 var just_spawned = 10
+var spawn_position = Vector2(540, 1540)
 var grazing_with = 0
 var graze_power = 0.0
 
@@ -64,11 +65,14 @@ func _enter_tree():
 	explosion_scale = max(width, height) / 300.0
 
 func _ready():
-	get_viewport().warp_mouse(Vector2(540, 1540))
+	get_viewport().warp_mouse(spawn_position)
 	play()
 
 func _physics_process(delta):
-	if is_playing and G.touching:
+	if just_spawned > 0:
+		global_position = spawn_position
+		just_spawned -= 1
+	elif is_playing and G.touching:
 		global_position = global_position.lerp(get_global_mouse_position(), delta * movement_speed)
 		global_position.x = clamp(global_position.x, G.camera.get_min().x, G.camera.get_max().x)
 		global_position.y = clamp(global_position.y, G.camera.get_min().y, G.camera.get_max().y)

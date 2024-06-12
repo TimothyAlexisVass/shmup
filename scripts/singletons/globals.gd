@@ -42,12 +42,6 @@ var player_layer # For player ships and stuff
 var top_layer # For powerups and important things
 var shots_layer # For shots
 
-var resource_sprites = get_filenames_of_type("assets/sprites/resources", "png")
-var pilot_sprites = get_filenames_of_type("assets/sprites/pilots", "png")
-var player_ship_scenes = get_filenames_of_type("scenes/player_ships", "tscn")
-var player_ships = player_ship_scenes.keys()
-var player_ship_sprites = get_filenames_of_type("assets/sprites/player_ships", "png")
-
 func _input(event):
 	if event is InputEventScreenTouch:
 		if event.is_pressed():
@@ -100,30 +94,3 @@ func smart_snap(value):
 	elif value < 20:
 		return snapped(value, 0.1)
 	return snapped(value, 1)
-
-# Returns a dictionary with file name as key and it's suffix as value
-func get_filenames_of_type(folder, suffix = null):
-	if not folder.begins_with("res://"):
-		folder = "res://" + folder
-	if not folder.ends_with("/"):
-		folder += "/"
-	var dir = DirAccess.open(folder)
-	var file_names = {}
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if not dir.current_is_dir():
-				var append_file = true
-				if suffix and not file_name.ends_with(suffix):
-					append_file = false
-				if append_file:
-					var file_name_parts = file_name.split(".")
-					file_names[file_name_parts[0]] = {
-						"full_path": folder + file_name_parts[0] + "." + file_name_parts[1],
-						"folder": folder,
-						"suffix": file_name_parts[1]
-					}
-			file_name = dir.get_next()
-		dir.list_dir_end()
-	return file_names

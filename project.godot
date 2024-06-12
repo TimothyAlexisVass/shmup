@@ -20,10 +20,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Switch="*res://scripts/singletons/switch.gd"
 DataManager="*res://scripts/singletons/data_manager.gd"
-Exchange="*res://scripts/singletons/exchange.gd"
 G="*res://scripts/singletons/globals.gd"
+Switch="*res://scripts/singletons/switch.gd"
+Exchange="*res://scripts/singletons/exchange.gd"
+Stuff="*res://scripts/singletons/stuff.gd"
 DropManager="*res://scripts/singletons/drop_manager.gd"
 
 [display]

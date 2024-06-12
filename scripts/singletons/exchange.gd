@@ -28,7 +28,7 @@ var rates = {
 	"Eternium": 7777777
 }
 
-func change():
+func set_rates():
 	var market_prices = get_market_prices()
 	for metal in market_prices.keys():
 		rates[metal] = market_prices[metal]

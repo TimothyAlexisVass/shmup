@@ -58,7 +58,6 @@ var spawner_scene = preload("res://node_classes/spawner/spawner.tscn")
 var waiting_for = []
 var wave_queue = []
 var spawn_points = {}
-var player_spawn_position = Vector2(540, 1540 + G.GAME_AREA_OFFSET.y/2 + 14)
 
 var particle_systems = []
 
@@ -134,9 +133,8 @@ func cache_shaders():
 		G.bottom_layer.add_child(particle_system_instance)
 
 func spawn_player_ship():
-	var selected_player_ship_scene_path = G.player_ship_scenes[DataManager.player_data.selected_ship].full_path
-	var player_ship = load(selected_player_ship_scene_path).instantiate()
-	player_ship.global_position = player_spawn_position
+	var selected_player_ship_scene_path = load("res://scenes/player_ships/" + DataManager.player_data.selected_ship + ".tscn")
+	var player_ship = selected_player_ship_scene_path.instantiate()
 	G.player_layer.add_child(player_ship)
 	return player_ship
 

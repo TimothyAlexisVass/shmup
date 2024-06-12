@@ -38,7 +38,7 @@ func prepare_rewards():
 		if roll_value <= drop.probability * self.tier / float(drop.tier):
 			var drop_try = randf()
 			if drop_try < drop_chance:
-				rewards_to_drop.append(drop.reward)
+				rewards_to_drop.append(drop.name)
 				if rolls > 1:
 					drop_chance *= multi_drop_factor
 			rolls -= 1
