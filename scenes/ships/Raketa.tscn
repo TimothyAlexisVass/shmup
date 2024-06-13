@@ -37,7 +37,7 @@ total_hit_points = 5.0
 acceleration = 0.01
 face = 1
 
-[node name="TierGlow" parent="ShipBody" index="0"]
+[node name="RarityGlow" parent="ShipBody" index="0"]
 texture = ExtResource("8_phhyw")
 offset = Vector2(0, 30)
 

@@ -37,7 +37,7 @@ rotation_speed = 0.02
 acceleration = 0.01
 face = 1
 
-[node name="TierGlow" parent="ShipBody" index="0"]
+[node name="RarityGlow" parent="ShipBody" index="0"]
 texture = ExtResource("6_22xl2")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]

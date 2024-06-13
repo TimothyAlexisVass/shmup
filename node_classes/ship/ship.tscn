@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxishnv78agcr" path="res://assets/sprites/ships/tier_star.png" id="3_n34rk"]
 [ext_resource type="Script" path="res://node_classes/ship/crystal_star.gd" id="4_bqnhj"]
 [ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://assets/sprites/ships/vash/vash_normal.png" id="4_g7ory"]
-[ext_resource type="Script" path="res://node_classes/ship/tier_glow.gd" id="6_0h2t8"]
+[ext_resource type="Script" path="res://scripts/rarity_glow.gd" id="6_0h2t8"]
 [ext_resource type="StyleBox" uid="uid://c8xpn58skk06e" path="res://styles/hit_points_bar_background.tres" id="7_nydlk"]
 [ext_resource type="StyleBox" uid="uid://cvnn0obm23hqj" path="res://styles/hit_points_bar_fill.tres" id="8_bhdqd"]
 [ext_resource type="PackedScene" uid="uid://bld81khrcmege" path="res://node_classes/off_screen_indicator/off_screen_indicator.tscn" id="10_1f8lk"]
@@ -37,7 +37,7 @@ script = ExtResource("4_bqnhj")
 
 [node name="ShipBody" type="Node2D" parent="."]
 
-[node name="TierGlow" type="Sprite2D" parent="ShipBody"]
+[node name="RarityGlow" type="Sprite2D" parent="ShipBody"]
 light_mask = 512
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("4_g7ory")

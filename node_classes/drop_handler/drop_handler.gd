@@ -12,6 +12,8 @@ enum CATEGORY { GENERAL, RESOURCE, ITEM, CHEST, SPECIAL }
 var rewards_to_drop = []
 var drop_table = DropManager.drop_table[category]
 
+var drop_item_scene = preload("res://node_classes/drop_item/drop_item.tscn")
+
 func _enter_tree():
 	if owner:
 		if owner.has_meta("instances_owned"):
@@ -38,19 +40,22 @@ func prepare_rewards():
 		if roll_value <= drop.probability * self.tier / float(drop.tier):
 			var drop_try = randf()
 			if drop_try < drop_chance:
-				rewards_to_drop.append(drop.name)
+				rewards_to_drop.append(drop)
 				if rolls > 1:
 					drop_chance *= multi_drop_factor
 			rolls -= 1
 
 func drop_rewards(recipient, at_global_position):
 	for reward in rewards_to_drop:
-		print("drop ", reward, " for: ", recipient.name, " at: ", at_global_position)
-		# var reward_instance = reward.instantiate()
-		# reward_instance.recipient = recipient
-		# reward_instance.global_position = at_global_position + Vector2(randf_range(-drop_radius, drop_radius), randf_range(-drop_radius, drop_radius))
-		# get_parent().add_child(reward_instance)
-	queue_free()
+		print("drop ", reward.name, " for: ", recipient.name, " at: ", at_global_position)
+		var reward_instance = drop_item_scene.instantiate()
+		reward_instance.get_node("Sprite").texture = reward.texture
+		reward_instance.category = reward.category
+		reward_instance.item_name = reward.name
+		reward_instance.tier = reward.tier
+		reward_instance.global_position = at_global_position + Vector2(randf_range(-drop_radius, drop_radius), randf_range(-drop_radius, drop_radius))
+		G.top_layer.call_deferred("add_child", reward_instance)
+	call_deferred("queue_free")
 
 func is_reparented() -> bool:
 	return get_parent() in G.view_layers.get_children()

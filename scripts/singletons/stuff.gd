@@ -1,7 +1,12 @@
 extends Node
 
+enum CATEGORY {resources, pilots, player_ships}
+
 enum PILOT {Xurim, Mia, Lance}
+
 enum PLAYER_SHIP {Excalibur, Justice, Blade}
+func selected_ship_name():
+	return PLAYER_SHIP.keys()[DataManager.player_data.selected_ship]
 
 var pilots: Array
 var player_ships: Array
@@ -30,6 +35,7 @@ func set_pilots_array():
 		var base_tier = pilot_tiers[pilot_name]
 		pilots.append(
 			{
+				"category": CATEGORY.pilots,
 				"name": pilot_name,
 				"tier": int(base_tier),
 				"texture": load("res://assets/sprites/pilots/" + pilot_name + ".png"),
@@ -47,6 +53,7 @@ func set_player_ships_array():
 		var base_tier = player_ship_tiers[player_ship_name]
 		player_ships.append(
 			{
+				"category": CATEGORY.player_ships,
 				"name": player_ship_name,
 				"tier": int(base_tier),
 				"texture": load("res://assets/sprites/player_ships/" + player_ship_name + ".png"),
@@ -60,6 +67,7 @@ func set_resources_array():
 		var resource_name = RESOURCE.keys()[index]
 		resources.append(
 			{
+				"category": CATEGORY.resources,
 				"name": resource_name,
 				"tier": resource_tiers[index],
 				"texture": load("res://assets/sprites/resources/" + resource_name + ".png"),

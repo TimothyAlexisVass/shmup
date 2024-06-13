@@ -8,7 +8,7 @@ const ANGLE_DOWN = PI/2
 const ANGLE_LEFT = PI
 const GAME_AREA_OFFSET = Vector2(400, 200)
 const HEALTH_TWEEN_TIME = 0.4
-const TIER_COLOR = {
+const RARITY_COLOR = {
 	0: Color(0, 0, 0, 0.6),
 	1: Color(0.8, 1.7, 3.2, 0.6),
 	2: Color(2.7, 0.8, 2.7, 0.6),

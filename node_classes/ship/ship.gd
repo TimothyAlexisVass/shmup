@@ -76,6 +76,10 @@ func _enter_tree():
 
 	if rarity < 9:
 		$CrystalStar.queue_free()
+	if rarity == 0:
+		$ShipBody/RarityGlow.queue_free()
+	else:
+		$ShipBody/RarityGlow.rarity = rarity
 
 func _ready():
 	$HitPoints.value = current_health
@@ -86,14 +90,10 @@ func _ready():
 
 	if shipbody_texture != null:
 		$ShipBody/Sprite.texture.diffuse_texture = shipbody_texture
-		$ShipBody/TierGlow.self_modulate = G.TIER_COLOR[rarity]
-		$ShipBody/TierGlow.modulate = G.TIER_COLOR[rarity] * 1.3
 		if jets:
 			for jet in jets.get_children():
-				jet.modulate = G.TIER_COLOR[rarity] * 2
-		$OffScreenIndicator.self_modulate = G.TIER_COLOR[rarity] * 2
-	else:
-		$ShipBody/TierGlow.queue_free()
+				jet.modulate = G.RARITY_COLOR[rarity] * 2
+		$OffScreenIndicator.self_modulate = G.RARITY_COLOR[rarity] * 2
 
 	if move == MOVE.RANDOM_DESTINATION:
 		target = G.random_position_in_camera_view()

@@ -1,7 +1,5 @@
 extends ItemList
 
-# var ship_selection_button_scene = preload("res://node_classes/player/ship_selection_button.tscn")
-
 func _ready():
 	for pilot in Stuff.pilots:
 		add_item(pilot.name, pilot.texture, pilot.name in DataManager.player_data.available_pilots)
