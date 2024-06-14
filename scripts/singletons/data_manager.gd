@@ -9,6 +9,10 @@ var player_data = PlayerData.new()
 func _enter_tree():
 	load_data()
 
+func add(category, item_name, amount):
+	player_data[category][item_name] += amount
+	save_data()
+
 func change(stat, amount):
 	if player_data.commander.has(stat):
 		player_data.commander[stat] += amount

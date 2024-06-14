@@ -11,6 +11,8 @@ radius = 81.0
 load_path = "res://.godot/imported/Aluminium.png-81f53591086a1de7aa9cb37566384df5.ctex"
 
 [node name="DropItem" type="Area2D"]
+light_mask = 0
+scale = Vector2(0.5, 0.5)
 collision_layer = 4
 script = ExtResource("1_cb1gm")
 
@@ -18,11 +20,13 @@ script = ExtResource("1_cb1gm")
 shape = SubResource("CircleShape2D_rbgfs")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+light_mask = 0
 texture = SubResource("CompressedTexture2D_5bx0r")
 
 [node name="RarityGlow" type="Sprite2D" parent="Sprite"]
 modulate = Color(2, 2, 2, 1)
 show_behind_parent = true
+light_mask = 0
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("2_xf417")
 script = ExtResource("3_emcxs")

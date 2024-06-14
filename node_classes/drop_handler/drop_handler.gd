@@ -53,6 +53,7 @@ func drop_rewards(recipient, at_global_position):
 		reward_instance.category = reward.category
 		reward_instance.item_name = reward.name
 		reward_instance.tier = reward.tier
+		reward_instance.recipient = recipient
 		reward_instance.global_position = at_global_position + Vector2(randf_range(-drop_radius, drop_radius), randf_range(-drop_radius, drop_radius))
 		G.top_layer.call_deferred("add_child", reward_instance)
 	call_deferred("queue_free")

@@ -10,7 +10,8 @@ var commander = {
 	"shot_speed_level": 1,
 	"movement_speed_level": 1,
 	"fire_power_level": 1,
-	"fire_rate_level": 1
+	"fire_rate_level": 1,
+	"magnet_strength": 10
 }
 
 var resources = {

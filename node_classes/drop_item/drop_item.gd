@@ -7,18 +7,27 @@ var item_name: String
 var tier: int = 1
 var amount: float = 1.0
 
+var recipient = null
+
+const SPEED = 100
 @onready var category_name = Stuff.CATEGORY.keys()[category]
 
 func _ready():
 	$Sprite/RarityGlow.rarity = int(tier/3.5) if tier < 20 else 9
 	$Sprite/RarityGlow.texture = $Sprite.texture
 
+func _physics_process(delta):
+	if is_instance_valid(recipient) && recipient.is_playing:
+		var magnet_direction = recipient.global_position - global_position
+		var magnet_effect = min(27, (100 * DataManager.player_data.commander.magnet_strength /  magnet_direction.length()))
+		translate(delta * (Vector2.DOWN * SPEED + magnet_direction.normalized() * magnet_effect ** 2))
+
 func _on_area_entered(area):
-	if area is Player:
+	if area == recipient:
 		pick_up()
 
 func pick_up():
-	DataManager.player_data[category_name][item_name] += amount
+	DataManager.add(category_name, item_name, amount)
 	amount = 0
 	clear()
 
