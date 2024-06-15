@@ -42,6 +42,16 @@ var player_layer # For player ships and stuff
 var top_layer # For powerups and important things
 var shots_layer # For shots
 
+const RARITY = {
+	0: "🟤",
+	1: "🔵⭐🔵",
+	2: "🟣⭐🟣⭐🟣",
+	3: "🔴⭐🔴⭐🔴⭐🔴",
+	4: "🟠⭐🟠⭐🟠⭐🟠⭐🟠",
+	5: "🟡⭐🟡⭐🟡⭐🟡⭐🟡⭐🟡",
+	9: "⚪⭐⚪⭐⚪⭐⚪⭐⚪⭐⚪⭐⚪" 
+}
+
 func _input(event):
 	if event is InputEventScreenTouch:
 		if event.is_pressed():
@@ -94,3 +104,6 @@ func smart_snap(value):
 	elif value < 20:
 		return snapped(value, 0.1)
 	return snapped(value, 1)
+
+func rarity(tier):
+	return int(tier/3.5) if tier < 20 else 9

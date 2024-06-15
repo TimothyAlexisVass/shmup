@@ -27,9 +27,9 @@ var resources = {
 	"Eternium": 1,
 }
 
-var selected_ship = "Justice":
+var selected_player_ship = "Justice":
 	set(value):
-		selected_ship = value
+		selected_player_ship = value
 		DataManager.save_data()
 
 var selected_pilot = "Lance":
@@ -37,7 +37,7 @@ var selected_pilot = "Lance":
 		selected_pilot = value
 		DataManager.save_data()
 
-var available_ships = ["Blade", "Justice"]
+var available_player_ships = ["Blade", "Justice"]
 
 var available_pilots = ["Lance", "Mia"]
 

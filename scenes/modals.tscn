@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cw6tsd5klfh0q" path="res://assets/sprites/user_interface/arrow_right.png" id="12_0ura4"]
 [ext_resource type="Script" path="res://scripts/exchange_items.gd" id="12_3hfpd"]
 [ext_resource type="Texture2D" uid="uid://3tl4yrjivymy" path="res://assets/sprites/user_interface/arrow_up.png" id="13_5i67r"]
-[ext_resource type="Script" path="res://scripts/player_ships_grid.gd" id="16_f823t"]
-[ext_resource type="Script" path="res://scripts/pilots_grid.gd" id="17_nblrf"]
+[ext_resource type="Script" path="res://node_classes/items_grid/items_grid.gd" id="16_vld02"]
+[ext_resource type="PackedScene" uid="uid://by2o37jtojjh3" path="res://node_classes/items_grid/items_grid.tscn" id="17_rtckc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
 font_size = 40
@@ -251,20 +251,22 @@ text = "SHIPS"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
 
-[node name="PlayerShipsList" type="ItemList" parent="Screens/Ships/MarginContainer/VBoxContainer"]
-clip_contents = false
+[node name="ScrollContainer" type="ScrollContainer" parent="Screens/Ships/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ItemsGrid" type="GridContainer" parent="Screens/Ships/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("3_7g8ct")
-auto_height = true
-max_columns = 3
-same_column_width = true
-fixed_column_width = 290
-icon_mode = 0
-fixed_icon_size = Vector2i(280, 180)
-script = ExtResource("16_f823t")
+columns = 2
+script = ExtResource("16_vld02")
+item_type = "player_ship"
 
 [node name="Pilots" type="ColorRect" parent="Screens"]
+visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -290,18 +292,14 @@ text = "PILOTS"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
 
-[node name="PilotsList" type="ItemList" parent="Screens/Pilots/MarginContainer/VBoxContainer"]
-clip_contents = false
+[node name="ScrollContainer" type="ScrollContainer" parent="Screens/Pilots/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("3_7g8ct")
-auto_height = true
-max_columns = 2
-same_column_width = true
-fixed_column_width = 438
-icon_mode = 0
-fixed_icon_size = Vector2i(438, 438)
-script = ExtResource("17_nblrf")
+horizontal_scroll_mode = 0
+
+[node name="ItemsGrid" parent="Screens/Pilots/MarginContainer/VBoxContainer/ScrollContainer" instance=ExtResource("17_rtckc")]
+layout_mode = 2
+item_type = "pilot"
 
 [node name="Commander" type="ColorRect" parent="Screens"]
 visible = false
@@ -544,7 +542,5 @@ text = "COMMANDER"
 [connection signal="pressed" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item1ToItem2" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_to_item_2_pressed"]
 [connection signal="pressed" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item2ToItem1" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_to_item_1_pressed"]
 [connection signal="item_selected" from="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item2" to="Screens/Market/MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_item_selected"]
-[connection signal="item_selected" from="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsList" to="Screens/Ships/MarginContainer/VBoxContainer/PlayerShipsList" method="_on_item_selected"]
-[connection signal="item_selected" from="Screens/Pilots/MarginContainer/VBoxContainer/PilotsList" to="Screens/Pilots/MarginContainer/VBoxContainer/PilotsList" method="_on_item_selected"]
 [connection signal="text_changed" from="Screens/Commander/MarginContainer/VBoxContainer/Details/Name/LineEdit" to="." method="_on_name_changed"]
 [connection signal="pressed" from="Screens/CloseButton" to="." method="hide_screens"]

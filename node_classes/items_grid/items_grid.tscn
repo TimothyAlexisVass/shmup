@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://by2o37jtojjh3"]
+
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="1_jnfv2"]
+[ext_resource type="Script" path="res://node_classes/items_grid/items_grid.gd" id="2_m5l3b"]
+
+[node name="ItemsGrid" type="GridContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_jnfv2")
+columns = 2
+script = ExtResource("2_m5l3b")

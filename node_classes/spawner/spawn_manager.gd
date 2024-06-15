@@ -68,7 +68,7 @@ var particle_systems = []
 
 func _ready():
 	G.player = spawn_player_ship()
-	G.player.name = DataManager.player_data.selected_ship
+	G.player.name = DataManager.player_data.selected_player_ship
 	for spawn_point_marker in G.ships_layer.get_node("SpawnPoints").get_children():
 		spawn_points[spawn_point_marker.name.to_int()] = spawn_point_marker
 	print("Level: ", G.level.number)
@@ -133,7 +133,7 @@ func cache_shaders():
 		G.bottom_layer.add_child(particle_system_instance)
 
 func spawn_player_ship():
-	var selected_player_ship_scene_path = load("res://scenes/player_ships/" + DataManager.player_data.selected_ship + ".tscn")
+	var selected_player_ship_scene_path = load("res://scenes/player_ships/" + DataManager.player_data.selected_player_ship + ".tscn")
 	var player_ship = selected_player_ship_scene_path.instantiate()
 	G.player_layer.add_child(player_ship)
 	return player_ship

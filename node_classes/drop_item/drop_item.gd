@@ -13,7 +13,7 @@ const SPEED = 100
 @onready var category_name = Stuff.CATEGORY.keys()[category]
 
 func _ready():
-	$Sprite/RarityGlow.rarity = int(tier/3.5) if tier < 20 else 9
+	$Sprite/RarityGlow.rarity = G.rarity(tier)
 	$Sprite/RarityGlow.texture = $Sprite.texture
 
 func _physics_process(delta):
