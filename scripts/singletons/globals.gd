@@ -17,6 +17,15 @@ const RARITY_COLOR = {
 	5: Color(1.7, 2.7, 0.8, 0.6),
 	9: Color(1.5, 1.5, 1.5, 0.6)
 }
+const RARITY_BG_COLOR = {
+	0: Color(0, 0, 0),
+	1: Color(0.25, 0.53, 1),
+	2: Color(0.53, 0.25, 0.53),
+	3: Color(0.53, 0.16, 0.25),
+	4: Color(0.53, 0.53, 0.25),
+	5: Color(0.53, 0.53, 0.25),
+	9: Color(1, 1, 1)
+}
 enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
 enum CHALLENGE { NONE, EASY, MEDIUM, ELITE, APEX }
 

@@ -5,8 +5,8 @@ enum CATEGORY {resources, pilots, player_ships}
 enum PILOT {Xurim, Mia, Lance}
 
 enum PLAYER_SHIP {Excalibur, Justice, Blade}
-func selected_player_ship_name():
-	return PLAYER_SHIP.keys()[DataManager.player_data.selected_player_ship]
+func selected_ship_name():
+	return PLAYER_SHIP.keys()[DataManager.player_data.selected_ship]
 
 var pilots: Array
 var player_ships: Array

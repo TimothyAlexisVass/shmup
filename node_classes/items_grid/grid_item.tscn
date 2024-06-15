@@ -17,7 +17,7 @@ shadow_color = Color(0, 0, 0, 0.123)
 shadow_size = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03l5g"]
-bg_color = Color(0, 0, 0, 0.294118)
+bg_color = Color(1, 1, 1, 0.34902)
 corner_radius_bottom_right = 36
 corner_radius_bottom_left = 36
 shadow_color = Color(0, 0, 0, 0.121569)
@@ -70,8 +70,9 @@ grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.349)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_03l5g")
-text = "🟤"
+text = "⚪⭐⚪⭐⚪⭐⚪⭐⚪⭐⚪⭐⚪"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true

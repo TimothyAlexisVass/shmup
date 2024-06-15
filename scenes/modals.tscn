@@ -47,6 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Market" type="ColorRect" parent="Screens"]
+visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -68,7 +69,7 @@ layout_mode = 2
 [node name="Heading" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "INTERGALACTIC MARKET"
+text = "MARKET"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
 
@@ -302,7 +303,6 @@ layout_mode = 2
 item_type = "pilot"
 
 [node name="Commander" type="ColorRect" parent="Screens"]
-visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -338,7 +338,7 @@ size_flags_horizontal = 3
 [node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Name"]
 layout_mode = 2
 theme = ExtResource("3_7g8ct")
-text = "Name"
+text = "Name:  "
 
 [node name="LineEdit" type="LineEdit" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Name"]
 layout_mode = 2
@@ -355,7 +355,7 @@ alignment = 2
 [node name="Label" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Rank"]
 layout_mode = 2
 theme = ExtResource("3_7g8ct")
-text = "Rank"
+text = "Rank:  "
 
 [node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Details/Rank"]
 layout_mode = 2

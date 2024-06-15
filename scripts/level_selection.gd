@@ -37,7 +37,7 @@ func _ready():
 		$Levels.add_child(button)
 		
 		line.points[0] = Vector2(previous_x_position, 85 + (i - 2) * 200) + LINE_OFFSET
-		button.position.x = rng.randi_range(200, 360) if previous_x_position > 400 else rng.randi_range(440, 600)
+		button.position.x = rng.randi_range(200, 400) if previous_x_position > 440 else rng.randi_range(480, 680)
 		previous_x_position = button.position.x
 		button.position.y = 85 + (i-1) * 200
 		line.points[1] = button.position + LINE_OFFSET
