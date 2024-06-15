@@ -46,17 +46,27 @@ func _on_item_1_to_item_2_pressed():
 	perform_exchange(
 		Exchange.resources[$Item1.get_selected()],
 		Exchange.resources[$Item2.get_selected()],
-		-float($Amounts1/From.text),
-		float($Amounts2/To.text)
+		-resource_weight_to_float($Amounts1/From.text),
+		resource_weight_to_float($Amounts2/To.text)
 	)
 
 func _on_item_2_to_item_1_pressed():
 	perform_exchange(
 		Exchange.resources[$Item2.get_selected()],
 		Exchange.resources[$Item1.get_selected()],
-		-float($Amounts2/From.text),
-		float($Amounts1/To.text)
+		-resource_weight_to_float($Amounts2/From.text),
+		resource_weight_to_float($Amounts1/To.text)
 	)
+
+func resource_weight_to_float(weight):
+	var factor = 1
+	if weight.ends_with("mg"):
+		factor = 0.001
+	elif weight.ends_with("kg"):
+		factor = 1_000
+	elif weight.ends_with("t"):
+		factor = 1_000_000
+	return snapped(float(weight) * factor, 0.001)
 
 func perform_exchange(resource_from, resource_to, amount_from, amount_to):
 	if DataManager.player_data.resources[resource_from] >= amount_from:

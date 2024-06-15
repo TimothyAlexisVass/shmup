@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://n4od4kam7im1"]
+[gd_scene load_steps=18 format=3 uid="uid://n4od4kam7im1"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_3hhsx"]
 [ext_resource type="Texture2D" uid="uid://5ijwv3jdptlj" path="res://assets/sprites/ships/vashu/vashu_1.png" id="2_r4b1w"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c5h5u7k0awuwu" path="res://assets/sprites/ships/vashu/vashu_4.png" id="5_0gea3"]
 [ext_resource type="Texture2D" uid="uid://brixicbj0psnl" path="res://assets/sprites/ships/vashu/vashu_5.png" id="6_g70y0"]
 [ext_resource type="Texture2D" uid="uid://da6wm2skhjpe7" path="res://assets/sprites/ships/vashu/vashu_crystal.png" id="7_cleab"]
-[ext_resource type="Texture2D" uid="uid://cb3p0dj6myj1r" path="res://assets/sprites/ships/vashu/vashu_border.png" id="8_c04sf"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_sshmv"]
 [ext_resource type="Texture2D" uid="uid://bwaebbbtyc50r" path="res://assets/sprites/ships/vashu/vashu_0.png" id="11_pyjfu"]
 [ext_resource type="Texture2D" uid="uid://c0cmyr8eln5ok" path="res://assets/sprites/ships/vashu/vashu_normal.png" id="12_fbnyv"]
@@ -60,11 +59,6 @@ corner_radius_bottom_left = 4
 scale = Vector2(0.17, 0.17)
 sprites = Array[CompressedTexture2D]([ExtResource("2_r4b1w"), ExtResource("3_pbt3d"), ExtResource("4_4gve4"), ExtResource("5_0gea3"), ExtResource("6_g70y0")])
 crystal = ExtResource("7_cleab")
-destination = 0
-face_towards = 1
-
-[node name="TierGlow" parent="ShipBody" index="0"]
-texture = ExtResource("8_c04sf")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 

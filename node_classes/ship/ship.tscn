@@ -76,7 +76,7 @@ theme_override_styles/fill = ExtResource("8_bhdqd")
 value = 25.0
 show_percentage = false
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="OffScreenIndicator" parent="." instance=ExtResource("10_1f8lk")]
 self_modulate = Color(0.976471, 0.14902, 0.14902, 0.427451)
@@ -87,4 +87,4 @@ script = ExtResource("11_hirmi")
 drop_chance = 0.5
 
 [connection signal="area_entered" from="ShipBody/Area2D" to="." method="_on_collision"]
-[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

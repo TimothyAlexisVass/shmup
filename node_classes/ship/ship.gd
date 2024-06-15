@@ -171,7 +171,7 @@ func stop_jets():
 			jet.lifetime = 0.2
 			jet.emitting = false
 
-func _on_visible_on_screen_enabler_2d_screen_entered():
+func _on_visible_on_screen_notifier_2d_screen_entered():
 	if not shooting:
 		muzzles_status(true)
 

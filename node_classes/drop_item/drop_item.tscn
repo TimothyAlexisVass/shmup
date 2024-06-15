@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://drrj2p8jki722"]
+[gd_scene load_steps=7 format=3 uid="uid://drrj2p8jki722"]
 
 [ext_resource type="Script" path="res://node_classes/drop_item/drop_item.gd" id="1_cb1gm"]
 [ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/resources/Aluminium.png" id="2_xf417"]
 [ext_resource type="Script" path="res://scripts/rarity_glow.gd" id="3_emcxs"]
+[ext_resource type="PackedScene" uid="uid://bld81khrcmege" path="res://node_classes/off_screen_indicator/off_screen_indicator.tscn" id="4_csg6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rbgfs"]
 radius = 81.0
@@ -30,5 +31,10 @@ light_mask = 0
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("2_xf417")
 script = ExtResource("3_emcxs")
+
+[node name="OffScreenIndicator" parent="." instance=ExtResource("4_csg6c")]
+self_modulate = Color(0.262745, 1, 0.14902, 0.427451)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
