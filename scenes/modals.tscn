@@ -499,8 +499,7 @@ custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("3_7g8ct")
-text = "INTERGALACTIC
-MARKET"
+text = "MARKET"
 
 [node name="MarginContainer" type="MarginContainer" parent="ControlsBottom"]
 layout_mode = 2
