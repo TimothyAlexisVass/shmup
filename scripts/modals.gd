@@ -4,6 +4,8 @@ var resource_button_scene = preload("res://node_classes/resource_button/resource
 
 @onready var resource_list = $Screens/Market/MarginContainer/VBoxContainer/Resources/List
 
+var resource_values = {}
+
 func _enter_tree():
 	G.modals = self
 
@@ -63,13 +65,15 @@ func add_resource_buttons():
 	for resource in Stuff.RESOURCE:
 		var resource_data = Stuff.resources[Stuff.RESOURCE[resource]]
 		var resource_button_instance = resource_button_scene.instantiate()
-		resource_button_instance.texture = resource_data.texture
-		resource_button_instance.get_node("Label").text = resource
-		resource_button_instance.name = resource
+		var texture_button = resource_button_instance.get_node("TextureButton")
+		texture_button.texture_normal = resource_data.texture
+		texture_button.get_node("Label").text = resource
+		resource_values[resource] = texture_button.get_node("Value")
+		texture_button.name = resource
 		resource_list.add_child(resource_button_instance)
 		resource_list.move_child(resource_button_instance, 0)
 	update_resource_values()
 
 func update_resource_values():
 	for resource in DataManager.player_data.resources:
-		resource_list.get_node(resource).get_node("Value").text = str(G.smart_snap(DataManager.player_data.resources[resource]))
+		resource_values[resource].text = G.display_weight(DataManager.player_data.resources[resource])

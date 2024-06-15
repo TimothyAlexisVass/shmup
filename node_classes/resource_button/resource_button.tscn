@@ -1,32 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvo513xokchi0"]
+[gd_scene load_steps=3 format=3 uid="uid://cvo513xokchi0"]
 
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="1_dcps8"]
+[ext_resource type="StyleBox" uid="uid://bwjsqn8s6des4" path="res://styles/grid_item_panel.tres" id="1_g2of0"]
 
-[node name="ResourceButton" type="TextureRect"]
-custom_minimum_size = Vector2(180, 222)
-expand_mode = 1
-stretch_mode = 5
+[node name="ResourceButton" type="PanelContainer"]
+custom_minimum_size = Vector2(180, 240)
+offset_right = 180.0
+offset_bottom = 240.0
+theme_override_styles/panel = ExtResource("1_g2of0")
 
-[node name="Label" type="Label" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="TextureButton"]
+custom_minimum_size = Vector2(0, 55)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_bottom = 42.0
 grow_horizontal = 2
 theme = ExtResource("1_dcps8")
+theme_override_font_sizes/font_size = 28
 text = "Aluminium
 "
 horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="Value" type="Label" parent="."]
+[node name="Value" type="Label" parent="TextureButton"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
+offset_top = -47.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_dcps8")
 text = "1"
 horizontal_alignment = 1
+vertical_alignment = 1
