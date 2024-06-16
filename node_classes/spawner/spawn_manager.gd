@@ -22,7 +22,7 @@ var ships = {
 }
 
 var bonus = {
-	"Verimus": preload("res://scenes/ships/Verimus.tscn")
+	"Verimus": preload("res://scenes/bonus/Verimus.tscn")
 }
 
 var spawner_scene = preload("res://node_classes/spawner/spawner.tscn")
