@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyxp4oj8o1tsb"
-path="res://.godot/imported/verimus_0.png-9116af6e2b689462c2a4393e9a153c02.ctex"
+path="res://.godot/imported/verimus_0.png-2f87704af5e35a87ef5ee4ca43374b06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/verimus/verimus_0.png"
-dest_files=["res://.godot/imported/verimus_0.png-9116af6e2b689462c2a4393e9a153c02.ctex"]
+source_file="res://assets/sprites/bonus/verimus/verimus_0.png"
+dest_files=["res://.godot/imported/verimus_0.png-2f87704af5e35a87ef5ee4ca43374b06.ctex"]
 
 [params]
 

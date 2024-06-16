@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjf8aespsox0e"]
+[gd_scene load_steps=8 format=3 uid="uid://cjf8aespsox0e"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_3cpq3"]
-[ext_resource type="Texture2D" uid="uid://l6c4xkw4rw64" path="res://assets/sprites/ships/verimus/verimus_crystal.png" id="2_0hh3e"]
-[ext_resource type="Texture2D" uid="uid://cx2hfo6njllme" path="res://assets/sprites/ships/verimus/verimus_border.png" id="3_5ep0w"]
-[ext_resource type="Texture2D" uid="uid://ck2bdb68yyfts" path="res://assets/sprites/ships/verimus/verimus_normal.png" id="3_6hvfp"]
-[ext_resource type="Texture2D" uid="uid://dyxp4oj8o1tsb" path="res://assets/sprites/ships/verimus/verimus_0.png" id="5_532ba"]
+[ext_resource type="Texture2D" uid="uid://l6c4xkw4rw64" path="res://assets/sprites/bonus/verimus/verimus_crystal.png" id="2_0hh3e"]
+[ext_resource type="Texture2D" uid="uid://cx2hfo6njllme" path="res://assets/sprites/bonus/verimus/verimus_border.png" id="3_5ep0w"]
+[ext_resource type="Texture2D" uid="uid://ck2bdb68yyfts" path="res://assets/sprites/bonus/verimus/verimus_normal.png" id="3_6hvfp"]
+[ext_resource type="Texture2D" uid="uid://dyxp4oj8o1tsb" path="res://assets/sprites/bonus/verimus/verimus_0.png" id="5_532ba"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6mops"]
 resource_local_to_scene = true
@@ -28,29 +28,26 @@ speed = 400.0
 total_hit_points = 5.0
 rotation_speed = 0.05
 acceleration = 0.01
-destination = 0
-move = 0
+move = 2
 
-[node name="TierGlow" parent="ShipBody" index="0"]
+[node name="RarityGlow" parent="ShipBody" index="0"]
 texture = ExtResource("3_5ep0w")
-offset = Vector2(0, 100)
+offset = Vector2(0, 25)
 
 [node name="Area2D" parent="ShipBody" index="1"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
 position = Vector2(0, 100)
-polygon = PackedVector2Array(-235.714, -414.286, -342.857, -307.143, -335.714, -214.286, -242.857, -128.571, -157.143, 64.2857, -128.571, 242.857, -28.5714, 471.429, 28.5714, 471.429, 142.857, 235.714, 157.143, 71.4286, 250, -128.571, 342.857, -214.286, 357.143, -314.286, 250, -407.143, 7.14286, -485.714)
+polygon = PackedVector2Array(-55.5556, -183.333, -88.8889, -150, -83.3333, -133.333, -50, -83.3333, -27.7778, 16.6667, 0, 55.5555, 27.7778, 16.6667, 50, -83.3333, 83.3333, -127.778, 88.8889, -150, 61.1111, -177.778, 0, -200)
 metadata/_edit_lock_ = true
 
 [node name="Sprite" parent="ShipBody" index="2"]
+modulate = Color(1, 1, 0.94902, 1)
 texture = SubResource("CanvasTexture_6mops")
-offset = Vector2(0, 100)
+offset = Vector2(0, 25)
 metadata/_edit_lock_ = true
 
 [node name="HitPoints" parent="." index="2"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_2r0gs")
-metadata/_edit_lock_ = true
-
-[node name="VisibleOnScreenEnabler2D" parent="." index="3"]
 metadata/_edit_lock_ = true

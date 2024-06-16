@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3mletd4wqy23"
-path="res://.godot/imported/sawaray_0.png-e192f84870f7cdf037502e82719aec26.ctex"
+uid="uid://l6c4xkw4rw64"
+path="res://.godot/imported/verimus_crystal.png-35a060fba534c9f42e4f8ff545b7c73b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/sawaray/sawaray_0.png"
-dest_files=["res://.godot/imported/sawaray_0.png-e192f84870f7cdf037502e82719aec26.ctex"]
+source_file="res://assets/sprites/bonus/verimus/verimus_crystal.png"
+dest_files=["res://.godot/imported/verimus_crystal.png-35a060fba534c9f42e4f8ff545b7c73b.ctex"]
 
 [params]
 

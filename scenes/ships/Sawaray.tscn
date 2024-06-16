@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://es142agtfvds"]
+
+[ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_gx6od"]
+[ext_resource type="Texture2D" uid="uid://2mnrc6tabg6t" path="res://assets/sprites/ships/sawaray/sawaray_1.png" id="2_m6ftl"]
+[ext_resource type="Texture2D" uid="uid://b3ljdhhux8xa0" path="res://assets/sprites/ships/sawaray/sawaray_2.png" id="3_ny7xc"]
+[ext_resource type="Texture2D" uid="uid://bhsvtlepoxgyc" path="res://assets/sprites/ships/sawaray/sawaray_crystal.png" id="4_lrehp"]
+[ext_resource type="Texture2D" uid="uid://bvl5wd5n0sy0r" path="res://assets/sprites/ships/sawaray/sawaray_border.png" id="5_wxetf"]
+[ext_resource type="Texture2D" uid="uid://bopxpbfvqph4q" path="res://assets/sprites/ships/sawaray/sawaray_normal.png" id="6_aiy6i"]
+[ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_h82au"]
+[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="8_2o8ay"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nrp2m"]
+resource_local_to_scene = true
+diffuse_texture = ExtResource("2_m6ftl")
+normal_texture = ExtResource("6_aiy6i")
+specular_color = Color(0.466667, 0.466667, 0.466667, 1)
+specular_shininess = 0.77
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywl1u"]
+resource_local_to_scene = true
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Ship" instance=ExtResource("1_gx6od")]
+sprites = Array[CompressedTexture2D]([ExtResource("2_m6ftl"), ExtResource("3_ny7xc")])
+crystal = ExtResource("4_lrehp")
+
+[node name="RarityGlow" parent="ShipBody" index="0"]
+texture = ExtResource("5_wxetf")
+offset = Vector2(0, 40)
+
+[node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
+position = Vector2(0, 177)
+polygon = PackedVector2Array(65, -91, 17.5, -68.25, 10, -13.25, -7.5, -12, -16.25, -68.25, -67.5, -90.75, -70, -124.5, -45, -167, -128.75, -263.25, -25, -219.5, 1.25, -244.5, 25, -220.75, 132.5, -265.75, 52.5, -169.5, 62.5, -132)
+
+[node name="Sprite" parent="ShipBody" index="2"]
+texture = SubResource("CanvasTexture_nrp2m")
+offset = Vector2(0, 40)
+metadata/_edit_lock_ = true
+
+[node name="Jets" type="Node2D" parent="." index="2"]
+position = Vector2(1.25, 0)
+scale = Vector2(1, 1)
+
+[node name="Jet" parent="Jets" index="0" instance=ExtResource("6_h82au")]
+position = Vector2(-36, -42)
+scale = Vector2(0.3, 1)
+process_material = ExtResource("8_2o8ay")
+
+[node name="Jet2" parent="Jets" index="1" instance=ExtResource("6_h82au")]
+position = Vector2(36, -42)
+scale = Vector2(0.3, 1)
+process_material = ExtResource("8_2o8ay")
+
+[node name="HitPoints" parent="." index="3"]
+theme_override_styles/fill = SubResource("StyleBoxFlat_ywl1u")

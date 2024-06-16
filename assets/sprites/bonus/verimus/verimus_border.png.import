@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l6c4xkw4rw64"
-path="res://.godot/imported/verimus_crystal.png-62c894e3c9bec6d26d2a73420242991d.ctex"
+uid="uid://cx2hfo6njllme"
+path="res://.godot/imported/verimus_border.png-1d94e22cebe780d2b03b515c314ba254.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ships/verimus/verimus_crystal.png"
-dest_files=["res://.godot/imported/verimus_crystal.png-62c894e3c9bec6d26d2a73420242991d.ctex"]
+source_file="res://assets/sprites/bonus/verimus/verimus_border.png"
+dest_files=["res://.godot/imported/verimus_border.png-1d94e22cebe780d2b03b515c314ba254.ctex"]
 
 [params]
 
