@@ -2,7 +2,7 @@ extends Node
 
 enum CATEGORY {resources, pilots, player_ships}
 
-enum PILOT {Urion, Jaquen, Cy, Vexar, Halcyon, Dez, Marcus, Gemini, Auro, Roshon, Adrian, Leonard, Elenya, Xurim, Mia, Lance}
+enum PILOT {Yaspar, Urion, Jaquen, Cy, Vexar, Felix, Halcyon, Dez, Korina, Marcus, Gemini, Auro, Roshon, Adrian, Leonard, Elenya, Xurim, Mia, Lance}
 
 enum PLAYER_SHIP {Excalibur, Justice, Blade}
 func selected_ship_name():
@@ -27,12 +27,16 @@ func by_probability_ascending(a, b):
 
 func set_pilots_array():
 	var pilot_tiers = {
+		"Yaspar": 19.0,
 		"Urion": 18.0,
 		"Jaquen": 16.0,
+		"Biana": 15.0,
 		"Cy": 14.0,
 		"Vexar": 12.0,
+		"Felix": 11.0,
 		"Halcyon": 10.0,
 		"Dez": 9.0,
+		"Korina": 8.5,
 		"Marcus": 8.0,
 		"Gemini": 7.0,
 		"Auro": 6.0,
