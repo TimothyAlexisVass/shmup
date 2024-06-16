@@ -39,7 +39,7 @@ var selected_pilot = "Lance":
 
 var available_player_ships = ["Blade", "Justice"]
 
-var available_pilots = ["Cy", "Lance", "Mia"]
+var available_pilots = Stuff.PILOT.keys()
 
 var levels = {
 	"1": 10,
