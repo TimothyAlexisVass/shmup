@@ -16,7 +16,7 @@ var commander = {
 	"luck_multiplier": 1,
 }
 
-var ships = {
+var player_ships = {
 	"Blade": {
 		"main_fire_rate_level": 1,
 		"main_shot_speed_level": 1,

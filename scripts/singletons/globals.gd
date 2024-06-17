@@ -51,6 +51,11 @@ var player_layer # For player ships and stuff
 var top_layer # For powerups and important things
 var shots_layer # For shots
 
+# Data
+var selected_player_ship_data = DataManager.player_data.player_ships[DataManager.player_data.selected_player_ship]
+var selected_pilot_data = DataManager.player_data.pilots[DataManager.player_data.selected_pilot]
+var commander_data = DataManager.player_data.commander
+
 const RARITY = {
 	0: "⭐", # 🟤
 	1: "⭐⭐", # 🔵

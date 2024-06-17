@@ -12,12 +12,8 @@ var spawn_position = Vector2(540, 1540)
 var grazing_with = 0
 var graze_power = 0.0
 
-var selected_player_ship_data = DataManager.player_data.ships[DataManager.player_data.selected_player_ship]
-var selected_pilot_data = DataManager.player_data.pilots[DataManager.player_data.selected_pilot]
-var commander_data = DataManager.player_data.commander
-
 @export var movement_speed_base = 1
-var movement_speed = G.linear_increase(movement_speed_base, 15, selected_pilot_data.maneuver_level, 20)
+var movement_speed = G.linear_increase(movement_speed_base, 15, G.selected_pilot_data.maneuver_level, 20)
 
 @export var graze_area_radius_base = 1
 
@@ -29,10 +25,10 @@ func _enter_tree():
 	explosion_scale = max(image_size.x, image_size.y) / 300.0
 
 func _ready():
-	$GrazeArea.scale *= graze_area_radius_base * (1 + 1.02 * selected_pilot_data.graze_area_radius_multiplier)
-	$CannonConfiguration/Main.shot_speed = G.diminishing_increase($CannonConfiguration/Main.shot_speed, selected_player_ship_data.main_shot_speed_level)
-	$CannonConfiguration/Main.fire_rate = G.diminishing_increase($CannonConfiguration/Main.fire_rate, selected_player_ship_data.main_fire_rate_level)
-	$CannonConfiguration/Main.fire_power =  G.diminishing_increase($CannonConfiguration/Main.fire_power, selected_player_ship_data.main_fire_power_level)
+	$GrazeArea.scale *= graze_area_radius_base * (1 + 1.02 * G.selected_pilot_data.graze_area_radius_multiplier)
+	$CannonConfiguration/Main.shot_speed = G.diminishing_increase($CannonConfiguration/Main.shot_speed, G.selected_player_ship_data.main_shot_speed_level)
+	$CannonConfiguration/Main.fire_rate = G.diminishing_increase($CannonConfiguration/Main.fire_rate, G.selected_player_ship_data.main_fire_rate_level)
+	$CannonConfiguration/Main.fire_power =  G.diminishing_increase($CannonConfiguration/Main.fire_power, G.selected_player_ship_data.main_fire_power_level)
 	get_viewport().warp_mouse(spawn_position)
 	play()
 

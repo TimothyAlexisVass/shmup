@@ -43,6 +43,8 @@ func save_data():
 	
 	var data_to_save = {
 		"commander": player_data.commander,
+		"player_ships": player_data.player_ships,
+		"pilots": player_data.pilots,
 		"resources": player_data.resources,
 		"levels": player_data.levels,
 		"selected_pilot": player_data.selected_pilot,
@@ -71,12 +73,21 @@ func load_data():
 		if G.DEBUG:
 			print_debug(loaded_data)
 
-		player_data.commander = loaded_data.commander
-		player_data.levels = loaded_data.levels
-		player_data.resources = loaded_data.resources
-		player_data.selected_pilot = loaded_data.selected_pilot
-		player_data.available_pilots = loaded_data.available_pilots
-		player_data.selected_player_ship = loaded_data.selected_player_ship
-		player_data.available_player_ships = loaded_data.available_player_ships
+		if loaded_data.has("commander"):
+			player_data.commander = loaded_data.commander
+		if loaded_data.has("player_ships"):
+			player_data.player_ships = loaded_data.player_ships
+		if loaded_data.has("levels"):
+			player_data.levels = loaded_data.levels
+		if loaded_data.has("resources"):
+			player_data.resources = loaded_data.resources
+		if loaded_data.has("selected_pilot"):
+			player_data.selected_pilot = loaded_data.selected_pilot
+		if loaded_data.has("available_pilots"):
+			player_data.available_pilots = loaded_data.available_pilots
+		if loaded_data.has("selected_player_ship"):
+			player_data.selected_player_ship = loaded_data.selected_player_ship
+		if loaded_data.has("available_player_ships"):
+			player_data.available_player_ships = loaded_data.available_player_ships
 	else:
 		print("Save file doesn't exist")
