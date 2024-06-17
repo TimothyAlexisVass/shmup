@@ -1,6 +1,7 @@
 extends Control
 
-var resource_button_scene = preload("res://node_classes/resource_button/resource_button.tscn")
+var resource_button_scene = preload("res://node_classes/button/resource_button.tscn")
+var upgrade_button_scene = preload("res://node_classes/button/upgrade_button.tscn")
 
 @onready var resource_list = $Screens/Market/MarginContainer/VBoxContainer/Resources/List
 
@@ -12,8 +13,8 @@ func _enter_tree():
 func _ready():
 	hide_screens()
 	ready_commander_details()
+	ready_commander_upgrade_buttons()
 	ready_controls_bottom()
-	ready_upgrade_buttons()
 	add_resource_buttons()
 
 func select_screen(screen_name):
@@ -31,8 +32,11 @@ func hide_screens():
 		screen.set_visible(false)
 
 func level_up(upgrade_button):
-	DataManager.level_up(String(upgrade_button.name))
-	set_upgrade_label(upgrade_button)
+	DataManager.level_up(upgrade_button.name)
+	set_upgrade_value(upgrade_button)
+
+func set_upgrade_value(upgrade_button):
+	upgrade_button.get_node("TextureButton/Value").set_text(str(DataManager.player_data.commander[upgrade_button.name]))
 
 func _on_name_changed(new_name):
 	var name_line_edit = $Screens/Commander/MarginContainer/VBoxContainer/Details/Name/LineEdit
@@ -42,9 +46,6 @@ func _on_name_changed(new_name):
 	else:
 		name_line_edit.text = filtered_name
 		name_line_edit.caret_column = filtered_name.length()
-
-func set_upgrade_label(button):
-	button.get_node("Value").set_text(str(DataManager.player_data.commander[String(button.name)]))
 
 # Initialization methods to set values from player data
 func ready_commander_details():
@@ -56,10 +57,16 @@ func ready_controls_bottom():
 		if control is Button:
 			control.connect("pressed", Callable(self, "select_screen").bind(control.name))
 
-func ready_upgrade_buttons():
-	for upgrade_button in $Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons.get_children():
-		upgrade_button.connect("pressed", Callable(self, "level_up").bind(upgrade_button))
-		set_upgrade_label(upgrade_button)
+func ready_commander_upgrade_buttons():
+	for upgrade in DataManager.player_data.commander.keys():
+		if not upgrade.ends_with("_multiplier"): continue
+
+		var upgrade_button_instance = upgrade_button_scene.instantiate()
+		upgrade_button_instance.name = upgrade
+		upgrade_button_instance.get_node("TextureButton/Label").text = "\n".join(upgrade.replace("_multiplier", "").split("_")).to_upper()
+		set_upgrade_value(upgrade_button_instance)
+		upgrade_button_instance.get_node("TextureButton").connect("pressed", Callable(self, "level_up").bind(upgrade_button_instance))
+		$Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons.add_child(upgrade_button_instance)
 
 func add_resource_buttons():
 	for resource in Stuff.RESOURCE:

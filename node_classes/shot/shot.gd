@@ -3,6 +3,7 @@ class_name Shot extends Area2D
 @onready var hit_effect_scene: PackedScene = preload("res://scenes/hit_effects/plasma.tscn")
 var direction
 var source
+var power
 var speed
 
 func _ready():

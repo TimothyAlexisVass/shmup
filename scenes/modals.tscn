@@ -267,6 +267,7 @@ script = ExtResource("16_vld02")
 item_type = "player_ship"
 
 [node name="Pilots" type="ColorRect" parent="Screens"]
+visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -302,7 +303,6 @@ layout_mode = 2
 item_type = "pilot"
 
 [node name="Commander" type="ColorRect" parent="Screens"]
-visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -378,105 +378,6 @@ horizontal_alignment = 1
 [node name="Buttons" type="GridContainer" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades"]
 layout_mode = 2
 columns = 5
-
-[node name="cannon_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
-custom_minimum_size = Vector2(180, 180)
-layout_mode = 2
-theme = ExtResource("3_7g8ct")
-text = "CANNON"
-
-[node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/cannon_level"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_7g8ct")
-text = "1"
-horizontal_alignment = 1
-
-[node name="shot_speed_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
-custom_minimum_size = Vector2(180, 180)
-layout_mode = 2
-theme = ExtResource("3_7g8ct")
-text = "SHOT
-SPEEED"
-
-[node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/shot_speed_level"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_7g8ct")
-text = "1"
-horizontal_alignment = 1
-
-[node name="movement_speed_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
-custom_minimum_size = Vector2(180, 180)
-layout_mode = 2
-theme = ExtResource("3_7g8ct")
-text = "MOVEMENT
-SPEED"
-
-[node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/movement_speed_level"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_7g8ct")
-text = "1"
-horizontal_alignment = 1
-
-[node name="fire_power_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
-custom_minimum_size = Vector2(180, 180)
-layout_mode = 2
-theme = ExtResource("3_7g8ct")
-text = "FIRE
-POWER"
-
-[node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/fire_power_level"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_7g8ct")
-text = "1"
-horizontal_alignment = 1
-
-[node name="fire_rate_level" type="Button" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons"]
-custom_minimum_size = Vector2(180, 180)
-layout_mode = 2
-theme = ExtResource("3_7g8ct")
-text = "FIRE
-RATE"
-
-[node name="Value" type="Label" parent="Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons/fire_rate_level"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_7g8ct")
-text = "1"
-horizontal_alignment = 1
 
 [node name="CloseButton" type="Button" parent="Screens"]
 custom_minimum_size = Vector2(50, 50)

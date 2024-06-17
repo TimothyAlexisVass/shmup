@@ -5,13 +5,53 @@ var name_validator = RegEx.create_from_string("^[\\p{L}\\p{M}\\ \\-\\']+$")
 
 var commander = {
 	"name": "",
-	"rank": 0,
-	"cannon_level": 1,
-	"shot_speed_level": 1,
-	"movement_speed_level": 1,
-	"fire_power_level": 1,
-	"fire_rate_level": 1,
-	"magnet_strength": 10
+	"rank": 0, # Used for commander upgrades and experience multiplier
+	"pilot_ability_multiplier": 1,
+	"ship_ability_multiplier": 1,
+	"graze_power_multiplier": 1,
+	"fire_power_multiplier": 1,
+	"experience_multiplier": 1,
+	"exchange_multiplier": 1,
+	"magnet_multiplier": 1,
+	"luck_multiplier": 1,
+}
+
+var ships = {
+	"Blade": {
+		"main_fire_rate_level": 1,
+		"main_shot_speed_level": 1,
+		"main_fire_power_level": 1,
+		"ship_ability_level": 1,
+		"movement_speed_level": 1,
+		"graze_area_radius_level": 1
+	},
+	"Justice": {
+		"main_fire_rate_level": 1,
+		"main_shot_speed_level": 1,
+		"main_fire_power_level": 1,
+		"ship_ability_level": 1,
+		"movement_speed_level": 1,
+		"graze_area_radius_level": 1
+	}
+}
+
+var pilots = {
+	"Lance": {
+		"max_cannons": 1,
+		"max_slots": 0,
+		"maneuver_level": 1,
+		"pilot_ability_level": 1,
+		"graze_area_radius_multiplier": 1,
+		"graze_power_level": 1,
+	},
+	"Mia": {
+		"max_cannons": 0,
+		"max_slots": 1,
+		"maneuver_level": 1,
+		"pilot_ability_level": 1,
+		"graze_area_radius_multiplier": 1,
+		"graze_power_level": 1,
+	}
 }
 
 var resources = {

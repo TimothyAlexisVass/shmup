@@ -89,8 +89,8 @@ func colored_light(color):
 func diminishing_increase(base, skill_level):
 	return snapped(base * sqrt(skill_level + 1), 0.01)
 
-func linear_increase(base, skill_level, magnitude):
-	return base + skill_level * magnitude
+func linear_increase(base, maximum, skill_level, maximum_skill_level):
+	return base + skill_level * (maximum - base) / float(maximum_skill_level)
 
 func random_position_in_camera_view():
 	var camera_min = camera.get_min()

@@ -1,23 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://u2a4o83keeke"]
+[gd_scene load_steps=8 format=3 uid="uid://u2a4o83keeke"]
 
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_odwif"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_7bhkw"]
-[ext_resource type="PackedScene" uid="uid://c4xjy0nh643o5" path="res://scenes/shots/bullet.tscn" id="2_m8bpk"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="3_fv3o6"]
+[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="5_eer5m"]
+[ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://assets/sprites/ships/vash/vash_normal.png" id="6_5ilo7"]
+[ext_resource type="PackedScene" uid="uid://c4xjy0nh643o5" path="res://scenes/shots/bullet.tscn" id="6_xwvhp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bhtop"]
+diffuse_texture = ExtResource("5_eer5m")
+normal_texture = ExtResource("6_5ilo7")
 
 [node name="Player" instance=ExtResource("1_odwif")]
-shot_speed_base = 1500
-fire_rate_base = 2
-shot_scene = ExtResource("2_m8bpk")
-shot_color = Color(0.784314, 0.784314, 0.509804, 1)
 
 [node name="Jet" parent="." index="0" instance=ExtResource("2_7bhkw")]
-position = Vector2(-90, -160)
+modulate = Color(8, 4, 1, 0.3)
+z_as_relative = true
+position = Vector2(-95, -170)
+scale = Vector2(3, 3)
 process_material = ExtResource("3_fv3o6")
 
 [node name="Jet2" parent="." index="1" instance=ExtResource("2_7bhkw")]
-position = Vector2(90, -160)
+modulate = Color(8, 4, 1, 0.3)
+z_as_relative = true
+position = Vector2(95, -170)
+scale = Vector2(3, 3)
 process_material = ExtResource("3_fv3o6")
 
-[node name="Sprite2D" parent="GrazeArea" index="0"]
-modulate = Color(2, 2, 4, 0.395)
+[node name="Sprite" parent="." index="2"]
+texture = SubResource("CanvasTexture_bhtop")
+
+[node name="Main" parent="CannonConfiguration" index="0"]
+position = Vector2(0, 200)
+default_color = Color(0.898392, 0.849773, 0.555749, 1)
+shot_scene = ExtResource("6_xwvhp")
+fire_rate = 2.0
+shot_speed = 900.0
+fire_power = 0.5

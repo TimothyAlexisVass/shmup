@@ -1,73 +1,38 @@
 class_name Player extends Area2D
 
-var cannon_level
-
-var shot_speed
-@export var shot_speed_base = 900
-var shot_speed_level = 0:
-	set(value):
-		shot_speed_level = value
-		shot_speed = G.diminishing_increase(shot_speed_base, shot_speed_level)
-
-var shots_per_second
-@export var fire_rate_base = 1
-var fire_rate_level = 0:
-	set(value):
-		fire_rate_level = value
-		shots_per_second = G.diminishing_increase(fire_rate_base, fire_rate_level)
-
-var fire_power
-@export var fire_power_base = 1
-var fire_power_level = 0:
-	set(value):
-		fire_power_level = value
-		fire_power = G.diminishing_increase(fire_power_base, fire_power_level)
-
-var movement_speed
-@export var movement_speed_base = 10
-var movement_speed_increase
-var movement_speed_level = 0:
-	set(value):
-		movement_speed_level = value
-		movement_speed = G.linear_increase(movement_speed_base, movement_speed_level, (10 - movement_speed_base) / 1000.0)
-
-@export var shot_spread = false
-
 # Basic properties
-@export var shot_scene = preload("res://scenes/shots/plasma.tscn")
-@export var shot_color = Color(0, 0.2, 1)
 @export var explosion = preload("res://scenes/explosions/fire_explosion.tscn")
 
 # Calculated properties
-var image
-var width
-var height
 var explosion_scale
 
 var is_playing = true
-var move_player = false
 var just_spawned = 10
 var spawn_position = Vector2(540, 1540)
 var grazing_with = 0
 var graze_power = 0.0
 
+var selected_player_ship_data = DataManager.player_data.ships[DataManager.player_data.selected_player_ship]
+var selected_pilot_data = DataManager.player_data.pilots[DataManager.player_data.selected_pilot]
+var commander_data = DataManager.player_data.commander
+
+@export var movement_speed_base = 1
+var movement_speed = G.linear_increase(movement_speed_base, 15, selected_pilot_data.maneuver_level, 20)
+
+@export var graze_area_radius_base = 1
+
 func _enter_tree():
 	global_position = spawn_position
-	# Upgrades affecting all ships
-	var commander_upgrades = DataManager.player_data.commander
-
-	for property in commander_upgrades.keys():
-		set(property, int(commander_upgrades[property]))
-	
 	rotation = PI # 180°
 
-	image = $Sprite.texture.diffuse_texture.get_image()
-	var image_size = Vector2(image.get_size()) * scale
-	width = image_size.x
-	height = image_size.y
-	explosion_scale = max(width, height) / 300.0
+	var image_size = Vector2($Sprite.texture.diffuse_texture.get_image().get_size()) * scale
+	explosion_scale = max(image_size.x, image_size.y) / 300.0
 
 func _ready():
+	$GrazeArea.scale *= graze_area_radius_base * (1 + 1.02 * selected_pilot_data.graze_area_radius_multiplier)
+	$CannonConfiguration/Main.shot_speed = G.diminishing_increase($CannonConfiguration/Main.shot_speed, selected_player_ship_data.main_shot_speed_level)
+	$CannonConfiguration/Main.fire_rate = G.diminishing_increase($CannonConfiguration/Main.fire_rate, selected_player_ship_data.main_fire_rate_level)
+	$CannonConfiguration/Main.fire_power =  G.diminishing_increase($CannonConfiguration/Main.fire_power, selected_player_ship_data.main_fire_power_level)
 	get_viewport().warp_mouse(spawn_position)
 	play()
 

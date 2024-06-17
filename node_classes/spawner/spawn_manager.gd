@@ -42,8 +42,9 @@ func _ready():
 	G.player.name = DataManager.player_data.selected_player_ship
 	for spawn_point_marker in G.ships_layer.get_node("SpawnPoints").get_children():
 		spawn_points[spawn_point_marker.name.to_int()] = spawn_point_marker
-	print("Level: ", G.level.number)
-	print("Challenge: ", G.level.challenge)
+	if G.DEBUG:
+		print("Level: ", G.level.number)
+		print("Challenge: ", G.level.challenge)
 	cache_shaders()
 
 func enqueue_wave(wave_number):

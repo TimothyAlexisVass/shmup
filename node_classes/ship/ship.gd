@@ -34,6 +34,7 @@ var velocity = Vector2(0, 0)
 @onready var shooting = false
 
 var shipbody_texture = null
+var cleared = false
 var rarity = 0
 var tier = 1
 
@@ -137,7 +138,7 @@ func handle_hit(shot):
 		shot.hit(self)
 
 func take_damage(cause):
-	var amount = self.current_health if cause == self else cause.source.fire_power
+	var amount = self.current_health if cause == self else cause.power
 	current_health -= amount
 	if not $HitPoints.visible:
 		$HitPoints.visible = true
@@ -150,7 +151,8 @@ func take_damage(cause):
 		stop_jets()
 		muzzles_status(false)
 		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), G.HEALTH_TWEEN_TIME) # shine
-		clear(cause)
+		if not cleared:
+			clear(cause)
 	if $HitPoints.value > 0:
 		var ratio = current_health / $HitPoints.max_value
 		var red_component = min(1, 2 * (1 - ratio))
@@ -160,6 +162,7 @@ func take_damage(cause):
 		tween.tween_property($HitPoints, "value", current_health, G.HEALTH_TWEEN_TIME)
 
 func clear(cleared_by):
+	cleared = true
 	if "source" in cleared_by:
 		drop_rewards.emit(cleared_by.source, global_position)
 	G.explode(self)

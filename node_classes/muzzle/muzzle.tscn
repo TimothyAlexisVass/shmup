@@ -6,7 +6,6 @@
 points = PackedVector2Array(0, 0, 0, 100)
 width = 5.0
 script = ExtResource("1_wty60")
-rate_of_fire = 0.1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

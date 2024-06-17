@@ -19,7 +19,7 @@ func _ready():
 func _physics_process(delta):
 	if is_instance_valid(recipient) && recipient.is_playing:
 		var magnet_direction = recipient.global_position - global_position
-		var magnet_effect = min(27, (100 * DataManager.player_data.commander.magnet_strength /  magnet_direction.length()))
+		var magnet_effect = min(27, (1000 * DataManager.player_data.commander.magnet_multiplier /  magnet_direction.length()))
 		translate(delta * (Vector2.DOWN * SPEED + magnet_direction.normalized() * magnet_effect ** 2))
 
 func _on_area_entered(area):
