@@ -68,7 +68,8 @@ func load_data():
 			printerr("Cannot parse save file as JSON")
 			return
 
-		print_debug(loaded_data)
+		if G.DEBUG:
+			print_debug(loaded_data)
 
 		player_data.commander = loaded_data.commander
 		player_data.levels = loaded_data.levels

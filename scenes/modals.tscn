@@ -267,7 +267,6 @@ script = ExtResource("16_vld02")
 item_type = "player_ship"
 
 [node name="Pilots" type="ColorRect" parent="Screens"]
-visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0
@@ -303,6 +302,7 @@ layout_mode = 2
 item_type = "pilot"
 
 [node name="Commander" type="ColorRect" parent="Screens"]
+visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1960.0

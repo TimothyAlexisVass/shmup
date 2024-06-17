@@ -43,7 +43,6 @@ metadata/_edit_lock_ = true
 
 [node name="Jets" type="Node2D" parent="." index="2"]
 position = Vector2(1.25, 0)
-scale = Vector2(1, 1)
 
 [node name="Jet" parent="Jets" index="0" instance=ExtResource("6_h82au")]
 position = Vector2(-36, -42)

@@ -1,19 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://72p6hkipsrnw"]
+[gd_scene load_steps=4 format=3 uid="uid://72p6hkipsrnw"]
 
 [ext_resource type="Script" path="res://node_classes/shot/shot.gd" id="1_ycxi0"]
-[ext_resource type="Texture2D" uid="uid://dvr1l6ewynpxh" path="res://assets/sprites/shots/plasma_background.png" id="2_to3s6"]
 [ext_resource type="Texture2D" uid="uid://b304d0fyllk3h" path="res://assets/sprites/shots/plasma.png" id="3_dmubq"]
-
-[sub_resource type="Gradient" id="Gradient_p8p0u"]
-offsets = PackedFloat32Array(0.178988, 0.896104)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nye04"]
-gradient = SubResource("Gradient_p8p0u")
-width = 90
-height = 150
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnupo"]
 radius = 4.0
@@ -24,14 +12,6 @@ collision_layer = 0
 collision_mask = 0
 gravity = 0.0
 script = ExtResource("1_ycxi0")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(2, 2.125)
-texture = SubResource("GradientTexture2D_nye04")
-
-[node name="Background" type="Sprite2D" parent="."]
-light_mask = 512
-texture = ExtResource("2_to3s6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 light_mask = 512

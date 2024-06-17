@@ -11,6 +11,7 @@ diffuse_texture = ExtResource("2_87okx")
 normal_texture = ExtResource("3_hqa7a")
 
 [node name="Player" instance=ExtResource("1_cr4rd")]
+shot_spread = true
 
 [node name="Sprite" parent="." index="0"]
 texture = SubResource("CanvasTexture_7hffb")

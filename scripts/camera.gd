@@ -4,10 +4,13 @@ extends Camera2D
 
 func _enter_tree():
 	G.camera = self
+	global_position = G.center
 
 func _physics_process(_delta):
-	if is_instance_valid(G.player):
+	if is_instance_valid(G.player) && G.player.is_playing:
 		global_position = G.center - camera_position_factor * (G.center - G.player.global_position)
+	else:
+		global_position = G.center
 
 func get_rect() -> Rect2:
 	return Rect2(get_min(), get_max())

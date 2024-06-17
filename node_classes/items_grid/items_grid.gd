@@ -10,7 +10,7 @@ func _ready():
 	for item in Stuff.get(list_type):
 		var rarity = G.rarity(item.tier)
 		var item_button = grid_item_scene.instantiate()
-		var texture_button = item_button.get_node("TextureButton")
+		var texture_button = item_button.get_node("PanelContainer/TextureButton")
 		var name_label = texture_button.get_node("Name")
 		var rarity_label = texture_button.get_node("Rarity")
 		name_label.get_theme_stylebox("normal").bg_color = G.RARITY_BACKGROUND_COLOR[rarity]
@@ -37,14 +37,14 @@ func _ready():
 
 func _on_item_button_pressed(selected_button):
 	for item_button in get_children():
-		var texture_button = item_button.get_node("TextureButton")
+		var texture_button = item_button.get_node("PanelContainer/TextureButton")
 		if item_button.name in DataManager.player_data.get("available_" + list_type):
 			texture_button.modulate.a = 0.8
 			item_button.get_theme_stylebox("panel").border_color.a = 0.8
 		else:
 			texture_button.modulate.a = 0.2
 			item_button.get_theme_stylebox("panel").border_color.a = 0.3
-	selected_button.get_node("TextureButton").modulate.a = 1
+	selected_button.get_node("PanelContainer/TextureButton").modulate.a = 1
 	selected_button.get_theme_stylebox("panel").border_color.a = 1
 	DataManager.player_data.set("selected_" + item_type, selected_button.name)
 	print("Selecting item ", selected_button.name)

@@ -7,8 +7,9 @@ var speed
 
 func _ready():
 	direction = Vector2.DOWN.rotated(rotation).normalized()
-	$PointLight2D.color = G.colored_light(modulate)
-	modulate = G.glow(modulate, 2)
+	if get_node_or_null("PointLight2D"):
+		$PointLight2D.color = G.colored_light(modulate)
+		modulate = G.glow(modulate, 2)
 	if source is Player:
 		set_collision_layer_value(G.COLLISION_LAYERS.PLAYERSTUFF, true)
 		set_collision_mask_value(G.COLLISION_LAYERS.NONPLAYER, true)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddqakt4haow5m"]
+[gd_scene load_steps=14 format=3 uid="uid://ddqakt4haow5m"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_g5va2"]
 [ext_resource type="Texture2D" uid="uid://s2jucv7v2lfg" path="res://assets/sprites/ships/tamarana/tamarana_1.png" id="2_nvwsy"]
@@ -8,37 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://jcn8rlq48btp" path="res://assets/sprites/ships/tamarana/tamarana_crystal.png" id="6_2lcir"]
 [ext_resource type="Texture2D" uid="uid://csc2xmfnvuhb" path="res://assets/sprites/ships/tamarana/tamarana_border.png" id="7_db500"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_e6mku"]
+[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="9_situx"]
 [ext_resource type="Texture2D" uid="uid://d1d7ndkrps2e8" path="res://assets/sprites/ships/tamarana/tamarana_0.png" id="10_ra8a0"]
 [ext_resource type="Texture2D" uid="uid://bca1eg5o7mjmp" path="res://assets/sprites/ships/tamarana/tamarana_normal.png" id="11_2gr05"]
-
-[sub_resource type="Curve" id="Curve_6jcrg"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_drtbg"]
-curve = SubResource("Curve_6jcrg")
-
-[sub_resource type="Curve" id="Curve_23cpa"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.333847), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_a537j"]
-curve = SubResource("Curve_23cpa")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kmwr1"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(1, 0, 0)
-emission_shape = 3
-emission_box_extents = Vector3(25, 1, 1)
-direction = Vector3(0, -1, 0)
-spread = 0.0
-initial_velocity_min = 2400.0
-initial_velocity_max = 2400.0
-gravity = Vector3(0, 0, 0)
-scale_min = 5.0
-scale_max = 5.0
-scale_curve = SubResource("CurveTexture_a537j")
-alpha_curve = SubResource("CurveTexture_drtbg")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f833l"]
 resource_local_to_scene = true
@@ -59,19 +31,19 @@ corner_radius_bottom_left = 4
 sprites = Array[CompressedTexture2D]([ExtResource("2_nvwsy"), ExtResource("3_ltrq3"), ExtResource("4_k4ev0"), ExtResource("5_p1svm")])
 crystal = ExtResource("6_2lcir")
 
-[node name="TierGlow" parent="ShipBody" index="0"]
+[node name="RarityGlow" parent="ShipBody" index="0"]
 texture = ExtResource("7_db500")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("8_e6mku")]
-modulate = Color(4, 0.6, 3, 0.3)
-position = Vector2(0, -250)
-scale = Vector2(4, 1)
-process_material = SubResource("ParticleProcessMaterial_kmwr1")
+modulate = Color(4, 0.6, 3, 0.309804)
+position = Vector2(0, -80)
+scale = Vector2(3.8, 2)
+process_material = ExtResource("9_situx")
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
-polygon = PackedVector2Array(255, 50, 150, 150, 40, 505, -45, 505, -135, 155, -255, 50, -260, 375, -375, 375, -345, -475, -285, -475, -260, -90, -140, -40, -145, -355, -125, -445, -85, -310, 90, -315, 125, -445, 140, -365, 140, -40, 265, -95, 284.508, -474.52, 345, -475, 370, 370, 260, 370)
+polygon = PackedVector2Array(64, 13, 38, 38, 10, 126, -11, 126, -34, 39, -64, 13, -65, 94, -94, 94, -86, -119, -71, -119, -65, -22, -35, -10, -36, -89, -31, -111, -21, -77, 23, -79, 31, -111, 35, -91, 35, -10, 66, -24, 71, -119, 86, -119, 93, 93, 65, 93)
 
 [node name="Sprite" parent="ShipBody" index="3"]
 texture = SubResource("CanvasTexture_f833l")

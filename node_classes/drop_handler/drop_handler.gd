@@ -47,7 +47,8 @@ func prepare_rewards():
 
 func drop_rewards(recipient, at_global_position):
 	for reward in rewards_to_drop:
-		print("drop ", reward.name, " for: ", recipient.name, " at: ", at_global_position)
+		if G.DEBUG:
+			print("drop ", reward.name, " for: ", recipient.name, " at: ", at_global_position)
 		var reward_instance = drop_item_scene.instantiate()
 		reward_instance.get_node("Sprite").texture = reward.texture
 		reward_instance.category = reward.category

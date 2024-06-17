@@ -31,6 +31,8 @@ var movement_speed_level = 0:
 		movement_speed_level = value
 		movement_speed = G.linear_increase(movement_speed_base, movement_speed_level, (10 - movement_speed_base) / 1000.0)
 
+@export var shot_spread = false
+
 # Basic properties
 @export var shot_scene = preload("res://scenes/shots/plasma.tscn")
 @export var shot_color = Color(0, 0.2, 1)
@@ -50,6 +52,7 @@ var grazing_with = 0
 var graze_power = 0.0
 
 func _enter_tree():
+	global_position = spawn_position
 	# Upgrades affecting all ships
 	var commander_upgrades = DataManager.player_data.commander
 

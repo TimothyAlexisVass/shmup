@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://doov2xtv2r0ru"]
+[gd_scene load_steps=18 format=3 uid="uid://doov2xtv2r0ru"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_3mkgq"]
 [ext_resource type="Texture2D" uid="uid://bhf7a33v5dw0" path="res://assets/sprites/ships/sabir/sabir_1.png" id="2_nsqwn"]
@@ -9,38 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://d1x521omy2yra" path="res://assets/sprites/ships/sabir/sabir_crystal.png" id="7_v1j1w"]
 [ext_resource type="Texture2D" uid="uid://cufh7uuaxt0oe" path="res://assets/sprites/ships/sabir/sabir_border.png" id="8_ljlxn"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_2kd32"]
+[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="10_dh0tq"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_qg20i"]
+[ext_resource type="Texture2D" uid="uid://o631nvmaqddq" path="res://node_classes/jet/jet_gradient.tres" id="11_xrkng"]
 [ext_resource type="Texture2D" uid="uid://6sxq7qwt1y56" path="res://assets/sprites/ships/sabir/sabir_0.png" id="12_afm5n"]
 [ext_resource type="Texture2D" uid="uid://o1pn2he4xbyn" path="res://assets/sprites/ships/sabir/sabir_normal.png" id="13_fuqtg"]
 
-[sub_resource type="Curve" id="Curve_x3n7m"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_5hw0l"]
-curve = SubResource("Curve_x3n7m")
-
-[sub_resource type="Curve" id="Curve_btand"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.333847), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_rkj31"]
-curve = SubResource("Curve_btand")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gq27g"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pirx5"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 0, 0)
 emission_shape = 3
-emission_box_extents = Vector3(25, 1, 1)
+emission_box_extents = Vector3(6, 1, 1)
 direction = Vector3(0, -1, 0)
 spread = 0.0
-initial_velocity_min = 2400.0
-initial_velocity_max = 2400.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
 gravity = Vector3(0, 0, 0)
-scale_min = 5.0
-scale_max = 5.0
-scale_curve = SubResource("CurveTexture_rkj31")
-alpha_curve = SubResource("CurveTexture_5hw0l")
+scale_min = 4.0
+scale_max = 4.0
+color_ramp = ExtResource("11_xrkng")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wic3u"]
 resource_local_to_scene = true
@@ -61,34 +48,35 @@ corner_radius_bottom_left = 4
 sprites = Array[CompressedTexture2D]([ExtResource("2_nsqwn"), ExtResource("3_yx2ep"), ExtResource("4_1dk6w"), ExtResource("5_foyc1"), ExtResource("6_dvk5a")])
 crystal = ExtResource("7_v1j1w")
 
-[node name="TierGlow" parent="ShipBody" index="0"]
+[node name="RarityGlow" parent="ShipBody" index="0"]
 texture = ExtResource("8_ljlxn")
 
 [node name="Jets" type="Node2D" parent="ShipBody" index="1"]
-scale = Vector2(1, 1)
 
 [node name="Jet" parent="ShipBody/Jets" index="0" instance=ExtResource("9_2kd32")]
-position = Vector2(-110, -150)
-process_material = SubResource("ParticleProcessMaterial_gq27g")
+modulate = Color(4, 1.50196, 0, 0.301961)
+position = Vector2(-28, -63)
+process_material = ExtResource("10_dh0tq")
 
 [node name="Jet2" parent="ShipBody/Jets" index="1" instance=ExtResource("9_2kd32")]
-position = Vector2(110, -150)
-process_material = SubResource("ParticleProcessMaterial_gq27g")
+modulate = Color(4, 1.50196, 0, 0.301961)
+position = Vector2(28, -63)
+process_material = ExtResource("10_dh0tq")
 
 [node name="Jet3" parent="ShipBody/Jets" index="2" instance=ExtResource("9_2kd32")]
-position = Vector2(305, -370)
-scale = Vector2(0.2, 0.2)
-amount = 10
-process_material = SubResource("ParticleProcessMaterial_gq27g")
+modulate = Color(4, 1.50196, 0, 0.301961)
+position = Vector2(-76, -92)
+scale = Vector2(0.1, 0.5)
+process_material = SubResource("ParticleProcessMaterial_pirx5")
 
 [node name="Jet4" parent="ShipBody/Jets" index="3" instance=ExtResource("9_2kd32")]
-position = Vector2(-305, -370)
-scale = Vector2(0.2, 0.2)
-amount = 10
-process_material = SubResource("ParticleProcessMaterial_gq27g")
+modulate = Color(4, 1.50196, 0, 0.301961)
+position = Vector2(76, -92)
+scale = Vector2(0.1, 0.5)
+process_material = SubResource("ParticleProcessMaterial_pirx5")
 
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
-polygon = PackedVector2Array(105, 370, 225, 95, 310, -200, 320, -370, 235, -355, 180, -455, 215, -200, 150, -245, 40, -275, 0, -460, -35, -275, -145, -245, -210, -200, -180, -455, -245, -350, -325, -365, -310, -200, -225, 95, -100, 370, 0, 470)
+polygon = PackedVector2Array(26, 93, 56, 24, 78, -50, 80, -92, 59, -89, 45, -114, 54, -50, 38, -61, 10, -69, 0, -115, -9, -69, -36, -61, -52, -50, -45, -114, -61, -87, -81, -91, -77, -50, -56, 24, -25, 93, 0, 118)
 
 [node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
 
