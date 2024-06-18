@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="3_fv3o6"]
 [ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="5_eer5m"]
 [ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://assets/sprites/ships/vash/vash_normal.png" id="6_5ilo7"]
-[ext_resource type="PackedScene" uid="uid://c4xjy0nh643o5" path="res://scenes/shots/bullet.tscn" id="6_xwvhp"]
+[ext_resource type="PackedScene" uid="uid://c4xjy0nh643o5" path="res://scenes/shots/Bullet.tscn" id="6_xwvhp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhtop"]
 diffuse_texture = ExtResource("5_eer5m")

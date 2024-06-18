@@ -38,7 +38,7 @@ var player_ships = {
 var pilots = {
 	"Lance": {
 		"max_cannons": 1,
-		"max_slots": 0,
+		"max_devices": 0,
 		"maneuver_level": 1,
 		"pilot_ability_level": 1,
 		"graze_area_radius_multiplier": 1,
@@ -46,7 +46,7 @@ var pilots = {
 	},
 	"Mia": {
 		"max_cannons": 0,
-		"max_slots": 1,
+		"max_devices": 1,
 		"maneuver_level": 1,
 		"pilot_ability_level": 1,
 		"graze_area_radius_multiplier": 1,

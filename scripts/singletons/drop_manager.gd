@@ -1,10 +1,11 @@
 extends Node
 
-enum TYPE { GENERAL, RESOURCE, ITEM, CHEST, SPECIAL }
+enum TYPE { GENERAL, RESOURCE, CANNON, DEVICE, CHEST, SPECIAL }
 
 @onready var drop_table = {
-	TYPE.GENERAL: Stuff.resources + Stuff.items + Stuff.chests,
+	TYPE.GENERAL: Stuff.resources + Stuff.cannons + Stuff.devices + Stuff.chests,
 	TYPE.RESOURCE: Stuff.resources,
-	TYPE.ITEM: Stuff.items,
+	TYPE.CANNON: Stuff.cannons,
+	TYPE.DEVICE: Stuff.devices,
 	TYPE.CHEST: Stuff.chests
 }

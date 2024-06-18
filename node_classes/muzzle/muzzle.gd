@@ -3,7 +3,6 @@ class_name Muzzle extends Line2D
 var timer
 
 @export var shot_scene: PackedScene = preload("res://scenes/shots/plasma.tscn")
-@export var hit_effect_scene: PackedScene = preload("res://scenes/hit_effects/plasma.tscn")
 @export var fire_rate: float = 1.0
 @export var shot_speed: float = 500.0
 @export var fire_power: float = 1.0
@@ -25,7 +24,6 @@ func shoot():
 	shot.global_position = global_position
 	shot.rotation = global_rotation
 	shot.speed = shot_speed
-	shot.hit_effect_scene = hit_effect_scene
 	shot.source = owner
 	shot.power = fire_power
 	shot.modulate = default_color

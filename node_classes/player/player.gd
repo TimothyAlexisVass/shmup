@@ -29,6 +29,11 @@ func _ready():
 	$CannonConfiguration/Main.shot_speed = G.diminishing_increase($CannonConfiguration/Main.shot_speed, G.selected_player_ship_data.main_shot_speed_level)
 	$CannonConfiguration/Main.fire_rate = G.diminishing_increase($CannonConfiguration/Main.fire_rate, G.selected_player_ship_data.main_fire_rate_level)
 	$CannonConfiguration/Main.fire_power =  G.diminishing_increase($CannonConfiguration/Main.fire_power, G.selected_player_ship_data.main_fire_power_level)
+	
+	if G.selected_pilot_data.max_cannons > 1:
+		configure_cannons()
+	if G.selected_pilot_data.max_devices > 1:
+		configure_devices()
 	get_viewport().warp_mouse(spawn_position)
 	play()
 
@@ -41,6 +46,20 @@ func _physics_process(delta):
 		global_position.x = clamp(global_position.x, G.camera.get_min().x, G.camera.get_max().x)
 		global_position.y = clamp(global_position.y, G.camera.get_min().y, G.camera.get_max().y)
 	graze_power = snapped(graze_power + grazing_with * delta, 0.001)
+
+func configure_cannons():
+	var cannons = $CannonConfiguration.get_children()
+	if cannons.count > G.selected_pilot_data.max_cannons:
+		for cannon_number in range(G.selected_pilot_data.max_cannons, cannons.count + 1):
+			cannons[cannon_number].queue_free()
+	# for cannon_number in range(1, G.selected_pilot_data.max_cannons + 1):
+	# 	cannons[cannon_number].shot_scene = Stuff.cannons[G.selected_player_ship_data.cannons[cannon_number]].shot_scene
+
+func configure_devices():
+	var devices = $DeviceConfiguration.get_children()
+	if devices.count > G.selected_pilot_data.max_devices:
+		for device_number in range(G.selected_pilot_data.max_devices, devices.count + 1):
+			devices[device_number].queue_free()
 
 func play():
 	for muzzle in $CannonConfiguration.get_children():

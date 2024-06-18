@@ -3,19 +3,33 @@ extends Node
 enum CATEGORY {resources, pilots, player_ships}
 
 enum PILOT {Imrina, Yaspar, Urion, Jaquen, Biana, Cy, Vexar, Felix, Halcyon, Dez, Korina, Marcus, Gemini, Auro, Roshon, Sibba, Adrian, Leonard, Elenya, Xurim, Mia, Lance}
+var pilots: Array
 
 enum PLAYER_SHIP {Excalibur, Justice, Blade}
-func selected_ship_name():
-	return PLAYER_SHIP.keys()[DataManager.player_data.selected_ship]
-
-var pilots: Array
 var player_ships: Array
 
 enum RESOURCE {Eternium, Veritasium, Smaragdus, Rubinus, Sapphirus, Rhodium, Aurum, Argentum, Cuprum, Aluminium}
 var resources: Array
-var items: Array
-var chests: Array
 
+enum CANNON {Bullet, Plasma}
+var cannons = [
+	{
+		"name": "Ballistic",
+		"shot_scene": preload("res://scenes/shots/Bullet.tscn"),
+		"default_color": Color(0.89, 0.84, 0.55, 1)
+	},
+	{
+		"name": "Plasma",
+		"shot_scene": preload("res://scenes/shots/Plasma.tscn"),
+		"default_color": Color(0.0, 0.25, 1.0, 1)
+	}
+]
+
+enum DEVICE {Shield}
+var devices: Array
+
+enum CHEST {Gems, Metals}
+var chests: Array
 
 func _enter_tree():
 	set_pilots_array()
