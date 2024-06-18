@@ -56,6 +56,9 @@ debug_color = Color(1, 0.839216, 0, 0.254902)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="GrazeArea"]
 modulate = Color(0.5, 0.5, 2, 0.151)
+light_mask = 512
+z_index = 999
+z_as_relative = false
 scale = Vector2(4, 4)
 mesh = SubResource("SphereMesh_p1nst")
 
