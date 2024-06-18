@@ -18,26 +18,28 @@ var commander = {
 
 var player_ships = {
 	"Blade": {
-		"main_fire_rate_level": 1,
-		"main_shot_speed_level": 1,
-		"main_fire_power_level": 1,
-		"ship_ability_level": 1,
-		"movement_speed_level": 1,
-		"graze_area_radius_level": 1
+		"main_fire_rate_level": 0,
+		"main_shot_speed_level": 0,
+		"main_fire_power_level": 0,
+		"ship_ability_level": 0,
+		"movement_speed_level": 0,
+		"graze_area_radius_level": 1,
+		"cannons": ["Ballistic", "Ballistic"]
 	},
 	"Justice": {
-		"main_fire_rate_level": 1,
-		"main_shot_speed_level": 1,
-		"main_fire_power_level": 1,
-		"ship_ability_level": 1,
-		"movement_speed_level": 1,
-		"graze_area_radius_level": 1
+		"main_fire_rate_level": 0,
+		"main_shot_speed_level": 0,
+		"main_fire_power_level": 0,
+		"ship_ability_level": 0,
+		"movement_speed_level": 0,
+		"graze_area_radius_level": 1,
+		"cannons": ["Ballistic", "Ballistic"]
 	}
 }
 
 var pilots = {
 	"Lance": {
-		"max_cannons": 1,
+		"max_cannons": 3,
 		"max_devices": 0,
 		"maneuver_level": 1,
 		"pilot_ability_level": 1,

@@ -17,7 +17,7 @@ func first_shot():
 	timer.disconnect("timeout", first_shot)
 	timer.connect("timeout", shoot)
 	timer.one_shot = false
-	timer.start(1.0 / fire_rate)
+	timer.start(1.0 / float(fire_rate))
 
 func shoot():
 	var shot = shot_scene.instantiate()

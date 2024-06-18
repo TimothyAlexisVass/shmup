@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://u2a4o83keeke"]
+[gd_scene load_steps=9 format=3 uid="uid://u2a4o83keeke"]
 
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_odwif"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_7bhkw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="5_eer5m"]
 [ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://assets/sprites/ships/vash/vash_normal.png" id="6_5ilo7"]
 [ext_resource type="PackedScene" uid="uid://c4xjy0nh643o5" path="res://scenes/shots/Bullet.tscn" id="6_xwvhp"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="7_vgebs"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhtop"]
 diffuse_texture = ExtResource("5_eer5m")
@@ -37,3 +38,12 @@ shot_scene = ExtResource("6_xwvhp")
 fire_rate = 2.0
 shot_speed = 900.0
 fire_power = 0.5
+
+[node name="LeftFront" parent="CannonConfiguration" index="1" instance=ExtResource("7_vgebs")]
+position = Vector2(150, 440)
+scale = Vector2(1, 1)
+shot_scene = null
+
+[node name="RightFront" parent="CannonConfiguration" index="2" instance=ExtResource("7_vgebs")]
+position = Vector2(-150, 440)
+shot_scene = null
