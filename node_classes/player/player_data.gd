@@ -33,7 +33,7 @@ var player_ships = {
 		"ship_ability_level": 0,
 		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
-		"cannons": ["Ballistic", "Ballistic"]
+		"cannons": ["Plasma", "Plasma"]
 	}
 }
 
