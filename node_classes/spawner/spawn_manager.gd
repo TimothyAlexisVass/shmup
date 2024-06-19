@@ -1,6 +1,7 @@
 class_name SpawnManager extends Node2D
 
-var player_scene = preload("res://node_classes/player/player.tscn")
+const PLAYER_SCENE = preload("res://node_classes/player/player.tscn")
+const SPANWER_SCENE = preload("res://node_classes/spawner/spawner.tscn")
 
 var level_completed = false
 var wave = 0
@@ -25,7 +26,6 @@ var bonus = {
 	"Verimus": preload("res://scenes/bonus/Verimus.tscn")
 }
 
-var spawner_scene = preload("res://node_classes/spawner/spawner.tscn")
 var waiting_for = []
 var wave_queue = []
 var spawn_points = {}

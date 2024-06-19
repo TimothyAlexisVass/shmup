@@ -4,12 +4,12 @@ class_name ItemsGrid extends GridContainer
 
 @onready var list_type = item_type + "s"
 
-var grid_item_scene = preload("res://node_classes/items_grid/grid_item.tscn")
+const GRID_ITEM_SCENE = preload("res://node_classes/items_grid/grid_item.tscn")
 
 func _ready():
 	for item in Stuff.get(list_type):
 		var rarity = G.rarity(item.tier)
-		var item_button = grid_item_scene.instantiate()
+		var item_button = GRID_ITEM_SCENE.instantiate()
 		var texture_button = item_button.get_node("PanelContainer/TextureButton")
 		var name_label = texture_button.get_node("Name")
 		var rarity_label = texture_button.get_node("Rarity")

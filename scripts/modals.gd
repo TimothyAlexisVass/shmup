@@ -1,7 +1,7 @@
 extends Control
 
-var resource_button_scene = preload("res://node_classes/button/resource_button.tscn")
-var upgrade_button_scene = preload("res://node_classes/button/upgrade_button.tscn")
+const RESOURCE_BUTTON_SCENE = preload("res://node_classes/button/resource_button.tscn")
+const UPGRADE_BUTTON_SCENE = preload("res://node_classes/button/upgrade_button.tscn")
 
 @onready var resource_list = $Screens/Market/MarginContainer/VBoxContainer/Resources/List
 
@@ -61,7 +61,7 @@ func ready_commander_upgrade_buttons():
 	for upgrade in DataManager.player_data.commander.keys():
 		if not upgrade.ends_with("_multiplier"): continue
 
-		var upgrade_button_instance = upgrade_button_scene.instantiate()
+		var upgrade_button_instance = UPGRADE_BUTTON_SCENE.instantiate()
 		upgrade_button_instance.name = upgrade
 		upgrade_button_instance.get_node("TextureButton/Label").text = "\n".join(upgrade.replace("_multiplier", "").split("_")).to_upper()
 		set_upgrade_value(upgrade_button_instance)
@@ -71,7 +71,7 @@ func ready_commander_upgrade_buttons():
 func add_resource_buttons():
 	for resource in Stuff.RESOURCE:
 		var resource_data = Stuff.resources[Stuff.RESOURCE[resource]]
-		var resource_button_instance = resource_button_scene.instantiate()
+		var resource_button_instance = RESOURCE_BUTTON_SCENE.instantiate()
 		var texture_button = resource_button_instance.get_node("TextureButton")
 		texture_button.texture_normal = resource_data.texture
 		texture_button.get_node("Label").text = resource

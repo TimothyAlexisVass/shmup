@@ -2,10 +2,10 @@ extends Node
 
 var current_scene = null
 
-var level_selection_scene = preload("res://scenes/level_selection.tscn")
-var level_scene = preload("res://scenes/level.tscn")
+const LEVEL_SELECTION_SCENE = preload("res://scenes/level_selection.tscn")
+const LEVEL_SCENE = preload("res://scenes/level.tscn")
 
-@onready var level_selection = level_selection_scene.instantiate()
+@onready var level_selection = LEVEL_SELECTION_SCENE.instantiate()
 
 @onready var root = get_tree().root
 @onready var shmup = root.get_node("Shmup")
@@ -37,7 +37,7 @@ func _deferred_to_level_selection():
 
 func _deferred_to_level(level_number, level_challenge):
 	clear_shmup()
-	var level = level_scene.instantiate()
+	var level = LEVEL_SCENE.instantiate()
 	level.number = level_number
 	level.challenge = level_challenge
 	shmup.add_child(level)

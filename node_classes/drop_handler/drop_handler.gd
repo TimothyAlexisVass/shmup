@@ -12,7 +12,7 @@ enum CATEGORY { GENERAL, RESOURCE, ITEM, CHEST, SPECIAL }
 var rewards_to_drop = []
 var drop_table = DropManager.drop_table[category]
 
-var drop_item_scene = preload("res://node_classes/drop_item/drop_item.tscn")
+const DROP_ITEM_SCENE = preload("res://node_classes/drop_item/drop_item.tscn")
 
 func _enter_tree():
 	if owner:
@@ -49,7 +49,7 @@ func drop_rewards(recipient, at_global_position):
 	for reward in rewards_to_drop:
 		if G.DEBUG:
 			print("drop ", reward.name, " for: ", recipient.name, " at: ", at_global_position)
-		var reward_instance = drop_item_scene.instantiate()
+		var reward_instance = DROP_ITEM_SCENE.instantiate()
 		reward_instance.get_node("Sprite").texture = reward.texture
 		reward_instance.category = reward.category
 		reward_instance.item_name = reward.name

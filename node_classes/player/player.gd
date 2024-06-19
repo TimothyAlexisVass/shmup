@@ -1,8 +1,5 @@
 class_name Player extends Area2D
 
-# Basic properties
-@export var explosion = preload("res://scenes/explosions/fire_explosion.tscn")
-
 # Calculated properties
 var explosion_scale
 
@@ -14,6 +11,7 @@ var graze_power = 0.0
 
 @export var movement_speed_base = 1
 @export var graze_area_radius_base = 1
+@export var explosion: PackedScene = preload("res://scenes/explosions/fire_explosion.tscn")
 
 var ship_data = DataManager.player_data.player_ships[DataManager.player_data.selected_player_ship]
 var pilot_data = DataManager.player_data.pilots[DataManager.player_data.selected_pilot]
@@ -83,7 +81,7 @@ func handle_hit(shot):
 
 func clear(_cause):
 	for muzzle in $CannonConfiguration.get_children():
-		muzzle.get_node("Timer").stop()
+		muzzle.set_physics_process(false)
 	set_visible(false)
 	is_playing = false
 	G.explode(self)

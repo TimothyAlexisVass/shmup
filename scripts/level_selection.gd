@@ -1,12 +1,12 @@
 extends Node2D
 
-var level_button_scene = preload("res://scenes/level_button.tscn")
-var level_scene = preload("res://scenes/level.tscn")
+const LEVEL_BUTTON_SCENE = preload("res://scenes/level_button.tscn")
+const LEVEL_SCENE = preload("res://scenes/level.tscn")
+const LINE_OFFSET = Vector2(100, 85)
+
 var previous_x_position = 200
 var line
 var rng = RandomNumberGenerator.new()
-
-const LINE_OFFSET = Vector2(100, 85)
 
 func _enter_tree():
 	G.level_selection = self
@@ -27,7 +27,7 @@ func _ready():
 		line = $Lines/Line2D.duplicate()
 		line.set_visible(true)
 		$Lines.add_child(line)
-		button = level_button_scene.instantiate()
+		button = LEVEL_BUTTON_SCENE.instantiate()
 		button.level = i
 		if levels_data.has(str(i)):
 			button.completion = levels_data[str(i)]
