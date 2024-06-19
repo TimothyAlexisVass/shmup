@@ -1,7 +1,7 @@
 class_name SpawnManager extends Node2D
 
 const PLAYER_SCENE = preload("res://node_classes/player/player.tscn")
-const SPANWER_SCENE = preload("res://node_classes/spawner/spawner.tscn")
+const SPAWNER_SCENE = preload("res://node_classes/spawner/spawner.tscn")
 
 var level_completed = false
 var wave = 0
@@ -118,7 +118,7 @@ func _on_wave_timer_timeout():
 		var spawn = wave_queue.pop_front()
 		for spawn_point in spawn.sequence:
 			var spawn_scene = ships[spawn.wave_tier].values().pick_random()
-			var spawner_instance = spawner_scene.instantiate()
+			var spawner_instance = SPAWNER_SCENE.instantiate()
 			spawner_instance.tier_to_spawn = spawn.wave_tier
 			spawn_points[spawn_point].add_child(spawner_instance)
 			spawner_instance.spawn(spawn_scene, spawn.amount)

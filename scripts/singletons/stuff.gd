@@ -93,14 +93,24 @@ func set_player_ships_array():
 		)
 
 func set_resources_array():
-	var resource_tiers = [20, 18, 16, 14, 12, 10, 7, 4, 2, 1]
-	for index in range(len(resource_tiers)):
-		var resource_name = RESOURCE.keys()[index]
+	var resource_tiers = {
+		"Eternium": 20,
+		"Veritasium": 18,
+		"Smaragdus": 16,
+		"Rubinus": 14,
+		"Sapphirus": 12,
+		"Rhodium": 10,
+		"Aurum": 7,
+		"Argentum": 4,
+		"Cuprum": 2,
+		"Aluminium": 1
+	}
+	for resource_name in resource_tiers:
 		resources.append(
 			{
 				"category": CATEGORY.resources,
 				"name": resource_name,
-				"tier": resource_tiers[index],
+				"tier": resource_tiers[resource_name],
 				"texture": load("res://assets/sprites/resources/" + resource_name + ".png"),
 				"probability": Exchange.rates["Aluminium"] / Exchange.rates[resource_name]
 			}
