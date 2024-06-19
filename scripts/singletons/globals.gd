@@ -86,8 +86,21 @@ func colored_light(color):
 	var max_component = max(color.r, color.g, color.b)
 	return color * (1 / max_component) * color * 2.5
 
-func diminishing_increase(base, skill_level):
-	return snapped(base * sqrt(skill_level + 1), 0.01)
+func diminishing_decrease(base, skill_level, dampening_factor = 1):
+	if base is float:
+		return snapped(base / sqrt(skill_level / float(dampening_factor) + 1), 0.01)
+	elif base is PackedFloat32Array:
+		for index in range(base.size()):
+			base.set(index, snapped(base[index] / sqrt(skill_level / float(dampening_factor) + 1), 0.01))
+		return base
+
+func diminishing_increase(base, skill_level, dampening_factor = 1):
+	if base is float:
+		return snapped(base * sqrt(skill_level / float(dampening_factor) + 1), 0.01)
+	elif base is PackedFloat32Array:
+		for index in range(base.size()):
+			base.set(index, snapped(base[index] * sqrt(skill_level / float(dampening_factor) + 1), 0.01))
+		return base
 
 func linear_increase(base, maximum, skill_level, maximum_skill_level):
 	return base + skill_level * (maximum - base) / float(maximum_skill_level)

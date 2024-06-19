@@ -83,12 +83,10 @@ polygon = PackedVector2Array(26, 93, 56, 24, 78, -50, 80, -92, 59, -89, 45, -114
 [node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_qg20i")]
 position = Vector2(-100, 250)
 default_color = Color(1, 0.168627, 0, 1)
-shot_speed = 300.0
 
 [node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("10_qg20i")]
 position = Vector2(100, 250)
 default_color = Color(1, 0.168627, 0, 1)
-shot_speed = 300.0
 
 [node name="Sprite" parent="ShipBody" index="4"]
 texture = SubResource("CanvasTexture_wic3u")

@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="3_fv3o6"]
 [ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="5_eer5m"]
 [ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://assets/sprites/ships/vash/vash_normal.png" id="6_5ilo7"]
-[ext_resource type="PackedScene" uid="uid://c4xjy0nh643o5" path="res://scenes/shots/Bullet.tscn" id="6_xwvhp"]
+[ext_resource type="Resource" uid="uid://dsu5vh3y2y1ij" path="res://resources/cannons/Ballistic.tres" id="6_ma6gq"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="7_vgebs"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhtop"]
@@ -33,17 +33,10 @@ texture = SubResource("CanvasTexture_bhtop")
 
 [node name="Main" parent="CannonConfiguration" index="0"]
 position = Vector2(0, 200)
-default_color = Color(0.898392, 0.849773, 0.555749, 1)
-shot_scene = ExtResource("6_xwvhp")
-fire_rate = 2.0
-shot_speed = 900.0
-fire_power = 0.5
+cannon = ExtResource("6_ma6gq")
 
 [node name="LeftFront" parent="CannonConfiguration" index="1" instance=ExtResource("7_vgebs")]
 position = Vector2(150, 440)
-scale = Vector2(1, 1)
-shot_scene = null
 
 [node name="RightFront" parent="CannonConfiguration" index="2" instance=ExtResource("7_vgebs")]
 position = Vector2(-150, 440)
-shot_scene = null

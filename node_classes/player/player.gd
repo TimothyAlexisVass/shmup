@@ -15,8 +15,10 @@ var graze_power = 0.0
 @export var movement_speed_base = 1
 @export var graze_area_radius_base = 1
 
-@onready var ship_data = DataManager.player_data.player_ships[DataManager.player_data.selected_player_ship]
-@onready var pilot_data = DataManager.player_data.pilots[DataManager.player_data.selected_pilot]
+var ship_data = DataManager.player_data.player_ships[DataManager.player_data.selected_player_ship]
+var pilot_data = DataManager.player_data.pilots[DataManager.player_data.selected_pilot]
+
+var tier = Stuff.PLAYER_SHIP[DataManager.player_data.selected_player_ship]
 
 @onready var movement_speed = G.linear_increase(movement_speed_base, 15, pilot_data.maneuver_level, 20)
 
@@ -26,17 +28,16 @@ func _enter_tree():
 
 	var image_size = Vector2($Sprite.texture.diffuse_texture.get_image().get_size()) * scale
 	explosion_scale = max(image_size.x, image_size.y) / 300.0
-
-func _ready():
-	$GrazeArea.scale *= graze_area_radius_base * (1 + 1.02 * pilot_data.graze_area_radius_multiplier)
-	$CannonConfiguration/Main.shot_speed = G.diminishing_increase($CannonConfiguration/Main.shot_speed, ship_data.main_shot_speed_level)
-	$CannonConfiguration/Main.fire_rate = G.diminishing_increase($CannonConfiguration/Main.fire_rate, ship_data.main_fire_rate_level)
-	$CannonConfiguration/Main.fire_power =  G.diminishing_increase($CannonConfiguration/Main.fire_power, ship_data.main_fire_power_level)
+	
+	configure_main_cannon()
 	
 	if pilot_data.max_cannons > 1:
 		configure_cannons()
 	if pilot_data.max_devices > 1:
 		configure_devices()
+
+func _ready():
+	$GrazeArea.scale *= graze_area_radius_base * (1 + 1.02 * pilot_data.graze_area_radius_multiplier)
 	get_viewport().warp_mouse(spawn_position)
 	play()
 
@@ -50,6 +51,11 @@ func _physics_process(delta):
 		global_position.y = clamp(global_position.y, G.camera.get_min().y, G.camera.get_max().y)
 	graze_power = snapped(graze_power + grazing_with * delta, 0.001)
 
+func configure_main_cannon():
+	$CannonConfiguration/Main.cannon.shot_speed = G.diminishing_increase($CannonConfiguration/Main.cannon.shot_speed, ship_data.main_shot_speed_level)
+	$CannonConfiguration/Main.cannon.shot_rate = G.diminishing_decrease($CannonConfiguration/Main.cannon.shot_rate, ship_data.main_shot_rate_level)
+	$CannonConfiguration/Main.cannon.shot_power =  G.diminishing_increase($CannonConfiguration/Main.cannon.shot_power, ship_data.main_shot_power_level)
+
 func configure_cannons():
 	var cannons = $CannonConfiguration.get_children()
 	if cannons.size() > pilot_data.max_cannons:
@@ -57,12 +63,7 @@ func configure_cannons():
 			cannons[cannon_number].queue_free()
 	for cannon_number in range(1, pilot_data.max_cannons):
 		var cannon_data = Stuff.cannons[Stuff.CANNON[ship_data.cannons[cannon_number - 1]]]
-		cannons[cannon_number].shot_scene = cannon_data.shot_scene
-		cannons[cannon_number].default_color = cannon_data.default_color
-		cannons[cannon_number].fire_rate = cannon_data.fire_rate
-		cannons[cannon_number].fire_power = cannon_data.fire_power
-		cannons[cannon_number].shot_speed = cannon_data.shot_speed
-		cannons[cannon_number].get_node("Timer").start()
+		cannons[cannon_number].cannon = cannon_data.resource
 
 func configure_devices():
 	var devices = $DeviceConfiguration.get_children()
@@ -71,7 +72,6 @@ func configure_devices():
 			devices[device_number].queue_free()
 
 func play():
-	$CannonConfiguration/Main/Timer.start()
 	set_visible(true)
 	is_playing = true
 	$GrazeArea.set_deferred("disabled", false)

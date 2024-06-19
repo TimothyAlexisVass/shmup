@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dft8orc1q7ueh"]
+[gd_scene load_steps=9 format=3 uid="uid://dft8orc1q7ueh"]
 
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_cr4rd"]
 [ext_resource type="Texture2D" uid="uid://byl61ujfbeffj" path="res://assets/sprites/player_ships/Justice.png" id="2_87okx"]
 [ext_resource type="Texture2D" uid="uid://0ooosq73xvey" path="res://assets/sprites/ships/vusion/vusion_normal.png" id="3_hqa7a"]
+[ext_resource type="Resource" uid="uid://b8hktowcdtkc2" path="res://resources/cannons/Plasma.tres" id="4_3yqxd"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="4_6rf8i"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="4_hhrkk"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="5_23n62"]
@@ -18,17 +19,15 @@ texture = SubResource("CanvasTexture_7hffb")
 
 [node name="Main" parent="CannonConfiguration" index="0"]
 position = Vector2(0, 400)
+cannon = ExtResource("4_3yqxd")
 
 [node name="LeftFront" parent="CannonConfiguration" index="1" instance=ExtResource("4_6rf8i")]
 position = Vector2(180, 340)
 rotation = -0.261799
-scale = Vector2(1, 1)
-shot_scene = null
 
 [node name="RightFront" parent="CannonConfiguration" index="2" instance=ExtResource("4_6rf8i")]
 position = Vector2(-180, 340)
 rotation = 0.261799
-shot_scene = null
 
 [node name="Jet" parent="." index="4" instance=ExtResource("4_hhrkk")]
 position = Vector2(0, -395)

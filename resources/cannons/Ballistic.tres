@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Cannon" load_steps=3 format=3 uid="uid://dsu5vh3y2y1ij"]
+
+[ext_resource type="Script" path="res://node_classes/muzzle/cannon.gd" id="1_uqrcr"]
+[ext_resource type="PackedScene" uid="uid://c4xjy0nh643o5" path="res://scenes/shots/Bullet.tscn" id="2_t57e7"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_uqrcr")
+shot_scene = ExtResource("2_t57e7")
+shot_rate = [1.0]
+shot_speed = 900.0
+shot_power = 0.5
+shot_color = Color(0.835294, 0.835294, 0.717647, 1)

@@ -9,7 +9,7 @@ var commander = {
 	"pilot_ability_multiplier": 1,
 	"ship_ability_multiplier": 1,
 	"graze_power_multiplier": 1,
-	"fire_power_multiplier": 1,
+	"shot_power_multiplier": 1,
 	"experience_multiplier": 1,
 	"exchange_multiplier": 1,
 	"magnet_multiplier": 1,
@@ -18,18 +18,18 @@ var commander = {
 
 var player_ships = {
 	"Blade": {
-		"main_fire_rate_level": 0,
+		"main_shot_rate_level": 5,
 		"main_shot_speed_level": 0,
-		"main_fire_power_level": 0,
+		"main_shot_power_level": 0,
 		"ship_ability_level": 0,
 		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
 		"cannons": ["Ballistic", "Ballistic"]
 	},
 	"Justice": {
-		"main_fire_rate_level": 0,
+		"main_shot_rate_level": 5,
 		"main_shot_speed_level": 0,
-		"main_fire_power_level": 0,
+		"main_shot_power_level": 0,
 		"ship_ability_level": 0,
 		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
@@ -47,8 +47,8 @@ var pilots = {
 		"graze_power_level": 1,
 	},
 	"Mia": {
-		"max_cannons": 0,
-		"max_devices": 1,
+		"max_cannons": 1,
+		"max_devices": 0,
 		"maneuver_level": 1,
 		"pilot_ability_level": 1,
 		"graze_area_radius_multiplier": 1,

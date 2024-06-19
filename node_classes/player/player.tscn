@@ -45,7 +45,6 @@ polygon = PackedVector2Array(0, -15, -15, 0, 0, 15, 15, 0)
 [node name="CannonConfiguration" type="Node2D" parent="."]
 
 [node name="Main" parent="CannonConfiguration" instance=ExtResource("4_i4vfr")]
-default_color = Color(0, 0.262745, 1, 1)
 
 [node name="DeviceConfiguration" type="Node2D" parent="."]
 scale = Vector2(1, 1)

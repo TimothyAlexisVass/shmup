@@ -15,19 +15,11 @@ enum CANNON {Ballistic, Plasma}
 var cannons = [
 	{
 		"name": "Ballistic",
-		"shot_scene": load("res://scenes/shots/Bullet.tscn"),
-		"default_color": Color(0.89, 0.84, 0.55, 1),
-		"fire_rate": 2.0,
-		"fire_power": 0.5,
-		"shot_speed": 900
+		"resource": load("res://resources/cannons/Ballistic.tres")
 	},
 	{
 		"name": "Plasma",
-		"shot_scene": load("res://scenes/shots/Plasma.tscn"),
-		"default_color": Color(0.0, 0.25, 1.0, 1),
-		"fire_rate": 1.0,
-		"fire_power": 1.0,
-		"shot_speed": 500
+		"resource": load("res://resources/cannons/Plasma.tres")
 	}
 ]
 
