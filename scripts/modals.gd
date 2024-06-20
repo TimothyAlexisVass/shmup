@@ -69,8 +69,8 @@ func ready_commander_upgrade_buttons():
 		$Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons.add_child(upgrade_button_instance)
 
 func add_asset_buttons():
-	for asset in Stuff.ASSET:
-		var asset_data = Stuff.assets[Stuff.ASSET[asset]]
+	for asset in Asset.ASSET:
+		var asset_data = Asset.assets[Asset.ASSET[asset]]
 		var asset_button_instance = ASSET_BUTTON_SCENE.instantiate()
 		var texture_button = asset_button_instance.get_node("TextureButton")
 		texture_button.texture_normal = asset_data.texture

@@ -16,8 +16,6 @@ var graze_power = 0.0
 var ship_data = DataManager.player_data.player_ships[DataManager.player_data.selected_player_ship]
 var pilot_data = DataManager.player_data.pilots[DataManager.player_data.selected_pilot]
 
-var tier = Stuff.PLAYER_SHIP[DataManager.player_data.selected_player_ship]
-
 @onready var movement_speed = G.linear_increase(movement_speed_base, 15, pilot_data.maneuver_level, 20)
 
 func _enter_tree():
