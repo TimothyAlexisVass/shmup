@@ -31,7 +31,6 @@ func _enter_tree():
 		for player_ship_name in tier(int_tier):
 			var entry = {
 					"name": player_ship_name,
-					"tier": int_tier,
 					"scene": load("res://scenes/player_ships/" + player_ship_name +  ".tscn"),
 					"texture": load("res://media/sprites/player_ships/" + player_ship_name + ".png"),
 					"rarity": G.rarity(int_tier)

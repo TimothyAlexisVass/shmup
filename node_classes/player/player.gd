@@ -9,12 +9,13 @@ var spawn_position = Vector2(540, 1540)
 var grazing_with = 0
 var graze_power = 0.0
 
+@export var tier = 0
 @export var movement_speed_base = 1
 @export var graze_area_radius_base = 1
 @export var explosion: PackedScene = preload("res://scenes/explosions/fire_explosion.tscn")
 
-var ship_data = DataManager.player_data.player_ships[DataManager.player_data.selected_player_ship]
-var pilot_data = DataManager.player_data.pilots[DataManager.player_data.selected_pilot]
+var ship_data = DataManager.player_data.player_ship[DataManager.player_data.selected_player_ship]
+var pilot_data = DataManager.player_data.pilot[DataManager.player_data.selected_pilot]
 
 @onready var movement_speed = G.linear_increase(movement_speed_base, 15, pilot_data.maneuver_level, 20)
 

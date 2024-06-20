@@ -9,11 +9,11 @@ const INITIAL = {
 	"Eternium": 7777777
 }
 
-const metals = ["Aluminium", "Cuprum", "Argentum", "Aurum", "Rhodium"]
-const gems = ["Sapphirus", "Rubinus", "Smaragdus"]
+const metal = ["Aluminium", "Cuprum", "Argentum", "Aurum", "Rhodium"]
+const gem = ["Sapphirus", "Rubinus", "Smaragdus"]
 const fictional = ["Veritasium", "Eternium"]
 
-var assets = metals + gems + fictional
+var all = metal + gem + fictional
 
 var rates = {
 	"Aluminium": 0.0026,
@@ -30,8 +30,8 @@ var rates = {
 
 func set_rates():
 	var market_prices = get_market_prices()
-	for metal in market_prices.keys():
-		rates[metal] = market_prices[metal]
+	for asset in market_prices.keys():
+		rates[asset] = market_prices[asset]
 	for x in INITIAL.keys():
 		var factor = (rates[x] - INITIAL[x]) / float(INITIAL[x])
 		var random_factor = randf_range(0.95 - factor, 1.05 - factor)
@@ -59,7 +59,7 @@ func exchange_rates(item_1, item_2):
 	var lower_amount = G.display_weight(amount * 0.98)
 	var higher_amount = G.display_weight(amount * 1.02)
 
-	var one_way_exchange = (lower_item in metals and higher_item not in metals) or (lower_item in gems and higher_item in fictional) or (lower_item == "Veritasium" and higher_item == "Eternium")
+	var one_way_exchange = (lower_item in metal and higher_item not in metal) or (lower_item in gem and higher_item in fictional) or (lower_item == "Veritasium" and higher_item == "Eternium")
 	var one_way = ["-1 g", "+"+str(lower_amount), "0", "0"] if rate_1 > rate_2 else ["0", "0", "+"+str(lower_amount), "-1 g"]
 	var two_way = ["-1 g", "+"+str(lower_amount), "+1 g", "-"+str(higher_amount)] if rate_1 > rate_2 else ["-"+str(higher_amount), "+1 g", "+"+str(lower_amount), "-1 g"]
 	return one_way if one_way_exchange else two_way

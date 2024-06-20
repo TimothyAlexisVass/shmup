@@ -16,7 +16,7 @@ var commander = {
 	"luck_multiplier": 1,
 }
 
-var player_ships = {
+var player_ship = {
 	"Blade": {
 		"main_shot_rate_level": 5,
 		"main_shot_speed_level": 0,
@@ -37,7 +37,7 @@ var player_ships = {
 	}
 }
 
-var pilots = {
+var pilot = {
 	"Lance": {
 		"max_cannons": 3,
 		"max_devices": 0,
@@ -56,7 +56,7 @@ var pilots = {
 	}
 }
 
-var assets = {
+var asset = {
 	"Aluminium": 100,
 	"Cuprum": 0,
 	"Argentum": 0,
@@ -79,9 +79,9 @@ var selected_pilot = "Lance":
 		selected_pilot = value
 		DataManager.save_data()
 
-var available_player_ships = ["Blade", "Justice"]
+var available_player_ship = ["Blade", "Justice"]
 
-var available_pilots = ["Lance", "Mia"]
+var available_pilot = ["Lance", "Mia"]
 
 var levels = {
 	"1": 10,

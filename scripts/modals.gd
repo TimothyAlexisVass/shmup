@@ -32,7 +32,7 @@ func hide_screens():
 		screen.set_visible(false)
 
 func level_up(upgrade_button):
-	DataManager.level_up(upgrade_button.name)
+	DataManager.level_up("commander", upgrade_button.name)
 	set_upgrade_value(upgrade_button)
 
 func set_upgrade_value(upgrade_button):
@@ -69,18 +69,17 @@ func ready_commander_upgrade_buttons():
 		$Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons.add_child(upgrade_button_instance)
 
 func add_asset_buttons():
-	for asset in Asset.ASSET:
-		var asset_data = Asset.assets[Asset.ASSET[asset]]
+	for asset_data in Asset.all:
 		var asset_button_instance = ASSET_BUTTON_SCENE.instantiate()
 		var texture_button = asset_button_instance.get_node("TextureButton")
 		texture_button.texture_normal = asset_data.texture
-		texture_button.get_node("Label").text = asset
-		asset_values[asset] = texture_button.get_node("Value")
-		texture_button.name = asset
+		texture_button.get_node("Label").text = asset_data.name
+		asset_values[asset_data.name] = texture_button.get_node("Value")
+		texture_button.name = asset_data.name
 		asset_list.add_child(asset_button_instance)
 		asset_list.move_child(asset_button_instance, 0)
 	update_asset_values()
 
 func update_asset_values():
-	for asset in DataManager.player_data.assets:
-		asset_values[asset].text = G.display_weight(DataManager.player_data.assets[asset])
+	for asset_name in DataManager.player_data.asset:
+		asset_values[asset_name].text = G.display_weight(DataManager.player_data.asset[asset_name])

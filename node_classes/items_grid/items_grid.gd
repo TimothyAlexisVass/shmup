@@ -2,7 +2,6 @@ class_name ItemsGrid extends GridContainer
 
 @export_enum("pilot", "player_ship") var item_type: String
 
-@onready var list_type = item_type + "s"
 @onready var database = G.database(item_type)
 
 const GRID_ITEM_SCENE = preload("res://node_classes/items_grid/grid_item.tscn")
@@ -25,7 +24,7 @@ func _ready():
 			texture_button.get_node("Rarity").text = G.RARITY_STARS[item.rarity]
 			item_button.name = item.name
 			add_child(item_button)
-			if item.name in DataManager.player_data["available_" + list_type]:
+			if item.name in DataManager.player_data["available_" + item_type]:
 				texture_button.connect("pressed", Callable(self, "_on_item_button_pressed").bind(item_button))
 				texture_button.modulate.a = 0.8
 				item_button.get_theme_stylebox("panel").border_color.a = 0.8
@@ -40,7 +39,7 @@ func _ready():
 func _on_item_button_pressed(selected_button):
 	for item_button in get_children():
 		var texture_button = item_button.get_node("PanelContainer/TextureButton")
-		if item_button.name in DataManager.player_data.get("available_" + list_type):
+		if item_button.name in DataManager.player_data.get("available_" + item_type):
 			texture_button.modulate.a = 0.8
 			item_button.get_theme_stylebox("panel").border_color.a = 0.8
 		else:

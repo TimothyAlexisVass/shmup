@@ -9,7 +9,7 @@ func _ready():
 func _on_item_1_item_selected(selected_index):
 	if $Item2.get_selected() == selected_index:
 		$Item2.select((selected_index + 1) % $Item2.item_count)
-	var exchange_rates = Exchange.exchange_rates(Exchange.assets[$Item1.get_selected()], Exchange.assets[$Item2.get_selected()])
+	var exchange_rates = Exchange.exchange_rates(Exchange.all[$Item1.get_selected()], Exchange.all[$Item2.get_selected()])
 	$Amounts1/From.text = exchange_rates[0]
 	$Amounts2/To.text = exchange_rates[1]
 	$Amounts1/To.text = exchange_rates[2]
@@ -19,7 +19,7 @@ func _on_item_1_item_selected(selected_index):
 func _on_item_2_item_selected(selected_index):
 	if $Item1.get_selected() == selected_index:
 		$Item1.select((selected_index + 1) % $Item1.item_count)
-	var exchange_rates = Exchange.exchange_rates(Exchange.assets[$Item2.get_selected()], Exchange.assets[$Item1.get_selected()])
+	var exchange_rates = Exchange.exchange_rates(Exchange.all[$Item2.get_selected()], Exchange.all[$Item1.get_selected()])
 	$Amounts1/From.text = exchange_rates[3]
 	$Amounts2/To.text = exchange_rates[2]
 	$Amounts1/To.text = exchange_rates[1]
@@ -44,16 +44,16 @@ func set_visibility():
 
 func _on_item_1_to_item_2_pressed():
 	perform_exchange(
-		Exchange.assets[$Item1.get_selected()],
-		Exchange.assets[$Item2.get_selected()],
+		Exchange.all[$Item1.get_selected()],
+		Exchange.all[$Item2.get_selected()],
 		-asset_weight_to_float($Amounts1/From.text),
 		asset_weight_to_float($Amounts2/To.text)
 	)
 
 func _on_item_2_to_item_1_pressed():
 	perform_exchange(
-		Exchange.assets[$Item2.get_selected()],
-		Exchange.assets[$Item1.get_selected()],
+		Exchange.all[$Item2.get_selected()],
+		Exchange.all[$Item1.get_selected()],
 		-asset_weight_to_float($Amounts2/From.text),
 		asset_weight_to_float($Amounts1/To.text)
 	)
@@ -69,10 +69,10 @@ func asset_weight_to_float(weight):
 	return snapped(float(weight) * factor, 0.001)
 
 func perform_exchange(asset_from, asset_to, amount_from, amount_to):
-	if DataManager.player_data.assets[asset_from] >= amount_from:
-		DataManager.player_data.assets[asset_from] -= amount_from
-		DataManager.player_data.assets[asset_to] += amount_to
-	DataManager.player_data.assets[asset_from] = snapped(DataManager.player_data.assets[asset_from], 0.01)
-	DataManager.player_data.assets[asset_to] = snapped(DataManager.player_data.assets[asset_to], 0.01)
+	if DataManager.player_data.asset[asset_from] >= amount_from:
+		DataManager.change("asset", asset_from, -amount_from)
+		DataManager.change("asset", asset_to, amount_to)
+	DataManager.player_data.asset[asset_from] = snapped(DataManager.player_data.asset[asset_from], 0.01)
+	DataManager.player_data.asset[asset_to] = snapped(DataManager.player_data.asset[asset_to], 0.01)
 	DataManager.save_data()
 	G.modals.update_asset_values()

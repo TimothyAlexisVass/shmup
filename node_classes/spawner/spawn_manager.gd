@@ -105,8 +105,8 @@ func cache_shaders():
 		G.bottom_layer.add_child(particle_system_instance)
 
 func spawn_player_ship():
-	var selected_player_ship_scene_path = load("res://scenes/player_ships/" + DataManager.player_data.selected_player_ship + ".tscn")
-	var player_ship = selected_player_ship_scene_path.instantiate()
+	var player_ship_data = PlayerShip.data[DataManager.player_data.selected_player_ship]
+	var player_ship = player_ship_data.scene.instantiate()
 	G.player_layer.add_child(player_ship)
 	return player_ship
 

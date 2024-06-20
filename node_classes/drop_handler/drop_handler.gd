@@ -19,17 +19,18 @@ func _enter_tree():
 			owner.set_meta("instances_owned", [self])
 		if "tier" in owner and owner.tier is int:
 			tier = owner.tier
-		if not is_reparented():
+		if not has_reparented():
 			_connect_signals()
 
 func _ready():
-	if not is_reparented():
+	if not has_reparented():
 		call_deferred("reparent", G.top_layer)
 	prepare_rewards()
 
 func prepare_rewards():
-	pass
-	# rewards = G.database(type).get_rewards(tier, rolls, multi_drop_factor)
+	print("TYPE! ", type)
+	print(owner.name)
+	rewards = G.database(type).get_rewards(tier, rolls, multi_drop_factor)
 
 func drop_rewards(recipient, at_global_position):
 	for reward in rewards:
@@ -45,7 +46,7 @@ func drop_rewards(recipient, at_global_position):
 		G.top_layer.call_deferred("add_child", reward_instance)
 	call_deferred("queue_free")
 
-func is_reparented() -> bool:
+func has_reparented() -> bool:
 	return get_parent() in G.view_layers.get_children()
 
 func _connect_signals():

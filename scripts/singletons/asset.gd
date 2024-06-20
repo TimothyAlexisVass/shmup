@@ -1,34 +1,31 @@
 extends Node
 
-enum ASSET {Eternium, Veritasium, Smaragdus, Rubinus, Sapphirus, Rhodium, Aurum, Argentum, Cuprum, Aluminium}
-var assets: Array
+var all = []
+
+var data = {}
+
+func by_probability(a, b):
+	return a["probability"] < b["probability"]
 
 func _enter_tree():
-	set_assets_array()
+	for asset_name in Exchange.all:
+		data[asset_name] = {
+			"name": asset_name,
+			"texture": load("res://media/sprites/assets/" + asset_name + ".png"),
+			"probability": Exchange.rates["Aluminium"] / Exchange.rates[asset_name]
+		}
+		all.append(data[asset_name])
+	all.sort_custom(by_probability)
+	for item in [[0, 20], [1, 18], [2, 16], [3, 14], [4, 12], [5, 10], [6, 7], [7, 4], [8, 2], [9, 1]]:
+		var index = item[0]
+		var tier = item[1]
+		all[index]["tier"] = tier
+		all[index]["rarity"] = G.rarity(tier)
 
-func set_assets_array():
-	var asset_tiers = {
-		"Eternium": 20,
-		"Veritasium": 18,
-		"Smaragdus": 16,
-		"Rubinus": 14,
-		"Sapphirus": 12,
-		"Rhodium": 10,
-		"Aurum": 7,
-		"Argentum": 4,
-		"Cuprum": 2,
-		"Aluminium": 1
-	}
-	for asset_name in asset_tiers:
-		assets.append(
-			{
-				"name": asset_name,
-				"tier": asset_tiers[asset_name],
-				"texture": load("res://media/sprites/assets/" + asset_name + ".png"),
-				"probability": Exchange.rates["Aluminium"] / Exchange.rates[asset_name]
-			}
-		)
-
+func get_rewards(_tier, _rolls, _multi_drop_factor):
+	var rewards = []
+	rewards.append(data["Aluminium"])
+	return rewards
 
 '''
 for drop in drop_table:
