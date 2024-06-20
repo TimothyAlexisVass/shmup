@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://drrj2p8jki722"]
 
 [ext_resource type="Script" path="res://node_classes/drop_item/drop_item.gd" id="1_cb1gm"]
-[ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/assets/Aluminium.png" id="2_xf417"]
+[ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://media/sprites/assets/Aluminium.png" id="2_xf417"]
 [ext_resource type="Script" path="res://scripts/rarity_glow.gd" id="3_emcxs"]
 [ext_resource type="PackedScene" uid="uid://bld81khrcmege" path="res://node_classes/off_screen_indicator/off_screen_indicator.tscn" id="4_csg6c"]
 

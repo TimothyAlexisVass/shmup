@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dag3o7qjgrbaf"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_neuf3"]
-[ext_resource type="Texture2D" uid="uid://17g3t0mrwwwt" path="res://assets/sprites/ships/zleukh/zleukh_1.png" id="2_px2e7"]
-[ext_resource type="Texture2D" uid="uid://cubiksac7wixi" path="res://assets/sprites/ships/zleukh/zleukh_crystal.png" id="3_d7rdu"]
-[ext_resource type="Texture2D" uid="uid://b5iyeg0wpl4f8" path="res://assets/sprites/ships/zleukh/zleukh_border.png" id="4_x0bti"]
-[ext_resource type="Texture2D" uid="uid://bs02q400eo22s" path="res://assets/sprites/ships/zleukh/zleukh_0.png" id="6_1k2my"]
-[ext_resource type="Texture2D" uid="uid://ev5s2yk1gm8p" path="res://assets/sprites/ships/zleukh/zleukh_normal.png" id="7_kdofs"]
+[ext_resource type="Texture2D" uid="uid://17g3t0mrwwwt" path="res://media/sprites/ships/zleukh/zleukh_1.png" id="2_px2e7"]
+[ext_resource type="Texture2D" uid="uid://cubiksac7wixi" path="res://media/sprites/ships/zleukh/zleukh_crystal.png" id="3_d7rdu"]
+[ext_resource type="Texture2D" uid="uid://b5iyeg0wpl4f8" path="res://media/sprites/ships/zleukh/zleukh_border.png" id="4_x0bti"]
+[ext_resource type="Texture2D" uid="uid://bs02q400eo22s" path="res://media/sprites/ships/zleukh/zleukh_0.png" id="6_1k2my"]
+[ext_resource type="Texture2D" uid="uid://ev5s2yk1gm8p" path="res://media/sprites/ships/zleukh/zleukh_normal.png" id="7_kdofs"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhjv0"]
 resource_local_to_scene = true

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cjf8aespsox0e"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_3cpq3"]
-[ext_resource type="Texture2D" uid="uid://l6c4xkw4rw64" path="res://assets/sprites/bonus/verimus/verimus_crystal.png" id="2_0hh3e"]
-[ext_resource type="Texture2D" uid="uid://cx2hfo6njllme" path="res://assets/sprites/bonus/verimus/verimus_border.png" id="3_5ep0w"]
-[ext_resource type="Texture2D" uid="uid://ck2bdb68yyfts" path="res://assets/sprites/bonus/verimus/verimus_normal.png" id="3_6hvfp"]
-[ext_resource type="Texture2D" uid="uid://dyxp4oj8o1tsb" path="res://assets/sprites/bonus/verimus/verimus_0.png" id="5_532ba"]
+[ext_resource type="Texture2D" uid="uid://l6c4xkw4rw64" path="res://media/sprites/bonus/verimus/verimus_crystal.png" id="2_0hh3e"]
+[ext_resource type="Texture2D" uid="uid://cx2hfo6njllme" path="res://media/sprites/bonus/verimus/verimus_border.png" id="3_5ep0w"]
+[ext_resource type="Texture2D" uid="uid://ck2bdb68yyfts" path="res://media/sprites/bonus/verimus/verimus_normal.png" id="3_6hvfp"]
+[ext_resource type="Texture2D" uid="uid://dyxp4oj8o1tsb" path="res://media/sprites/bonus/verimus/verimus_0.png" id="5_532ba"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6mops"]
 resource_local_to_scene = true

@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://b8rex6b451ap3"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_gn2b2"]
-[ext_resource type="Texture2D" uid="uid://cmdm3hy538qa8" path="res://assets/sprites/ships/volyn/volyn_1.png" id="2_sew16"]
-[ext_resource type="Texture2D" uid="uid://bme0fk1hi21yj" path="res://assets/sprites/ships/volyn/volyn_2.png" id="3_m4cbn"]
-[ext_resource type="Texture2D" uid="uid://cdyxfym0qgbcl" path="res://assets/sprites/ships/volyn/volyn_crystal.png" id="4_yabxv"]
-[ext_resource type="Texture2D" uid="uid://cqqdcg14o6los" path="res://assets/sprites/ships/volyn/volyn_border.png" id="5_2h0ju"]
+[ext_resource type="Texture2D" uid="uid://cmdm3hy538qa8" path="res://media/sprites/ships/volyn/volyn_1.png" id="2_sew16"]
+[ext_resource type="Texture2D" uid="uid://bme0fk1hi21yj" path="res://media/sprites/ships/volyn/volyn_2.png" id="3_m4cbn"]
+[ext_resource type="Texture2D" uid="uid://cdyxfym0qgbcl" path="res://media/sprites/ships/volyn/volyn_crystal.png" id="4_yabxv"]
+[ext_resource type="Texture2D" uid="uid://cqqdcg14o6los" path="res://media/sprites/ships/volyn/volyn_border.png" id="5_2h0ju"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_tqbux"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="7_e5ycx"]
-[ext_resource type="Texture2D" uid="uid://b83o2fmjrkfkg" path="res://assets/sprites/ships/volyn/volyn_0.png" id="8_6lf4u"]
-[ext_resource type="Texture2D" uid="uid://bs4yuabibm48v" path="res://assets/sprites/ships/volyn/volyn_normal.png" id="9_38nn3"]
+[ext_resource type="Texture2D" uid="uid://b83o2fmjrkfkg" path="res://media/sprites/ships/volyn/volyn_0.png" id="8_6lf4u"]
+[ext_resource type="Texture2D" uid="uid://bs4yuabibm48v" path="res://media/sprites/ships/volyn/volyn_normal.png" id="9_38nn3"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_su7v1"]
 resource_local_to_scene = true

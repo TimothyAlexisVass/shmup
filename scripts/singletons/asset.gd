@@ -24,7 +24,7 @@ func set_assets_array():
 			{
 				"name": asset_name,
 				"tier": asset_tiers[asset_name],
-				"texture": load("res://assets/sprites/assets/" + asset_name + ".png"),
+				"texture": load("res://media/sprites/assets/" + asset_name + ".png"),
 				"probability": Exchange.rates["Aluminium"] / Exchange.rates[asset_name]
 			}
 		)

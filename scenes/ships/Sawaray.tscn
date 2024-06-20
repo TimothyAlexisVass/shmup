@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://es142agtfvds"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_gx6od"]
-[ext_resource type="Texture2D" uid="uid://2mnrc6tabg6t" path="res://assets/sprites/ships/sawaray/sawaray_1.png" id="2_m6ftl"]
-[ext_resource type="Texture2D" uid="uid://b3ljdhhux8xa0" path="res://assets/sprites/ships/sawaray/sawaray_2.png" id="3_ny7xc"]
-[ext_resource type="Texture2D" uid="uid://bhsvtlepoxgyc" path="res://assets/sprites/ships/sawaray/sawaray_crystal.png" id="4_lrehp"]
-[ext_resource type="Texture2D" uid="uid://bvl5wd5n0sy0r" path="res://assets/sprites/ships/sawaray/sawaray_border.png" id="5_wxetf"]
-[ext_resource type="Texture2D" uid="uid://bopxpbfvqph4q" path="res://assets/sprites/ships/sawaray/sawaray_normal.png" id="6_aiy6i"]
+[ext_resource type="Texture2D" uid="uid://2mnrc6tabg6t" path="res://media/sprites/ships/sawaray/sawaray_1.png" id="2_m6ftl"]
+[ext_resource type="Texture2D" uid="uid://b3ljdhhux8xa0" path="res://media/sprites/ships/sawaray/sawaray_2.png" id="3_ny7xc"]
+[ext_resource type="Texture2D" uid="uid://bhsvtlepoxgyc" path="res://media/sprites/ships/sawaray/sawaray_crystal.png" id="4_lrehp"]
+[ext_resource type="Texture2D" uid="uid://bvl5wd5n0sy0r" path="res://media/sprites/ships/sawaray/sawaray_border.png" id="5_wxetf"]
+[ext_resource type="Texture2D" uid="uid://bopxpbfvqph4q" path="res://media/sprites/ships/sawaray/sawaray_normal.png" id="6_aiy6i"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_h82au"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="8_2o8ay"]
 

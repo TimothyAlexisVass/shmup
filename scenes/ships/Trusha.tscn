@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://dgx5uw2sljbk8"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_27034"]
-[ext_resource type="Texture2D" uid="uid://lmi7cg65qw2v" path="res://assets/sprites/ships/trusha/trusha_1.png" id="2_s3k7j"]
-[ext_resource type="Texture2D" uid="uid://bvn7f6ql8cpam" path="res://assets/sprites/ships/trusha/trusha_2.png" id="3_cecou"]
-[ext_resource type="Texture2D" uid="uid://dw538dqkbiy6r" path="res://assets/sprites/ships/trusha/trusha_crystal.png" id="4_kfaaj"]
-[ext_resource type="Texture2D" uid="uid://chr6hhadhi2v3" path="res://assets/sprites/ships/trusha/trusha_normal.png" id="5_40x6s"]
-[ext_resource type="Texture2D" uid="uid://bt1u5cndqfam0" path="res://assets/sprites/ships/trusha/trusha_border.png" id="5_unnb5"]
-[ext_resource type="Texture2D" uid="uid://b6ylvehhwhgbx" path="res://assets/sprites/ships/trusha/trusha_0.png" id="7_chqex"]
+[ext_resource type="Texture2D" uid="uid://lmi7cg65qw2v" path="res://media/sprites/ships/trusha/trusha_1.png" id="2_s3k7j"]
+[ext_resource type="Texture2D" uid="uid://bvn7f6ql8cpam" path="res://media/sprites/ships/trusha/trusha_2.png" id="3_cecou"]
+[ext_resource type="Texture2D" uid="uid://dw538dqkbiy6r" path="res://media/sprites/ships/trusha/trusha_crystal.png" id="4_kfaaj"]
+[ext_resource type="Texture2D" uid="uid://chr6hhadhi2v3" path="res://media/sprites/ships/trusha/trusha_normal.png" id="5_40x6s"]
+[ext_resource type="Texture2D" uid="uid://bt1u5cndqfam0" path="res://media/sprites/ships/trusha/trusha_border.png" id="5_unnb5"]
+[ext_resource type="Texture2D" uid="uid://b6ylvehhwhgbx" path="res://media/sprites/ships/trusha/trusha_0.png" id="7_chqex"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3d4rs"]
 resource_local_to_scene = true

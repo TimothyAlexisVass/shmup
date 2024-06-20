@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bld81khrcmege"]
 
-[ext_resource type="Texture2D" uid="uid://d3iq6168xj5rj" path="res://assets/particles/dot.png" id="1_h5a55"]
+[ext_resource type="Texture2D" uid="uid://d3iq6168xj5rj" path="res://media/particles/dot.png" id="1_h5a55"]
 [ext_resource type="Script" path="res://node_classes/off_screen_indicator/off_screen_indicator.gd" id="1_vjy3j"]
 
 [node name="OffScreenIndicator" type="Sprite2D"]

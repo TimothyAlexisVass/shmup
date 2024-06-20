@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://w4qrxnhbtys0"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_fergg"]
-[ext_resource type="Texture2D" uid="uid://cfqfk6hnksyag" path="res://assets/sprites/ships/somanda/somanda_1.png" id="2_pn0xf"]
-[ext_resource type="Texture2D" uid="uid://8css8skloweo" path="res://assets/sprites/ships/somanda/somanda_crystal.png" id="3_2ptwu"]
-[ext_resource type="Texture2D" uid="uid://bkdlxwixo3a42" path="res://assets/sprites/ships/somanda/somanda_border.png" id="4_m6fw2"]
+[ext_resource type="Texture2D" uid="uid://cfqfk6hnksyag" path="res://media/sprites/ships/somanda/somanda_1.png" id="2_pn0xf"]
+[ext_resource type="Texture2D" uid="uid://8css8skloweo" path="res://media/sprites/ships/somanda/somanda_crystal.png" id="3_2ptwu"]
+[ext_resource type="Texture2D" uid="uid://bkdlxwixo3a42" path="res://media/sprites/ships/somanda/somanda_border.png" id="4_m6fw2"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="5_t8x55"]
-[ext_resource type="Texture2D" uid="uid://kyx3xbl1b7xi" path="res://assets/sprites/ships/somanda/somanda_0.png" id="7_wnfbu"]
-[ext_resource type="Texture2D" uid="uid://dneqs4sqvxrus" path="res://assets/sprites/ships/somanda/somanda_normal.png" id="8_xsp1c"]
+[ext_resource type="Texture2D" uid="uid://kyx3xbl1b7xi" path="res://media/sprites/ships/somanda/somanda_0.png" id="7_wnfbu"]
+[ext_resource type="Texture2D" uid="uid://dneqs4sqvxrus" path="res://media/sprites/ships/somanda/somanda_normal.png" id="8_xsp1c"]
 
 [sub_resource type="Curve" id="Curve_6jcrg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99085, 0), -0.21812, 0.0, 0, 0]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dmcwtfg5vy5dr"]
 
-[ext_resource type="Texture2D" uid="uid://belrdumguxqpf" path="res://assets/sprites/level_badges/level.png" id="1_rodf1"]
-[ext_resource type="Texture2D" uid="uid://rnp067mqtk0j" path="res://assets/sprites/level_badges/level_normal.png" id="2_qkq08"]
-[ext_resource type="Texture2D" uid="uid://um0v6mgu1ri2" path="res://assets/sprites/level_badges/disabled.png" id="3_o1hbk"]
+[ext_resource type="Texture2D" uid="uid://belrdumguxqpf" path="res://media/sprites/level_badges/level.png" id="1_rodf1"]
+[ext_resource type="Texture2D" uid="uid://rnp067mqtk0j" path="res://media/sprites/level_badges/level_normal.png" id="2_qkq08"]
+[ext_resource type="Texture2D" uid="uid://um0v6mgu1ri2" path="res://media/sprites/level_badges/disabled.png" id="3_o1hbk"]
 [ext_resource type="Script" path="res://scripts/level_button.gd" id="4_wwweo"]
-[ext_resource type="Texture2D" uid="uid://dhh8uddarkj2o" path="res://assets/sprites/level_badges/cuprum_circle.png" id="5_ijeuj"]
-[ext_resource type="Texture2D" uid="uid://b24a8m613iaij" path="res://assets/sprites/level_badges/backglow.png" id="5_ll3r6"]
+[ext_resource type="Texture2D" uid="uid://dhh8uddarkj2o" path="res://media/sprites/level_badges/cuprum_circle.png" id="5_ijeuj"]
+[ext_resource type="Texture2D" uid="uid://b24a8m613iaij" path="res://media/sprites/level_badges/backglow.png" id="5_ll3r6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3ih2c"]
 resource_local_to_scene = true

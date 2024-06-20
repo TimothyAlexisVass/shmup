@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://qk21pv21mkm2"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_ccuau"]
-[ext_resource type="Texture2D" uid="uid://bnosb5q0lfepk" path="res://assets/sprites/ships/slyce/slyce_1.png" id="2_mas60"]
-[ext_resource type="Texture2D" uid="uid://l6bvya6b8ik1" path="res://assets/sprites/ships/slyce/slyce_2.png" id="3_e7tp2"]
-[ext_resource type="Texture2D" uid="uid://xxxu072i05ao" path="res://assets/sprites/ships/slyce/slyce_3.png" id="4_8p246"]
-[ext_resource type="Texture2D" uid="uid://bpy6o6ck617xy" path="res://assets/sprites/ships/slyce/slyce_crystal.png" id="5_kntbb"]
-[ext_resource type="Texture2D" uid="uid://n7f2rwfmn1el" path="res://assets/sprites/ships/slyce/slyce_border.png" id="6_74l86"]
-[ext_resource type="Texture2D" uid="uid://coe2qjdoup8q6" path="res://assets/sprites/ships/slyce/slyce_normal.png" id="6_u5la8"]
-[ext_resource type="Texture2D" uid="uid://dfm5j7dtcthcf" path="res://assets/sprites/ships/slyce/slyce_0.png" id="8_5i400"]
+[ext_resource type="Texture2D" uid="uid://bnosb5q0lfepk" path="res://media/sprites/ships/slyce/slyce_1.png" id="2_mas60"]
+[ext_resource type="Texture2D" uid="uid://l6bvya6b8ik1" path="res://media/sprites/ships/slyce/slyce_2.png" id="3_e7tp2"]
+[ext_resource type="Texture2D" uid="uid://xxxu072i05ao" path="res://media/sprites/ships/slyce/slyce_3.png" id="4_8p246"]
+[ext_resource type="Texture2D" uid="uid://bpy6o6ck617xy" path="res://media/sprites/ships/slyce/slyce_crystal.png" id="5_kntbb"]
+[ext_resource type="Texture2D" uid="uid://n7f2rwfmn1el" path="res://media/sprites/ships/slyce/slyce_border.png" id="6_74l86"]
+[ext_resource type="Texture2D" uid="uid://coe2qjdoup8q6" path="res://media/sprites/ships/slyce/slyce_normal.png" id="6_u5la8"]
+[ext_resource type="Texture2D" uid="uid://dfm5j7dtcthcf" path="res://media/sprites/ships/slyce/slyce_0.png" id="8_5i400"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_b8umj"]
 resource_local_to_scene = true

@@ -1,16 +1,16 @@
 [gd_scene load_steps=14 format=3 uid="uid://1vqmgibjnaiy"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_uj1xx"]
-[ext_resource type="Texture2D" uid="uid://cbmod1vb3h7iv" path="res://assets/sprites/ships/vallin/vallin_1.png" id="2_kf5bl"]
-[ext_resource type="Texture2D" uid="uid://crlnd38aqatks" path="res://assets/sprites/ships/vallin/vallin_2.png" id="3_sdcpf"]
-[ext_resource type="Texture2D" uid="uid://b1f032mnyujry" path="res://assets/sprites/ships/vallin/vallin_3.png" id="4_3wk3x"]
-[ext_resource type="Texture2D" uid="uid://c2eucf6si64vu" path="res://assets/sprites/ships/vallin/vallin_crystal.png" id="5_dmb80"]
-[ext_resource type="Texture2D" uid="uid://bmpv7hx6gdegu" path="res://assets/sprites/ships/vallin/vallin_border.png" id="6_6pgvs"]
+[ext_resource type="Texture2D" uid="uid://cbmod1vb3h7iv" path="res://media/sprites/ships/vallin/vallin_1.png" id="2_kf5bl"]
+[ext_resource type="Texture2D" uid="uid://crlnd38aqatks" path="res://media/sprites/ships/vallin/vallin_2.png" id="3_sdcpf"]
+[ext_resource type="Texture2D" uid="uid://b1f032mnyujry" path="res://media/sprites/ships/vallin/vallin_3.png" id="4_3wk3x"]
+[ext_resource type="Texture2D" uid="uid://c2eucf6si64vu" path="res://media/sprites/ships/vallin/vallin_crystal.png" id="5_dmb80"]
+[ext_resource type="Texture2D" uid="uid://bmpv7hx6gdegu" path="res://media/sprites/ships/vallin/vallin_border.png" id="6_6pgvs"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_w4nmi"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="8_ckbab"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="8_oao7n"]
-[ext_resource type="Texture2D" uid="uid://twfg1hpqjom0" path="res://assets/sprites/ships/vallin/vallin_0.png" id="9_43nlk"]
-[ext_resource type="Texture2D" uid="uid://cndfi726278g" path="res://assets/sprites/ships/vallin/vallin_normal.png" id="10_bno32"]
+[ext_resource type="Texture2D" uid="uid://twfg1hpqjom0" path="res://media/sprites/ships/vallin/vallin_0.png" id="9_43nlk"]
+[ext_resource type="Texture2D" uid="uid://cndfi726278g" path="res://media/sprites/ships/vallin/vallin_normal.png" id="10_bno32"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rdvxd"]
 resource_local_to_scene = true

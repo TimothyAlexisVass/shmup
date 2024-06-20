@@ -31,7 +31,7 @@ func _enter_tree():
 		for pilot_name in tier(int_tier):
 			var entry = {
 					"name": pilot_name,
-					"texture": load("res://assets/sprites/pilots/" + pilot_name + ".png"),
+					"texture": load("res://media/sprites/pilots/" + pilot_name + ".png"),
 					"rarity": G.rarity(int_tier)
 				}
 			data[pilot_name] = entry

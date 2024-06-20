@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://ca2b7hkyf6kx"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_k4fwq"]
-[ext_resource type="Texture2D" uid="uid://ca86116f8vw0o" path="res://assets/sprites/ships/slychar/slychar_1.png" id="2_81o6x"]
-[ext_resource type="Texture2D" uid="uid://bp78xy2penfes" path="res://assets/sprites/ships/slychar/slychar_2.png" id="3_i7eer"]
-[ext_resource type="Texture2D" uid="uid://cq8jqvpuwwv7i" path="res://assets/sprites/ships/slychar/slychar_crystal.png" id="4_05667"]
-[ext_resource type="Texture2D" uid="uid://cnt2uhomhbipa" path="res://assets/sprites/ships/slychar/slychar_border.png" id="5_lpaa6"]
-[ext_resource type="Texture2D" uid="uid://bwwautv5s3nw1" path="res://assets/sprites/ships/slychar/slychar_0.png" id="7_2djam"]
-[ext_resource type="Texture2D" uid="uid://b0y0wy466vbsw" path="res://assets/sprites/ships/slychar/slychar_normal.png" id="8_lf72d"]
+[ext_resource type="Texture2D" uid="uid://ca86116f8vw0o" path="res://media/sprites/ships/slychar/slychar_1.png" id="2_81o6x"]
+[ext_resource type="Texture2D" uid="uid://bp78xy2penfes" path="res://media/sprites/ships/slychar/slychar_2.png" id="3_i7eer"]
+[ext_resource type="Texture2D" uid="uid://cq8jqvpuwwv7i" path="res://media/sprites/ships/slychar/slychar_crystal.png" id="4_05667"]
+[ext_resource type="Texture2D" uid="uid://cnt2uhomhbipa" path="res://media/sprites/ships/slychar/slychar_border.png" id="5_lpaa6"]
+[ext_resource type="Texture2D" uid="uid://bwwautv5s3nw1" path="res://media/sprites/ships/slychar/slychar_0.png" id="7_2djam"]
+[ext_resource type="Texture2D" uid="uid://b0y0wy466vbsw" path="res://media/sprites/ships/slychar/slychar_normal.png" id="8_lf72d"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_20wat"]
 resource_local_to_scene = true

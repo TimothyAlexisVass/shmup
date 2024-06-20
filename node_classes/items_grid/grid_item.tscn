@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfxs5er8uqxnr"]
 
 [ext_resource type="StyleBox" uid="uid://bwjsqn8s6des4" path="res://styles/grid_item_panel.tres" id="1_ei6ot"]
-[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://assets/sprites/player_ships/Blade.png" id="2_wtijt"]
+[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://media/sprites/player_ships/Blade.png" id="2_wtijt"]
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="3_bpt3i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djypi"]

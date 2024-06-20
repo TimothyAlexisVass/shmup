@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://j72yxl2kkkoo"]
 
-[ext_resource type="Texture2D" uid="uid://b444q3csoexlx" path="res://assets/particles/fire_smudge.png" id="1_08gul"]
-[ext_resource type="Texture2D" uid="uid://bawhkbejaj80y" path="res://assets/particles/smoke_04.png" id="1_hjb6y"]
-[ext_resource type="Texture2D" uid="uid://dmn27ok2uldeu" path="res://assets/particles/smoke_07.png" id="2_5n1gh"]
+[ext_resource type="Texture2D" uid="uid://b444q3csoexlx" path="res://media/particles/fire_smudge.png" id="1_08gul"]
+[ext_resource type="Texture2D" uid="uid://bawhkbejaj80y" path="res://media/particles/smoke_04.png" id="1_hjb6y"]
+[ext_resource type="Texture2D" uid="uid://dmn27ok2uldeu" path="res://media/particles/smoke_07.png" id="2_5n1gh"]
 
 [sub_resource type="Gradient" id="Gradient_3sxsp"]
 offsets = PackedFloat32Array(0, 0.0513834, 0.523274, 0.741611, 0.922925, 0.998395)
