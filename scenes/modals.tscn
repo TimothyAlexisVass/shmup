@@ -1,17 +1,17 @@
 [gd_scene load_steps=21 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_rigs5"]
-[ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/resources/Aluminium.png" id="2_x8vtx"]
+[ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://assets/sprites/assets/Aluminium.png" id="2_x8vtx"]
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="3_7g8ct"]
-[ext_resource type="Texture2D" uid="uid://c3lsab433vvys" path="res://assets/sprites/resources/Cuprum.png" id="3_nnjdq"]
-[ext_resource type="Texture2D" uid="uid://dw75msk8omdbh" path="res://assets/sprites/resources/Argentum.png" id="4_swgvl"]
-[ext_resource type="Texture2D" uid="uid://c7vedrhrh0b8v" path="res://assets/sprites/resources/Aurum.png" id="5_vwohk"]
-[ext_resource type="Texture2D" uid="uid://dfo66eqj42gpn" path="res://assets/sprites/resources/Rhodium.png" id="6_f8kn7"]
-[ext_resource type="Texture2D" uid="uid://dbr73ygwykriq" path="res://assets/sprites/resources/Sapphirus.png" id="7_effy3"]
-[ext_resource type="Texture2D" uid="uid://dteamxxjqmy1s" path="res://assets/sprites/resources/Rubinus.png" id="8_0slww"]
-[ext_resource type="Texture2D" uid="uid://dif8lofhn4a1b" path="res://assets/sprites/resources/Smaragdus.png" id="9_g5nv8"]
-[ext_resource type="Texture2D" uid="uid://dln6vj44xpif1" path="res://assets/sprites/resources/Veritasium.png" id="10_bsfd4"]
-[ext_resource type="Texture2D" uid="uid://b2niry3mi8b16" path="res://assets/sprites/resources/Eternium.png" id="11_ftgh8"]
+[ext_resource type="Texture2D" uid="uid://c3lsab433vvys" path="res://assets/sprites/assets/Cuprum.png" id="3_nnjdq"]
+[ext_resource type="Texture2D" uid="uid://dw75msk8omdbh" path="res://assets/sprites/assets/Argentum.png" id="4_swgvl"]
+[ext_resource type="Texture2D" uid="uid://c7vedrhrh0b8v" path="res://assets/sprites/assets/Aurum.png" id="5_vwohk"]
+[ext_resource type="Texture2D" uid="uid://dfo66eqj42gpn" path="res://assets/sprites/assets/Rhodium.png" id="6_f8kn7"]
+[ext_resource type="Texture2D" uid="uid://dbr73ygwykriq" path="res://assets/sprites/assets/Sapphirus.png" id="7_effy3"]
+[ext_resource type="Texture2D" uid="uid://dteamxxjqmy1s" path="res://assets/sprites/assets/Rubinus.png" id="8_0slww"]
+[ext_resource type="Texture2D" uid="uid://dif8lofhn4a1b" path="res://assets/sprites/assets/Smaragdus.png" id="9_g5nv8"]
+[ext_resource type="Texture2D" uid="uid://dln6vj44xpif1" path="res://assets/sprites/assets/Veritasium.png" id="10_bsfd4"]
+[ext_resource type="Texture2D" uid="uid://b2niry3mi8b16" path="res://assets/sprites/assets/Eternium.png" id="11_ftgh8"]
 [ext_resource type="Texture2D" uid="uid://cw6tsd5klfh0q" path="res://assets/sprites/user_interface/arrow_right.png" id="12_0ura4"]
 [ext_resource type="Script" path="res://scripts/exchange_items.gd" id="12_3hfpd"]
 [ext_resource type="Texture2D" uid="uid://3tl4yrjivymy" path="res://assets/sprites/user_interface/arrow_up.png" id="13_5i67r"]
@@ -77,17 +77,17 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Resources" type="VBoxContainer" parent="Screens/Market/MarginContainer/VBoxContainer"]
+[node name="Assets" type="VBoxContainer" parent="Screens/Market/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Heading" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Resources"]
+[node name="Heading" type="Label" parent="Screens/Market/MarginContainer/VBoxContainer/Assets"]
 layout_mode = 2
 text = "RESOURCES"
 label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
 
-[node name="List" type="GridContainer" parent="Screens/Market/MarginContainer/VBoxContainer/Resources"]
+[node name="List" type="GridContainer" parent="Screens/Market/MarginContainer/VBoxContainer/Assets"]
 layout_mode = 2
 theme_override_constants/v_separation = 40
 columns = 5

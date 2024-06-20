@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7vedrhrh0b8v"
-path="res://.godot/imported/Aurum.png-0131376c241b131715fcbf9597be2a05.ctex"
+uid="uid://dteamxxjqmy1s"
+path="res://.godot/imported/Rubinus.png-943770536538c0589ab73bdc4e405d05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/Aurum.png"
-dest_files=["res://.godot/imported/Aurum.png-0131376c241b131715fcbf9597be2a05.ctex"]
+source_file="res://assets/sprites/assets/Rubinus.png"
+dest_files=["res://.godot/imported/Rubinus.png-943770536538c0589ab73bdc4e405d05.ctex"]
 
 [params]
 

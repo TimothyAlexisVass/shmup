@@ -80,3 +80,6 @@ texture = SubResource("CanvasTexture_vx7sh")
 
 [node name="HitPoints" parent="." index="2"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_ywl1u")
+
+[node name="DropHandler" parent="." index="5"]
+type = ""

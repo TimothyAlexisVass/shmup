@@ -56,7 +56,7 @@ var pilots = {
 	}
 }
 
-var resources = {
+var assets = {
 	"Aluminium": 100,
 	"Cuprum": 0,
 	"Argentum": 0,

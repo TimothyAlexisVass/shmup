@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dln6vj44xpif1"
-path="res://.godot/imported/Veritasium.png-814a424aca693896cf84ee80ab168cab.ctex"
+uid="uid://dif8lofhn4a1b"
+path="res://.godot/imported/Smaragdus.png-d6db914184aef24956d2c5483714f053.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/Veritasium.png"
-dest_files=["res://.godot/imported/Veritasium.png-814a424aca693896cf84ee80ab168cab.ctex"]
+source_file="res://assets/sprites/assets/Smaragdus.png"
+dest_files=["res://.godot/imported/Smaragdus.png-d6db914184aef24956d2c5483714f053.ctex"]
 
 [params]
 

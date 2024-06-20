@@ -1,16 +1,13 @@
 class_name DropHandler extends Node2D
 
-enum CATEGORY { GENERAL, RESOURCE, ITEM, CHEST, SPECIAL }
-
 @export var tier = 1
-@export var category: CATEGORY = CATEGORY.GENERAL
 @export var rolls = 1
 @export var drop_radius = 20
 @export var drop_chance = 1.0
 @export var multi_drop_factor = 0.5
+@export_enum("asset", "cannon", "device", "chest", "special") var type: String
 
-var rewards_to_drop = []
-var drop_table = DropManager.drop_table[category]
+var rewards = []
 
 const DROP_ITEM_SCENE = preload("res://node_classes/drop_item/drop_item.tscn")
 
@@ -24,8 +21,6 @@ func _enter_tree():
 			tier = owner.tier
 		if not is_reparented():
 			_connect_signals()
-			if category == CATEGORY.SPECIAL:
-				drop_table = DropManager.drop_table[owner.name]
 
 func _ready():
 	if not is_reparented():
@@ -33,25 +28,15 @@ func _ready():
 	prepare_rewards()
 
 func prepare_rewards():
-	var roll_value = randf()
-	for drop in drop_table:
-		if rolls == 0:
-			return
-		if roll_value <= drop.probability * self.tier / float(drop.tier):
-			var drop_try = randf()
-			if drop_try < drop_chance:
-				rewards_to_drop.append(drop)
-				if rolls > 1:
-					drop_chance *= multi_drop_factor
-			rolls -= 1
+	rewards = G.database(type).get_rewards(tier, rolls, multi_drop_factor)
 
 func drop_rewards(recipient, at_global_position):
-	for reward in rewards_to_drop:
+	for reward in rewards:
 		if G.DEBUG:
 			print("drop ", reward.name, " for: ", recipient.name, " at: ", at_global_position)
 		var reward_instance = DROP_ITEM_SCENE.instantiate()
 		reward_instance.get_node("Sprite").texture = reward.texture
-		reward_instance.category = reward.category
+		reward_instance.category_name = type
 		reward_instance.item_name = reward.name
 		reward_instance.tier = reward.tier
 		reward_instance.recipient = recipient

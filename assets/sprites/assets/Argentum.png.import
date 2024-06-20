@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfo66eqj42gpn"
-path="res://.godot/imported/Rhodium.png-bbe86deecfa66444fdacde0c86321800.ctex"
+uid="uid://dw75msk8omdbh"
+path="res://.godot/imported/Argentum.png-9204ed321182e489e63759795e602790.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/Rhodium.png"
-dest_files=["res://.godot/imported/Rhodium.png-bbe86deecfa66444fdacde0c86321800.ctex"]
+source_file="res://assets/sprites/assets/Argentum.png"
+dest_files=["res://.godot/imported/Argentum.png-9204ed321182e489e63759795e602790.ctex"]
 
 [params]
 

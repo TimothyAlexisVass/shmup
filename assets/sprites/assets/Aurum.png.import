@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbr73ygwykriq"
-path="res://.godot/imported/Sapphirus.png-19dd1d98e664a997f6cf3f00f8c134b5.ctex"
+uid="uid://c7vedrhrh0b8v"
+path="res://.godot/imported/Aurum.png-f701d83f1e537599329777a3b648795f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/Sapphirus.png"
-dest_files=["res://.godot/imported/Sapphirus.png-19dd1d98e664a997f6cf3f00f8c134b5.ctex"]
+source_file="res://assets/sprites/assets/Aurum.png"
+dest_files=["res://.godot/imported/Aurum.png-f701d83f1e537599329777a3b648795f.ctex"]
 
 [params]
 

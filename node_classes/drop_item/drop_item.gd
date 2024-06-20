@@ -2,7 +2,7 @@ class_name DropItem extends Node2D
 
 var auto_pickup = false
 
-var category: Stuff.CATEGORY = Stuff.CATEGORY.resources
+var category_name: String
 var item_name: String
 var tier: int = 1
 var amount: float = 1.0
@@ -10,7 +10,6 @@ var amount: float = 1.0
 var recipient = null
 
 const SPEED = 100
-@onready var category_name = Stuff.CATEGORY.keys()[category]
 
 func _ready():
 	$Sprite/RarityGlow.rarity = G.rarity(tier)

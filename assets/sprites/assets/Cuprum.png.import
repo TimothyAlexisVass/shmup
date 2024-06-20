@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dif8lofhn4a1b"
-path="res://.godot/imported/Smaragdus.png-e81e5bf81cfe8257e2b2d171e2489b6a.ctex"
+uid="uid://c3lsab433vvys"
+path="res://.godot/imported/Cuprum.png-9b515e5b46fd6fe3c89565f8344000cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/Smaragdus.png"
-dest_files=["res://.godot/imported/Smaragdus.png-e81e5bf81cfe8257e2b2d171e2489b6a.ctex"]
+source_file="res://assets/sprites/assets/Cuprum.png"
+dest_files=["res://.godot/imported/Cuprum.png-9b515e5b46fd6fe3c89565f8344000cd.ctex"]
 
 [params]
 

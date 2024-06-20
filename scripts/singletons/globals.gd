@@ -51,7 +51,7 @@ var player_layer # For player ships and stuff
 var top_layer # For powerups and important things
 var shots_layer # For shots
 
-const RARITY = {
+const RARITY_STARS = {
 	0: "⭐", # 🟤
 	1: "⭐⭐", # 🔵
 	2: "⭐⭐⭐", # 🟣
@@ -127,8 +127,14 @@ func smart_snap(value):
 		return snapped(value, 0.1)
 	return snapped(value, 1)
 
-func rarity(tier):
-	return int(tier/3.5) if tier < 20 else 9
+func rarity(int_tier):
+	return int(int_tier/3.5) if int_tier < 20 else 9
+
+func probability(int_tier):
+	return 1.55**-int_tier
+
+func database(category):
+	return get_tree().root.get_node(category.to_pascal_case())
 
 func display_weight(value, smart_snapped = true):
 	var suffix = " g"

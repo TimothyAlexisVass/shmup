@@ -1,11 +1,11 @@
 extends Control
 
-const RESOURCE_BUTTON_SCENE = preload("res://node_classes/button/resource_button.tscn")
+const ASSET_BUTTON_SCENE = preload("res://node_classes/button/asset_button.tscn")
 const UPGRADE_BUTTON_SCENE = preload("res://node_classes/button/upgrade_button.tscn")
 
-@onready var resource_list = $Screens/Market/MarginContainer/VBoxContainer/Resources/List
+@onready var asset_list = $Screens/Market/MarginContainer/VBoxContainer/Assets/List
 
-var resource_values = {}
+var asset_values = {}
 
 func _enter_tree():
 	G.modals = self
@@ -15,7 +15,7 @@ func _ready():
 	ready_commander_details()
 	ready_commander_upgrade_buttons()
 	ready_controls_bottom()
-	add_resource_buttons()
+	add_asset_buttons()
 
 func select_screen(screen_name):
 	var screen = $Screens.get_node(String(screen_name))
@@ -68,19 +68,19 @@ func ready_commander_upgrade_buttons():
 		upgrade_button_instance.get_node("TextureButton").connect("pressed", Callable(self, "level_up").bind(upgrade_button_instance))
 		$Screens/Commander/MarginContainer/VBoxContainer/Upgrades/Buttons.add_child(upgrade_button_instance)
 
-func add_resource_buttons():
-	for resource in Stuff.RESOURCE:
-		var resource_data = Stuff.resources[Stuff.RESOURCE[resource]]
-		var resource_button_instance = RESOURCE_BUTTON_SCENE.instantiate()
-		var texture_button = resource_button_instance.get_node("TextureButton")
-		texture_button.texture_normal = resource_data.texture
-		texture_button.get_node("Label").text = resource
-		resource_values[resource] = texture_button.get_node("Value")
-		texture_button.name = resource
-		resource_list.add_child(resource_button_instance)
-		resource_list.move_child(resource_button_instance, 0)
-	update_resource_values()
+func add_asset_buttons():
+	for asset in Stuff.ASSET:
+		var asset_data = Stuff.assets[Stuff.ASSET[asset]]
+		var asset_button_instance = ASSET_BUTTON_SCENE.instantiate()
+		var texture_button = asset_button_instance.get_node("TextureButton")
+		texture_button.texture_normal = asset_data.texture
+		texture_button.get_node("Label").text = asset
+		asset_values[asset] = texture_button.get_node("Value")
+		texture_button.name = asset
+		asset_list.add_child(asset_button_instance)
+		asset_list.move_child(asset_button_instance, 0)
+	update_asset_values()
 
-func update_resource_values():
-	for resource in DataManager.player_data.resources:
-		resource_values[resource].text = G.display_weight(DataManager.player_data.resources[resource])
+func update_asset_values():
+	for asset in DataManager.player_data.assets:
+		asset_values[asset].text = G.display_weight(DataManager.player_data.assets[asset])

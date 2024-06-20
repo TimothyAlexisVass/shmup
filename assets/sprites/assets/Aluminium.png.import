@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mcfl36huhy3"
-path="res://.godot/imported/Aluminium.png-81f53591086a1de7aa9cb37566384df5.ctex"
+path="res://.godot/imported/Aluminium.png-402130c4eb0636a6347b43d02bedbbdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/resources/Aluminium.png"
-dest_files=["res://.godot/imported/Aluminium.png-81f53591086a1de7aa9cb37566384df5.ctex"]
+source_file="res://assets/sprites/assets/Aluminium.png"
+dest_files=["res://.godot/imported/Aluminium.png-402130c4eb0636a6347b43d02bedbbdc.ctex"]
 
 [params]
 
