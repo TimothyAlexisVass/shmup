@@ -28,8 +28,6 @@ func _ready():
 	prepare_rewards()
 
 func prepare_rewards():
-	print("TYPE! ", type)
-	print(owner.name)
 	rewards = G.database(type).get_rewards(tier, rolls, multi_drop_factor)
 
 func drop_rewards(recipient, at_global_position):

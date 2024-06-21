@@ -1,16 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://dft8orc1q7ueh"]
+[gd_scene load_steps=11 format=3 uid="uid://dft8orc1q7ueh"]
 
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_cr4rd"]
 [ext_resource type="Texture2D" uid="uid://byl61ujfbeffj" path="res://media/sprites/player_ships/Justice.png" id="2_87okx"]
 [ext_resource type="Texture2D" uid="uid://0ooosq73xvey" path="res://media/sprites/ships/vusion/vusion_normal.png" id="3_hqa7a"]
-[ext_resource type="Resource" uid="uid://b8hktowcdtkc2" path="res://resources/cannons/Plasma.tres" id="4_3yqxd"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="4_6rf8i"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="4_hhrkk"]
+[ext_resource type="Script" path="res://node_classes/muzzle/cannon.gd" id="4_hmild"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="5_23n62"]
+[ext_resource type="PackedScene" uid="uid://bgrh3v338xpf6" path="res://scenes/shots/Plasma.tscn" id="5_oxlsp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7hffb"]
 diffuse_texture = ExtResource("2_87okx")
 normal_texture = ExtResource("3_hqa7a")
+
+[sub_resource type="Resource" id="Resource_cp57n"]
+resource_local_to_scene = true
+script = ExtResource("4_hmild")
+shot_scene = ExtResource("5_oxlsp")
+shot_rate = [1.0, 0.2]
+shot_speed = 700.0
+shot_power = 0.7
+shot_color = Color(0.727447, 0.417496, 0.999999, 1)
 
 [node name="Player" instance=ExtResource("1_cr4rd")]
 
@@ -19,7 +29,7 @@ texture = SubResource("CanvasTexture_7hffb")
 
 [node name="Main" parent="CannonConfiguration" index="0"]
 position = Vector2(0, 400)
-cannon = ExtResource("4_3yqxd")
+cannon = SubResource("Resource_cp57n")
 
 [node name="LeftFront" parent="CannonConfiguration" index="1" instance=ExtResource("4_6rf8i")]
 position = Vector2(180, 340)

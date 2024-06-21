@@ -34,6 +34,15 @@ var player_ship = {
 		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
 		"cannons": ["Plasma", "Plasma"]
+	},
+	"Excalibur": {
+		"main_shot_rate_level": 5,
+		"main_shot_speed_level": 0,
+		"main_shot_power_level": 0,
+		"ship_ability_level": 0,
+		"movement_speed_level": 0,
+		"graze_area_radius_level": 1,
+		"cannons": ["Plasma", "Plasma"]
 	}
 }
 
@@ -79,7 +88,7 @@ var selected_pilot = "Lance":
 		selected_pilot = value
 		DataManager.save_data()
 
-var available_player_ship = ["Blade", "Justice"]
+var available_player_ship = ["Blade", "Justice", "Excalibur"]
 
 var available_pilot = ["Lance", "Mia"]
 

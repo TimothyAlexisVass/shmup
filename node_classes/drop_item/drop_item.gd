@@ -26,7 +26,7 @@ func _on_area_entered(area):
 		pick_up()
 
 func pick_up():
-	DataManager.add(category_name, item_name, amount)
+	DataManager.change(category_name, item_name, amount)
 	amount = 0
 	clear()
 

@@ -10,4 +10,4 @@ shot_scene = ExtResource("2_wggyx")
 shot_rate = [1.0]
 shot_speed = 500.0
 shot_power = 1.0
-shot_color = Color(0, 0.478431, 1, 1)
+shot_color = Color(0, 0.282353, 1, 1)
