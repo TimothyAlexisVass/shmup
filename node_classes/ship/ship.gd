@@ -28,7 +28,7 @@ var target
 var velocity = Vector2(0, 0)
 
 @onready var current_health = total_hit_points
-@onready var muzzles = $ShipBody.get_node_or_null("Muzzles")
+@onready var cannon_mounts = $ShipBody.get_node_or_null("CannonMounts")
 @onready var jets = $ShipBody.get_node_or_null("Jets")
 
 @onready var shooting = false
@@ -149,7 +149,7 @@ func take_damage(cause):
 		$ShipBody/Area2D.set_deferred("monitoring", false)
 		$ShipBody/Area2D.set_deferred("monitorable", false)
 		stop_jets()
-		muzzles_status(false)
+		cannon_mounts_status(false)
 		tween.tween_property($ShipBody, "modulate", Color(4, 2, 1), G.HEALTH_TWEEN_TIME) # shine
 		if not cleared:
 			clear(cause)
@@ -176,14 +176,14 @@ func stop_jets():
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	if not shooting:
-		muzzles_status(true)
+		cannon_mounts_status(true)
 
-func muzzles_status(status):
-	if muzzles:
+func cannon_mounts_status(status):
+	if cannon_mounts:
 		if status:
-			for muzzle in muzzles.get_children():
+			for cannon_mount in cannon_mounts.get_children():
 				if status:
-					muzzle.timer.start()
+					cannon_mount.timer.start()
 		else:
-			muzzles.queue_free()
-			muzzles = null
+			cannon_mounts.queue_free()
+			cannon_mounts = null

@@ -1,4 +1,4 @@
-class_name Cannon extends Resource
+class_name CannonDetails extends Resource
 @export var shot_scene: PackedScene = preload("res://scenes/shots/plasma.tscn")
 @export var shot_rate: PackedFloat32Array = [1.0]
 @export var shot_speed: float = 500.0

@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7o1vlbh40o5b"]
+[gd_scene load_steps=9 format=3 uid="uid://b7o1vlbh40o5b"]
 
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_j0rs4"]
 [ext_resource type="Texture2D" uid="uid://bonou8icicvpi" path="res://media/sprites/player_ships/Excalibur.png" id="2_t3ggd"]
 [ext_resource type="Texture2D" uid="uid://c27kvqwsotta" path="res://media/sprites/player_ships/Excalibur_normal.png" id="3_8g0f3"]
-[ext_resource type="Script" path="res://node_classes/muzzle/cannon.gd" id="4_eqwma"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="5_d51tp"]
-[ext_resource type="PackedScene" uid="uid://bgrh3v338xpf6" path="res://scenes/shots/Plasma.tscn" id="5_qm4gq"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="5_d51tp"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_e2c4p"]
+[ext_resource type="Resource" uid="uid://kppaa7uk6327" path="res://resources/cannons/Plasma_2.tres" id="6_piye8"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="7_4xaco"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8h204"]
@@ -14,15 +13,6 @@ diffuse_texture = ExtResource("2_t3ggd")
 normal_texture = ExtResource("3_8g0f3")
 specular_color = Color(0.466667, 0.466667, 0.466667, 1)
 specular_shininess = 0.7
-
-[sub_resource type="Resource" id="Resource_wvn1t"]
-resource_local_to_scene = true
-script = ExtResource("4_eqwma")
-shot_scene = ExtResource("5_qm4gq")
-shot_rate = [1.0, 0.2]
-shot_speed = 700.0
-shot_power = 0.7
-shot_color = Color(0.737255, 0, 1, 1)
 
 [node name="Player" instance=ExtResource("1_j0rs4")]
 
@@ -36,14 +26,14 @@ process_material = ExtResource("7_4xaco")
 z_index = -1
 texture = SubResource("CanvasTexture_8h204")
 
-[node name="Main" parent="CannonConfiguration" index="0"]
-position = Vector2(0, 400)
-cannon = SubResource("Resource_wvn1t")
+[node name="Main" parent="CannonMounts" index="0"]
+position = Vector2(0, 450)
+cannon = ExtResource("6_piye8")
 
-[node name="LeftFront" parent="CannonConfiguration" index="1" instance=ExtResource("5_d51tp")]
+[node name="LeftFront" parent="CannonMounts" index="1" instance=ExtResource("5_d51tp")]
 position = Vector2(180, 190)
 rotation = -0.261799
 
-[node name="RightFront" parent="CannonConfiguration" index="2" instance=ExtResource("5_d51tp")]
+[node name="RightFront" parent="CannonMounts" index="2" instance=ExtResource("5_d51tp")]
 position = Vector2(-180, 190)
 rotation = 0.261799

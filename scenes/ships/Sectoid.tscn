@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://chrr3i7xsnwgb" path="res://media/sprites/ships/sectoid/sectoid_crystal.png" id="5_os2p2"]
 [ext_resource type="Texture2D" uid="uid://c8lhit261fpi" path="res://media/sprites/ships/sectoid/sectoid_border.png" id="7_1i0ni"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_k5db5"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="9_nd0pv"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="9_nd0pv"]
 [ext_resource type="Texture2D" uid="uid://b2xkoi61tdvlg" path="res://media/sprites/ships/sectoid/sectoid_0.png" id="11_scu65"]
 [ext_resource type="Texture2D" uid="uid://3y1eutnfkht4" path="res://media/sprites/ships/sectoid/sectoid_normal.png" id="12_jhmhl"]
 

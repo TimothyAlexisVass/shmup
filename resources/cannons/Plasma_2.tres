@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CannonDetails" load_steps=3 format=3 uid="uid://kppaa7uk6327"]
+
+[ext_resource type="Script" path="res://node_classes/cannon_mount/cannon_details.gd" id="1_757gx"]
+[ext_resource type="PackedScene" uid="uid://bgrh3v338xpf6" path="res://scenes/shots/Plasma.tscn" id="2_5o6qp"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_757gx")
+shot_scene = ExtResource("2_5o6qp")
+shot_rate = [0.9, 0.2]
+shot_speed = 700.0
+shot_power = 0.7
+shot_color = Color(0, 1, 0.341176, 1)

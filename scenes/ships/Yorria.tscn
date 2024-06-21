@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dcsdto17a78m8" path="res://media/sprites/ships/yorria/yorria_crystal.png" id="4_pmgx8"]
 [ext_resource type="Texture2D" uid="uid://dj2a2j0sk8feg" path="res://media/sprites/ships/yorria/yorria_border.png" id="5_mjdso"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_fxdc5"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="7_514qd"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="7_514qd"]
 [ext_resource type="Texture2D" uid="uid://x3eosig2aqvt" path="res://media/sprites/ships/yorria/yorria_0.png" id="9_k3jqi"]
 [ext_resource type="Texture2D" uid="uid://bwrivkmiuvc42" path="res://media/sprites/ships/yorria/yorria_normal.png" id="10_1oq6e"]
 

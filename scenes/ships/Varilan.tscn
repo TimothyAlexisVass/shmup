@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5uhkyjy1ef1b" path="res://media/sprites/ships/varilan/varilan_crystal.png" id="4_x8wux"]
 [ext_resource type="Texture2D" uid="uid://bjjywyrf6co0f" path="res://media/sprites/ships/varilan/varilan_border.png" id="5_0p0uh"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_g28ic"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="7_8n7l4"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="7_8n7l4"]
 [ext_resource type="Texture2D" uid="uid://bwdr8uc3q6h3x" path="res://media/sprites/ships/varilan/varilan_0.png" id="9_3v2gd"]
 [ext_resource type="Texture2D" uid="uid://droq3r5c4swrs" path="res://media/sprites/ships/varilan/varilan_normal.png" id="10_tdpji"]
 

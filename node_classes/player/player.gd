@@ -29,9 +29,7 @@ func _enter_tree():
 	configure_main_cannon()
 	
 	if pilot_data.max_cannons > 1:
-		configure_cannons()
-	if pilot_data.max_devices > 1:
-		configure_devices()
+		mount_cannons()
 
 func _ready():
 	$GrazeArea.scale *= graze_area_radius_base * (1 + 1.02 * pilot_data.graze_area_radius_multiplier)
@@ -49,24 +47,18 @@ func _physics_process(delta):
 	graze_power = snapped(graze_power + grazing_with * delta, 0.001)
 
 func configure_main_cannon():
-	$CannonConfiguration/Main.cannon.shot_speed = G.diminishing_increase($CannonConfiguration/Main.cannon.shot_speed, ship_data.main_shot_speed_level)
-	$CannonConfiguration/Main.cannon.shot_rate = G.diminishing_decrease($CannonConfiguration/Main.cannon.shot_rate, ship_data.main_shot_rate_level)
-	$CannonConfiguration/Main.cannon.shot_power =  G.diminishing_increase($CannonConfiguration/Main.cannon.shot_power, ship_data.main_shot_power_level)
+	$CannonMounts/Main.cannon.shot_speed = G.diminishing_increase($CannonMounts/Main.cannon.shot_speed, ship_data.main_shot_speed_level)
+	$CannonMounts/Main.cannon.shot_rate = G.diminishing_decrease($CannonMounts/Main.cannon.shot_rate, ship_data.main_shot_rate_level)
+	$CannonMounts/Main.cannon.shot_power =  G.diminishing_increase($CannonMounts/Main.cannon.shot_power, ship_data.main_shot_power_level)
 
-func configure_cannons():
-	var cannons = $CannonConfiguration.get_children()
+func mount_cannons():
+	var cannons = $CannonMounts.get_children()
 	if cannons.size() > pilot_data.max_cannons:
 		for cannon_number in range(pilot_data.max_cannons, cannons.size() + 1):
 			cannons[cannon_number].queue_free()
 	for cannon_number in range(1, pilot_data.max_cannons):
 		var cannon_data = Stuff.cannons[Stuff.CANNON[ship_data.cannons[cannon_number - 1]]]
 		cannons[cannon_number].cannon = cannon_data.resource
-
-func configure_devices():
-	var devices = $DeviceConfiguration.get_children()
-	if devices.size() > pilot_data.max_devices:
-		for device_number in range(pilot_data.max_devices, devices.size() + 1):
-			devices[device_number].queue_free()
 
 func play():
 	set_visible(true)
@@ -79,8 +71,8 @@ func handle_hit(shot):
 	clear(shot)
 
 func clear(_cause):
-	for muzzle in $CannonConfiguration.get_children():
-		muzzle.set_physics_process(false)
+	for cannon_mount in $CannonMounts.get_children():
+		cannon_mount.set_physics_process(false)
 	set_visible(false)
 	is_playing = false
 	G.explode(self)

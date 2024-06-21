@@ -1,8 +1,8 @@
-class_name Muzzle extends Line2D
+class_name CannonMount extends Line2D
 
 var shoot_timer = 0
 var shot_index = 0
-@export var cannon: Cannon = null
+@export var cannon: CannonDetails = null
 
 func _enter_tree():
 	owner = get_parent().owner

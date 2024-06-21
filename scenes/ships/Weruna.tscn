@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cvuktwpu315lj" path="res://media/sprites/ships/weruna/weruna_crystal.png" id="5_2eiqx"]
 [ext_resource type="Texture2D" uid="uid://dk3hbgty5n2wq" path="res://media/sprites/ships/weruna/weruna_border.png" id="6_f5dye"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_s67hj"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="8_ormut"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="8_ormut"]
 [ext_resource type="Texture2D" uid="uid://bomwjag6k357w" path="res://media/sprites/ships/weruna/weruna_0.png" id="10_fv384"]
 [ext_resource type="Texture2D" uid="uid://hqcgrelkxmv0" path="res://media/sprites/ships/weruna/weruna_normal.png" id="11_66rkv"]
 

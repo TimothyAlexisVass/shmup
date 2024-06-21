@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cufh7uuaxt0oe" path="res://media/sprites/ships/sabir/sabir_border.png" id="8_ljlxn"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_2kd32"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="10_dh0tq"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="10_qg20i"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="10_qg20i"]
 [ext_resource type="Texture2D" uid="uid://o631nvmaqddq" path="res://node_classes/jet/jet_gradient.tres" id="11_xrkng"]
 [ext_resource type="Texture2D" uid="uid://6sxq7qwt1y56" path="res://media/sprites/ships/sabir/sabir_0.png" id="12_afm5n"]
 [ext_resource type="Texture2D" uid="uid://o1pn2he4xbyn" path="res://media/sprites/ships/sabir/sabir_normal.png" id="13_fuqtg"]

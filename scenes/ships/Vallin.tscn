@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1vqmgibjnaiy"]
+[gd_scene load_steps=15 format=3 uid="uid://1vqmgibjnaiy"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_uj1xx"]
 [ext_resource type="Texture2D" uid="uid://cbmod1vb3h7iv" path="res://media/sprites/ships/vallin/vallin_1.png" id="2_kf5bl"]
@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bmpv7hx6gdegu" path="res://media/sprites/ships/vallin/vallin_border.png" id="6_6pgvs"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_w4nmi"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="8_ckbab"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="8_oao7n"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="8_oao7n"]
 [ext_resource type="Texture2D" uid="uid://twfg1hpqjom0" path="res://media/sprites/ships/vallin/vallin_0.png" id="9_43nlk"]
+[ext_resource type="Resource" uid="uid://bnd06dej7swk8" path="res://scenes/ships/PurplePlasma_r7-05-05_s500_p1.tres" id="10_0t2tt"]
 [ext_resource type="Texture2D" uid="uid://cndfi726278g" path="res://media/sprites/ships/vallin/vallin_normal.png" id="10_bno32"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rdvxd"]
@@ -59,12 +60,12 @@ position = Vector2(0, 25)
 scale = Vector2(0.25195, 0.25195)
 polygon = PackedVector2Array(-207.143, -400, -200, -314.286, -478.571, -357.143, -478.571, -278.571, -278.571, -107.143, -228.571, 128.571, -178.571, 192.857, -114.286, 142.857, -28.5714, 400, 28.5714, 400, 121.429, 142.857, 178.571, 192.857, 228.571, 128.571, 278.571, -107.143, 478.571, -278.571, 478.571, -364.286, 207.143, -314.286, 207.143, -400)
 
-[node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
+[node name="CannonMounts" type="Node2D" parent="ShipBody" index="3"]
 position = Vector2(0, 65)
 
-[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("8_oao7n")]
-position = Vector2(0, 50)
-default_color = Color(1, 0.439216, 0.662745, 1)
+[node name="CannonMount" parent="ShipBody/CannonMounts" index="0" instance=ExtResource("8_oao7n")]
+position = Vector2(0, 60)
+cannon = ExtResource("10_0t2tt")
 
 [node name="Sprite" parent="ShipBody" index="4"]
 texture = SubResource("CanvasTexture_rdvxd")

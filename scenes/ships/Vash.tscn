@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnaai6r0qm57p"]
+[gd_scene load_steps=15 format=3 uid="uid://bnaai6r0qm57p"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_o5vy4"]
 [ext_resource type="Texture2D" uid="uid://b76md2ude40ho" path="res://media/sprites/ships/vash/vash_1.png" id="2_by1mc"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://6fp7ab7qopa1" path="res://media/sprites/ships/vash/vash_border.png" id="6_22xl2"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_g5pua"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="8_2wxet"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="8_e86v0"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="8_e86v0"]
+[ext_resource type="Resource" uid="uid://cnqq0nyp42qpy" path="res://scenes/ships/PinkPlasma_r5-1_s500_p1.tres" id="10_jwhtq"]
 [ext_resource type="Texture2D" uid="uid://6jpkqqckxo4q" path="res://media/sprites/ships/vash/vash_0.png" id="10_kxeuf"]
 [ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://media/sprites/ships/vash/vash_normal.png" id="11_yfknc"]
 
@@ -50,16 +51,16 @@ process_material = ExtResource("8_2wxet")
 position = Vector2(22, -42)
 process_material = ExtResource("8_2wxet")
 
-[node name="Muzzles" type="Node2D" parent="ShipBody" index="2"]
+[node name="CannonMounts" type="Node2D" parent="ShipBody" index="2"]
 position = Vector2(0, 35)
 
-[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("8_e86v0")]
-position = Vector2(-75, 12)
-default_color = Color(0.901961, 0, 0.827451, 1)
+[node name="CannonMount" parent="ShipBody/CannonMounts" index="0" instance=ExtResource("8_e86v0")]
+position = Vector2(-75, 11)
+cannon = ExtResource("10_jwhtq")
 
-[node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("8_e86v0")]
-position = Vector2(75, 12)
-default_color = Color(0.901961, 0, 0.827451, 1)
+[node name="CannonMount2" parent="ShipBody/CannonMounts" index="1" instance=ExtResource("8_e86v0")]
+position = Vector2(75, 11)
+cannon = ExtResource("10_jwhtq")
 
 [node name="Area2D" parent="ShipBody" index="3"]
 metadata/_edit_lock_ = true

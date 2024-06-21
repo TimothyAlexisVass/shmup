@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b1otq2xrd47r3" path="res://media/sprites/ships/zaryshan/zaryshan_crystal.png" id="6_k5icm"]
 [ext_resource type="Texture2D" uid="uid://dll6ejav5k33m" path="res://media/sprites/ships/zaryshan/zaryshan_border.png" id="7_j5on1"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="8_bh615"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="9_tnc0v"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="9_tnc0v"]
 [ext_resource type="Texture2D" uid="uid://didv1nu3ske5l" path="res://media/sprites/ships/zaryshan/zaryshan_0.png" id="11_etubk"]
 [ext_resource type="Texture2D" uid="uid://6su2ratbk4yi" path="res://media/sprites/ships/zaryshan/zaryshan_normal.png" id="12_k06fj"]
 

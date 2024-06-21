@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://node_classes/player/player.gd" id="1_upu44"]
 [ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://media/sprites/player_ships/Blade.png" id="2_ysavb"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/muzzle/muzzle.tscn" id="4_i4vfr"]
+[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="4_i4vfr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ila4y"]
 diffuse_texture = ExtResource("2_ysavb")
@@ -42,9 +42,9 @@ light_mask = 512
 z_index = 4096
 polygon = PackedVector2Array(0, -15, -15, 0, 0, 15, 15, 0)
 
-[node name="CannonConfiguration" type="Node2D" parent="."]
+[node name="CannonMounts" type="Node2D" parent="."]
 
-[node name="Main" parent="CannonConfiguration" instance=ExtResource("4_i4vfr")]
+[node name="Main" parent="CannonMounts" instance=ExtResource("4_i4vfr")]
 
 [node name="DeviceConfiguration" type="Node2D" parent="."]
 
