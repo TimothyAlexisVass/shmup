@@ -56,12 +56,10 @@ position = Vector2(0, 35)
 [node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("8_e86v0")]
 position = Vector2(-75, 12)
 default_color = Color(0.901961, 0, 0.827451, 1)
-shot_speed = 400.0
 
 [node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("8_e86v0")]
 position = Vector2(75, 12)
 default_color = Color(0.901961, 0, 0.827451, 1)
-shot_speed = 400.0
 
 [node name="Area2D" parent="ShipBody" index="3"]
 metadata/_edit_lock_ = true
