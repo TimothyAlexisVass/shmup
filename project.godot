@@ -28,6 +28,7 @@ Stuff="*res://scripts/singletons/stuff.gd"
 Pilot="*res://scripts/singletons/pilot.gd"
 PlayerShip="*res://scripts/singletons/player_ship.gd"
 Asset="*res://scripts/singletons/asset.gd"
+Cannon="*res://scripts/singletons/cannon.gd"
 
 [display]
 

@@ -26,6 +26,8 @@ var tier_20 = ["Imrina"]
 
 var data = {}
 
+var max_cannons_per_rarity = {0: 3, 1: 4, 2: 5, 3: 7, 4: 9, 5: 11, 9: 13}
+
 func _enter_tree():
 	for int_tier in range(21):
 		for pilot_name in tier(int_tier):
