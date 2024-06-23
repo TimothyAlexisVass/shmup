@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnaai6r0qm57p"]
+[gd_scene load_steps=18 format=3 uid="uid://bnaai6r0qm57p"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_o5vy4"]
 [ext_resource type="Texture2D" uid="uid://b76md2ude40ho" path="res://media/sprites/ships/vash/vash_1.png" id="2_by1mc"]
@@ -9,9 +9,52 @@
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="7_g5pua"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="8_2wxet"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="8_e86v0"]
-[ext_resource type="Resource" uid="uid://cnqq0nyp42qpy" path="res://scenes/ships/PinkPlasma_r5-1_s500_p1.tres" id="10_jwhtq"]
 [ext_resource type="Texture2D" uid="uid://6jpkqqckxo4q" path="res://media/sprites/ships/vash/vash_0.png" id="10_kxeuf"]
+[ext_resource type="Script" path="res://node_classes/cannon_mount/cannon_details.gd" id="10_ojj1v"]
+[ext_resource type="PackedScene" uid="uid://bgrh3v338xpf6" path="res://scenes/shots/Plasma.tscn" id="11_7uy6c"]
 [ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://media/sprites/ships/vash/vash_normal.png" id="11_yfknc"]
+
+[sub_resource type="Resource" id="Resource_q74n0"]
+resource_local_to_scene = true
+script = ExtResource("10_ojj1v")
+shot_scene = ExtResource("11_7uy6c")
+shot_rate = [5.0, 1.0]
+shot_speed = 500.0
+shot_power = 1.0
+shot_color = Color(1, 0.282353, 1, 1)
+shot_duration = 0.0
+shot_spread = 0.0
+homing_amount = 0.0
+homing_priority = "None"
+penetration_chance = 0.0
+ricochet_count = 0
+falloff_rate = 0.5
+area_of_impact = 0.0
+critical_chance = 0.0
+critical_multiplier = 1.0
+dot_effect = "None"
+dot_duration = 0.0
+
+[sub_resource type="Resource" id="Resource_b2xgg"]
+resource_local_to_scene = true
+script = ExtResource("10_ojj1v")
+shot_scene = ExtResource("11_7uy6c")
+shot_rate = [5.0, 1.0]
+shot_speed = 500.0
+shot_power = 1.0
+shot_color = Color(1, 0.282353, 1, 1)
+shot_duration = 0.0
+shot_spread = 0.0
+homing_amount = 0.0
+homing_priority = "None"
+penetration_chance = 0.0
+ricochet_count = 0
+falloff_rate = 0.5
+area_of_impact = 0.0
+critical_chance = 0.0
+critical_multiplier = 1.0
+dot_effect = "None"
+dot_duration = 0.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f4y87"]
 resource_local_to_scene = true
@@ -56,11 +99,11 @@ position = Vector2(0, 35)
 
 [node name="CannonMount" parent="ShipBody/CannonMounts" index="0" instance=ExtResource("8_e86v0")]
 position = Vector2(-75, 11)
-cannon = ExtResource("10_jwhtq")
+cannon = SubResource("Resource_q74n0")
 
 [node name="CannonMount2" parent="ShipBody/CannonMounts" index="1" instance=ExtResource("8_e86v0")]
 position = Vector2(75, 11)
-cannon = ExtResource("10_jwhtq")
+cannon = SubResource("Resource_b2xgg")
 
 [node name="Area2D" parent="ShipBody" index="3"]
 metadata/_edit_lock_ = true

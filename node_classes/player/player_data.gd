@@ -88,10 +88,6 @@ var selected_pilot = "Lance":
 		selected_pilot = value
 		DataManager.save_data()
 
-var available_player_ship = ["Blade", "Justice", "Excalibur"]
-
-var available_pilot = ["Lance", "Mia"]
-
 var levels = {
 	"1": 10,
 	"2": 9,

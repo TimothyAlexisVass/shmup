@@ -42,9 +42,7 @@ func save_data():
 		"asset": player_data.asset,
 		"levels": player_data.levels,
 		"selected_pilot": player_data.selected_pilot,
-		"available_pilot": player_data.available_pilot,
-		"selected_player_ship": player_data.selected_player_ship,
-		"available_player_ship": player_data.available_player_ship
+		"selected_player_ship": player_data.selected_player_ship
 	}
 	file.store_string(JSON.stringify(data_to_save, "\t"))
 	file.close()
@@ -77,11 +75,7 @@ func load_data():
 			player_data.asset = loaded_data.asset
 		if loaded_data.has("selected_pilot"):
 			player_data.selected_pilot = loaded_data.selected_pilot
-		if loaded_data.has("available_pilot"):
-			player_data.available_pilot = loaded_data.available_pilot
 		if loaded_data.has("selected_player_ship"):
 			player_data.selected_player_ship = loaded_data.selected_player_ship
-		if loaded_data.has("available_player_ship"):
-			player_data.available_player_ship = loaded_data.available_player_ship
 	else:
 		print("Save file doesn't exist")

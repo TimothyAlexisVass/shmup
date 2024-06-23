@@ -24,7 +24,7 @@ func _ready():
 			texture_button.get_node("Rarity").text = G.RARITY_STARS[item.rarity]
 			item_button.name = item.name
 			add_child(item_button)
-			if item.name in DataManager.player_data["available_" + item_type]:
+			if item.name in DataManager.player_data[item_type].keys():
 				texture_button.connect("pressed", Callable(self, "_on_item_button_pressed").bind(item_button))
 				texture_button.modulate.a = 0.8
 				item_button.get_theme_stylebox("panel").border_color.a = 0.8

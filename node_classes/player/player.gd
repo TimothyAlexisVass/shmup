@@ -47,8 +47,8 @@ func _physics_process(delta):
 	graze_power = snapped(graze_power + grazing_with * delta, 0.001)
 
 func configure_main_cannon():
-	$CannonMounts/Main.cannon.shot_speed = G.diminishing_increase($CannonMounts/Main.cannon.shot_speed, ship_data.main_shot_speed_level)
 	$CannonMounts/Main.cannon.shot_rate = G.diminishing_decrease($CannonMounts/Main.cannon.shot_rate, ship_data.main_shot_rate_level)
+	$CannonMounts/Main.cannon.shot_speed = G.diminishing_increase($CannonMounts/Main.cannon.shot_speed, ship_data.main_shot_speed_level)
 	$CannonMounts/Main.cannon.shot_power =  G.diminishing_increase($CannonMounts/Main.cannon.shot_power, ship_data.main_shot_power_level)
 
 func mount_cannons():
