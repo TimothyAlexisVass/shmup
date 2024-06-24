@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx8bpqmkmu833"]
+[gd_scene load_steps=7 format=3 uid="uid://dx8bpqmkmu833"]
 
 [ext_resource type="Script" path="res://scripts/shmup.gd" id="1_q3jkw"]
 [ext_resource type="Texture2D" uid="uid://qcvcsh2o044c" path="res://media/loading_screen_backgrounds/1.jpeg" id="2_7h6nm"]
 [ext_resource type="Script" path="res://scripts/load_data_from_server.gd" id="3_s3wer"]
+[ext_resource type="Texture2D" uid="uid://bjtk0ojabs5he" path="res://media/sprites/user_interface/shmup.png" id="4_7c4la"]
 
 [sub_resource type="Environment" id="Environment_pty44"]
 background_mode = 3
@@ -122,5 +123,16 @@ offset_right = 40.0
 offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="LoadDataFromServer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 720.0
+grow_horizontal = 2
+texture = ExtResource("4_7c4la")
 
 [connection signal="data_loading_completed" from="LoadDataFromServer" to="." method="show_level_selection"]
