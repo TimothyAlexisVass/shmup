@@ -6,9 +6,6 @@ const SECURITY_KEY = "VERY_SECRET_KEY"
 
 var player_data = PlayerData.new()
 
-func _ready():
-	call_deferred("load_data_from_server")
-
 func change(category, item_name, amount):
 	player_data[category][item_name] += amount
 	save_data()
@@ -68,11 +65,6 @@ func load_data_from_file():
 		handle_loaded_data(loaded_data)
 	else:
 		print("Save file doesn't exist")
-
-func load_data_from_server():
-	var loaded_data = Api.load_data("test")
-	if loaded_data:
-		handle_loaded_data(loaded_data)
 
 func handle_loaded_data(loaded_data):
 	if loaded_data.has("commander"):

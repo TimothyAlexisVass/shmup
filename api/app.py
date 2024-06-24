@@ -8,7 +8,7 @@ def player_data():
     if user_id:
         response = {
           "commander": {
-            "name": "Timothy",
+            "name": "Joe",
             "rank": 0,
             "pilot_ability_multiplier": 1,
             "ship_ability_multiplier": 1,

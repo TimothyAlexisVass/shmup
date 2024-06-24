@@ -26,7 +26,7 @@ func to_level(level_number, level_challenge):
 
 func clear_shmup():
 	for node in shmup.get_children():
-		if node is Level:
+		if node is Level or node is TextureRect:
 			node.free()
 		elif not node is WorldEnvironment:
 			shmup.remove_child(node)

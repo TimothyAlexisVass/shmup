@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrh3v338xpf6" path="res://scenes/shots/Plasma.tscn" id="11_7uy6c"]
 [ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://media/sprites/ships/vash/vash_normal.png" id="11_yfknc"]
 
-[sub_resource type="Resource" id="Resource_q74n0"]
+[sub_resource type="Resource" id="Resource_rmqe4"]
 resource_local_to_scene = true
 script = ExtResource("10_ojj1v")
 shot_scene = ExtResource("11_7uy6c")
@@ -35,7 +35,7 @@ critical_multiplier = 1.0
 dot_effect = "None"
 dot_duration = 0.0
 
-[sub_resource type="Resource" id="Resource_b2xgg"]
+[sub_resource type="Resource" id="Resource_f2c0d"]
 resource_local_to_scene = true
 script = ExtResource("10_ojj1v")
 shot_scene = ExtResource("11_7uy6c")
@@ -99,11 +99,11 @@ position = Vector2(0, 35)
 
 [node name="CannonMount" parent="ShipBody/CannonMounts" index="0" instance=ExtResource("8_e86v0")]
 position = Vector2(-75, 11)
-cannon = SubResource("Resource_q74n0")
+cannon = SubResource("Resource_rmqe4")
 
 [node name="CannonMount2" parent="ShipBody/CannonMounts" index="1" instance=ExtResource("8_e86v0")]
 position = Vector2(75, 11)
-cannon = SubResource("Resource_b2xgg")
+cannon = SubResource("Resource_f2c0d")
 
 [node name="Area2D" parent="ShipBody" index="3"]
 metadata/_edit_lock_ = true
