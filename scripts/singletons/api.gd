@@ -1,25 +1,34 @@
 extends Node
 
-const SERVER_URL = "https://your.server/api/"
+const SERVER_URL = "http://127.0.0.1:5000/"
 
-var http_request: HTTPRequest
+var http_request = HTTPRequest.new()
 
-func _ready():
-	http_request = HTTPRequest.new()
+func _enter_tree():
 	http_request.timeout = 30  # Set timeout as needed
+	get_tree().root.add_child.call_deferred(http_request)
+	http_request.request_completed.connect(self._http_request_completed)
 
-func load_data(user_id: int) -> Dictionary:
-	var url = SERVER_URL + "load_data/" + str(user_id)
-	http_request.url = url
-	http_request.method = HTTPClient.METHOD_GET
-	
-	http_request.request_headers["Content-Type"] = "application/json"
-	
-	http_request.wait_for_response()
-	
-	if http_request.get_response_code() == HTTPClient.RESPONSE_OK:
-		var response = http_request.get_response_body_as_text()
-		return JSON.parse_string(response)
+func load_data(user_id: String):
+	var url = SERVER_URL + "player_data"
+
+	# Prepare the request body
+	var request_body = {"user_id": user_id}
+	var json_request_body = JSON.stringify(request_body)
+	var headers = ["Content-Type: application/json"]
+	# Make the HTTP request
+	var err = http_request.request(url, headers, HTTPClient.METHOD_POST, json_request_body)
+
+	if err != OK:
+		print("An error occurred in the HTTP request: %s" % err)
+
+# Callback function for request completion
+func _http_request_completed(result: int, response_code: int, _headers: Array, body: PackedByteArray):
+	if response_code == 200:
+		var json = JSON.new()
+		json.parse(body.get_string_from_ascii())
+		var response = json.get_data()
+
+		print(response)
 	else:
-		printerr("HTTP request failed: " + str(http_request.get_response_code()))
-		return {}
+		print("HTTP request failed with response code: %d" % response_code)

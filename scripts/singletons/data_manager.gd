@@ -6,8 +6,8 @@ const SECURITY_KEY = "VERY_SECRET_KEY"
 
 var player_data = PlayerData.new()
 
-func _enter_tree():
-	load_data()
+func _ready():
+	call_deferred("load_data_from_server")
 
 func change(category, item_name, amount):
 	player_data[category][item_name] += amount
@@ -47,7 +47,7 @@ func save_data():
 	file.store_string(JSON.stringify(data_to_save, "\t"))
 	file.close()
 
-func load_data():
+func load_data_from_file():
 	if FileAccess.file_exists(SAVE_DIR + SAVE_FILE):
 		var file = FileAccess.open_encrypted_with_pass(SAVE_DIR + SAVE_FILE, FileAccess.READ, SECURITY_KEY)
 		if not file:
@@ -64,18 +64,26 @@ func load_data():
 
 		if G.DEBUG:
 			print_debug(loaded_data)
-
-		if loaded_data.has("commander"):
-			player_data.commander = loaded_data.commander
-		if loaded_data.has("player_ship"):
-			player_data.player_ship = loaded_data.player_ship
-		if loaded_data.has("levels"):
-			player_data.levels = loaded_data.levels
-		if loaded_data.has("asset"):
-			player_data.asset = loaded_data.asset
-		if loaded_data.has("selected_pilot"):
-			player_data.selected_pilot = loaded_data.selected_pilot
-		if loaded_data.has("selected_player_ship"):
-			player_data.selected_player_ship = loaded_data.selected_player_ship
+		
+		handle_loaded_data(loaded_data)
 	else:
 		print("Save file doesn't exist")
+
+func load_data_from_server():
+	var loaded_data = Api.load_data("test")
+	if loaded_data:
+		handle_loaded_data(loaded_data)
+
+func handle_loaded_data(loaded_data):
+	if loaded_data.has("commander"):
+		player_data.commander = loaded_data.commander
+	if loaded_data.has("player_ship"):
+		player_data.player_ship = loaded_data.player_ship
+	if loaded_data.has("levels"):
+		player_data.levels = loaded_data.levels
+	if loaded_data.has("asset"):
+		player_data.asset = loaded_data.asset
+	if loaded_data.has("selected_pilot"):
+		player_data.selected_pilot = loaded_data.selected_pilot
+	if loaded_data.has("selected_player_ship"):
+		player_data.selected_player_ship = loaded_data.selected_player_ship
