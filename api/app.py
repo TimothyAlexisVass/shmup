@@ -20,7 +20,7 @@ def player_data():
             "luck_multiplier": 1,
           },
           "player_ship": {
-            "Blade": {
+            "Virtue": {
               "main_shot_rate_level": 5,
               "main_shot_speed_level": 0,
               "main_shot_power_level": 0,

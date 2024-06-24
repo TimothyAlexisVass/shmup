@@ -21,7 +21,6 @@ var pilot_data = DataManager.player_data.pilot[DataManager.player_data.selected_
 
 func _enter_tree():
 	global_position = spawn_position
-	rotation = PI # 180°
 
 	var image_size = Vector2($Sprite.texture.diffuse_texture.get_image().get_size()) * scale
 	explosion_scale = max(image_size.x, image_size.y) / 300.0

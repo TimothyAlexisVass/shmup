@@ -2,31 +2,31 @@
 
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_odwif"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="2_7bhkw"]
-[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="3_fv3o6"]
-[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://media/sprites/player_ships/Blade.png" id="5_eer5m"]
-[ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://media/sprites/ships/vash/vash_normal.png" id="6_5ilo7"]
+[ext_resource type="Material" uid="uid://c0xytqq3sl8dc" path="res://node_classes/jet/player_jet_process_material.tres" id="3_p17w6"]
+[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://media/sprites/player_ships/Virtue.png" id="5_eer5m"]
+[ext_resource type="Texture2D" uid="uid://cblgxga0s6283" path="res://media/sprites/player_ships/Virtue_normal.png" id="5_v1uom"]
 [ext_resource type="Resource" uid="uid://dsu5vh3y2y1ij" path="res://resources/cannons/Ballistic.tres" id="6_ma6gq"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="7_vgebs"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhtop"]
 diffuse_texture = ExtResource("5_eer5m")
-normal_texture = ExtResource("6_5ilo7")
+normal_texture = ExtResource("5_v1uom")
 
 [node name="Player" instance=ExtResource("1_odwif")]
 
 [node name="Jet" parent="." index="0" instance=ExtResource("2_7bhkw")]
 modulate = Color(8, 4, 1, 0.3)
 z_as_relative = true
-position = Vector2(-95, -170)
+position = Vector2(-95, 170)
 scale = Vector2(3, 3)
-process_material = ExtResource("3_fv3o6")
+process_material = ExtResource("3_p17w6")
 
 [node name="Jet2" parent="." index="1" instance=ExtResource("2_7bhkw")]
 modulate = Color(8, 4, 1, 0.3)
 z_as_relative = true
-position = Vector2(95, -170)
+position = Vector2(95, 170)
 scale = Vector2(3, 3)
-process_material = ExtResource("3_fv3o6")
+process_material = ExtResource("3_p17w6")
 
 [node name="Sprite" parent="." index="2"]
 texture = SubResource("CanvasTexture_bhtop")

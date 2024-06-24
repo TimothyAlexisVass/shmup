@@ -2,7 +2,7 @@ extends Node
 
 var all = []
 
-var tier_0 = ["Justice", "Blade"]
+var tier_0 = ["Justice", "Virtue"]
 var tier_1 = []
 var tier_2 = []
 var tier_3 = []

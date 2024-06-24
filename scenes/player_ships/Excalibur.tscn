@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_j0rs4"]
 [ext_resource type="Texture2D" uid="uid://bonou8icicvpi" path="res://media/sprites/player_ships/Excalibur.png" id="2_t3ggd"]
 [ext_resource type="Texture2D" uid="uid://c27kvqwsotta" path="res://media/sprites/player_ships/Excalibur_normal.png" id="3_8g0f3"]
+[ext_resource type="Material" uid="uid://c0xytqq3sl8dc" path="res://node_classes/jet/player_jet_process_material.tres" id="3_mxv3c"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="5_d51tp"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="6_e2c4p"]
 [ext_resource type="Resource" uid="uid://kppaa7uk6327" path="res://resources/cannons/Plasma_2.tres" id="6_piye8"]
-[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="7_4xaco"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8h204"]
 diffuse_texture = ExtResource("2_t3ggd")
@@ -18,9 +18,9 @@ specular_shininess = 0.7
 
 [node name="Jet" parent="." index="0" instance=ExtResource("6_e2c4p")]
 z_as_relative = true
-position = Vector2(0, -40)
+position = Vector2(0, 40)
 scale = Vector2(6, 1)
-process_material = ExtResource("7_4xaco")
+process_material = ExtResource("3_mxv3c")
 
 [node name="Sprite" parent="." index="1"]
 z_index = -1

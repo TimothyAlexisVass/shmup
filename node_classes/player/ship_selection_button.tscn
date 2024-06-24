@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgqb824e4uuoq"]
 
-[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://media/sprites/player_ships/Blade.png" id="1_tmqdu"]
+[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://media/sprites/player_ships/Virtue.png" id="1_tmqdu"]
 
 [node name="ShipSelectionButton" type="Button"]
 custom_minimum_size = Vector2(300, 180)

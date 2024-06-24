@@ -8,9 +8,6 @@ var previous_x_position = 200
 var line
 var rng = RandomNumberGenerator.new()
 
-func _enter_tree():
-	G.level_selection = self
-
 func _ready():
 	var levels_data = DataManager.player_data.levels
 

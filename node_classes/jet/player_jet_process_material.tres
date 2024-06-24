@@ -1,0 +1,17 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=2 format=3 uid="uid://c0xytqq3sl8dc"]
+
+[ext_resource type="Texture2D" uid="uid://o631nvmaqddq" path="res://node_classes/jet/jet_gradient.tres" id="1_7yu37"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(6, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_min = 7.0
+scale_max = 7.0
+color_ramp = ExtResource("1_7yu37")

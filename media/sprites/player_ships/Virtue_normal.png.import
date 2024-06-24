@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgckd1718ty6g"
-path="res://.godot/imported/Blade.png-d44ca19d073171185b3e68d61c736525.ctex"
+uid="uid://cblgxga0s6283"
+path="res://.godot/imported/Virtue_normal.png-8a240bf20df678fc22be1e1c94d0c8e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/sprites/player_ships/Blade.png"
-dest_files=["res://.godot/imported/Blade.png-d44ca19d073171185b3e68d61c736525.ctex"]
+source_file="res://media/sprites/player_ships/Virtue_normal.png"
+dest_files=["res://.godot/imported/Virtue_normal.png-8a240bf20df678fc22be1e1c94d0c8e6.ctex"]
 
 [params]
 

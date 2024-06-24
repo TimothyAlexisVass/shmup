@@ -2,23 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://ceuh25br64vvt" path="res://node_classes/player/player.tscn" id="1_cr4rd"]
 [ext_resource type="Texture2D" uid="uid://byl61ujfbeffj" path="res://media/sprites/player_ships/Justice.png" id="2_87okx"]
-[ext_resource type="Texture2D" uid="uid://0ooosq73xvey" path="res://media/sprites/ships/vusion/vusion_normal.png" id="3_hqa7a"]
+[ext_resource type="Material" uid="uid://c0xytqq3sl8dc" path="res://node_classes/jet/player_jet_process_material.tres" id="3_nligm"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="4_6rf8i"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="4_hhrkk"]
-[ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="5_23n62"]
+[ext_resource type="Texture2D" uid="uid://b0xb88ergjcbe" path="res://media/sprites/player_ships/Justice_normal.png" id="5_fguxj"]
 [ext_resource type="Resource" uid="uid://b8hktowcdtkc2" path="res://resources/cannons/Plasma.tres" id="6_xfgxj"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7hffb"]
 diffuse_texture = ExtResource("2_87okx")
-normal_texture = ExtResource("3_hqa7a")
+normal_texture = ExtResource("5_fguxj")
 
 [node name="Player" instance=ExtResource("1_cr4rd")]
 
 [node name="Jet" parent="." index="0" instance=ExtResource("4_hhrkk")]
 z_as_relative = true
-position = Vector2(0, -395)
+position = Vector2(0, 395)
 scale = Vector2(6, 1)
-process_material = ExtResource("5_23n62")
+process_material = ExtResource("3_nligm")
 
 [node name="Sprite" parent="." index="1"]
 texture = SubResource("CanvasTexture_7hffb")
