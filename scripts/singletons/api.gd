@@ -23,12 +23,10 @@ func load_data(user_id: String):
 		print("An error occurred in the HTTP request: %s" % err)
 
 # Callback function for request completion
-func _http_request_completed(result: int, response_code: int, _headers: Array, body: PackedByteArray):
+func _http_request_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray):
 	if response_code == 200:
 		var json = JSON.new()
 		json.parse(body.get_string_from_ascii())
 		var response = json.get_data()
-
-		print(response)
 	else:
 		print("HTTP request failed with response code: %d" % response_code)
