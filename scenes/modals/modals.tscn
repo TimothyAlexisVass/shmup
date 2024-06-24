@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://cja3ju4kxn6nu"]
+
+[ext_resource type="Script" path="res://scripts/modals.gd" id="1_wjugu"]
+[ext_resource type="PackedScene" uid="uid://bnokon2i6e1kh" path="res://scenes/modals/market.tscn" id="2_1f5bt"]
+[ext_resource type="PackedScene" uid="uid://cbtbvvtv5hmw3" path="res://scenes/modals/ships.tscn" id="3_iyudx"]
+[ext_resource type="PackedScene" uid="uid://dv1e8t3ohofx7" path="res://scenes/modals/pilots.tscn" id="4_pfkm0"]
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="13_tovdy"]
+[ext_resource type="PackedScene" uid="uid://r7c2iilnr7r0" path="res://scenes/modals/commander.tscn" id="18_m2x1w"]
+
+[node name="Modals" type="Control"]
+z_index = 999
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_wjugu")
+
+[node name="Screens" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Market" parent="Screens" instance=ExtResource("2_1f5bt")]
+visible = true
+layout_mode = 0
+
+[node name="Ships" parent="Screens" instance=ExtResource("3_iyudx")]
+visible = true
+layout_mode = 0
+
+[node name="Pilots" parent="Screens" instance=ExtResource("4_pfkm0")]
+visible = true
+layout_mode = 0
+
+[node name="Commander" parent="Screens" instance=ExtResource("18_m2x1w")]
+layout_mode = 0
+
+[node name="CloseButton" type="Button" parent="Screens"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 1030.0
+offset_right = 1080.0
+offset_bottom = 50.0
+theme = ExtResource("13_tovdy")
+theme_type_variation = &"FlatButton"
+text = "X"
+
+[node name="ControlsBottom" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 1780.0
+offset_right = 1080.0
+offset_bottom = 1960.0
+
+[node name="Market" type="Button" parent="ControlsBottom"]
+custom_minimum_size = Vector2(250, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("13_tovdy")
+text = "MARKET"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsBottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Ships" type="Button" parent="ControlsBottom"]
+custom_minimum_size = Vector2(250, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("13_tovdy")
+text = "SHIPS"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ControlsBottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pilots" type="Button" parent="ControlsBottom"]
+custom_minimum_size = Vector2(250, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("13_tovdy")
+text = "PILOTS"
+
+[node name="MarginContainer3" type="MarginContainer" parent="ControlsBottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Commander" type="Button" parent="ControlsBottom"]
+custom_minimum_size = Vector2(250, 120)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("13_tovdy")
+text = "COMMANDER"
+
+[connection signal="pressed" from="Screens/CloseButton" to="." method="hide_screens"]

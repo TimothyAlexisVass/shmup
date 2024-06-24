@@ -1,0 +1,208 @@
+[gd_scene load_steps=19 format=3 uid="uid://bnokon2i6e1kh"]
+
+[ext_resource type="Script" path="res://scenes/modals/market.gd" id="1_02tyr"]
+[ext_resource type="Script" path="res://scripts/exchange_items.gd" id="1_3yjv3"]
+[ext_resource type="Texture2D" uid="uid://mcfl36huhy3" path="res://media/sprites/assets/Aluminium.png" id="2_wcjig"]
+[ext_resource type="Texture2D" uid="uid://c3lsab433vvys" path="res://media/sprites/assets/Cuprum.png" id="3_g3mh2"]
+[ext_resource type="Texture2D" uid="uid://dw75msk8omdbh" path="res://media/sprites/assets/Argentum.png" id="4_ai6d6"]
+[ext_resource type="Texture2D" uid="uid://c7vedrhrh0b8v" path="res://media/sprites/assets/Aurum.png" id="5_0fw5c"]
+[ext_resource type="Texture2D" uid="uid://dfo66eqj42gpn" path="res://media/sprites/assets/Rhodium.png" id="6_6mhb5"]
+[ext_resource type="Texture2D" uid="uid://dbr73ygwykriq" path="res://media/sprites/assets/Sapphirus.png" id="7_gy2qm"]
+[ext_resource type="Texture2D" uid="uid://dteamxxjqmy1s" path="res://media/sprites/assets/Rubinus.png" id="8_xk6hl"]
+[ext_resource type="Texture2D" uid="uid://dif8lofhn4a1b" path="res://media/sprites/assets/Smaragdus.png" id="9_qvx7l"]
+[ext_resource type="Texture2D" uid="uid://dln6vj44xpif1" path="res://media/sprites/assets/Veritasium.png" id="10_bujhs"]
+[ext_resource type="Texture2D" uid="uid://b2niry3mi8b16" path="res://media/sprites/assets/Eternium.png" id="11_o1wqs"]
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="12_dmosx"]
+[ext_resource type="Texture2D" uid="uid://cw6tsd5klfh0q" path="res://media/sprites/user_interface/arrow_right.png" id="13_s3l7t"]
+[ext_resource type="Texture2D" uid="uid://3tl4yrjivymy" path="res://media/sprites/user_interface/arrow_up.png" id="14_1hj8e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
+font_size = 40
+
+[sub_resource type="ImageTexture" id="ImageTexture_jo1gd"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_q353p"]
+
+[node name="Market" type="ColorRect"]
+visible = false
+offset_right = 1080.0
+offset_bottom = 1960.0
+color = Color(0.102, 0.102, 0.102, 1)
+script = ExtResource("1_02tyr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(720, 1600)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1780.0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "MARKET"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Assets" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Heading" type="Label" parent="MarginContainer/VBoxContainer/Assets"]
+layout_mode = 2
+text = "RESOURCES"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="List" type="GridContainer" parent="MarginContainer/VBoxContainer/Assets"]
+layout_mode = 2
+theme_override_constants/v_separation = 40
+columns = 5
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Exchange" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Heading" type="Label" parent="MarginContainer/VBoxContainer/Exchange"]
+layout_mode = 2
+text = "EXCHANGE"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="ExchangeItems" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Exchange"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("1_3yjv3")
+
+[node name="Item1" type="OptionButton" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_icons/arrow = SubResource("ImageTexture_jo1gd")
+icon_alignment = 1
+expand_icon = true
+item_count = 10
+popup/item_0/icon = ExtResource("2_wcjig")
+popup/item_1/icon = ExtResource("3_g3mh2")
+popup/item_1/id = 1
+popup/item_2/icon = ExtResource("4_ai6d6")
+popup/item_2/id = 2
+popup/item_3/icon = ExtResource("5_0fw5c")
+popup/item_3/id = 3
+popup/item_4/icon = ExtResource("6_6mhb5")
+popup/item_4/id = 4
+popup/item_5/icon = ExtResource("7_gy2qm")
+popup/item_5/id = 5
+popup/item_6/icon = ExtResource("8_xk6hl")
+popup/item_6/id = 6
+popup/item_7/icon = ExtResource("9_qvx7l")
+popup/item_7/id = 7
+popup/item_8/icon = ExtResource("10_bujhs")
+popup/item_8/id = 8
+popup/item_9/icon = ExtResource("11_o1wqs")
+popup/item_9/id = 9
+
+[node name="Amounts1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="From" type="Label" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("12_dmosx")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="To" type="Label" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("12_dmosx")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
+layout_mode = 2
+alignment = 1
+
+[node name="Item1ToItem2" type="TextureButton" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture_normal = ExtResource("13_s3l7t")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Item2ToItem1" type="TextureButton" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture_normal = ExtResource("14_1hj8e")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Amounts2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="To" type="Label" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("12_dmosx")
+text = "0"
+vertical_alignment = 1
+
+[node name="From" type="Label" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems/Amounts2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("12_dmosx")
+text = "0"
+vertical_alignment = 1
+
+[node name="Item2" type="OptionButton" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_icons/arrow = SubResource("ImageTexture_q353p")
+icon_alignment = 1
+expand_icon = true
+item_count = 10
+popup/item_0/icon = ExtResource("2_wcjig")
+popup/item_1/icon = ExtResource("3_g3mh2")
+popup/item_1/id = 1
+popup/item_2/icon = ExtResource("4_ai6d6")
+popup/item_2/id = 2
+popup/item_3/icon = ExtResource("5_0fw5c")
+popup/item_3/id = 3
+popup/item_4/icon = ExtResource("6_6mhb5")
+popup/item_4/id = 4
+popup/item_5/icon = ExtResource("7_gy2qm")
+popup/item_5/id = 5
+popup/item_6/icon = ExtResource("8_xk6hl")
+popup/item_6/id = 6
+popup/item_7/icon = ExtResource("9_qvx7l")
+popup/item_7/id = 7
+popup/item_8/icon = ExtResource("10_bujhs")
+popup/item_8/id = 8
+popup/item_9/icon = ExtResource("11_o1wqs")
+popup/item_9/id = 9
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item1" to="MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item1ToItem2" to="MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_to_item_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exchange/ExchangeItems/HBoxContainer/Item2ToItem1" to="MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_to_item_1_pressed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Exchange/ExchangeItems/Item2" to="MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_2_item_selected"]

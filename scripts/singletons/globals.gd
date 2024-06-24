@@ -30,7 +30,6 @@ enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
 enum CHALLENGE { NONE, EASY, MEDIUM, ELITE, APEX }
 
 # Active instances
-var modals
 var level
 var spawn_manager
 var camera

@@ -75,4 +75,4 @@ func perform_exchange(asset_from, asset_to, amount_from, amount_to):
 	DataManager.player_data.asset[asset_from] = snapped(DataManager.player_data.asset[asset_from], 0.01)
 	DataManager.player_data.asset[asset_to] = snapped(DataManager.player_data.asset[asset_to], 0.01)
 	DataManager.save_data()
-	G.modals.update_asset_values()
+	owner.update_asset_values()

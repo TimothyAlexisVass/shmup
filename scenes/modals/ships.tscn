@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbtbvvtv5hmw3"]
+
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="1_kni25"]
+[ext_resource type="Script" path="res://node_classes/items_grid/items_grid.gd" id="2_hs1v4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
+font_size = 40
+
+[node name="Ships" type="ColorRect"]
+visible = false
+offset_right = 1080.0
+offset_bottom = 1960.0
+color = Color(0.102, 0.102, 0.102, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(720, 1600)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1780.0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "SHIPS"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ItemsGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_kni25")
+columns = 2
+script = ExtResource("2_hs1v4")
+item_type = "player_ship"
