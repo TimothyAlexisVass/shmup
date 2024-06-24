@@ -32,14 +32,14 @@ func _ready():
 			else:
 				texture_button.modulate.a = 0.2
 				item_button.get_theme_stylebox("panel").border_color.a = 0.3
-			if item.name == DataManager.player_data.get("selected_" + item_type):
+			if item.name == DataManager.player_data["selected_" + item_type]:
 				texture_button.modulate.a = 1
 				item_button.get_theme_stylebox("panel").border_color.a = 1
 
 func _on_item_button_pressed(selected_button):
 	for item_button in get_children():
 		var texture_button = item_button.get_node("PanelContainer/TextureButton")
-		if item_button.name in DataManager.player_data.get("available_" + item_type):
+		if item_button.name in DataManager.player_data[item_type].keys():
 			texture_button.modulate.a = 0.8
 			item_button.get_theme_stylebox("panel").border_color.a = 0.8
 		else:
