@@ -9,15 +9,17 @@ def player_data():
         response = {
           "commander": {
             "name": "Joe",
-            "rank": 0,
+            "experience": 0,
             "pilot_ability_multiplier": 1,
             "ship_ability_multiplier": 1,
             "graze_power_multiplier": 1,
             "shot_power_multiplier": 1,
-            "experience_multiplier": 1,
+            "device_effect_multiplier": 1,
+            "perfect_chance_multiplier": 1,
+            "perfect_multiplier": 1,
             "exchange_multiplier": 1,
             "magnet_multiplier": 1,
-            "luck_multiplier": 1,
+            "luck_multiplier": 1
           },
           "player_ship": {
             "Virtue": {

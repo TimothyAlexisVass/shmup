@@ -1,0 +1,102 @@
+Suggested Tables
+
+players: Stores player information.
+  id (Primary Key)
+  user_handle
+  password_hash
+  created_at
+  latest_login_at
+
+assets: Stores asset amounts
+  id (Primary Key)
+  player_id (Foreign Key)
+  aluminium
+  cuprum
+  aurum
+  argentum
+  rhodium
+  sapphirus
+  rubinus
+  smaragdus
+  veritasium
+  eternium
+
+commanders: Stores commander details
+  id (Primary Key)
+  player_id (Foreign Key)
+  name
+  experience
+  pilot_ability_multiplier
+  ship_ability_multiplier
+  graze_power_multiplier
+  shot_power_multiplier
+  device_effect_multiplier
+  perfect_chance_multiplier
+  perfect_multiplier
+  exchange_multiplier
+  magnet_multiplier
+  luck_multiplier
+
+ships: Stores ship information
+  id (Primary Key)
+  name
+  main_cannon_id (Foreign Key)
+  main_device_id (Foreign Key)
+  ship_ability_id (Foreign Key)
+
+Ships: Stores ship information.
+    ship_id (Primary Key)
+    name
+    base_stats (e.g., JSON or separate columns for each stat)
+
+Pilots: Stores pilot information.
+    pilot_id (Primary Key)
+    name
+    tier
+    base_stats (e.g., JSON or separate columns for each stat)
+
+Cannons: Stores cannon information.
+    cannon_id (Primary Key)
+    name
+    base_stats (e.g., JSON or separate columns for each stat)
+
+Devices: Stores device information.
+    device_id (Primary Key)
+    name
+    base_stats (e.g., JSON or separate columns for each stat)
+
+Player_Ships: Tracks which ships a player has unlocked and their upgrades.
+    player_ship_id (Primary Key)
+    player_id (Foreign Key to Players)
+    ship_id (Foreign Key to Ships)
+    upgrades (e.g., JSON or separate columns for each upgrade stat)
+    main_cannon_id (Foreign Key to Cannons)
+
+Player_Pilots: Tracks which pilots a player has hired and their upgrades.
+    player_pilot_id (Primary Key)
+    player_id (Foreign Key to Players)
+    pilot_id (Foreign Key to Pilots)
+    upgrades (e.g., JSON or separate columns for each upgrade stat)
+
+Player_Cannons: Stores cannons acquired by a player and their stats.
+    player_cannon_id (Primary Key)
+    player_id (Foreign Key to Players)
+    cannon_id (Foreign Key to Cannons)
+    stats (e.g., JSON or separate columns for each stat)
+
+Player_Devices: Stores devices acquired by a player and their stats.
+    player_device_id (Primary Key)
+    player_id (Foreign Key to Players)
+    device_id (Foreign Key to Devices)
+    stats (e.g., JSON or separate columns for each stat)
+
+Levels: Stores information about game levels.
+    level_id (Primary Key)
+    name
+    description
+
+Player_Levels: Tracks player progress in levels and badges earned.
+    player_level_id (Primary Key)
+    player_id (Foreign Key to Players)
+    level_id (Foreign Key to Levels)
+    badge (e.g., Pinnacle, Cuprum 1)

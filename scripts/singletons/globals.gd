@@ -2,6 +2,10 @@ extends Node2D
 
 const DEBUG = false
 
+enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
+enum CHALLENGE { NONE, EASY, MEDIUM, ELITE, APEX }
+enum RARITY { COMMON=0, NOTABLE=1, RARE=2, EPIC=3, LEGENDARY=4, SUPREME=5, TRANSCENDENT=9 }
+
 const ANGLE_UP = -PI/2
 const ANGLE_RIGHT = 0
 const ANGLE_DOWN = PI/2
@@ -9,25 +13,23 @@ const ANGLE_LEFT = PI
 const GAME_AREA_OFFSET = Vector2(400, 200)
 const HEALTH_TWEEN_TIME = 0.4
 const RARITY_COLOR = {
-	0: Color(0, 0, 0, 0.6),
-	1: Color(0.8, 1.7, 3.2, 0.6),
-	2: Color(2.7, 0.8, 2.7, 0.6),
-	3: Color(2.7, 0.5, 0.8, 0.6),
-	4: Color(2.7, 1.7, 0.8, 0.6),
-	5: Color(2.7, 2.7, 0.8, 0.6),
-	9: Color(1.5, 1.5, 1.5, 0.6)
+	RARITY.COMMON: Color(0, 0, 0, 0.6),
+	RARITY.NOTABLE: Color(0.8, 1.7, 3.2, 0.6),
+	RARITY.RARE: Color(2.7, 0.8, 2.7, 0.6),
+	RARITY.EPIC: Color(2.7, 0.5, 0.8, 0.6),
+	RARITY.LEGENDARY: Color(2.7, 1.7, 0.8, 0.6),
+	RARITY.SUPREME: Color(2.7, 2.7, 0.8, 0.6),
+	RARITY.TRANSCENDENT: Color(1.5, 1.5, 1.5, 0.6)
 }
 const RARITY_BACKGROUND_COLOR = {
-	0: Color(0.4, 0.4, 0.4),
-	1: Color(0, 0, 1),
-	2: Color(1, 0, 1),
-	3: Color(1, 0, 0),
-	4: Color(1, 0.5, 0),
-	5: Color(1, 1, 0),
-	9: Color(1, 1, 1)
+	RARITY.COMMON: Color(0.4, 0.4, 0.4),
+	RARITY.NOTABLE: Color(0, 0, 1),
+	RARITY.RARE: Color(1, 0, 1),
+	RARITY.EPIC: Color(1, 0, 0),
+	RARITY.LEGENDARY: Color(1, 0.5, 0),
+	RARITY.SUPREME: Color(1, 1, 0),
+	RARITY.TRANSCENDENT: Color(1, 1, 1)
 }
-enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
-enum CHALLENGE { NONE, EASY, MEDIUM, ELITE, APEX }
 
 # Active instances
 var level
@@ -50,13 +52,13 @@ var top_layer # For powerups and important things
 var shots_layer # For shots
 
 const RARITY_STARS = {
-	0: "⭐", # 🟤
-	1: "⭐⭐", # 🔵
-	2: "⭐⭐⭐", # 🟣
-	3: "⭐⭐⭐⭐", # 🔴
-	4: "⭐⭐⭐⭐⭐", # 🟠
-	5: "⭐⭐⭐⭐⭐⭐", # 🟡
-	9: "⭐⭐⭐⭐⭐⭐⭐"  # ⚪
+	RARITY.COMMON: "⭐", # 🟤
+	RARITY.NOTABLE: "⭐⭐", # 🔵
+	RARITY.RARE: "⭐⭐⭐", # 🟣
+	RARITY.EPIC: "⭐⭐⭐⭐", # 🔴
+	RARITY.LEGENDARY: "⭐⭐⭐⭐⭐", # 🟠
+	RARITY.SUPREME: "⭐⭐⭐⭐⭐⭐", # 🟡
+	RARITY.TRANSCENDENT: "⭐⭐⭐⭐⭐⭐⭐"  # ⚪
 }
 
 func _input(event):
@@ -146,3 +148,13 @@ func display_weight(value, smart_snapped = true):
 		suffix = " t"
 		value /= 1_000_000
 	return str(G.smart_snap(value) if smart_snapped else value) + suffix
+
+# Experience and rank functionality
+const INITIAL_EXPERIENCE = 500
+const EXPERIENCE_INCREASE_FACTOR = 1.155
+
+func experience_required_for(rank):
+	return ceil(INITIAL_EXPERIENCE * ((EXPERIENCE_INCREASE_FACTOR**level - 1) / (EXPERIENCE_INCREASE_FACTOR - 1)))
+
+func rank_from_experience(experience):
+	return floor(log(((experience * (EXPERIENCE_INCREASE_FACTOR - 1)) + INITIAL_EXPERIENCE) / INITIAL_EXPERIENCE) / log(EXPERIENCE_INCREASE_FACTOR))

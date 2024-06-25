@@ -5,23 +5,24 @@ var name_validator = RegEx.create_from_string("^[\\p{L}\\p{M}\\ \\-\\']+$")
 
 var commander = {
 	"name": "",
-	"rank": 0, # Used for commander upgrades and experience multiplier
+	"experience": 0,
 	"pilot_ability_multiplier": 1,
 	"ship_ability_multiplier": 1,
 	"graze_power_multiplier": 1,
 	"shot_power_multiplier": 1,
-	"experience_multiplier": 1,
+	"device_effect_multiplier": 1,
+	"perfect_chance_multiplier": 1,
+	"perfect_multiplier": 1,
 	"exchange_multiplier": 1,
 	"magnet_multiplier": 1,
-	"luck_multiplier": 1,
-}
+	"luck_multiplier": 1
+	}
 
 var player_ship = {
 	"Virtue": {
 		"main_shot_rate_level": 5,
 		"main_shot_speed_level": 0,
 		"main_shot_power_level": 0,
-		"ship_ability_level": 0,
 		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
 		"cannons": ["Ballistic", "Ballistic"]
@@ -30,7 +31,6 @@ var player_ship = {
 		"main_shot_rate_level": 5,
 		"main_shot_speed_level": 0,
 		"main_shot_power_level": 0,
-		"ship_ability_level": 0,
 		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
 		"cannons": ["Plasma", "Plasma"]
@@ -39,7 +39,6 @@ var player_ship = {
 		"main_shot_rate_level": 5,
 		"main_shot_speed_level": 0,
 		"main_shot_power_level": 0,
-		"ship_ability_level": 0,
 		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
 		"cannons": ["Plasma", "Plasma"]

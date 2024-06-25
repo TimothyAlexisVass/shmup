@@ -26,7 +26,7 @@ func _on_name_changed(new_name):
 # Initialization methods to set values from player data
 func ready_commander_details():
 	$MarginContainer/VBoxContainer/Details/Name/LineEdit.text = DataManager.player_data.commander["name"]
-	$MarginContainer/VBoxContainer/Details/Rank/Value.text = str(DataManager.player_data.commander["rank"])
+	$MarginContainer/VBoxContainer/Details/Rank/Value.text = str(G.rank_from_experience(DataManager.player_data.commander["experience"]))
 
 func ready_commander_upgrade_buttons():
 	for upgrade in DataManager.player_data.commander.keys():

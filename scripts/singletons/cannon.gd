@@ -184,10 +184,10 @@ func get_fallof_rate(shot_type):
 func get_area_of_impact(shot_type):
 	return randi_range(0, 200) if shot_type == "Missile" else 0
 
-func get_critical_chance(shot_type):
+func get_perfect_chance(shot_type):
 	return snapped(randf_range(0, 5), 0.1) if shot_type != "Beam" else 0
 
-func get_critical_multiplier(shot_type):
+func get_perfect_multiplier(shot_type):
 	return snapped(randf_range(1.1, 2), 0.1) if shot_type != "Beam" else 0
 
 func get_dot_effect(shot_type):
@@ -204,11 +204,12 @@ func get_dot_duration(dot_effect):
 		return snapped(randf_range(1, 3), 0.02)
 	return 0
 
-func generate_cannon():
+func generate_cannon(rarity):
 	var shot_type = SHOT_TYPE.pick_random()
 	var cannon = CannonDetails.new()
 	var shot_pattern_type = SHOT_PATTERN[shot_type].pick_random()
 	
+	cannon.rarity = rarity
 	cannon.shot_scene = SHOT_SCENE[shot_type]
 	cannon.shot_rate = get_shot_rate(shot_type, shot_pattern_type)
 	cannon.shot_speed = get_shot_speed(shot_type)
@@ -222,8 +223,8 @@ func generate_cannon():
 	cannon.ricochet_count = RICOCHET_COUNT[shot_type].pick_random()
 	cannon.falloff_rate = get_fallof_rate(shot_type)
 	cannon.area_of_impact = get_area_of_impact(shot_type)
-	cannon.critical_chance = get_critical_chance(shot_type)
-	cannon.critical_multiplier = get_critical_multiplier(shot_type)
+	cannon.perfect_chance = get_perfect_chance(shot_type)
+	cannon.perfect_multiplier = get_perfect_multiplier(shot_type)
 	cannon.dot_effect = get_dot_effect(shot_type)
 	cannon.dot_duration = get_dot_duration(cannon.dot_effect)
 
