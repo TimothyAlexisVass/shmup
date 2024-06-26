@@ -6,6 +6,7 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_ts7sv")
+rarity = 0
 shot_scene = ExtResource("2_wggyx")
 shot_rate = [1.0]
 shot_speed = 500.0
@@ -19,7 +20,7 @@ penetration_chance = 0.0
 ricochet_count = 0
 falloff_rate = 0.5
 area_of_impact = 0.0
-critical_chance = 0.0
-critical_multiplier = 1.0
+perfect_chance = 0.0
+perfect_multiplier = 1.0
 dot_effect = "None"
 dot_duration = 0.0

@@ -4,20 +4,22 @@ class_name Player extends Area2D
 var explosion_scale
 
 var is_playing = true
-var just_spawned = 10
+var just_spawned: int = 10
 var spawn_position = Vector2(540, 1540)
-var grazing_with = 0
-var graze_power = 0.0
+var grazing_with: int = 0
+var graze_power: float = 0
 
-@export var tier = 0
-@export var movement_speed_base = 1
-@export var graze_area_radius_base = 1
+@export var tier: int = 0
+@export var movement_speed_base: float = 1
+@export var graze_area_radius_base: float = 1
 @export var explosion: PackedScene = preload("res://scenes/explosions/fire_explosion.tscn")
 
 var ship_data = DataManager.player_data.player_ship[DataManager.player_data.selected_player_ship]
 var pilot_data = DataManager.player_data.pilot[DataManager.player_data.selected_pilot]
+var commander_data = DataManager.player_data.commander
 
 @onready var movement_speed = G.linear_increase(movement_speed_base, 15, pilot_data.maneuver_level, 20)
+@onready var graze_power_factor = G.diminishing_increase(pilot_data.graze_power_base, pilot_data.graze_power_level) * commander_data.graze_power_multiplier
 
 func _enter_tree():
 	global_position = spawn_position
@@ -31,9 +33,11 @@ func _enter_tree():
 		mount_cannons()
 
 func _ready():
-	$GrazeArea.scale *= graze_area_radius_base * (1 + 1.02 * pilot_data.graze_area_radius_multiplier)
+	$GrazeArea.scale *= graze_area_radius_base * pilot_data.graze_area_radius_multiplier
 	get_viewport().warp_mouse(spawn_position)
 	play()
+
+var graze_power_old = graze_power
 
 func _physics_process(delta):
 	if just_spawned > 0:
@@ -43,7 +47,11 @@ func _physics_process(delta):
 		global_position = global_position.lerp(get_global_mouse_position(), delta * movement_speed)
 		global_position.x = clamp(global_position.x, G.camera.get_min().x, G.camera.get_max().x)
 		global_position.y = clamp(global_position.y, G.camera.get_min().y, G.camera.get_max().y)
-	graze_power = snapped(graze_power + grazing_with * delta, 0.001)
+	graze_power = snapped(graze_power + graze_power_factor * grazing_with * delta, 0.001)
+
+	if graze_power > graze_power_old:
+		graze_power_old = graze_power
+		prints(graze_power_factor, graze_power)
 
 func configure_main_cannon():
 	$CannonMounts/Main.cannon.shot_rate = G.diminishing_decrease($CannonMounts/Main.cannon.shot_rate, ship_data.main_shot_rate_level)

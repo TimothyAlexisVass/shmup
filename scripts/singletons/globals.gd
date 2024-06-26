@@ -154,7 +154,7 @@ const INITIAL_EXPERIENCE = 500
 const EXPERIENCE_INCREASE_FACTOR = 1.155
 
 func experience_required_for(rank):
-	return ceil(INITIAL_EXPERIENCE * ((EXPERIENCE_INCREASE_FACTOR**level - 1) / (EXPERIENCE_INCREASE_FACTOR - 1)))
+	return ceil(INITIAL_EXPERIENCE * ((EXPERIENCE_INCREASE_FACTOR**rank - 1) / (EXPERIENCE_INCREASE_FACTOR - 1)))
 
 func rank_from_experience(experience):
 	return floor(log(((experience * (EXPERIENCE_INCREASE_FACTOR - 1)) + INITIAL_EXPERIENCE) / INITIAL_EXPERIENCE) / log(EXPERIENCE_INCREASE_FACTOR))
