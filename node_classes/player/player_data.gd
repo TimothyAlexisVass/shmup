@@ -4,17 +4,17 @@ class_name PlayerData extends Resource
 var name_validator = RegEx.create_from_string("^[\\p{L}\\p{M}\\ \\-\\']+$")
 
 var commander = {
-	"name": "",
-	"experience": 1240,
-	"pilot_ability_multiplier": 1,
-	"graze_power_multiplier": 1,
-	"shot_power_multiplier": 1,
-	"device_effect_multiplier": 1,
-	"perfect_chance_multiplier": 1,
-	"perfect_multiplier": 1,
-	"exchange_multiplier": 1,
-	"magnet_multiplier": 10,
-	"luck_multiplier": 1
+		"name": "",
+		"experience": 1240,
+		"pilot_ability_multiplier": 1,
+		"graze_power_multiplier": 1,
+		"shot_power_multiplier": 1,
+		"device_effect_multiplier": 1,
+		"perfect_chance_multiplier": 1,
+		"perfect_multiplier": 1,
+		"exchange_multiplier": 1,
+		"magnet_multiplier": 10,
+		"luck_multiplier": 1
 	}
 
 var player_ship = {

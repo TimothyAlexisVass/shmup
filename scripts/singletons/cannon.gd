@@ -145,7 +145,7 @@ const HOMING_AMOUNT = {
 func get_homing_amount(shot_type):
 	return snapped(randf_range(HOMING_AMOUNT[shot_type][0], HOMING_AMOUNT[shot_type][1]), 0.05)
 
-const HOMING_PRIORITY = ["Closest", "Least_HP", "Most_HP", "Choice"]
+enum HOMING_PRIORITY {RANDOM, CLOSEST, LEASTHP, MOSTHP, LEASTPOWER, MOSTPOWER}
 
 const PENETRATION_CHANCE = { # penetration_count = 1 if penetration_chance > 0 else 0
 	"Plasma": [0, 0],
@@ -185,23 +185,27 @@ func get_area_of_impact(shot_type):
 	return randi_range(0, 200) if shot_type == "Missile" else 0
 
 func get_perfect_chance(shot_type):
-	return snapped(randf_range(0, 5), 0.1) if shot_type != "Beam" else 0
+	return snapped(randf_range(0, 1), 0.001) if shot_type != "Beam" else 0
 
 func get_perfect_multiplier(shot_type):
-	return snapped(randf_range(1.1, 2), 0.1) if shot_type != "Beam" else 0
+	return snapped(randf_range(1.1, 2), 0.01) if shot_type != "Beam" else 0
+
+enum DOT_EFFECT {NONE, RADIATION, BURN}
 
 func get_dot_effect(shot_type):
 	if shot_type in ["Bullet", "Missile"]:
-		return ["None", "Radiation", "Burn"][max(randi_range(0, 7)-5, 0)]
+		var dot_effect_chance = 2/7.0
+		return [DOT_EFFECT.RADIATION, DOT_EFFECT.BURN].pick_random() if randf() < dot_effect_chance else DOT_EFFECT.NONE
 	elif shot_type == "Plasma":
-		return ["None", "Burn"][max(randi_range(0, 4)-3, 0)]
-	return "None"
+		var dot_effect_chance = 1/4.0
+		return DOT_EFFECT.BURN if randf() < dot_effect_chance else DOT_EFFECT.NONE
+	return DOT_EFFECT.NONE
 
 func get_dot_duration(dot_effect):
-	if dot_effect == "Burn":
-		return randi_range(2, 5)
-	elif dot_effect == "Radiation":
+	if dot_effect == DOT_EFFECT.RADIATION:
 		return snapped(randf_range(1, 3), 0.02)
+	elif dot_effect == DOT_EFFECT.BURN:
+		return randi_range(2, 5)
 	return 0
 
 func generate_cannon(rarity):
@@ -218,7 +222,7 @@ func generate_cannon(rarity):
 	cannon.shot_duration = get_shot_duration(shot_type)
 	cannon.shot_spread = get_shot_spread(shot_type, shot_pattern_type)
 	cannon.homing_amount = get_homing_amount(shot_type)
-	cannon.homing_priority = HOMING_PRIORITY.pick_random() if cannon.homing_amount > 0 else "None"
+	cannon.homing_priority = randi_range(0, HOMING_PRIORITY.size() - 1)
 	cannon.penetration_chance = get_penetration_chance(shot_type)
 	cannon.ricochet_count = RICOCHET_COUNT[shot_type].pick_random()
 	cannon.falloff_rate = get_fallof_rate(shot_type)

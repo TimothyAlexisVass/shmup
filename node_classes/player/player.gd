@@ -37,8 +37,6 @@ func _ready():
 	get_viewport().warp_mouse(spawn_position)
 	play()
 
-var graze_power_old = graze_power
-
 func _physics_process(delta):
 	if just_spawned > 0:
 		global_position = spawn_position
@@ -48,10 +46,6 @@ func _physics_process(delta):
 		global_position.x = clamp(global_position.x, G.camera.get_min().x, G.camera.get_max().x)
 		global_position.y = clamp(global_position.y, G.camera.get_min().y, G.camera.get_max().y)
 	graze_power = snapped(graze_power + graze_power_factor * grazing_with * delta, 0.001)
-
-	if graze_power > graze_power_old:
-		graze_power_old = graze_power
-		prints(graze_power_factor, graze_power)
 
 func configure_main_cannon():
 	$CannonMounts/Main.cannon.shot_rate = G.diminishing_decrease($CannonMounts/Main.cannon.shot_rate, ship_data.main_shot_rate_level)

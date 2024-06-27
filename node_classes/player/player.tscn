@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceuh25br64vvt"]
+[gd_scene load_steps=9 format=3 uid="uid://ceuh25br64vvt"]
 
 [ext_resource type="Script" path="res://node_classes/player/player.gd" id="1_upu44"]
 [ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://media/sprites/player_ships/Virtue.png" id="2_ysavb"]
+[ext_resource type="PackedScene" uid="uid://c72127i0nu8ws" path="res://node_classes/device/device_mount.tscn" id="4_5d7ar"]
 [ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="4_i4vfr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ila4y"]
@@ -47,7 +48,10 @@ rotation = 3.14159
 
 [node name="Main" parent="CannonMounts" instance=ExtResource("4_i4vfr")]
 
-[node name="DeviceConfiguration" type="Node2D" parent="."]
+[node name="DeviceMounts" type="Node2D" parent="."]
+
+[node name="Main" parent="DeviceMounts" instance=ExtResource("4_5d7ar")]
+rarity = 0
 
 [node name="GrazeArea" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x1jkv")
