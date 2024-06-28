@@ -6,6 +6,13 @@ class_name ItemsGrid extends GridContainer
 
 const GRID_ITEM_SCENE = preload("res://node_classes/items_grid/grid_item.tscn")
 
+const SCREEN_NAME = {
+	"pilot": "PilotDetails",
+	"player_ship": "ShipDetails"
+}
+
+@onready var details_screen = G.modals.get_node("Screens/" + SCREEN_NAME[item_type])
+
 func _ready():
 	for int_tier in range(21):
 		for item_name in database.tier(int_tier):
@@ -14,6 +21,7 @@ func _ready():
 			var texture_button = item_button.get_node("PanelContainer/TextureButton")
 			var name_label = texture_button.get_node("Name")
 			var rarity_label = texture_button.get_node("Rarity")
+			var details_button = texture_button.get_node("DetailsButton")
 			name_label.get_theme_stylebox("normal").bg_color = G.RARITY_BACKGROUND_COLOR[item.rarity]
 			name_label.get_theme_stylebox("normal").bg_color.a = 0.3
 			rarity_label.get_theme_stylebox("normal").bg_color = G.RARITY_BACKGROUND_COLOR[item.rarity]
@@ -27,10 +35,12 @@ func _ready():
 			if item.name in DataManager.player_data[item_type].keys():
 				texture_button.connect("pressed", Callable(self, "_on_item_button_pressed").bind(item_button))
 				texture_button.modulate.a = 0.8
+				details_button.connect("pressed", Callable(self, "_on_details_button_pressed").bind(item_name))
 				item_button.get_theme_stylebox("panel").border_color.a = 0.8
 				move_child(item_button, 0)
 			else:
 				texture_button.modulate.a = 0.2
+				details_button.queue_free()
 				item_button.get_theme_stylebox("panel").border_color.a = 0.3
 			if item.name == DataManager.player_data["selected_" + item_type]:
 				texture_button.modulate.a = 1
@@ -50,3 +60,6 @@ func _on_item_button_pressed(selected_button):
 	DataManager.player_data.set("selected_" + item_type, selected_button.name)
 	print("Selecting item ", selected_button.name)
 	pass # Replace with function body.
+
+func _on_details_button_pressed(item_name):
+	details_screen.initialize(item_name)

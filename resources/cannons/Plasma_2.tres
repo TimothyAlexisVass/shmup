@@ -6,6 +6,7 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_757gx")
+rarity = 0
 shot_scene = ExtResource("2_5o6qp")
 shot_rate = [0.9, 0.2]
 shot_speed = 700.0
@@ -14,12 +15,12 @@ shot_color = Color(0, 1, 0.341176, 1)
 shot_duration = 0.0
 shot_spread = 0.0
 homing_amount = 0.0
-homing_priority = "None"
+homing_priority = 0
 penetration_chance = 0.0
 ricochet_count = 0
 falloff_rate = 0.5
 area_of_impact = 0.0
-critical_chance = 0.0
-critical_multiplier = 1.0
-dot_effect = "None"
+perfect_chance = 0.0
+perfect_multiplier = 1.0
+dot_effect = 0
 dot_duration = 0.0

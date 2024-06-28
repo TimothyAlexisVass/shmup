@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://stkdc8nv0fiq"]
+
+[ext_resource type="Texture2D" uid="uid://byl61ujfbeffj" path="res://media/sprites/player_ships/Justice.png" id="1_en1go"]
+[ext_resource type="Texture2D" uid="uid://b0xb88ergjcbe" path="res://media/sprites/player_ships/Justice_normal.png" id="2_6fu0t"]
+
+[resource]
+diffuse_texture = ExtResource("1_en1go")
+normal_texture = ExtResource("2_6fu0t")
+specular_color = Color(0.466667, 0.466667, 0.466667, 1)
+specular_shininess = 0.75

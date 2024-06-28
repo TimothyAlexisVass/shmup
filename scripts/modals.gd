@@ -1,5 +1,8 @@
 extends Control
 
+func _enter_tree():
+	G.modals = self
+
 func _ready():
 	hide_screens()
 	ready_controls_bottom()

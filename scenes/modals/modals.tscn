@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cja3ju4kxn6nu"]
+[gd_scene load_steps=8 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_wjugu"]
 [ext_resource type="PackedScene" uid="uid://bnokon2i6e1kh" path="res://scenes/modals/market.tscn" id="2_1f5bt"]
 [ext_resource type="PackedScene" uid="uid://cbtbvvtv5hmw3" path="res://scenes/modals/ships.tscn" id="3_iyudx"]
+[ext_resource type="PackedScene" uid="uid://bokjfmmv4qwpa" path="res://scenes/modals/player_ship_details.tscn" id="4_g34sh"]
 [ext_resource type="PackedScene" uid="uid://dv1e8t3ohofx7" path="res://scenes/modals/pilots.tscn" id="4_pfkm0"]
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="13_tovdy"]
 [ext_resource type="PackedScene" uid="uid://r7c2iilnr7r0" path="res://scenes/modals/commander.tscn" id="18_m2x1w"]
@@ -29,29 +30,35 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Market" parent="Screens" instance=ExtResource("2_1f5bt")]
-visible = true
 layout_mode = 0
 
 [node name="Ships" parent="Screens" instance=ExtResource("3_iyudx")]
-visible = true
 layout_mode = 0
 
 [node name="Pilots" parent="Screens" instance=ExtResource("4_pfkm0")]
-visible = true
 layout_mode = 0
 
 [node name="Commander" parent="Screens" instance=ExtResource("18_m2x1w")]
+visible = false
 layout_mode = 0
 
 [node name="CloseButton" type="Button" parent="Screens"]
+z_index = 4096
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 1030.0
+offset_left = 1004.0
 offset_right = 1080.0
-offset_bottom = 50.0
+offset_bottom = 77.0
 theme = ExtResource("13_tovdy")
 theme_type_variation = &"FlatButton"
-text = "X"
+text = "×"
+
+[node name="ShipDetails" parent="Screens" instance=ExtResource("4_g34sh")]
+z_index = 999
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+scale = Vector2(1, 1)
 
 [node name="ControlsBottom" type="HBoxContainer" parent="."]
 layout_mode = 0

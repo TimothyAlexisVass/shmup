@@ -36,6 +36,7 @@ var level
 var spawn_manager
 var camera
 var player
+var modals
 
 # Viewport and play area
 var viewport_size

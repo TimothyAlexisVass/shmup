@@ -7,7 +7,6 @@
 font_size = 40
 
 [node name="Ships" type="ColorRect"]
-visible = false
 offset_right = 1080.0
 offset_bottom = 1960.0
 color = Color(0.102, 0.102, 0.102, 1)

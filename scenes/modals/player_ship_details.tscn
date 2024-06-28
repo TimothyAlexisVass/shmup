@@ -1,0 +1,420 @@
+[gd_scene load_steps=21 format=3 uid="uid://bokjfmmv4qwpa"]
+
+[ext_resource type="Script" path="res://scenes/modals/ship_details.gd" id="1_2hqho"]
+[ext_resource type="Texture2D" uid="uid://stkdc8nv0fiq" path="res://resources/textures/Justice.tres" id="1_hmwlg"]
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="2_0e38j"]
+[ext_resource type="PackedScene" uid="uid://bhvqbpaon1637" path="res://scenes/modals/cannon_mount_position.tscn" id="3_vdcnk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
+font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkhhk"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxloe"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csmg7"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbt8c"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d361y"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxx4t"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfbod"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5l7f"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wce3y"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nwsj"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y1iq"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g61d0"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv3ef"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="Gradient" id="Gradient_h4bte"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cifvb"]
+gradient = SubResource("Gradient_h4bte")
+width = 1200
+height = 1400
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[node name="ShipDetails" type="ColorRect"]
+custom_minimum_size = Vector2(1080, 1960)
+offset_right = 1080.0
+offset_bottom = 1960.0
+scale = Vector2(0.996259, 1)
+color = Color(0.0193544, 0.1022, 0.204826, 1)
+script = ExtResource("1_2hqho")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(720, 1600)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1780.0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "SHIP DETAILS"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShipTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/Control"]
+light_mask = 512
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(512, 512)
+size_flags_vertical = 6
+texture = ExtResource("1_hmwlg")
+stretch_mode = 3
+
+[node name="CannonPositions" type="Control" parent="MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 394.825
+offset_top = 442.0
+offset_right = 505.825
+offset_bottom = 553.0
+grow_horizontal = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkhhk")
+
+[node name="FrontLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = -166.462
+offset_top = 536.0
+offset_right = -55.4618
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxloe")
+
+[node name="FrontRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = 54.2343
+offset_top = 534.2
+offset_right = 165.234
+offset_bottom = 645.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_csmg7")
+
+[node name="Rear" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 394.825
+offset_top = 862.0
+offset_right = 505.825
+offset_bottom = 973.0
+grow_horizontal = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbt8c")
+
+[node name="RearLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = -218.245
+offset_top = 922.0
+offset_right = -107.245
+offset_bottom = 1033.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d361y")
+
+[node name="RearRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = 107.433
+offset_top = 922.2
+offset_right = 218.433
+offset_bottom = 1033.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fxx4t")
+
+[node name="MidLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = -254.245
+offset_top = 682.0
+offset_right = -143.245
+offset_bottom = 793.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jfbod")
+
+[node name="MidRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = 144.572
+offset_top = 682.2
+offset_right = 255.572
+offset_bottom = 793.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p5l7f")
+
+[node name="WingLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = -335.845
+offset_top = 832.0
+offset_right = -224.845
+offset_bottom = 943.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wce3y")
+
+[node name="WingRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = 225.755
+offset_top = 832.0
+offset_right = 336.755
+offset_bottom = 943.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1nwsj")
+
+[node name="Center" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = -55.175
+offset_top = 713.2
+offset_right = 55.8251
+offset_bottom = 824.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3y1iq")
+
+[node name="CenterLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = -176.245
+offset_top = 802.0
+offset_right = -65.2448
+offset_bottom = 913.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g61d0")
+
+[node name="CenterRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = 65.2756
+offset_top = 801.2
+offset_right = 176.276
+offset_bottom = 912.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kv3ef")
+
+[node name="DirectionalLightMix" type="DirectionalLight2D" parent="."]
+position = Vector2(1080, 0)
+energy = 2.05
+blend_mode = 2
+range_z_min = 1
+range_z_max = 1
+height = 0.52
+
+[node name="DirectionalLightAdd" type="DirectionalLight2D" parent="."]
+position = Vector2(1080, 0)
+energy = 0.47
+range_z_min = 1
+range_z_max = 1
+height = 0.8
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(696, 1226)
+energy = 2.86
+range_item_cull_mask = 512
+texture = SubResource("GradientTexture2D_cifvb")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(149, 1244)
+energy = 2.86
+range_item_cull_mask = 512
+texture = SubResource("GradientTexture2D_cifvb")
+metadata/_edit_lock_ = true
+
+[node name="CloseButton" type="Button" parent="."]
+z_index = 4096
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 77.0
+grow_horizontal = 0
+scale = Vector2(1.00469, 0.995552)
+theme = ExtResource("2_0e38j")
+theme_type_variation = &"FlatButton"
+text = "×"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://kkdhwljpfqvp"]
+
+[ext_resource type="Texture2D" uid="uid://cgckd1718ty6g" path="res://media/sprites/player_ships/Virtue.png" id="1_oeiyb"]
+[ext_resource type="Texture2D" uid="uid://cblgxga0s6283" path="res://media/sprites/player_ships/Virtue_normal.png" id="2_uf76b"]
+
+[resource]
+diffuse_texture = ExtResource("1_oeiyb")
+normal_texture = ExtResource("2_uf76b")
+specular_color = Color(0.466667, 0.466667, 0.466667, 1)
+specular_shininess = 0.89

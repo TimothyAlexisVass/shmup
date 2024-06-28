@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://djbei3vhgahr"]
+
+[ext_resource type="Texture2D" uid="uid://bonou8icicvpi" path="res://media/sprites/player_ships/Excalibur.png" id="1_fb3v0"]
+[ext_resource type="Texture2D" uid="uid://c27kvqwsotta" path="res://media/sprites/player_ships/Excalibur_normal.png" id="2_mpadb"]
+
+[resource]
+diffuse_texture = ExtResource("1_fb3v0")
+normal_texture = ExtResource("2_mpadb")
+specular_color = Color(0.258824, 0.258824, 0.258824, 1)
+specular_shininess = 0.43
