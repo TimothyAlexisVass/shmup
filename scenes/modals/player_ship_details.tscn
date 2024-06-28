@@ -60,46 +60,7 @@ corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d361y"]
-resource_local_to_scene = true
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.250214, 0.250213, 0.250213, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxx4t"]
-resource_local_to_scene = true
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.250214, 0.250213, 0.250213, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfbod"]
-resource_local_to_scene = true
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.250214, 0.250213, 0.250213, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5l7f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y1iq"]
 resource_local_to_scene = true
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 8
@@ -138,19 +99,6 @@ corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y1iq"]
-resource_local_to_scene = true
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.250214, 0.250213, 0.250213, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g61d0"]
 resource_local_to_scene = true
 bg_color = Color(0, 0, 0, 1)
@@ -165,6 +113,58 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv3ef"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfbod"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5l7f"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d361y"]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.250214, 0.250213, 0.250213, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxx4t"]
 resource_local_to_scene = true
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 8
@@ -298,45 +298,19 @@ grow_horizontal = 1
 pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pbt8c")
 
-[node name="RearLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+[node name="Center" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
-offset_left = -218.245
-offset_top = 166.8
-offset_right = -107.245
-offset_bottom = 277.8
-pivot_offset = Vector2(55.55, 55.55)
-theme_override_styles/panel = SubResource("StyleBoxFlat_d361y")
-
-[node name="RearRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
-layout_mode = 1
-offset_left = 107.433
-offset_top = 167.0
-offset_right = 218.433
-offset_bottom = 278.0
-pivot_offset = Vector2(55.55, 55.55)
-theme_override_styles/panel = SubResource("StyleBoxFlat_fxx4t")
-
-[node name="MidLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
-layout_mode = 1
-offset_left = -254.245
-offset_top = -73.2002
-offset_right = -143.245
-offset_bottom = 37.7998
-pivot_offset = Vector2(55.55, 55.55)
-theme_override_styles/panel = SubResource("StyleBoxFlat_jfbod")
-
-[node name="MidRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
-layout_mode = 1
-offset_left = 144.572
-offset_top = -73.0004
-offset_right = 255.572
-offset_bottom = 37.9996
-pivot_offset = Vector2(55.55, 55.55)
-theme_override_styles/panel = SubResource("StyleBoxFlat_p5l7f")
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -55.5
+offset_right = 55.5
+offset_bottom = 55.5
+grow_vertical = 2
+pivot_offset = Vector2(55.5, 55.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3y1iq")
 
 [node name="WingLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
@@ -358,20 +332,6 @@ offset_bottom = 187.8
 pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_1nwsj")
 
-[node name="Center" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
-layout_mode = 1
-anchors_preset = 8
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -55.5
-offset_top = -55.5
-offset_right = 55.5
-offset_bottom = 55.5
-grow_vertical = 2
-pivot_offset = Vector2(55.5, 55.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_3y1iq")
-
 [node name="CenterLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
@@ -391,6 +351,46 @@ offset_right = 176.276
 offset_bottom = 157.0
 pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_kv3ef")
+
+[node name="MidLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = -254.245
+offset_top = -73.2002
+offset_right = -143.245
+offset_bottom = 37.7998
+pivot_offset = Vector2(55.55, 55.55)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jfbod")
+
+[node name="MidRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = 144.572
+offset_top = -73.0004
+offset_right = 255.572
+offset_bottom = 37.9996
+pivot_offset = Vector2(55.55, 55.55)
+theme_override_styles/panel = SubResource("StyleBoxFlat_p5l7f")
+
+[node name="RearLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = -218.245
+offset_top = 166.8
+offset_right = -107.245
+offset_bottom = 277.8
+pivot_offset = Vector2(55.55, 55.55)
+theme_override_styles/panel = SubResource("StyleBoxFlat_d361y")
+
+[node name="RearRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
+custom_minimum_size = Vector2(111, 111)
+layout_mode = 1
+offset_left = 107.433
+offset_top = 167.0
+offset_right = 218.433
+offset_bottom = 278.0
+pivot_offset = Vector2(55.55, 55.55)
+theme_override_styles/panel = SubResource("StyleBoxFlat_fxx4t")
 
 [node name="DirectionalLightMix" type="DirectionalLight2D" parent="."]
 position = Vector2(1080, 0)

@@ -32,7 +32,7 @@ func _enter_tree():
 			var entry = {
 					"name": player_ship_name,
 					"scene": load("res://scenes/player_ships/" + player_ship_name +  ".tscn"),
-					"texture": load("res://media/sprites/player_ships/" + player_ship_name + ".png"),
+					"texture": load("res://resources/textures/" + player_ship_name + ".tres"),
 					"rarity": G.rarity(int_tier)
 				}
 			data[player_ship_name] = entry

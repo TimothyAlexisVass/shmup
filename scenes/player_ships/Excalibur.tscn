@@ -23,10 +23,18 @@ texture = ExtResource("4_3uk21")
 position = Vector2(0, 450)
 cannon = ExtResource("6_piye8")
 
-[node name="LeftFront" parent="CannonMounts" index="1" instance=ExtResource("5_d51tp")]
+[node name="FrontLeft" parent="CannonMounts" index="1" instance=ExtResource("5_d51tp")]
 position = Vector2(180, 190)
 rotation = -0.261799
 
-[node name="RightFront" parent="CannonMounts" index="2" instance=ExtResource("5_d51tp")]
+[node name="FrontRight" parent="CannonMounts" index="2" instance=ExtResource("5_d51tp")]
 position = Vector2(-180, 190)
 rotation = 0.261799
+
+[node name="RearLeft" parent="CannonMounts" index="3" instance=ExtResource("5_d51tp")]
+position = Vector2(300, -350)
+rotation = 0.523599
+
+[node name="RearRight" parent="CannonMounts" index="4" instance=ExtResource("5_d51tp")]
+position = Vector2(-300, -350)
+rotation = -0.523599

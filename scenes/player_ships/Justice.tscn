@@ -22,10 +22,15 @@ texture = ExtResource("4_cpyve")
 position = Vector2(0, 450)
 cannon = ExtResource("6_xfgxj")
 
-[node name="LeftFront" parent="CannonMounts" index="1" instance=ExtResource("4_6rf8i")]
+[node name="FrontLeft" parent="CannonMounts" index="1" instance=ExtResource("4_6rf8i")]
 position = Vector2(180, 340)
 rotation = -0.261799
 
-[node name="RightFront" parent="CannonMounts" index="2" instance=ExtResource("4_6rf8i")]
+[node name="FrontRight" parent="CannonMounts" index="2" instance=ExtResource("4_6rf8i")]
 position = Vector2(-180, 340)
 rotation = 0.261799
+
+[node name="Rear" parent="CannonMounts" index="3" instance=ExtResource("4_6rf8i")]
+position = Vector2(0, -370)
+rotation = -3.14159
+scale = Vector2(1, 1)
