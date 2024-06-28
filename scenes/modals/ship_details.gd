@@ -1,6 +1,6 @@
 extends ColorRect
 
-@onready var ship_texture = $MarginContainer/VBoxContainer/Container/ShipTexture
+@onready var ship_texture = $MarginContainer/VBoxContainer/Control/ShipTexture
 @onready var width = ship_texture.size.x
 @onready var height = ship_texture.size.y
 @onready var mid = Vector2(width/2, height/2)

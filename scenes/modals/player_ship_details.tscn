@@ -200,7 +200,7 @@ script = ExtResource("1_2hqho")
 custom_minimum_size = Vector2(720, 1600)
 layout_mode = 0
 offset_right = 1080.0
-offset_bottom = 1780.0
+offset_bottom = 1960.0
 theme_override_constants/margin_left = 90
 theme_override_constants/margin_top = 90
 theme_override_constants/margin_right = 90
@@ -242,9 +242,11 @@ stretch_mode = 3
 
 [node name="CannonPositions" type="Control" parent="MarginContainer/VBoxContainer/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -254,29 +256,32 @@ layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
-offset_left = 394.825
-offset_top = 442.0
-offset_right = 505.825
-offset_bottom = 553.0
+offset_left = -55.1863
+offset_top = -292.0
+offset_right = 55.8138
+offset_bottom = -181.0
 grow_horizontal = 1
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pkhhk")
 
 [node name="FrontLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -166.462
-offset_top = 536.0
+offset_top = -219.2
 offset_right = -55.4618
-offset_bottom = 647.0
+offset_bottom = -108.2
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pxloe")
 
 [node name="FrontRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 54.2343
-offset_top = 534.2
+offset_top = -221.0
 offset_right = 165.234
-offset_bottom = 645.2
+offset_bottom = -110.0
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_csmg7")
 
 [node name="Rear" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
@@ -285,92 +290,106 @@ layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
-offset_left = 394.825
-offset_top = 862.0
-offset_right = 505.825
-offset_bottom = 973.0
+offset_left = -55.1863
+offset_top = 128.0
+offset_right = 55.8138
+offset_bottom = 239.0
 grow_horizontal = 1
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pbt8c")
 
 [node name="RearLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -218.245
-offset_top = 922.0
+offset_top = 166.8
 offset_right = -107.245
-offset_bottom = 1033.0
+offset_bottom = 277.8
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_d361y")
 
 [node name="RearRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 107.433
-offset_top = 922.2
+offset_top = 167.0
 offset_right = 218.433
-offset_bottom = 1033.2
+offset_bottom = 278.0
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_fxx4t")
 
 [node name="MidLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -254.245
-offset_top = 682.0
+offset_top = -73.2002
 offset_right = -143.245
-offset_bottom = 793.0
+offset_bottom = 37.7998
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_jfbod")
 
 [node name="MidRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 144.572
-offset_top = 682.2
+offset_top = -73.0004
 offset_right = 255.572
-offset_bottom = 793.2
+offset_bottom = 37.9996
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_p5l7f")
 
 [node name="WingLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -335.845
-offset_top = 832.0
+offset_top = 76.7998
 offset_right = -224.845
-offset_bottom = 943.0
+offset_bottom = 187.8
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_wce3y")
 
 [node name="WingRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 225.755
-offset_top = 832.0
+offset_top = 76.7998
 offset_right = 336.755
-offset_bottom = 943.0
+offset_bottom = 187.8
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_1nwsj")
 
 [node name="Center" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
-offset_left = -55.175
-offset_top = 713.2
-offset_right = 55.8251
-offset_bottom = 824.2
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -55.5
+offset_right = 55.5
+offset_bottom = 55.5
+grow_vertical = 2
+pivot_offset = Vector2(55.5, 55.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_3y1iq")
 
 [node name="CenterLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -176.245
-offset_top = 802.0
+offset_top = 46.7998
 offset_right = -65.2448
-offset_bottom = 913.0
+offset_bottom = 157.8
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_g61d0")
 
 [node name="CenterRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
 custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 65.2756
-offset_top = 801.2
+offset_top = 46.0
 offset_right = 176.276
-offset_bottom = 912.2
+offset_bottom = 157.0
+pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_kv3ef")
 
 [node name="DirectionalLightMix" type="DirectionalLight2D" parent="."]
