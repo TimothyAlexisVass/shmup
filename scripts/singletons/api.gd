@@ -1,8 +1,8 @@
 extends Node
 
-const SERVER_URL = "http://127.0.0.1:5000/"
+const SERVER_URL = "http://localhost:3000/shmup/"
 
-func load_data(user_id: String, load_data_from_server_object):
+func load_data(load_data_from_server_object):
 	var http_request = HTTPRequest.new()
 	http_request.timeout = 30
 	load_data_from_server_object.add_child(http_request)
@@ -10,10 +10,11 @@ func load_data(user_id: String, load_data_from_server_object):
 
 	var url = SERVER_URL + "player_data"
 
-	# Prepare the request body
-	var request_body = {"user_id": user_id}
-	var json_request_body = JSON.stringify(request_body)
 	var headers = ["Content-Type: application/json"]
+
+	# Prepare the request body
+	var request_body = {"user_handle": DataManager.user_handle}
+	var json_request_body = JSON.stringify(request_body)
 	# Make the HTTP request
 	var response = http_request.request(url, headers, HTTPClient.METHOD_POST, json_request_body)
 

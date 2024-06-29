@@ -3,77 +3,10 @@ class_name PlayerData extends Resource
 # Regular expression pattern to match letters, spaces, hyphens, and apostrophes from various languages
 var name_validator = RegEx.create_from_string("^[\\p{L}\\p{M}\\ \\-\\']+$")
 
-var commander = {
-		"name": "",
-		"experience": 1240,
-		"pilot_ability_multiplier": 1,
-		"graze_power_multiplier": 1,
-		"shot_power_multiplier": 1,
-		"device_effect_multiplier": 1,
-		"perfect_chance_multiplier": 1,
-		"perfect_multiplier": 1,
-		"exchange_multiplier": 1,
-		"magnet_multiplier": 10,
-		"luck_multiplier": 1
-	}
-
-var player_ship = {
-	"Virtue": {
-		"graze_area_radius_level": 1,
-		"cannons": {
-			"FrontLeft": 0,
-			"FrontRight": 1	
-		}
-	},
-	"Justice": {
-		"graze_area_radius_level": 1,
-		"cannons": {
-			"FrontLeft": 2,
-			"FrontRight": 3
-		}
-	},
-	"Excalibur": {
-		"graze_area_radius_level": 1,
-		"cannons": {
-			"FrontLeft": 4,
-			"FrontRight": 5	
-		}
-	}
-}
-
-var pilot = {
-	"Lance": {
-		"max_cannons": 3,
-		"max_devices": 0,
-		"maneuver_level": 1,
-		"pilot_ability_level": 1,
-		"graze_area_radius_multiplier": 5,
-		"graze_power_base": 0.1,
-		"graze_power_level": 10,
-	},
-	"Mia": {
-		"max_cannons": 1,
-		"max_devices": 0,
-		"maneuver_level": 1,
-		"pilot_ability_level": 1,
-		"graze_area_radius_multiplier": 1,
-		"graze_power_level": 1,
-	}
-}
-
-var asset = {
-	"Aluminium": 100,
-	"Cuprum": 0,
-	"Argentum": 0,
-	"Aurum": 0,
-	"Rhodium": 0,
-	"Sapphirus": 0,
-	"Rubinus": 0,
-	"Smaragdus": 0,
-	"Veritasium": 0,
-	"Eternium": 1,
-}
-
+var commander = {}
+var player_ship = {}
+var pilot = {}
+var asset = {}
 var cannon = {}
 var device = {}
 
@@ -87,19 +20,7 @@ var selected_pilot = "Lance":
 		selected_pilot = value
 		DataManager.save_data()
 
-var levels = {
-	"1": 10,
-	"2": 9,
-	"3": 8,
-	"4": 7,
-	"5": 6,
-	"6": 5,
-	"7": 4,
-	"8": 3,
-	"9": 2,
-	"10": 1,
-	"11": 0
-}
+var levels = {}
 
 var config = {
 	"time_scale": 1

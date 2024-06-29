@@ -10,12 +10,11 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	var levels_data = DataManager.player_data.levels
-
 	rng.seed = 1
 	$Lines/Line2D.points.set(0, Vector2(0, 0))
 	var button = $Levels/LevelButton
 	var click_mask = BitMap.new()
-	button.completion = levels_data["1"]
+	button.completion = levels_data["1"].completion
 	button.initialize()
 	click_mask.create_from_image_alpha(button.texture_normal.diffuse_texture.get_image())
 	button.texture_click_mask = click_mask
@@ -27,7 +26,7 @@ func _ready():
 		button = LEVEL_BUTTON_SCENE.instantiate()
 		button.level = i
 		if levels_data.has(str(i)):
-			button.completion = levels_data[str(i)]
+			button.completion = levels_data[str(i)].completion
 		else:
 			button.disabled = true
 			button.get_node("Label").modulate = Color(0.2, 0.2, 0.2)

@@ -2,6 +2,37 @@ extends Node
 
 var player_data = PlayerData.new()
 
+var user_handle = null
+var recovery_token = null
+
+const SAVE_FILE_PATH = "user://user_data.save"
+const ENCRYPTION_PASSWORD = "your_secure_password_here"
+
+func _enter_tree():
+	load_user()
+
+func save_user():
+	var file = FileAccess.open_encrypted_with_pass(SAVE_FILE_PATH, FileAccess.WRITE, ENCRYPTION_PASSWORD)
+	if file:
+		file.store_string(user_handle + "\n" + recovery_token)
+		file.close()
+	else:
+		printerr("Failed to save user data.")
+
+func load_user():
+	if FileAccess.file_exists(SAVE_FILE_PATH):
+		var file = FileAccess.open_encrypted_with_pass(SAVE_FILE_PATH, FileAccess.READ, ENCRYPTION_PASSWORD)
+		if file:
+			var data = file.get_as_text()
+			var lines = data.split("\n")
+			user_handle = lines[0].strip_edges()
+			recovery_token = lines[1].strip_edges()
+			file.close()
+		else:
+			printerr("Failed to load user data.")
+	else:
+		printerr("User data file does not exist.")
+
 func change(category, item_name, amount):
 	player_data[category][item_name] += amount
 	save_data()
@@ -32,15 +63,17 @@ func save_data():
 	}
 
 func handle_loaded_data(loaded_data):
-	if loaded_data.has("commander"):
+	assert(loaded_data.has("player"))
+	if user_handle in [loaded_data.player.user_handle, null] and recovery_token in [loaded_data.player.recovery_token, null]:
+		if user_handle == null:
+			user_handle = loaded_data.player.user_handle
+			recovery_token = loaded_data.player.recovery_token
+			save_user()
 		player_data.commander = loaded_data.commander
-	if loaded_data.has("player_ship"):
 		player_data.player_ship = loaded_data.player_ship
-	if loaded_data.has("levels"):
+		player_data.pilot = loaded_data.pilot
 		player_data.levels = loaded_data.levels
-	if loaded_data.has("asset"):
 		player_data.asset = loaded_data.asset
-	if loaded_data.has("selected_pilot"):
-		player_data.selected_pilot = loaded_data.selected_pilot
-	if loaded_data.has("selected_player_ship"):
-		player_data.selected_player_ship = loaded_data.selected_player_ship
+		player_data.selected_pilot = loaded_data.player.selected_pilot
+		player_data.selected_player_ship = loaded_data.player.selected_player_ship
+		player_data.cannon = loaded_data.cannon

@@ -6,7 +6,7 @@ var load_square = 0
 signal data_loading_completed
 
 func _ready():
-	Api.load_data("test", self)
+	Api.load_data(self)
 
 func _process(delta):
 	time += delta
