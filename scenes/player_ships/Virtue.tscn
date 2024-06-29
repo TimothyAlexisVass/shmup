@@ -39,4 +39,3 @@ position = Vector2(-150, 440)
 [node name="Rear" parent="CannonMounts" index="3" instance=ExtResource("7_vgebs")]
 position = Vector2(0, -370)
 rotation = -3.14159
-scale = Vector2(1, 1)

@@ -33,4 +33,3 @@ rotation = 0.261799
 [node name="Rear" parent="CannonMounts" index="3" instance=ExtResource("4_6rf8i")]
 position = Vector2(0, -370)
 rotation = -3.14159
-scale = Vector2(1, 1)

@@ -22,12 +22,12 @@ var commander_data = DataManager.player_data.commander
 @onready var graze_power_factor = G.diminishing_increase(pilot_data.graze_power_base, pilot_data.graze_power_level) * commander_data.graze_power_multiplier
 
 func _enter_tree():
+	for cannon_mount in ["FrontLeft", "FrontRight", "Rear"]:
+		ship_data.cannons[cannon_mount] = Cannon.generate(0)
 	global_position = spawn_position
 
 	var image_size = Vector2($Sprite.texture.diffuse_texture.get_image().get_size()) * scale
 	explosion_scale = max(image_size.x, image_size.y) / 300.0
-	
-	configure_main_cannon()
 	
 	if pilot_data.max_cannons > 1:
 		mount_cannons()
@@ -47,19 +47,16 @@ func _physics_process(delta):
 		global_position.y = clamp(global_position.y, G.camera.get_min().y, G.camera.get_max().y)
 	graze_power = snapped(graze_power + graze_power_factor * grazing_with * delta, 0.001)
 
-func configure_main_cannon():
-	$CannonMounts/Main.cannon.shot_rate = G.diminishing_decrease($CannonMounts/Main.cannon.shot_rate, ship_data.main_shot_rate_level)
-	$CannonMounts/Main.cannon.shot_speed = G.diminishing_increase($CannonMounts/Main.cannon.shot_speed, ship_data.main_shot_speed_level)
-	$CannonMounts/Main.cannon.shot_power =  G.diminishing_increase($CannonMounts/Main.cannon.shot_power, ship_data.main_shot_power_level)
-
 func mount_cannons():
-	var cannons = $CannonMounts.get_children()
-	if cannons.size() > pilot_data.max_cannons:
-		for cannon_number in range(pilot_data.max_cannons, cannons.size() + 1):
-			cannons[cannon_number].queue_free()
-	for cannon_number in range(1, pilot_data.max_cannons):
-		var cannon_data = Stuff.cannons[Stuff.CANNON[ship_data.cannons[cannon_number - 1]]]
-		cannons[cannon_number].cannon = cannon_data.resource
+	var active_cannons = 1
+	for cannon in ship_data.cannons:
+		$CannonMounts.get_node(cannon).cannon = ship_data.cannons[cannon]
+		active_cannons +=1
+		if active_cannons > pilot_data.max_cannons:
+			break
+	for cannon_mount in $CannonMounts.get_children():
+		if cannon_mount.cannon == null:
+			cannon_mount.queue_free()
 
 func play():
 	set_visible(true)

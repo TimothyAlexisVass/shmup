@@ -19,28 +19,25 @@ var commander = {
 
 var player_ship = {
 	"Virtue": {
-		"main_shot_rate_level": 5,
-		"main_shot_speed_level": 0,
-		"main_shot_power_level": 0,
-		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
-		"cannons": ["Ballistic", "Ballistic"]
+		"cannons": {
+			"FrontLeft": 0,
+			"FrontRight": 1	
+		}
 	},
 	"Justice": {
-		"main_shot_rate_level": 5,
-		"main_shot_speed_level": 0,
-		"main_shot_power_level": 0,
-		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
-		"cannons": ["Plasma", "Plasma"]
+		"cannons": {
+			"FrontLeft": 2,
+			"FrontRight": 3
+		}
 	},
 	"Excalibur": {
-		"main_shot_rate_level": 5,
-		"main_shot_speed_level": 0,
-		"main_shot_power_level": 0,
-		"movement_speed_level": 0,
 		"graze_area_radius_level": 1,
-		"cannons": ["Plasma", "Plasma"]
+		"cannons": {
+			"FrontLeft": 4,
+			"FrontRight": 5	
+		}
 	}
 }
 
@@ -76,6 +73,9 @@ var asset = {
 	"Veritasium": 0,
 	"Eternium": 1,
 }
+
+var cannon = {}
+var device = {}
 
 var selected_player_ship = "Justice":
 	set(value):

@@ -1,9 +1,5 @@
 extends Node
 
-const SAVE_DIR = "user://saves/"
-const SAVE_FILE = "save.json"
-const SECURITY_KEY = "VERY_SECRET_KEY"
-
 var player_data = PlayerData.new()
 
 func change(category, item_name, amount):
@@ -25,14 +21,7 @@ func win(level):
 	save_data()
 
 func save_data():
-	if not DirAccess.dir_exists_absolute(SAVE_DIR):
-		DirAccess.make_dir_absolute(SAVE_DIR)
-	var file = FileAccess.open_encrypted_with_pass(SAVE_DIR + SAVE_FILE, FileAccess.WRITE, SECURITY_KEY)
-	if not file:
-		printerr(FileAccess.get_open_error())
-		return
-	
-	var data_to_save = {
+	var _data_to_save = {
 		"commander": player_data.commander,
 		"player_ship": player_data.player_ship,
 		"pilot": player_data.pilot,
@@ -41,30 +30,6 @@ func save_data():
 		"selected_pilot": player_data.selected_pilot,
 		"selected_player_ship": player_data.selected_player_ship
 	}
-	file.store_string(JSON.stringify(data_to_save, "\t"))
-	file.close()
-
-func load_data_from_file():
-	if FileAccess.file_exists(SAVE_DIR + SAVE_FILE):
-		var file = FileAccess.open_encrypted_with_pass(SAVE_DIR + SAVE_FILE, FileAccess.READ, SECURITY_KEY)
-		if not file:
-			printerr(FileAccess.get_open_error())
-			return
-
-		var content = file.get_as_text()
-		file.close()
-		
-		var loaded_data = JSON.parse_string(content)
-		if loaded_data == null:
-			printerr("Cannot parse save file as JSON")
-			return
-
-		if G.DEBUG:
-			print_debug(loaded_data)
-		
-		handle_loaded_data(loaded_data)
-	else:
-		print("Save file doesn't exist")
 
 func handle_loaded_data(loaded_data):
 	if loaded_data.has("commander"):

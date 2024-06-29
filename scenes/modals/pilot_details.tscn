@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://7yexr25u75qg"]
+
+[ext_resource type="Script" path="res://scenes/modals/pilot_details.gd" id="1_srh87"]
+[ext_resource type="Texture2D" uid="uid://stkdc8nv0fiq" path="res://resources/textures/Justice.tres" id="2_htd3b"]
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="4_sitx4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
+font_size = 40
+
+[node name="PilotDetails" type="ColorRect"]
+custom_minimum_size = Vector2(1080, 1960)
+offset_right = 1080.0
+offset_bottom = 1960.0
+scale = Vector2(0.996259, 1)
+color = Color(0.0193544, 0.1022, 0.204826, 1)
+script = ExtResource("1_srh87")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(720, 1600)
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1960.0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "PILOT DETAILS"
+label_settings = SubResource("LabelSettings_1ohth")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PilotTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/Control"]
+light_mask = 512
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(512, 512)
+size_flags_vertical = 6
+texture = ExtResource("2_htd3b")
+stretch_mode = 3
+
+[node name="CloseButton" type="Button" parent="."]
+z_index = 4096
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 77.0
+grow_horizontal = 0
+scale = Vector2(1.00469, 0.995552)
+theme = ExtResource("4_sitx4")
+theme_type_variation = &"FlatButton"
+text = "×"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
