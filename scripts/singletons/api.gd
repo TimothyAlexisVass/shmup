@@ -1,6 +1,6 @@
 extends Node
 
-const SERVER_URL = "http://localhost:3000/shmup/"
+const SERVER_URL = "https://earthling.se/shmup/"
 
 func load_data(load_data_from_server_object):
 	var http_request = HTTPRequest.new()

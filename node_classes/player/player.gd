@@ -29,7 +29,7 @@ func _enter_tree():
 	var image_size = Vector2($Sprite.texture.diffuse_texture.get_image().get_size()) * scale
 	explosion_scale = max(image_size.x, image_size.y) / 300.0
 	
-	if pilot_data.max_cannons > 1:
+	if pilot_data.max_cannon_count > 1:
 		mount_cannons()
 
 func _ready():
@@ -52,7 +52,7 @@ func mount_cannons():
 	for cannon in ship_data.cannons:
 		$CannonMounts.get_node(cannon).cannon = ship_data.cannons[cannon]
 		active_cannons +=1
-		if active_cannons > pilot_data.max_cannons:
+		if active_cannons > pilot_data.max_cannon_count:
 			break
 	for cannon_mount in $CannonMounts.get_children():
 		if cannon_mount.cannon == null:
