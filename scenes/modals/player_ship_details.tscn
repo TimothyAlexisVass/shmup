@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bokjfmmv4qwpa"]
+[gd_scene load_steps=22 format=3 uid="uid://bokjfmmv4qwpa"]
 
 [ext_resource type="Script" path="res://scenes/modals/player_ship_details.gd" id="1_2hqho"]
 [ext_resource type="Texture2D" uid="uid://stkdc8nv0fiq" path="res://resources/textures/Justice.tres" id="1_hmwlg"]
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="2_0e38j"]
 [ext_resource type="PackedScene" uid="uid://bhvqbpaon1637" path="res://scenes/modals/cannon_mount_position.tscn" id="3_vdcnk"]
+[ext_resource type="Script" path="res://scenes/modals/inventory.gd" id="4_fg46t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
 font_size = 40
@@ -391,6 +392,15 @@ offset_right = 218.433
 offset_bottom = 278.0
 pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_fxx4t")
+
+[node name="Inventory" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 5
+script = ExtResource("4_fg46t")
+item_type = "cannon"
 
 [node name="DirectionalLightMix" type="DirectionalLight2D" parent="."]
 position = Vector2(1080, 0)

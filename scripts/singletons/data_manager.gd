@@ -76,4 +76,6 @@ func handle_loaded_data(loaded_data):
 		player_data.asset = loaded_data.asset
 		player_data.selected_pilot = loaded_data.player.selected_pilot
 		player_data.selected_player_ship = loaded_data.player.selected_player_ship
-		player_data.cannon = loaded_data.cannon
+		for cannon_id in loaded_data.cannon:
+			player_data.cannon[cannon_id] = Cannon.from_data(loaded_data.cannon[cannon_id])
+			

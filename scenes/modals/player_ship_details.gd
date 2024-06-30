@@ -18,6 +18,7 @@ func initialize(player_ship_name):
 		cannon_position.set_visible(visibility)
 	ship_texture.texture = player_ship_data.texture
 	set_visible(true)
+	print(DataManager.player_data.cannon)
 
 func _on_close_button_pressed():
 	set_visible(false)
