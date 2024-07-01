@@ -309,7 +309,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Main" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -323,7 +322,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_paaje")
 
 [node name="FrontLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -166.462
 offset_top = -219.2
@@ -333,7 +331,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_c7tvq")
 
 [node name="FrontRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 54.2343
 offset_top = -221.0
@@ -343,7 +340,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_uc872")
 
 [node name="Rear" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -357,7 +353,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_f2j6m")
 
 [node name="Center" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 anchors_preset = 8
 anchor_top = 0.5
@@ -371,7 +366,6 @@ pivot_offset = Vector2(55.5, 55.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_cctdy")
 
 [node name="WingLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -335.845
 offset_top = 76.7998
@@ -381,7 +375,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_xpp3m")
 
 [node name="WingRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 225.755
 offset_top = 76.7998
@@ -391,7 +384,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_now1k")
 
 [node name="CenterLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -176.245
 offset_top = 46.7998
@@ -401,7 +393,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_t0omt")
 
 [node name="CenterRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 65.2756
 offset_top = 46.0
@@ -411,7 +402,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_6t0af")
 
 [node name="MidLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -254.245
 offset_top = -73.2002
@@ -421,7 +411,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_uki1q")
 
 [node name="MidRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 144.572
 offset_top = -73.0004
@@ -431,7 +420,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_hffc0")
 
 [node name="RearLeft" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = -218.245
 offset_top = 166.8
@@ -441,7 +429,6 @@ pivot_offset = Vector2(55.55, 55.55)
 theme_override_styles/panel = SubResource("StyleBoxFlat_lcxhu")
 
 [node name="RearRight" parent="MarginContainer/VBoxContainer/Control/CannonPositions" instance=ExtResource("3_vdcnk")]
-custom_minimum_size = Vector2(111, 111)
 layout_mode = 1
 offset_left = 107.433
 offset_top = 167.0
