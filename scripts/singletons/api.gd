@@ -5,6 +5,8 @@ const SERVER_URL = "http://localhost:3000/shmup/"
 const HEADERS = ["Content-Type: application/json"]
 
 func _make_request(requesting_object, endpoint, request_body, callback_method):
+	request_body["user_handle"] = DataManager.user_handle
+
 	var http_request = HTTPRequest.new()
 	http_request.timeout = 30
 	requesting_object.add_child(http_request)
@@ -23,14 +25,20 @@ func _queue_free_wrapper(http_request):
 	http_request.queue_free()
 
 func load_data(requesting_object):
-	var request_body = {"user_handle": DataManager.user_handle}
+	var request_body = {}
 	_make_request(requesting_object, "player_data", request_body, "_on_api_load_data_completed")
 
 func perform_exchange(requesting_object, asset_from, asset_to, amount_from):
 	var request_body = {
-		"user_handle": DataManager.user_handle,
 		"asset_from": asset_from,
 		"asset_to": asset_to,
 		"amount_from": amount_from
 	}
 	_make_request(requesting_object, "exchange", request_body, "_on_api_perform_exchange_completed")
+
+func select(requesting_object, selection_type, selection_name):
+	var request_body = {
+		"selection_type": selection_type,
+		"selection_name": selection_name
+	}
+	_make_request(requesting_object, "select", request_body, "_on_api_select_completed")
