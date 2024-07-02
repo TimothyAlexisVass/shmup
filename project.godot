@@ -20,7 +20,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-DataManager="*res://scripts/singletons/data_manager.gd"
 G="*res://scripts/singletons/globals.gd"
 Switch="*res://scripts/singletons/switch.gd"
 Exchange="*res://scripts/singletons/exchange.gd"
@@ -30,6 +29,7 @@ PlayerShip="*res://scripts/singletons/player_ship.gd"
 Asset="*res://scripts/singletons/asset.gd"
 Cannon="*res://scripts/singletons/cannon.gd"
 Api="*res://scripts/singletons/api.gd"
+DataManager="*res://scripts/singletons/data_manager.gd"
 
 [display]
 

@@ -139,13 +139,13 @@ func database(category):
 
 func display_weight(value, smart_snapped = true):
 	var suffix = " g"
-	if value < 1:
+	if abs(value) < 1:
 		suffix = " mg"
 		value *= 1000
-	elif value >= 1_000 and value < 1_000_000:
+	elif abs(value) >= 1_000 and abs(value) < 1_000_000:
 		suffix = " kg"
 		value /= 1_000
-	elif value >= 1_000_000:
+	elif abs(value) >= 1_000_000:
 		suffix = " t"
 		value /= 1_000_000
 	return str(G.smart_snap(value) if smart_snapped else value) + suffix

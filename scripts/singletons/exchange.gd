@@ -1,65 +1,21 @@
 extends Node
 
-const INITIAL = {
-	"Rhodium": 151,
-	"Sapphirus": 1177,
-	"Rubinus": 4777,
-	"Smaragdus": 27777,
-	"Veritasium": 234567,
-	"Eternium": 7777777
-}
-
 const metal = ["Aluminium", "Cuprum", "Argentum", "Aurum", "Rhodium"]
 const gem = ["Sapphirus", "Rubinus", "Smaragdus"]
 const fictional = ["Veritasium", "Eternium"]
 
 var all = metal + gem + fictional
 
-var rates = {
-	"Aluminium": 0.0026,
-	"Cuprum": 0.0103,
-	"Argentum": 1.0071,
-	"Aurum": 76.3931,
-	"Rhodium": 151,
-	"Sapphirus": 1177,
-	"Rubinus": 4777,
-	"Smaragdus": 27777,
-	"Veritasium": 234567,
-	"Eternium": 7777777
-}
+var rates = {}
 
-func set_rates():
-	var market_prices = get_market_prices()
-	for asset in market_prices.keys():
-		rates[asset] = market_prices[asset]
-	for x in INITIAL.keys():
-		var factor = (rates[x] - INITIAL[x]) / float(INITIAL[x])
-		var random_factor = randf_range(0.95 - factor, 1.05 - factor)
-		rates[x] = int(rates[x] * random_factor)
-	rates["Rhodium"] = (rates["Rhodium"] + rates["Aurum"] * 2.0) / 2.0
+func exchange_rates(from, to):
+	if (from in metal and to not in metal) or (from in gem and to in fictional) or (from == "Veritasium" and to == "Eternium"):
+		return null
 
-func get_market_prices():
-	# TODO: Replace with API data
-	return {
-		"Aluminium": 0.0026,
-		"Cuprum": 0.0103,
-		"Argentum": 1.0071,
-		"Aurum": 76.3931
-	}
+	var rate_from = rates[from] * DataManager.player_data.commander.exchange_multiplier
+	var rate_to = rates[to]
 
-func exchange_rates(item_1, item_2):
-	var rate_1 = rates[item_1]
-	var rate_2 = rates[item_2]
-	var lower_rate = min(rate_1, rate_2)
-	var higher_rate = max(rate_1, rate_2)
-	var lower_item = item_1 if rate_1 == lower_rate else item_2
-	var higher_item = item_1 if rate_1 == higher_rate else item_2
-
-	var amount = higher_rate / float(lower_rate)
-	var lower_amount = G.display_weight(amount * 0.98)
-	var higher_amount = G.display_weight(amount * 1.02)
-
-	var one_way_exchange = (lower_item in metal and higher_item not in metal) or (lower_item in gem and higher_item in fictional) or (lower_item == "Veritasium" and higher_item == "Eternium")
-	var one_way = ["-1 g", "+"+str(lower_amount), "0", "0"] if rate_1 > rate_2 else ["0", "0", "+"+str(lower_amount), "-1 g"]
-	var two_way = ["-1 g", "+"+str(lower_amount), "+1 g", "-"+str(higher_amount)] if rate_1 > rate_2 else ["-"+str(higher_amount), "+1 g", "+"+str(lower_amount), "-1 g"]
-	return one_way if one_way_exchange else two_way
+	if rate_from > rate_to:
+		return {"from": "-1 g", "to": G.display_weight(rate_from / float(rate_to))}
+	else:
+		return {"from": G.display_weight(-rate_to / float(rate_from)), "to": "+1 g"}

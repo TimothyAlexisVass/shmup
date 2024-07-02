@@ -1,62 +1,33 @@
 extends HBoxContainer
 
-func _ready():
-	$Item1.select(0)
-	$Item2.select(1)
-	_on_item_1_item_selected(0)
-	_on_item_2_item_selected(1)
+@onready var from = Exchange.all[$AssetFrom.get_selected()]
+@onready var to = Exchange.all[$AssetTo.get_selected()]
 
 func _on_item_1_item_selected(selected_index):
-	if $Item2.get_selected() == selected_index:
-		$Item2.select((selected_index + 1) % $Item2.item_count)
-	var exchange_rates = Exchange.exchange_rates(Exchange.all[$Item1.get_selected()], Exchange.all[$Item2.get_selected()])
-	$Amounts1/From.text = exchange_rates[0]
-	$Amounts2/To.text = exchange_rates[1]
-	$Amounts1/To.text = exchange_rates[2]
-	$Amounts2/From.text = exchange_rates[3]
-	set_visibility()
+	if $AssetTo.get_selected() == selected_index:
+		$AssetTo.select((selected_index + 1) % $AssetTo.item_count)
+	from = Exchange.all[$AssetFrom.get_selected()]
+	update_exchange_values()
 
 func _on_item_2_item_selected(selected_index):
-	if $Item1.get_selected() == selected_index:
-		$Item1.select((selected_index + 1) % $Item1.item_count)
-	var exchange_rates = Exchange.exchange_rates(Exchange.all[$Item2.get_selected()], Exchange.all[$Item1.get_selected()])
-	$Amounts1/From.text = exchange_rates[3]
-	$Amounts2/To.text = exchange_rates[2]
-	$Amounts1/To.text = exchange_rates[1]
-	$Amounts2/From.text = exchange_rates[0]
-	set_visibility()
+	if $AssetFrom.get_selected() == selected_index:
+		$AssetFrom.select((selected_index + 1) % $AssetFrom.item_count)
+	to = Exchange.all[$AssetTo.get_selected()]
+	update_exchange_values()
 
-func set_visibility():
-	$Amounts1/From.set_visible(true)
-	$Amounts1/To.set_visible(true)
-	$Amounts2/To.set_visible(true)
-	$Amounts2/From.set_visible(true)
-	$HBoxContainer/Item1ToItem2.set_visible(true)
-	$HBoxContainer/Item2ToItem1.set_visible(true)
-	if $Amounts1/From.text == "0":
-		$Amounts1/From.set_visible(false)
-		$Amounts2/To.set_visible(false)
-		$HBoxContainer/Item1ToItem2.set_visible(false)
-	if $Amounts2/From.text == "0":
-		$Amounts2/From.set_visible(false)
-		$Amounts1/To.set_visible(false)
-		$HBoxContainer/Item2ToItem1.set_visible(false)
+func update_exchange_values():
+	var exchange_rates = Exchange.exchange_rates(Exchange.all[$AssetFrom.get_selected()], Exchange.all[$AssetTo.get_selected()])
+	if exchange_rates == null:
+		$AmountFrom.set_visible(false)
+		$AmountTo.set_visible(false)
+		$PerformExchange.set_visible(false)
+	else:
+		$AmountFrom.text = exchange_rates.from
+		$AmountTo.text = exchange_rates.to
+		$AmountFrom.set_visible(true)
 
 func _on_item_1_to_item_2_pressed():
-	perform_exchange(
-		Exchange.all[$Item1.get_selected()],
-		Exchange.all[$Item2.get_selected()],
-		-asset_weight_to_float($Amounts1/From.text),
-		asset_weight_to_float($Amounts2/To.text)
-	)
-
-func _on_item_2_to_item_1_pressed():
-	perform_exchange(
-		Exchange.all[$Item2.get_selected()],
-		Exchange.all[$Item1.get_selected()],
-		-asset_weight_to_float($Amounts2/From.text),
-		asset_weight_to_float($Amounts1/To.text)
-	)
+	perform_exchange(from, to, -asset_weight_to_float($AmountFrom.text))
 
 func asset_weight_to_float(weight):
 	var factor = 1
@@ -68,11 +39,17 @@ func asset_weight_to_float(weight):
 		factor = 1_000_000
 	return snapped(float(weight) * factor, 0.001)
 
-func perform_exchange(asset_from, asset_to, amount_from, amount_to):
-	if DataManager.player_data.asset[asset_from] >= amount_from:
-		DataManager.change("asset", asset_from, -amount_from)
-		DataManager.change("asset", asset_to, amount_to)
-	DataManager.player_data.asset[asset_from] = snapped(DataManager.player_data.asset[asset_from], 0.01)
-	DataManager.player_data.asset[asset_to] = snapped(DataManager.player_data.asset[asset_to], 0.01)
-	DataManager.save_data()
-	owner.update_asset_values()
+func perform_exchange(asset_from, asset_to, amount_from):
+	Api.perform_exchange(self, asset_from, asset_to, amount_from)
+
+func _on_api_perform_exchange_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray):
+	if response_code == 200:
+		var json = JSON.new()
+		json.parse(body.get_string_from_ascii())
+		DataManager.set_assets(json.get_data())
+		owner.update_asset_values()
+	else:
+		printerr("HTTP request failed with response code: " + str(response_code))
+
+func _on_visibility_changed():
+	update_exchange_values()

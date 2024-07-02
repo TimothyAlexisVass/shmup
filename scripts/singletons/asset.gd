@@ -7,7 +7,7 @@ var data = {}
 func by_probability(a, b):
 	return a["probability"] < b["probability"]
 
-func _enter_tree():
+func initialize():
 	for asset_name in Exchange.all:
 		data[asset_name] = {
 			"name": asset_name,
