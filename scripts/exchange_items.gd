@@ -59,7 +59,7 @@ func asset_weight_to_float(weight):
 func perform_exchange(asset_from, asset_to, amount_from):
 	Api.perform_exchange(self, asset_from, asset_to, amount_from)
 
-func _on_api_perform_exchange_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray):
+func _on_api_perform_exchange_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray, http_request_object: HTTPRequest):
 	if response_code == 200:
 		var json = JSON.new()
 		json.parse(body.get_string_from_ascii())
@@ -67,6 +67,7 @@ func _on_api_perform_exchange_completed(_result: int, response_code: int, _heade
 		owner.update_asset_values()
 	else:
 		printerr("HTTP request failed with response code: " + str(response_code))
+	http_request_object.queue_free()
 
 func _on_visibility_changed():
 	update_exchange_values()

@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc600xr1no4ee"]
+
+[ext_resource type="Texture2D" uid="uid://qcvcsh2o044c" path="res://media/loading_screen_backgrounds/1.jpeg" id="1_iymg8"]
+[ext_resource type="Script" path="res://scripts/load_data_from_server.gd" id="2_ghw4e"]
+[ext_resource type="Texture2D" uid="uid://bjtk0ojabs5he" path="res://media/sprites/user_interface/shmup.png" id="3_o5kli"]
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="3_weha7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0vn2"]
+bg_color = Color(0, 0, 0, 0.317647)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="LoadDataFromServer" type="TextureRect"]
+z_index = 4096
+z_as_relative = false
+offset_right = 1080.0
+offset_bottom = 1960.0
+texture = ExtResource("1_iymg8")
+script = ExtResource("2_ghw4e")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(800, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0vn2")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 44
+text = "Loading data from server
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 157.0
+offset_right = 482.0
+offset_bottom = 240.0
+theme = ExtResource("3_weha7")
+text = "RETRY"
+
+[node name="Loading" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="_0" type="ColorRect" parent="Panel/Loading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 340.0
+offset_top = 143.0
+offset_right = 360.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="_1" type="ColorRect" parent="Panel/Loading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 370.0
+offset_top = 143.0
+offset_right = 390.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="_2" type="ColorRect" parent="Panel/Loading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 400.0
+offset_top = 143.0
+offset_right = 420.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 720.0
+grow_horizontal = 2
+texture = ExtResource("3_o5kli")
+
+[connection signal="pressed" from="Panel/Retry" to="." method="_load_data"]
