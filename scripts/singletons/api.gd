@@ -34,8 +34,7 @@ func perform_exchange(requesting_object, asset_from, asset_to, amount_from):
 		"user_handle": DataManager.user_handle,
 		"asset_from": asset_from,
 		"asset_to": asset_to,
-		"amount_from": amount_from,
-		"exchange_multiplier": DataManager.player_data.commander.exchange_multiplier
+		"amount_from": amount_from
 	}
 
 	var json_request_body = JSON.stringify(request_body)

@@ -14,8 +14,12 @@ func exchange_rates(from, to):
 
 	var rate_from = rates[from] * DataManager.player_data.commander.exchange_multiplier
 	var rate_to = rates[to]
+	var amount_from = 1
+	var amount_to = 1
 
 	if rate_from > rate_to:
-		return {"from": "-1 g", "to": G.display_weight(rate_from / float(rate_to))}
+		amount_to = rate_from / float(rate_to)
 	else:
-		return {"from": G.display_weight(-rate_to / float(rate_from)), "to": "+1 g"}
+		amount_from = rate_to / float(rate_from)
+	
+	return {"from": G.display_weight(-amount_from), "to": G.display_weight(amount_to), "disable": amount_from > DataManager.player_data.asset[from]}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bnokon2i6e1kh"]
+[gd_scene load_steps=19 format=3 uid="uid://bnokon2i6e1kh"]
 
 [ext_resource type="Script" path="res://scenes/modals/market.gd" id="1_02tyr"]
 [ext_resource type="Script" path="res://scripts/exchange_items.gd" id="1_3yjv3"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b2niry3mi8b16" path="res://media/sprites/assets/Eternium.png" id="11_o1wqs"]
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="12_dmosx"]
 [ext_resource type="Texture2D" uid="uid://cw6tsd5klfh0q" path="res://media/sprites/user_interface/arrow_right.png" id="13_s3l7t"]
+[ext_resource type="Texture2D" uid="uid://cxfjpm5g5l8qp" path="res://media/sprites/user_interface/arrow_right_disabled.png" id="15_m5c2i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
 font_size = 40
@@ -87,9 +88,9 @@ alignment = 1
 script = ExtResource("1_3yjv3")
 
 [node name="AssetFrom" type="OptionButton" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(240, 200)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 2
 theme_override_icons/arrow = SubResource("ImageTexture_jo1gd")
 icon_alignment = 1
 expand_icon = true
@@ -128,6 +129,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 texture_normal = ExtResource("13_s3l7t")
+texture_disabled = ExtResource("15_m5c2i")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -140,9 +142,9 @@ text = "0"
 vertical_alignment = 1
 
 [node name="AssetTo" type="OptionButton" parent="MarginContainer/VBoxContainer/Exchange/ExchangeItems"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 theme_override_icons/arrow = SubResource("ImageTexture_q353p")
 icon_alignment = 1
 expand_icon = true

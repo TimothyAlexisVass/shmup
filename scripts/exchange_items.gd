@@ -16,6 +16,20 @@ func _on_item_2_item_selected(selected_index):
 	update_exchange_values()
 
 func update_exchange_values():
+	var to_selected = $AssetTo.get_selected()
+	$AssetTo.clear()
+	var exchangeable = 9
+	if from in Exchange.metal:
+		exchangeable = 5
+	elif from in (Exchange.gem + ["Veritasium"]):
+		exchangeable = 8
+	for i in range(exchangeable):
+		$AssetTo.add_icon_item(Asset.data[Exchange.all[i]].texture, "", i)
+		if i == $AssetFrom.get_selected():
+			$AssetTo.set_item_disabled(i, true)
+		elif i == to_selected:
+				$AssetTo.select(to_selected)
+
 	var exchange_rates = Exchange.exchange_rates(Exchange.all[$AssetFrom.get_selected()], Exchange.all[$AssetTo.get_selected()])
 	if exchange_rates == null:
 		$AmountFrom.set_visible(false)
@@ -23,8 +37,11 @@ func update_exchange_values():
 		$PerformExchange.set_visible(false)
 	else:
 		$AmountFrom.text = exchange_rates.from
-		$AmountTo.text = exchange_rates.to
+		$AmountTo.text = "+" + exchange_rates.to
 		$AmountFrom.set_visible(true)
+		$AmountTo.set_visible(true)
+		$PerformExchange.set_visible(true)
+		$PerformExchange.set_disabled(exchange_rates.disable)
 
 func _on_item_1_to_item_2_pressed():
 	perform_exchange(from, to, -asset_weight_to_float($AmountFrom.text))
