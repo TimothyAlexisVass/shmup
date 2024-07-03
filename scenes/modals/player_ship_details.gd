@@ -5,7 +5,7 @@ var player_ship_details
 
 @onready var ship_texture = $MarginContainer/VBoxContainer/Control/ShipTexture
 @onready var cannon_mount_positions = $MarginContainer/VBoxContainer/Control/CannonPositions
-
+@onready var mounted_cannon_details = $MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer
 
 const CANNON_MOUNT_POSITION_SCENE = preload("res://scenes/modals/cannon_mount_position.tscn")
 
@@ -33,18 +33,30 @@ func initialize(player_ship_name):
 func update_cannon_mount_positions():
 	for cannon_mount_position in available_cannon_mount_positions:
 		var texture_button = cannon_mount_position.get_node("TextureButton")
-		var cannon_data = null
+		var cannon_details = null
 		if cannon_mount_position.name in player_ship_details.cannons.keys():
-			cannon_data = player_ship_details.cannons[cannon_mount_position.name]
-			texture_button.texture_normal = load("res://media/sprites/cannons/" + cannon_data.shot_type + ".png")
+			cannon_details = player_ship_details.cannons[cannon_mount_position.name]
+			texture_button.texture_normal = load("res://media/sprites/cannons/" + cannon_details.shot_type + ".png")
 		else:
 			texture_button.texture_normal = null
 		if texture_button.pressed.is_connected(_on_cannon_mount_position_button_pressed):
 			texture_button.pressed.disconnect(_on_cannon_mount_position_button_pressed)
-		texture_button.pressed.connect(_on_cannon_mount_position_button_pressed.bind(cannon_mount_position.name, cannon_data))
+		texture_button.pressed.connect(_on_cannon_mount_position_button_pressed.bind(cannon_mount_position.name, cannon_details))
+		if cannon_mount_position.name == "Main":
+			texture_button.pressed.emit()
+	available_cannon_mount_positions = []
 
-func _on_cannon_mount_position_button_pressed(cannon_mount_position_name, cannon_data):
-	print(cannon_mount_position_name, " with cannon_data: ", cannon_data)
+func _on_cannon_mount_position_button_pressed(cannon_mount_position_name, cannon_details):
+	for cannon_property in mounted_cannon_details.get_children():
+		cannon_property.get_node("label").text = ""
+		cannon_property.get_node("value").text = ""
+	$MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/CannonName.text = cannon_mount_position_name + (": " + cannon_details.name + " (" + cannon_details.shot_type + ")" if cannon_details else ": Empty mount")
+	for cannon_property in mounted_cannon_details.get_children():
+		if cannon_details:
+			var value = cannon_details.get(cannon_property.name)
+			if value is PackedFloat32Array or (value && value > 0):
+				cannon_property.get_node("label").text = cannon_property.name.replace("_", " ").capitalize()
+				cannon_property.get_node("value").text = str(value)
 
 func _on_close_button_pressed():
 	set_visible(false)

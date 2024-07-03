@@ -71,6 +71,11 @@ func handle_loaded_data(loaded_data):
 			save_user()
 		player_data.commander = loaded_data.commander
 		player_data.player_ship = loaded_data.player_ship
+		for player_ship_name in player_data.player_ship:
+			var player_ship = player_data.player_ship[player_ship_name]
+			for cannon in player_ship.cannons:
+				player_ship.cannons[cannon] = Cannon.from_data(player_ship.cannons[cannon])
+
 		player_data.pilot = loaded_data.pilot
 		player_data.levels = loaded_data.levels
 		player_data.asset = loaded_data.asset

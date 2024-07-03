@@ -2,6 +2,10 @@ extends Node
 
 const SHOT_TYPE = ["Plasma", "Bullet"] #, "Missile", "Lazer", "Split", "Rail", "Beam"]
 
+const NAME = {
+	"Plasma": "Plasma Cannon",
+	"Bullet": "Ballistic Cannon"
+}
 const SHOT_SCENE = {
 	"Plasma": preload("res://scenes/shots/Plasma.tscn"),
 	"Bullet": preload("res://scenes/shots/Bullet.tscn"),
@@ -211,6 +215,7 @@ func get_dot_duration(dot_effect):
 func from_data(data: Dictionary):
 	var cannon = CannonDetails.new()
 
+	cannon.name = data["name"]
 	cannon.level = data["level"]
 	cannon.rarity = data["rarity"]
 	cannon.shot_type = data["shot_type"]
@@ -240,6 +245,7 @@ func generate(rarity):
 	var cannon = CannonDetails.new()
 	var shot_pattern_type = SHOT_PATTERN[shot_type].pick_random()
 	
+	cannon.name = NAME[shot_type]
 	cannon.rarity = rarity
 	cannon.shot_type = shot_type
 	cannon.shot_scene = SHOT_SCENE[shot_type]

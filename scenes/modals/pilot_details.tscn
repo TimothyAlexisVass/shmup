@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7yexr25u75qg"]
+[gd_scene load_steps=6 format=3 uid="uid://7yexr25u75qg"]
 
 [ext_resource type="Script" path="res://scenes/modals/pilot_details.gd" id="1_srh87"]
 [ext_resource type="Texture2D" uid="uid://stkdc8nv0fiq" path="res://resources/textures/Justice.tres" id="2_htd3b"]
+[ext_resource type="FontFile" uid="uid://4dbu8a8q0yju" path="res://styles/standard_font.tres" id="4_67mgr"]
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="4_sitx4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
@@ -74,6 +75,7 @@ grow_horizontal = 0
 scale = Vector2(1.00469, 0.995552)
 theme = ExtResource("4_sitx4")
 theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("4_67mgr")
 text = "X"
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

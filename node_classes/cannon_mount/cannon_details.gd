@@ -1,5 +1,6 @@
 class_name CannonDetails extends Resource
 var level: int = 0
+@export var name: String = "Cannon"
 @export var rarity: G.RARITY = G.RARITY.COMMON
 @export var shot_type: String = "Plasma"
 @export var shot_scene: PackedScene = preload("res://scenes/shots/Plasma.tscn")

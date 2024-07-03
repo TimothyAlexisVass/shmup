@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cja3ju4kxn6nu"]
+[gd_scene load_steps=10 format=3 uid="uid://cja3ju4kxn6nu"]
 
 [ext_resource type="Script" path="res://scripts/modals.gd" id="1_wjugu"]
 [ext_resource type="PackedScene" uid="uid://bnokon2i6e1kh" path="res://scenes/modals/market.tscn" id="2_1f5bt"]
 [ext_resource type="PackedScene" uid="uid://cbtbvvtv5hmw3" path="res://scenes/modals/ships.tscn" id="3_iyudx"]
 [ext_resource type="PackedScene" uid="uid://bokjfmmv4qwpa" path="res://scenes/modals/player_ship_details.tscn" id="4_g34sh"]
 [ext_resource type="PackedScene" uid="uid://dv1e8t3ohofx7" path="res://scenes/modals/pilots.tscn" id="4_pfkm0"]
+[ext_resource type="FontFile" uid="uid://4dbu8a8q0yju" path="res://styles/standard_font.tres" id="7_5ti2v"]
 [ext_resource type="PackedScene" uid="uid://7yexr25u75qg" path="res://scenes/modals/pilot_details.tscn" id="8_83pgs"]
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="13_tovdy"]
 [ext_resource type="PackedScene" uid="uid://r7c2iilnr7r0" path="res://scenes/modals/commander.tscn" id="18_m2x1w"]
@@ -44,6 +45,7 @@ visible = false
 layout_mode = 0
 
 [node name="CloseButton" type="Button" parent="Screens"]
+visible = false
 z_index = 4096
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
@@ -53,6 +55,7 @@ offset_right = 1064.0
 offset_bottom = 90.0
 theme = ExtResource("13_tovdy")
 theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("7_5ti2v")
 text = "X"
 
 [node name="ShipDetails" parent="Screens" instance=ExtResource("4_g34sh")]
@@ -63,6 +66,7 @@ offset_bottom = 0.0
 scale = Vector2(1, 1)
 
 [node name="PilotDetails" parent="Screens" instance=ExtResource("8_83pgs")]
+visible = false
 z_index = 999
 layout_mode = 1
 scale = Vector2(1, 1)
