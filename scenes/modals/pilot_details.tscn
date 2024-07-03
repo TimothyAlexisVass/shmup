@@ -66,12 +66,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -76.0
-offset_bottom = 77.0
+offset_left = -92.0
+offset_top = 13.0
+offset_right = -16.0
+offset_bottom = 90.0
 grow_horizontal = 0
 scale = Vector2(1.00469, 0.995552)
 theme = ExtResource("4_sitx4")
 theme_type_variation = &"FlatButton"
-text = "×"
+text = "X"
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

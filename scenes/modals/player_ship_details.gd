@@ -1,16 +1,18 @@
 extends ColorRect
 
 var available_cannon_mounts = []
+var player_ship_details
 
 @onready var ship_texture = $MarginContainer/VBoxContainer/Control/ShipTexture
 @onready var cannon_mount_positions = $MarginContainer/VBoxContainer/Control/CannonPositions
-@onready var selected_ship_data = DataManager.player_data.player_ship[DataManager.player_data.selected_player_ship]
+
 
 const CANNON_MOUNT_POSITION_SCENE = preload("res://scenes/modals/cannon_mount_position.tscn")
 
 var available_cannon_mount_positions = []
 
 func initialize(player_ship_name):
+	player_ship_details = DataManager.player_data.player_ship[player_ship_name]
 	available_cannon_mounts = []
 	var player_ship_data = PlayerShip.data[player_ship_name]
 	var player_ship_instance = player_ship_data.scene.instantiate()
@@ -31,15 +33,18 @@ func initialize(player_ship_name):
 func update_cannon_mount_positions():
 	for cannon_mount_position in available_cannon_mount_positions:
 		var texture_button = cannon_mount_position.get_node("TextureButton")
-		if cannon_mount_position.name in selected_ship_data.cannons.keys():
-			var cannon_data = selected_ship_data.cannons[cannon_mount_position.name]
+		var cannon_data = null
+		if cannon_mount_position.name in player_ship_details.cannons.keys():
+			cannon_data = player_ship_details.cannons[cannon_mount_position.name]
 			texture_button.texture_normal = load("res://media/sprites/cannons/" + cannon_data.shot_type + ".png")
 		else:
 			texture_button.texture_normal = null
-		texture_button.connect("pressed", Callable(self, "_on_cannon_mount_position_button_pressed").bind(cannon_mount_position.name))
+		if texture_button.pressed.is_connected(_on_cannon_mount_position_button_pressed):
+			texture_button.pressed.disconnect(_on_cannon_mount_position_button_pressed)
+		texture_button.pressed.connect(_on_cannon_mount_position_button_pressed.bind(cannon_mount_position.name, cannon_data))
 
-func _on_cannon_mount_position_button_pressed(cannon_mount_position_name):
-	print(cannon_mount_position_name)
+func _on_cannon_mount_position_button_pressed(cannon_mount_position_name, cannon_data):
+	print(cannon_mount_position_name, " with cannon_data: ", cannon_data)
 
 func _on_close_button_pressed():
 	set_visible(false)

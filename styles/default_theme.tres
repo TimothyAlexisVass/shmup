@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=11 format=3 uid="uid://cpj6nfev0p1o"]
 
 [ext_resource type="StyleBox" uid="uid://oc0e2hqy5rbd" path="res://styles/default_button_normal.tres" id="2_yh5rb"]
-[ext_resource type="FontFile" uid="uid://bhr2rhqo8dmnd" path="res://media/fonts/Kenney Future.ttf" id="3_0yrwv"]
+[ext_resource type="FontFile" uid="uid://4dbu8a8q0yju" path="res://styles/standard_font.tres" id="3_4fca7"]
 [ext_resource type="StyleBox" uid="uid://cymsvgj7cukaq" path="res://styles/default_panel_container.tres" id="3_orjdp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pof0g"]
@@ -75,7 +75,7 @@ bg_color = Color(1, 1, 1, 0.141176)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3kac"]
 
 [resource]
-default_font = ExtResource("3_0yrwv")
+default_font = ExtResource("3_4fca7")
 default_font_size = 32
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)

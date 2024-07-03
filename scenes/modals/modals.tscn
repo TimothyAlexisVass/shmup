@@ -44,19 +44,18 @@ visible = false
 layout_mode = 0
 
 [node name="CloseButton" type="Button" parent="Screens"]
-visible = false
 z_index = 4096
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 1004.0
-offset_right = 1080.0
-offset_bottom = 77.0
+offset_left = 988.0
+offset_top = 13.0
+offset_right = 1064.0
+offset_bottom = 90.0
 theme = ExtResource("13_tovdy")
 theme_type_variation = &"FlatButton"
-text = "×"
+text = "X"
 
 [node name="ShipDetails" parent="Screens" instance=ExtResource("4_g34sh")]
-visible = false
 z_index = 999
 layout_mode = 1
 offset_right = 0.0
