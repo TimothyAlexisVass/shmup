@@ -5,11 +5,16 @@ var player_ship_details
 
 @onready var ship_texture = $MarginContainer/VBoxContainer/Control/ShipTexture
 @onready var cannon_mount_positions = $MarginContainer/VBoxContainer/Control/CannonPositions
-@onready var mounted_cannon_details = $MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer
+@onready var mounted_cannon_details_grid = $MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer
+@onready var mounted_cannon_name = $MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/CannonName
 
 const CANNON_MOUNT_POSITION_SCENE = preload("res://scenes/modals/cannon_mount_position.tscn")
 
 var available_cannon_mount_positions = []
+
+func _ready():
+	$MarginContainer/VBoxContainer/Inventory.inventory_cannon_details_grid = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer
+	$MarginContainer/VBoxContainer/Inventory.inventory_cannon_name = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/CannonName
 
 func initialize(player_ship_name):
 	player_ship_details = DataManager.player_data.player_ship[player_ship_name]
@@ -47,14 +52,13 @@ func update_cannon_mount_positions():
 	available_cannon_mount_positions = []
 
 func _on_cannon_mount_position_button_pressed(cannon_mount_position_name, cannon_details):
-	for cannon_property in mounted_cannon_details.get_children():
+	mounted_cannon_name.text = cannon_mount_position_name + (": " + cannon_details.name + " (" + cannon_details.shot_type + ")" if cannon_details else ": Empty mount")
+	for cannon_property in mounted_cannon_details_grid.get_children():
 		cannon_property.get_node("label").text = ""
 		cannon_property.get_node("value").text = ""
-	$MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/CannonName.text = cannon_mount_position_name + (": " + cannon_details.name + " (" + cannon_details.shot_type + ")" if cannon_details else ": Empty mount")
-	for cannon_property in mounted_cannon_details.get_children():
 		if cannon_details:
 			var value = cannon_details.get(cannon_property.name)
-			if value is PackedFloat32Array or (value && value > 0):
+			if value is Array or (value && value > 0):
 				cannon_property.get_node("label").text = cannon_property.name.replace("_", " ").capitalize()
 				cannon_property.get_node("value").text = str(value)
 

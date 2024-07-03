@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc3wlyd3mgmn8"]
+[gd_scene load_steps=3 format=3 uid="uid://cc3wlyd3mgmn8"]
 
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="1_6r7op"]
 [ext_resource type="StyleBox" uid="uid://df54abohdvn00" path="res://styles/inventory_slot_panel.tres" id="2_wli24"]
-[ext_resource type="Texture2D" uid="uid://b1p8dycrt3i7o" path="res://media/sprites/cannons/Bullet.png" id="3_pm85x"]
 
 [node name="InventorySlot" type="Panel"]
 custom_minimum_size = Vector2(160, 160)
@@ -16,7 +15,7 @@ grow_horizontal = 2
 theme = ExtResource("1_6r7op")
 theme_override_styles/panel = ExtResource("2_wli24")
 
-[node name="Texture" type="TextureRect" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,6 +28,4 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_pm85x")
-expand_mode = 1
 stretch_mode = 5

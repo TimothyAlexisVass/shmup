@@ -5,7 +5,7 @@ enum EFFECT {BOOST}
 @export var duration: float = 0.0
 @export var cooldown: float = 0.0
 @export var autocast: bool = true
-@export var cast_rate: PackedFloat32Array = [0.1]
+@export var cast_rate: Array = [0.1]
 @export var target: TARGET = TARGET.SELF
 @export var graze_power_required: int = 0
 @export var base_value: float = 0.05

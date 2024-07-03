@@ -90,7 +90,7 @@ func colored_light(color):
 func diminishing_decrease(base, skill_level, dampening_factor = 1):
 	if base is float:
 		return snapped(base / sqrt(skill_level / float(dampening_factor) + 1), 0.01)
-	elif base is PackedFloat32Array:
+	elif base is Array:
 		for index in range(base.size()):
 			base.set(index, snapped(base[index] / sqrt(skill_level / float(dampening_factor) + 1), 0.01))
 		return base
@@ -98,7 +98,7 @@ func diminishing_decrease(base, skill_level, dampening_factor = 1):
 func diminishing_increase(base, skill_level, dampening_factor = 1):
 	if base is float:
 		return snapped(base * sqrt(skill_level / float(dampening_factor) + 1), 0.01)
-	elif base is PackedFloat32Array:
+	elif base is Array:
 		for index in range(base.size()):
 			base.set(index, snapped(base[index] * sqrt(skill_level / float(dampening_factor) + 1), 0.01))
 		return base

@@ -21,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme = ExtResource("13_tovdy")
 script = ExtResource("1_wjugu")
 
 [node name="Screens" type="Control" parent="."]
@@ -59,6 +60,7 @@ theme_override_fonts/font = ExtResource("7_5ti2v")
 text = "X"
 
 [node name="ShipDetails" parent="Screens" instance=ExtResource("4_g34sh")]
+visible = false
 z_index = 999
 layout_mode = 1
 offset_right = 0.0

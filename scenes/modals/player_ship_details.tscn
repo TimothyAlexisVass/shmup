@@ -733,7 +733,7 @@ theme = ExtResource("2_0e38j")
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails"]
 layout_mode = 2
 
-[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer"]
+[node name="CannonName" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("2_0e38j")
@@ -747,276 +747,244 @@ size_flags_vertical = 6
 theme = ExtResource("2_0e38j")
 columns = 2
 
-[node name="ShotRateContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="shot_rate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShotRateLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotRateContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_rate"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Shot rate: "
 
-[node name="ShotRateValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotRateContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_rate"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "[1, 0.2]"
 horizontal_alignment = 2
 
-[node name="ShotSpeedContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="shot_speed" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShotSpeedLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotSpeedContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_speed"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "Shot speed: "
 
-[node name="ShotSpeedValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotSpeedContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_speed"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "900"
 horizontal_alignment = 2
 
-[node name="ShotPowerContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="shot_power" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShotPowerLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotPowerContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_power"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
-text = "Shot power: "
 
-[node name="ShotPowerValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotPowerContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_power"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall2"
-text = "1"
 horizontal_alignment = 2
 
-[node name="ShotDurationContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="shot_duration" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShotDurationLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotDurationContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_duration"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall2"
-text = "Shot duration: "
 
-[node name="ShotDurationValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotDurationContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_duration"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
-text = "persisting"
 horizontal_alignment = 2
 
-[node name="ShotSpreadContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="shot_spread" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShotSpreadLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotSpreadContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_spread"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Shot spread: "
 
-[node name="ShotSpreadValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ShotSpreadContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/shot_spread"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "-"
 horizontal_alignment = 2
 
-[node name="AreaOfImpactContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="area_of_impact" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AreaOfImpactLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/AreaOfImpactContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/area_of_impact"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "Area of impact: "
 
-[node name="AreaOfImpactValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/AreaOfImpactContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/area_of_impact"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "-"
 horizontal_alignment = 2
 
-[node name="HomingAmountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="homing_amount" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HomingAmountLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/HomingAmountContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/homing_amount"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall2"
-text = "Homing amount: "
 
-[node name="HomingAmountValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/HomingAmountContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/homing_amount"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
-text = "-"
 horizontal_alignment = 2
 
-[node name="HomingPriorityContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="homing_priority" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HomingPriorityLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/HomingPriorityContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/homing_priority"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
-text = "Homing priority: "
 
-[node name="HomingPriorityValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/HomingPriorityContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/homing_priority"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall2"
-text = "-"
 horizontal_alignment = 2
 
-[node name="PenetrationChanceContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="penetration_chance" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PenetrationChanceLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/PenetrationChanceContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/penetration_chance"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "Penetration chance: "
 
-[node name="PenetrationChanceValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/PenetrationChanceContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/penetration_chance"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "-"
 horizontal_alignment = 2
 
-[node name="PenetrationCountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="penetration_count" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PenetrationCountLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/PenetrationCountContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/penetration_count"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Penetration count: "
 
-[node name="PenetrationCountValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/PenetrationCountContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/penetration_count"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "-"
 horizontal_alignment = 2
 
-[node name="RicochetCountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="ricochet_count" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RicochetCountLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/RicochetCountContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ricochet_count"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall2"
-text = "Ricochet count: "
 
-[node name="RicochetCountValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/RicochetCountContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/ricochet_count"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
-text = "-"
 horizontal_alignment = 2
 
-[node name="FalloffRateContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="fallof_rate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FalloffRateLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/FalloffRateContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/fallof_rate"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
-text = "Falloff rate: "
 
-[node name="FalloffRateValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/FalloffRateContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/fallof_rate"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall2"
-text = "100%"
 horizontal_alignment = 2
 
-[node name="PerfectChanceContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="perfect_chance" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PerfectChanceLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/PerfectChanceContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/perfect_chance"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Perfect chance: "
 
-[node name="PerfectChanceValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/PerfectChanceContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/perfect_chance"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "1%"
 horizontal_alignment = 2
 
-[node name="PerfectMultiplierContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="perfect_multiplier" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PerfectMultiplierLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/PerfectMultiplierContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/perfect_multiplier"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "Perfect multiplier: "
 
-[node name="PerfectMultiplierValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/PerfectMultiplierContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/perfect_multiplier"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "110%"
 horizontal_alignment = 2
 
-[node name="DotEffectContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="dot_effect" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DotEffectLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/DotEffectContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/dot_effect"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
-text = "Dot effect: "
 
-[node name="DotEffectValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/DotEffectContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/dot_effect"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall2"
-text = "none"
 horizontal_alignment = 2
 
-[node name="DotDurationContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="dot_duration" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DotDurationLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/DotDurationContainer"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/dot_duration"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall2"
-text = "Dot duration: "
 
-[node name="DotDurationValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/DotDurationContainer"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/dot_duration"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
-text = "-"
 horizontal_alignment = 2
 
 [node name="Inventory" type="GridContainer" parent="MarginContainer/VBoxContainer"]
