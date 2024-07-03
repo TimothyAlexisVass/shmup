@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bhvqbpaon1637" path="res://scenes/modals/cannon_mount_position.tscn" id="3_vdcnk"]
 [ext_resource type="Script" path="res://scenes/modals/inventory.gd" id="4_fg46t"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1ohth"]
-font_size = 40
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paaje"]
 resource_local_to_scene = true
 bg_color = Color(0, 0, 0.145098, 1)
@@ -241,6 +238,23 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="FontFile" id="FontFile_xihap"]
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+
 [node name="ShipDetails" type="ColorRect"]
 custom_minimum_size = Vector2(1080, 1960)
 offset_right = 1080.0
@@ -265,14 +279,304 @@ layout_mode = 2
 [node name="Heading" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme = ExtResource("2_0e38j")
+theme_type_variation = &"HeaderLarge"
 text = "SHIP DETAILS"
-label_settings = SubResource("LabelSettings_1ohth")
 horizontal_alignment = 1
 
 [node name="MountedItemDetails" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 theme = ExtResource("2_0e38j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails"]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_0e38j")
+theme_type_variation = &"HeaderMedium"
+text = "Main: Ballistic Cannon (Bullet)"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_0e38j")
+columns = 2
+
+[node name="ShotRateContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotRateLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotRateContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Shot rate: "
+
+[node name="ShotRateValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotRateContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "[1, 0.2]"
+horizontal_alignment = 2
+
+[node name="ShotSpeedContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotSpeedLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotSpeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Shot speed: "
+
+[node name="ShotSpeedValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotSpeedContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "900"
+horizontal_alignment = 2
+
+[node name="ShotPowerContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotPowerLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotPowerContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "Shot power: "
+
+[node name="ShotPowerValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotPowerContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "1"
+horizontal_alignment = 2
+
+[node name="ShotDurationContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotDurationLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotDurationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "Shot duration: "
+
+[node name="ShotDurationValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotDurationContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "persisting"
+horizontal_alignment = 2
+
+[node name="ShotSpreadContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotSpreadLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotSpreadContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Shot spread: "
+
+[node name="ShotSpreadValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/ShotSpreadContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "-"
+horizontal_alignment = 2
+
+[node name="AreaOfImpactContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AreaOfImpactLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/AreaOfImpactContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Area of impact: "
+
+[node name="AreaOfImpactValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/AreaOfImpactContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "-"
+horizontal_alignment = 2
+
+[node name="HomingAmountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomingAmountLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/HomingAmountContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "Homing amount: "
+
+[node name="HomingAmountValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/HomingAmountContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "-"
+horizontal_alignment = 2
+
+[node name="HomingPriorityContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomingPriorityLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/HomingPriorityContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "Homing priority: "
+
+[node name="HomingPriorityValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/HomingPriorityContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "-"
+horizontal_alignment = 2
+
+[node name="PenetrationChanceContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PenetrationChanceLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/PenetrationChanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Penetration chance: "
+
+[node name="PenetrationChanceValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/PenetrationChanceContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "-"
+horizontal_alignment = 2
+
+[node name="PenetrationCountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PenetrationCountLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/PenetrationCountContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Penetration count: "
+
+[node name="PenetrationCountValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/PenetrationCountContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "-"
+horizontal_alignment = 2
+
+[node name="RicochetCountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RicochetCountLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/RicochetCountContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "Ricochet count: "
+
+[node name="RicochetCountValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/RicochetCountContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "-"
+horizontal_alignment = 2
+
+[node name="FalloffRateContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FalloffRateLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/FalloffRateContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "Falloff rate: "
+
+[node name="FalloffRateValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/FalloffRateContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "100%"
+horizontal_alignment = 2
+
+[node name="PerfectChanceContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PerfectChanceLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/PerfectChanceContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Perfect chance: "
+
+[node name="PerfectChanceValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/PerfectChanceContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "1%"
+horizontal_alignment = 2
+
+[node name="PerfectMultiplierContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PerfectMultiplierLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/PerfectMultiplierContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Perfect multiplier: "
+
+[node name="PerfectMultiplierValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/PerfectMultiplierContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "110%"
+horizontal_alignment = 2
+
+[node name="DotEffectContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DotEffectLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/DotEffectContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "Dot effect: "
+
+[node name="DotEffectValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/DotEffectContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "none"
+horizontal_alignment = 2
+
+[node name="DotDurationContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DotDurationLabel" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/DotDurationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "Dot duration: "
+
+[node name="DotDurationValue" type="Label" parent="MarginContainer/VBoxContainer/MountedItemDetails/VBoxContainer/GridContainer/DotDurationContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "-"
+horizontal_alignment = 2
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -442,6 +746,295 @@ custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 theme = ExtResource("2_0e38j")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails"]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_0e38j")
+theme_type_variation = &"HeaderMedium"
+text = "Main: Ballistic Cannon (Bullet)"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_0e38j")
+columns = 2
+
+[node name="ShotRateContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotRateLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotRateContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Shot rate: "
+
+[node name="ShotRateValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotRateContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "[1, 0.2]"
+horizontal_alignment = 2
+
+[node name="ShotSpeedContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotSpeedLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotSpeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Shot speed: "
+
+[node name="ShotSpeedValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotSpeedContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "900"
+horizontal_alignment = 2
+
+[node name="ShotPowerContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotPowerLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotPowerContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "Shot power: "
+
+[node name="ShotPowerValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotPowerContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "1"
+horizontal_alignment = 2
+
+[node name="ShotDurationContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotDurationLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotDurationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "Shot duration: "
+
+[node name="ShotDurationValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotDurationContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "persisting"
+horizontal_alignment = 2
+
+[node name="ShotSpreadContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShotSpreadLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotSpreadContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Shot spread: "
+
+[node name="ShotSpreadValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/ShotSpreadContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "-"
+horizontal_alignment = 2
+
+[node name="AreaOfImpactContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AreaOfImpactLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/AreaOfImpactContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Area of impact: "
+
+[node name="AreaOfImpactValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/AreaOfImpactContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "-"
+horizontal_alignment = 2
+
+[node name="HomingAmountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomingAmountLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/HomingAmountContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "Homing amount: "
+
+[node name="HomingAmountValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/HomingAmountContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "-"
+horizontal_alignment = 2
+
+[node name="HomingPriorityContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomingPriorityLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/HomingPriorityContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "Homing priority: "
+
+[node name="HomingPriorityValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/HomingPriorityContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "-"
+horizontal_alignment = 2
+
+[node name="PenetrationChanceContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PenetrationChanceLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/PenetrationChanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Penetration chance: "
+
+[node name="PenetrationChanceValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/PenetrationChanceContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "-"
+horizontal_alignment = 2
+
+[node name="PenetrationCountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PenetrationCountLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/PenetrationCountContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Penetration count: "
+
+[node name="PenetrationCountValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/PenetrationCountContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "-"
+horizontal_alignment = 2
+
+[node name="RicochetCountContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RicochetCountLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/RicochetCountContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "Ricochet count: "
+
+[node name="RicochetCountValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/RicochetCountContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "-"
+horizontal_alignment = 2
+
+[node name="FalloffRateContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FalloffRateLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/FalloffRateContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "Falloff rate: "
+
+[node name="FalloffRateValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/FalloffRateContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "100%"
+horizontal_alignment = 2
+
+[node name="PerfectChanceContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PerfectChanceLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/PerfectChanceContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Perfect chance: "
+
+[node name="PerfectChanceValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/PerfectChanceContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "1%"
+horizontal_alignment = 2
+
+[node name="PerfectMultiplierContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PerfectMultiplierLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/PerfectMultiplierContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Perfect multiplier: "
+
+[node name="PerfectMultiplierValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/PerfectMultiplierContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "110%"
+horizontal_alignment = 2
+
+[node name="DotEffectContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DotEffectLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/DotEffectContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "Dot effect: "
+
+[node name="DotEffectValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/DotEffectContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "none"
+horizontal_alignment = 2
+
+[node name="DotDurationContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DotDurationLabel" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/DotDurationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall2"
+text = "Dot duration: "
+
+[node name="DotDurationValue" type="Label" parent="MarginContainer/VBoxContainer/InventoryItemDetails/VBoxContainer/GridContainer/DotDurationContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall2"
+text = "-"
+horizontal_alignment = 2
+
 [node name="Inventory" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
@@ -487,12 +1080,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -76.0
-offset_bottom = 77.0
+offset_left = -92.305
+offset_top = 13.0
+offset_right = -16.3049
+offset_bottom = 90.0
 grow_horizontal = 0
 scale = Vector2(1.00469, 0.995552)
 theme = ExtResource("2_0e38j")
 theme_type_variation = &"FlatButton"
-text = "×"
+theme_override_fonts/font = SubResource("FontFile_xihap")
+text = "X"
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
