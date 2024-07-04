@@ -994,7 +994,6 @@ theme_override_constants/h_separation = 25
 theme_override_constants/v_separation = 25
 columns = 5
 script = ExtResource("4_fg46t")
-item_type = "cannon"
 
 [node name="DirectionalLightMix" type="DirectionalLight2D" parent="."]
 position = Vector2(1080, 0)
