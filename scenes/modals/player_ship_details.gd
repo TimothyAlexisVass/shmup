@@ -7,14 +7,15 @@ var player_ship_details
 @onready var cannon_mount_positions = $MarginContainer/VBoxContainer/Control/CannonPositions
 @onready var mounted_cannon_details_grid = $MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer
 @onready var mounted_cannon_name = $MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/CannonName
+@onready var inventory_cannon_details_grid = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer
+@onready var inventory_cannon_name = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/CannonName
 
 const CANNON_MOUNT_POSITION_SCENE = preload("res://scenes/modals/cannon_mount_position.tscn")
 
 var available_cannon_mount_positions = []
 
 func _ready():
-	$MarginContainer/VBoxContainer/Inventory.inventory_cannon_details_grid = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer
-	$MarginContainer/VBoxContainer/Inventory.inventory_cannon_name = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/CannonName
+	$MarginContainer/VBoxContainer/Inventory.owner = self
 
 func initialize(player_ship_name):
 	player_ship_details = DataManager.player_data.player_ship[player_ship_name]

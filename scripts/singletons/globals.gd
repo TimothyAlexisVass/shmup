@@ -150,6 +150,9 @@ func display_weight(value, smart_snapped = true):
 		value /= 1_000_000
 	return str(G.smart_snap(value) if smart_snapped else value) + suffix
 
+func sum(array: Array):
+	return float(array.reduce(func(accum, number): return accum + number, 0))
+
 # Experience and rank functionality
 const INITIAL_EXPERIENCE = 500
 const EXPERIENCE_INCREASE_FACTOR = 1.155
