@@ -80,7 +80,7 @@ func _on_inventory_cannon_pressed(cannon_id, cannon_details):
 	if not selected_cannon_mount_position == "Main":
 		$MarginContainer/VBoxContainer/ArrowShoosh.set_visible(true)
 
-func update_cannon_details(grid, cannon_details):
+func update_cannon_details(grid, cannon_details = null):
 	for cannon_property in grid.get_children():
 		cannon_property.get_node("label").text = ""
 		cannon_property.get_node("value").text = ""
@@ -93,10 +93,11 @@ func update_cannon_details(grid, cannon_details):
 func update_cannon_comparison():
 	for cannon_property in inventory_cannon_details_grid.get_children():
 		var inventory_value = cannon_property.get_node("value").text
+		var font_color = [Color.GREEN, Color.RED]
+		var mounted_value_node = mounted_cannon_details_grid.get_node(cannon_property.name + "/value")
+
 		if inventory_value != "":
-			var mounted_value_node = mounted_cannon_details_grid.get_node(cannon_property.name + "/value")
 			var mounted_value = mounted_value_node.text
-			var font_color = [Color.GREEN, Color.RED]
 			if mounted_value != "":
 				json.parse(mounted_value)
 				mounted_value = json.get_data()
@@ -109,13 +110,18 @@ func update_cannon_comparison():
 					font_color = [Color.RED, Color.GREEN]
 				elif inventory_value == mounted_value:
 					font_color = [Color.WHITE, Color.WHITE]
-			cannon_property.get_node("value").set("theme_override_colors/font_color", font_color[0])
-			mounted_value_node.set("theme_override_colors/font_color", font_color[1])
+		else:
+			font_color = [Color.WHITE, Color.WHITE]
+
+		cannon_property.get_node("value").set("theme_override_colors/font_color", font_color[0])
+		mounted_value_node.set("theme_override_colors/font_color", font_color[1])
 
 func _on_close_button_pressed():
 	set_visible(false)
 
 func initialize_inventory():
+	selected_inventory_cannon_id = null
+	update_cannon_details(inventory_cannon_details_grid)
 	G.clear_nodes_from(inventory_grid)
 	var cannon_inventory = DataManager.player_data.cannon
 	for cannon_id in cannon_inventory:
