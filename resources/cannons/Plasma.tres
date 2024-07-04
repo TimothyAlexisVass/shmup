@@ -6,7 +6,9 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_ts7sv")
+name = "Cannon"
 rarity = 0
+shot_type = "Plasma"
 shot_scene = ExtResource("2_wggyx")
 shot_rate = [1.0]
 shot_speed = 500.0

@@ -22,8 +22,6 @@ var commander_data = DataManager.player_data.commander
 @onready var graze_power_factor = G.diminishing_increase(pilot_data.graze_power_base, pilot_data.graze_power_level) * commander_data.graze_power_multiplier
 
 func _enter_tree():
-	for cannon_mount in ["FrontLeft", "FrontRight", "Rear"]:
-		ship_data.cannons[cannon_mount] = Cannon.generate(0)
 	global_position = spawn_position
 
 	var image_size = Vector2($Sprite.texture.diffuse_texture.get_image().get_size()) * scale
@@ -49,9 +47,9 @@ func _physics_process(delta):
 
 func mount_cannons():
 	var active_cannons = 1
-	for cannon in ship_data.cannons:
-		$CannonMounts.get_node(cannon).cannon = ship_data.cannons[cannon]
-		active_cannons +=1
+	for cannon_mount_name in ship_data.cannons:
+		$CannonMounts.get_node(cannon_mount_name).cannon = ship_data.cannons[cannon_mount_name]
+		active_cannons += 1
 		if active_cannons > pilot_data.max_cannon_count:
 			break
 	for cannon_mount in $CannonMounts.get_children():

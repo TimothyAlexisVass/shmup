@@ -18,6 +18,8 @@ var selected_cannon_mount_position = null
 var selected_inventory_cannon_id = null
 var player_ship_name
 
+var first_initialization = true
+
 var available_cannon_mount_positions = []
 var json = JSON.new()
 
@@ -31,19 +33,18 @@ func initialize(item_name):
 	for cannon_mount in player_ship_instance.get_node("CannonMounts").get_children():
 		available_cannon_mounts.append(cannon_mount.name)
 	player_ship_instance.queue_free()
-
-	for cannon_mount_position in cannon_mount_positions.get_children():
-		var visibility = false
-		if cannon_mount_position.name in available_cannon_mounts:
-			visibility = true
-			available_cannon_mount_positions.append(cannon_mount_position)
-		var process_mode_setting = ProcessMode.PROCESS_MODE_INHERIT if visibility else ProcessMode.PROCESS_MODE_DISABLED
-		cannon_mount_position.set_visible(visibility)
-		cannon_mount_position.set_process_mode(process_mode_setting)
 	ship_texture.texture = player_ship_data.texture
 
+	for cannon_mount_position in cannon_mount_positions.get_children():
+		var visibility = cannon_mount_position.name in available_cannon_mounts
+		if visibility:
+			available_cannon_mount_positions.append(cannon_mount_position)
+
+		cannon_mount_position.set_visible(visibility)
+		cannon_mount_position.set_process_mode(ProcessMode.PROCESS_MODE_INHERIT if visibility else ProcessMode.PROCESS_MODE_DISABLED)
+
 	update_cannon_mount_positions()
-	initialize_inventory()
+	update_inventory()
 	set_visible(true)
 
 func update_cannon_mount_positions():
@@ -119,7 +120,7 @@ func update_cannon_comparison():
 func _on_close_button_pressed():
 	set_visible(false)
 
-func initialize_inventory():
+func update_inventory():
 	selected_inventory_cannon_id = null
 	update_cannon_details(inventory_cannon_details_grid)
 	G.clear_nodes_from(inventory_grid)
@@ -147,9 +148,8 @@ func _on_api_mount_cannon_completed(_result: int, response_code: int, _headers: 
 		player_ship_details.cannons[selected_cannon_mount_position] = Cannon.from_data(data.new_mounted_cannon_details)
 		DataManager.player_data.cannon.erase(data.old_inventory_cannon_id)
 		if data.has("new_inventory_cannon_id"):
-			DataManager.player_data[data.new_inventory_cannon_id] = Cannon.from_data(data.new_inventory_cannon_details)
-		update_cannon_mount_positions()
-		initialize_inventory()
+			DataManager.player_data.cannon[data.new_inventory_cannon_id] = Cannon.from_data(data.new_inventory_cannon_details)
+		initialize(player_ship_name)
 	else:
 		printerr("HTTP request failed with response code: " + str(response_code))
 	http_request_object.queue_free()
