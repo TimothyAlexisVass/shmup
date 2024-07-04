@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://stkdc8nv0fiq" path="res://resources/textures/Justice.tres" id="1_hmwlg"]
 [ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="2_0e38j"]
 [ext_resource type="PackedScene" uid="uid://bhvqbpaon1637" path="res://scenes/modals/cannon_mount_position.tscn" id="3_vdcnk"]
-[ext_resource type="Script" path="res://scenes/modals/inventory.gd" id="4_fg46t"]
+[ext_resource type="Texture2D" uid="uid://dwp8dfnsu5uy1" path="res://media/sprites/user_interface/arrow_shoosh.png" id="5_lj0h8"]
 [ext_resource type="FontFile" uid="uid://4dbu8a8q0yju" path="res://styles/standard_font.tres" id="6_41g72"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paaje"]
@@ -244,6 +244,7 @@ custom_minimum_size = Vector2(1080, 1960)
 offset_right = 1080.0
 offset_bottom = 1960.0
 scale = Vector2(0.996259, 1)
+theme = ExtResource("2_0e38j")
 color = Color(0.0193544, 0.1022, 0.204826, 1)
 script = ExtResource("1_2hqho")
 
@@ -993,7 +994,24 @@ layout_mode = 2
 theme_override_constants/h_separation = 25
 theme_override_constants/v_separation = 25
 columns = 5
-script = ExtResource("4_fg46t")
+
+[node name="ArrowShoosh" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+modulate = Color(0.705882, 0.705882, 0.705882, 1)
+position = Vector2(793.305, 806)
+rotation = -1.32645
+scale = Vector2(1.13849, 1.10379)
+texture = ExtResource("5_lj0h8")
+
+[node name="MountButton" type="Button" parent="MarginContainer/VBoxContainer/ArrowShoosh"]
+offset_left = -171.958
+offset_top = -11.0738
+offset_right = -20.9584
+offset_bottom = 46.9262
+rotation = 1.32645
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("2_0e38j")
+text = "Mount"
 
 [node name="DirectionalLightMix" type="DirectionalLight2D" parent="."]
 position = Vector2(1080, 0)
@@ -1042,4 +1060,5 @@ theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("6_41g72")
 text = "X"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ArrowShoosh/MountButton" to="." method="_on_mount_button_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

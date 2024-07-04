@@ -42,3 +42,11 @@ func select(requesting_object, selection_type, selection_name):
 		"selection_name": selection_name
 	}
 	_make_request(requesting_object, "select", request_body, "_on_api_select_completed")
+
+func mount_cannon(requesting_object, player_ship_name, cannon_mount_name, inventory_cannon_id):
+	var request_body = {
+		"player_ship_name": player_ship_name,
+		"cannon_mount_name": cannon_mount_name,
+		"inventory_cannon_id": inventory_cannon_id
+	}
+	_make_request(requesting_object, "mount_cannon", request_body, "_on_api_mount_cannon_completed")

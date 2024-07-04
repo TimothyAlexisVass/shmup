@@ -223,7 +223,6 @@ func from_data(data: Dictionary):
 	cannon.shot_rate = []
 	for value in data["shot_rate"]:
 		cannon.shot_rate.append(snapped(value, 0.01))
-	print(cannon.shot_rate)
 	cannon.shot_speed = data["shot_speed"]
 	cannon.shot_power = data["shot_power"]
 	cannon.shot_color = Color.html(data["shot_color"])
@@ -252,9 +251,9 @@ func generate(rarity):
 	cannon.rarity = rarity
 	cannon.shot_type = shot_type
 	cannon.shot_scene = SHOT_SCENE[shot_type]
-	cannon.shot_rate = get_shot_rate(shot_type, shot_pattern_type)
-	for i in range(len(cannon.shot_rate)):
-		cannon.shot_rate[i] = snapped(cannon.shot_rate[i], 0.01)
+	cannon.shot_rate = []
+	for value in get_shot_rate(shot_type, shot_pattern_type):
+		cannon.shot_rate.append(snapped(value, 0.01))
 	cannon.shot_speed = get_shot_speed(shot_type)
 	cannon.shot_power = SHOT_POWER[shot_type]
 	cannon.shot_color = SHOT_COLOR[shot_type].pick_random()

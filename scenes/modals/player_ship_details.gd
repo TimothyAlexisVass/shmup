@@ -14,19 +14,24 @@ var player_ship_details
 const CANNON_MOUNT_POSITION_SCENE = preload("res://scenes/modals/cannon_mount_position.tscn")
 const INVENTORY_ITEM_SCENE = preload("res://scenes/modals/inventory_slot.tscn")
 
+var selected_cannon_mount_position = null
+var selected_inventory_cannon_id = null
+var player_ship_name
+
 var available_cannon_mount_positions = []
 var json = JSON.new()
 
-func _ready():
-	initialize_inventory()
-
-func initialize(player_ship_name):
+func initialize(item_name):
+	player_ship_name = item_name
+	$MarginContainer/VBoxContainer/ArrowShoosh.set_visible(false)
 	player_ship_details = DataManager.player_data.player_ship[player_ship_name]
 	available_cannon_mounts = []
 	var player_ship_data = PlayerShip.data[player_ship_name]
 	var player_ship_instance = player_ship_data.scene.instantiate()
 	for cannon_mount in player_ship_instance.get_node("CannonMounts").get_children():
 		available_cannon_mounts.append(cannon_mount.name)
+	player_ship_instance.queue_free()
+
 	for cannon_mount_position in cannon_mount_positions.get_children():
 		var visibility = false
 		if cannon_mount_position.name in available_cannon_mounts:
@@ -36,7 +41,9 @@ func initialize(player_ship_name):
 		cannon_mount_position.set_visible(visibility)
 		cannon_mount_position.set_process_mode(process_mode_setting)
 	ship_texture.texture = player_ship_data.texture
+
 	update_cannon_mount_positions()
+	initialize_inventory()
 	set_visible(true)
 
 func update_cannon_mount_positions():
@@ -57,13 +64,21 @@ func update_cannon_mount_positions():
 
 func _on_cannon_mount_position_button_pressed(cannon_mount_position_name, cannon_details):
 	mounted_cannon_name.text = cannon_mount_position_name + (": " + cannon_details.name + " (" + cannon_details.shot_type + ")" if cannon_details else ": Empty mount")
+	selected_cannon_mount_position = cannon_mount_position_name
+	if selected_cannon_mount_position == "Main":
+		$MarginContainer/VBoxContainer/ArrowShoosh.set_visible(false)
+	elif selected_inventory_cannon_id:
+		$MarginContainer/VBoxContainer/ArrowShoosh.set_visible(true)
 	update_cannon_details(mounted_cannon_details_grid, cannon_details)
 	update_cannon_comparison()
 
-func _on_inventory_cannon_pressed(cannon_details):
+func _on_inventory_cannon_pressed(cannon_id, cannon_details):
 	inventory_cannon_name.text = cannon_details.name + " (" + cannon_details.shot_type + ")"
+	selected_inventory_cannon_id = cannon_id
 	update_cannon_details(inventory_cannon_details_grid, cannon_details)
 	update_cannon_comparison()
+	if not selected_cannon_mount_position == "Main":
+		$MarginContainer/VBoxContainer/ArrowShoosh.set_visible(true)
 
 func update_cannon_details(grid, cannon_details):
 	for cannon_property in grid.get_children():
@@ -101,16 +116,34 @@ func _on_close_button_pressed():
 	set_visible(false)
 
 func initialize_inventory():
-	var cannons = DataManager.player_data.get("cannon")
-	for cannon in cannons:
-		add_inventory_cannon(cannons[cannon])
+	G.clear_nodes_from(inventory_grid)
+	var cannon_inventory = DataManager.player_data.cannon
+	for cannon_id in cannon_inventory:
+		add_inventory_cannon(cannon_id, cannon_inventory[cannon_id])
 
-func add_inventory_cannon(cannon_details):
+func add_inventory_cannon(cannon_id, cannon_details):
 	var inventory_cannon = INVENTORY_ITEM_SCENE.instantiate()
 	var texture_button = inventory_cannon.get_node("TextureButton")
 	texture_button.texture_normal = load("res://media/sprites/cannons/" + cannon_details.shot_type + ".png")
 
 	if texture_button.pressed.is_connected(_on_inventory_cannon_pressed):
 		texture_button.pressed.disconnect(_on_inventory_cannon_pressed)
-	texture_button.pressed.connect(_on_inventory_cannon_pressed.bind(cannon_details))
+	texture_button.pressed.connect(_on_inventory_cannon_pressed.bind(cannon_id, cannon_details))
 	inventory_grid.add_child(inventory_cannon)
+
+func _on_mount_button_pressed():
+	Api.mount_cannon(self, player_ship_name, selected_cannon_mount_position, selected_inventory_cannon_id)
+
+func _on_api_mount_cannon_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray, http_request_object: HTTPRequest):
+	if response_code == 200:
+		json.parse(body.get_string_from_ascii())
+		var data = json.get_data()
+		player_ship_details.cannons[selected_cannon_mount_position] = Cannon.from_data(data.new_mounted_cannon_details)
+		DataManager.player_data.cannon.erase(data.old_inventory_cannon_id)
+		if data.has("new_inventory_cannon_id"):
+			DataManager.player_data[data.new_inventory_cannon_id] = Cannon.from_data(data.new_inventory_cannon_details)
+		update_cannon_mount_positions()
+		initialize_inventory()
+	else:
+		printerr("HTTP request failed with response code: " + str(response_code))
+	http_request_object.queue_free()
