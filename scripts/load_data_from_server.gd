@@ -19,5 +19,5 @@ func _on_api_load_data_completed(_result: int, response_code: int, _headers: Arr
 
 func _load_data():
 	$Panel/Retry.set_visible(false)
-	$Panel/Label.text = "Loading data from server...\n\n"
+	$Panel/Label.text = "Loading data from server\n...\n"
 	Api.load_data(self)
