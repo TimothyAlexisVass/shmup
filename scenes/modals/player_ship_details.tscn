@@ -568,6 +568,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ShipTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
 light_mask = 512
 layout_mode = 1
 anchors_preset = 8

@@ -7,7 +7,7 @@ const HEADERS = ["Content-Type: application/json"]
 func _make_request(requesting_object, endpoint, request_body, callback_method):
 	request_body["user_handle"] = DataManager.user_handle
 
-	var http_request = HTTPRequest.new()
+	var http_request = LoadingHTTPRequest.new()
 	http_request.timeout = 30
 	requesting_object.add_child(http_request)
 	http_request.request_completed.connect(Callable(requesting_object, callback_method).bind(http_request))

@@ -32,10 +32,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -402.0
+offset_top = -192.0
+offset_right = 398.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -69,53 +69,6 @@ offset_right = 482.0
 offset_bottom = 240.0
 theme = ExtResource("3_weha7")
 text = "RETRY"
-
-[node name="Loading" type="Control" parent="Panel"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="_0" type="ColorRect" parent="Panel/Loading"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 340.0
-offset_top = 143.0
-offset_right = 360.0
-offset_bottom = 163.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="_1" type="ColorRect" parent="Panel/Loading"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 370.0
-offset_top = 143.0
-offset_right = 390.0
-offset_bottom = 163.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="_2" type="ColorRect" parent="Panel/Loading"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 400.0
-offset_top = 143.0
-offset_right = 420.0
-offset_bottom = 163.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

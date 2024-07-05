@@ -3,7 +3,6 @@ extends ColorRect
 var available_cannon_mounts = []
 var player_ship_details
 
-@onready var ship_texture = $MarginContainer/VBoxContainer/Control/ShipTexture
 @onready var cannon_mount_positions = $MarginContainer/VBoxContainer/Control/CannonPositions
 @onready var mounted_cannon_details_grid = $MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer
 @onready var mounted_cannon_name = $MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/CannonName
@@ -18,8 +17,6 @@ var selected_cannon_mount_position = null
 var selected_inventory_cannon_id = null
 var player_ship_name
 
-var first_initialization = true
-
 var available_cannon_mount_positions = []
 var json = JSON.new()
 
@@ -33,7 +30,7 @@ func initialize(item_name):
 	for cannon_mount in player_ship_instance.get_node("CannonMounts").get_children():
 		available_cannon_mounts.append(cannon_mount.name)
 	player_ship_instance.queue_free()
-	ship_texture.texture = player_ship_data.texture
+	%ShipTexture.texture = player_ship_data.texture
 
 	for cannon_mount_position in cannon_mount_positions.get_children():
 		var visibility = cannon_mount_position.name in available_cannon_mounts
