@@ -105,12 +105,12 @@ const SHOT_COLOR = {
 }
 
 const SHOT_DURATION = {
-	"Plasma": [10, 10],
-	"Bullet": [10, 10],
-	"Missile": [2, 10],
+	"Plasma": [99, 99],
+	"Bullet": [99, 99],
+	"Missile": [2, 99],
 	"Split": [0.5, 2],
 	"Lazer": [0.2, 1],
-	"Rail": [10, 10],
+	"Rail": [99, 99],
 	"Beam": [1, 5]
 }
 func get_shot_duration(shot_type):
@@ -219,6 +219,8 @@ func from_data(data: Dictionary):
 	cannon.level = data["level"]
 	cannon.rarity = data["rarity"]
 	cannon.shot_type = data["shot_type"]
+	cannon.texture_name = data["texture_name"]
+	cannon.texture = load("res://media/sprites/cannons/" + cannon.texture_name + ".png")
 	cannon.shot_scene = SHOT_SCENE[data["shot_type"]]
 	cannon.shot_rate = []
 	for value in data["shot_rate"]:

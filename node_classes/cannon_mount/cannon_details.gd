@@ -3,6 +3,8 @@ var level: int = 0
 @export var name: String = "Cannon"
 @export var rarity: G.RARITY = G.RARITY.COMMON
 @export var shot_type: String = "Plasma"
+@export var texture_name: String
+var texture: CompressedTexture2D
 @export var shot_scene: PackedScene = preload("res://scenes/shots/Plasma.tscn")
 @export var shot_rate: Array = [1.0]
 @export var shot_speed: float = 500.0
@@ -27,6 +29,7 @@ func data():
 		"level": level,
 		"rarity": rarity,
 		"shot_type": shot_type,
+		"texture_name": texture_name,
 		"shot_rate": shot_rate,
 		"shot_speed": shot_speed,
 		"shot_power": shot_power,

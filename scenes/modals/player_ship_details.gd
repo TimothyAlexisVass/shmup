@@ -10,6 +10,8 @@ var player_ship_details
 @onready var inventory_cannon_name = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/CannonName
 @onready var inventory_grid = $MarginContainer/VBoxContainer/Inventory
 
+const PERCENT_STAT = ["penetration_chance", "falloff_rate", "perfect_chance", "perfect_multiplier"]
+
 const CANNON_MOUNT_POSITION_SCENE = preload("res://scenes/modals/cannon_mount_position.tscn")
 const INVENTORY_ITEM_SCENE = preload("res://scenes/modals/inventory_slot.tscn")
 
@@ -50,7 +52,7 @@ func update_cannon_mount_positions():
 		var cannon_details = null
 		if cannon_mount_position.name in player_ship_details.cannons.keys():
 			cannon_details = player_ship_details.cannons[cannon_mount_position.name]
-			texture_button.texture_normal = load("res://media/sprites/cannons/" + cannon_details.shot_type + ".png")
+			texture_button.texture_normal = cannon_details.texture
 		else:
 			texture_button.texture_normal = null
 		if texture_button.pressed.is_connected(_on_cannon_mount_position_button_pressed):
@@ -86,7 +88,9 @@ func update_cannon_details(grid, cannon_details = null):
 			var value = cannon_details.get(cannon_property.name)
 			if value is Array or (value and value > 0):
 				cannon_property.get_node("label").text = cannon_property.name.replace("_", " ").capitalize()
-				cannon_property.get_node("value").text = str(value)
+				if cannon_property.name == "shot_duration" and value == 99:
+					value = "persisting"
+				cannon_property.get_node("value").text = str(snapped(value * 100, 0.1))+"%" if cannon_property.name in PERCENT_STAT else str(value)
 
 func update_cannon_comparison():
 	for cannon_property in inventory_cannon_details_grid.get_children():
@@ -97,9 +101,9 @@ func update_cannon_comparison():
 		if inventory_value != "":
 			var mounted_value = mounted_value_node.text
 			if mounted_value != "":
-				json.parse(mounted_value)
+				json.parse(mounted_value.replace("%", "").replace("persisting", "99"))
 				mounted_value = json.get_data()
-				json.parse(inventory_value)
+				json.parse(inventory_value.replace("%", "").replace("persisting", "99"))
 				inventory_value = json.get_data()
 				if mounted_value is Array:
 					inventory_value = inventory_value.size() / G.sum(inventory_value)
@@ -128,7 +132,7 @@ func update_inventory():
 func add_inventory_cannon(cannon_id, cannon_details):
 	var inventory_cannon = INVENTORY_ITEM_SCENE.instantiate()
 	var texture_button = inventory_cannon.get_node("TextureButton")
-	texture_button.texture_normal = load("res://media/sprites/cannons/" + cannon_details.shot_type + ".png")
+	texture_button.texture_normal =cannon_details.texture
 
 	if texture_button.pressed.is_connected(_on_inventory_cannon_pressed):
 		texture_button.pressed.disconnect(_on_inventory_cannon_pressed)
