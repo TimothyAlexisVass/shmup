@@ -3,8 +3,8 @@ class_name DropItem extends Node2D
 var auto_pickup = false
 
 var category_name: String
-var item_name: String
-var tier: int = 1
+var item: Variant
+var rarity: int = 1
 var amount: float = 1.0
 
 var recipient = null
@@ -12,7 +12,7 @@ var recipient = null
 const SPEED = 100
 
 func _ready():
-	$Sprite/RarityGlow.rarity = G.rarity(tier)
+	$Sprite/RarityGlow.rarity = rarity
 	$Sprite/RarityGlow.texture = $Sprite.texture
 
 func _physics_process(delta):
@@ -26,8 +26,17 @@ func _on_area_entered(area):
 		pick_up()
 
 func pick_up():
-	DataManager.change(category_name, item_name, amount)
-	amount = 0
+	if category_name in ["asset"]:
+		DataManager.change(category_name, item, amount)
+		amount = 0
+	else:
+		var category = DataManager.player_data[category_name]
+		var new_id = 0
+		for id in category.keys():
+			if id >= new_id:
+				new_id = id + 1
+		DataManager.player_data[category_name][new_id] = item
+		item = null
 	clear()
 
 func clear():

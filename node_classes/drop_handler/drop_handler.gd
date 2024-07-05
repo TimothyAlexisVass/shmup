@@ -37,8 +37,8 @@ func drop_rewards(recipient, at_global_position):
 		var reward_instance = DROP_ITEM_SCENE.instantiate()
 		reward_instance.get_node("Sprite").texture = reward.texture
 		reward_instance.category_name = type
-		reward_instance.item_name = reward.name
-		reward_instance.tier = reward.tier
+		reward_instance.item = reward.name if type in ["asset"] else reward
+		reward_instance.rarity = reward.rarity
 		reward_instance.recipient = recipient
 		reward_instance.global_position = at_global_position + Vector2(randf_range(-drop_radius, drop_radius), randf_range(-drop_radius, drop_radius))
 		G.top_layer.call_deferred("add_child", reward_instance)

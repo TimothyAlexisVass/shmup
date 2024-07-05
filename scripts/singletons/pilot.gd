@@ -34,7 +34,8 @@ func _enter_tree():
 			var entry = {
 					"name": pilot_name,
 					"texture": load("res://media/sprites/pilots/" + pilot_name + ".png"),
-					"rarity": G.rarity(int_tier)
+					"rarity": G.rarity(int_tier),
+					"tier": int_tier
 				}
 			data[pilot_name] = entry
 			all.append(data[pilot_name])

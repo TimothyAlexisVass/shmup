@@ -82,10 +82,15 @@ show_percentage = false
 self_modulate = Color(0.976471, 0.14902, 0.14902, 0.427451)
 light_mask = 512
 
-[node name="DropHandler" type="Node2D" parent="."]
+[node name="AssetDrop" type="Node2D" parent="."]
 script = ExtResource("11_hirmi")
 drop_chance = 0.5
 type = "asset"
+
+[node name="CannonDrop" type="Node2D" parent="."]
+script = ExtResource("11_hirmi")
+multi_drop_factor = 0.01
+type = "cannon"
 
 [connection signal="area_entered" from="ShipBody/Area2D" to="." method="_on_collision"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

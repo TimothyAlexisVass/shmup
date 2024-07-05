@@ -33,7 +33,8 @@ func _enter_tree():
 					"name": player_ship_name,
 					"scene": load("res://scenes/player_ships/" + player_ship_name +  ".tscn"),
 					"texture": load("res://resources/textures/" + player_ship_name + ".tres"),
-					"rarity": G.rarity(int_tier)
+					"rarity": G.rarity(int_tier),
+					"tier": int_tier
 				}
 			data[player_ship_name] = entry
 			all.append(data[player_ship_name])

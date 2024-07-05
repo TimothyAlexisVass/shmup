@@ -5,6 +5,18 @@ const DEBUG = false
 enum COLLISION_LAYERS { PLAYER=1, NONPLAYER=2, PLAYERSTUFF=3, NONPLAYERSTUFF=4 }
 enum CHALLENGE { NONE, EASY, MEDIUM, ELITE, APEX }
 enum RARITY { COMMON=0, NOTABLE=1, RARE=2, EPIC=3, LEGENDARY=4, SUPREME=5, TRANSCENDENT=9 }
+const RARITY_PROBABILITY = [
+	{"rarity": RARITY.TRANSCENDENT, "probability": 0.00077},
+	{"rarity": RARITY.SUPREME, "probability": 0.0018},
+	{"rarity": RARITY.LEGENDARY, "probability": 0.005},
+	{"rarity": RARITY.EPIC, "probability": 0.017},
+	{"rarity": RARITY.RARE, "probability": 0.05},
+	{"rarity": RARITY.NOTABLE, "probability": 0.2},
+	{"rarity": RARITY.COMMON, "probability": 1}
+]
+
+func tier_rarity_multiplier(tier):
+	return 0.4 + 0.1 * tier
 
 const ANGLE_UP = -PI/2
 const ANGLE_RIGHT = 0

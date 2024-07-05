@@ -3,8 +3,12 @@ extends Node
 const SHOT_TYPE = ["Plasma", "Bullet"] #, "Missile", "Lazer", "Split", "Rail", "Beam"]
 
 const NAME = {
-	"Plasma": "Plasma Cannon",
-	"Bullet": "Ballistic Cannon"
+	"Plasma": ["Plasma Cannon", "Plasma Blaster"],
+	"Bullet": ["Ballistic Gun", "Gun Turret"]
+}
+const TEXTURE_NAME = {
+	"Plasma": ["Plasma"],
+	"Bullet": ["Ballistic"]
 }
 const SHOT_SCENE = {
 	"Plasma": preload("res://scenes/shots/Plasma.tscn"),
@@ -249,13 +253,15 @@ func generate(rarity):
 	var cannon = CannonDetails.new()
 	var shot_pattern_type = SHOT_PATTERN[shot_type].pick_random()
 	
-	cannon.name = NAME[shot_type]
+	cannon.name = NAME[shot_type].pick_random()
 	cannon.rarity = rarity
 	cannon.shot_type = shot_type
 	cannon.shot_scene = SHOT_SCENE[shot_type]
 	cannon.shot_rate = []
 	for value in get_shot_rate(shot_type, shot_pattern_type):
 		cannon.shot_rate.append(snapped(value, 0.01))
+	cannon.texture_name = TEXTURE_NAME[shot_type].pick_random()
+	cannon.texture = load("res://media/sprites/cannons/" + cannon.texture_name + ".png")
 	cannon.shot_speed = get_shot_speed(shot_type)
 	cannon.shot_power = SHOT_POWER[shot_type]
 	cannon.shot_color = SHOT_COLOR[shot_type].pick_random()
@@ -273,3 +279,17 @@ func generate(rarity):
 	cannon.dot_duration = get_dot_duration(cannon.dot_effect)
 
 	return cannon
+
+func get_rewards(tier, rolls, drop_chance, multi_drop_factor):
+	var rewards = []
+	var roll_value = randf()
+	for rarity_probability in G.RARITY_PROBABILITY:
+		if roll_value <= rarity_probability.probability * G.tier_rarity_multiplier(PlayerShip.data[DataManager.player_data.selected_player_ship].tier * 0.5 + Pilot.data[DataManager.player_data.selected_pilot].tier * 0.5 + tier) * DataManager.player_data.commander.luck_multiplier:
+			rolls -= 1
+			if randf() < drop_chance:
+				rewards.append(generate(rarity_probability.rarity))
+			if rolls > 0:
+				drop_chance *= multi_drop_factor
+			else:
+				break
+	return rewards
