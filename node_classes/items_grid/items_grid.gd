@@ -47,6 +47,8 @@ func _ready():
 				item_button.get_theme_stylebox("panel").border_color.a = 1
 
 func _on_item_button_pressed(selected_button):
+	if selected_button.name == DataManager.player_data.selected_player_ship:
+		return
 	for item_button in get_children():
 		var texture_button = item_button.get_node("PanelContainer/TextureButton")
 		if item_button.name in DataManager.player_data[item_type].keys():
@@ -59,11 +61,9 @@ func _on_item_button_pressed(selected_button):
 	selected_button.get_theme_stylebox("panel").border_color.a = 1
 	Api.select(self, item_type, selected_button.name)
 	DataManager.player_data.set("selected_" + item_type, selected_button.name)
-	print("Selecting item ", selected_button.name)
-	pass # Replace with function body.
 
 func _on_details_button_pressed(item_name):
 	details_screen.initialize(item_name)
 
-func _on_api_select_completed(_result: int, _response_code: int, _headers: Array, _body: PackedByteArray, http_request_object: HTTPRequest):
-	http_request_object.queue_free()
+func _on_api_select_completed(_result: int, _response_code: int, _headers: Array, _body: PackedByteArray, http_request_object: LoadingHTTPRequest):
+	http_request_object.clear()

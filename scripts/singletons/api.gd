@@ -21,9 +21,6 @@ func _make_request(requesting_object, endpoint, request_body, callback_method):
 	if response != OK:
 		printerr("An error occurred in the HTTP request:\n%s" % response)
 
-func _queue_free_wrapper(http_request):
-	http_request.queue_free()
-
 func load_data(requesting_object):
 	var request_body = {}
 	_make_request(requesting_object, "player_data", request_body, "_on_api_load_data_completed")
