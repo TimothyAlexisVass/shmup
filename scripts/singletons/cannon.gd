@@ -216,38 +216,6 @@ func get_dot_duration(dot_effect):
 		return randi_range(2, 5)
 	return 0
 
-func from_data(data: Dictionary):
-	var cannon = CannonDetails.new()
-
-	cannon.name = data["name"]
-	cannon.level = data["level"]
-	cannon.rarity = data["rarity"]
-	cannon.shot_type = data["shot_type"]
-	cannon.texture_name = data["texture_name"]
-	cannon.texture = load("res://media/sprites/cannons/" + cannon.texture_name + ".png")
-	cannon.shot_scene = SHOT_SCENE[data["shot_type"]]
-	cannon.shot_rate = []
-	for value in data["shot_rate"]:
-		cannon.shot_rate.append(snapped(value, 0.01))
-	cannon.shot_speed = data["shot_speed"]
-	cannon.shot_power = data["shot_power"]
-	cannon.shot_color = Color.html(data["shot_color"])
-	cannon.shot_duration = data["shot_duration"]
-	cannon.shot_spread = data["shot_spread"]
-	cannon.homing_amount = data["homing_amount"]
-	cannon.homing_priority = data["homing_priority"]
-	cannon.penetration_chance = data["penetration_chance"]
-	cannon.penetration_count = data["penetration_count"]
-	cannon.ricochet_count = data["ricochet_count"]
-	cannon.falloff_rate = data["falloff_rate"]
-	cannon.area_of_impact = data["area_of_impact"]
-	cannon.perfect_chance = data["perfect_chance"]
-	cannon.perfect_multiplier = data["perfect_multiplier"]
-	cannon.dot_effect = data["dot_effect"]
-	cannon.dot_duration = data["dot_duration"]
-
-	return cannon
-
 func generate(rarity):
 	var shot_type = SHOT_TYPE.pick_random()
 	var cannon = CannonDetails.new()
@@ -277,6 +245,38 @@ func generate(rarity):
 	cannon.perfect_multiplier = get_perfect_multiplier(shot_type)
 	cannon.dot_effect = get_dot_effect(shot_type)
 	cannon.dot_duration = get_dot_duration(cannon.dot_effect)
+
+	return cannon
+
+func from_data(data: Dictionary):
+	var cannon = CannonDetails.new()
+
+	cannon.name = data["name"]
+	cannon.level = data["level"]
+	cannon.rarity = data["rarity"]
+	cannon.shot_type = data["shot_type"]
+	cannon.texture_name = data["texture_name"]
+	cannon.texture = load("res://media/sprites/cannons/" + cannon.texture_name + ".png")
+	cannon.shot_scene = SHOT_SCENE[data["shot_type"]]
+	cannon.shot_rate = []
+	for value in data["shot_rate"]:
+		cannon.shot_rate.append(snapped(value, 0.01))
+	cannon.shot_speed = data["shot_speed"]
+	cannon.shot_power = data["shot_power"]
+	cannon.shot_color = Color.html(data["shot_color"])
+	cannon.shot_duration = data["shot_duration"]
+	cannon.shot_spread = data["shot_spread"]
+	cannon.homing_amount = data["homing_amount"]
+	cannon.homing_priority = data["homing_priority"]
+	cannon.penetration_chance = data["penetration_chance"]
+	cannon.penetration_count = data["penetration_count"]
+	cannon.ricochet_count = data["ricochet_count"]
+	cannon.falloff_rate = data["falloff_rate"]
+	cannon.area_of_impact = data["area_of_impact"]
+	cannon.perfect_chance = data["perfect_chance"]
+	cannon.perfect_multiplier = data["perfect_multiplier"]
+	cannon.dot_effect = data["dot_effect"]
+	cannon.dot_duration = data["dot_duration"]
 
 	return cannon
 
