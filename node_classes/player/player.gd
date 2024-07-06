@@ -59,6 +59,8 @@ func mount_cannons():
 func play():
 	set_visible(true)
 	is_playing = true
+	for cannon_mount in $CannonMounts.get_children():
+		cannon_mount.set_physics_process(true)
 	$GrazeArea.set_deferred("disabled", false)
 	$HitArea/CollisionShape2D.set_deferred("disabled", false)
 	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

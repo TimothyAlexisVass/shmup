@@ -28,6 +28,18 @@ func shoot():
 	shot.source = owner
 	shot.power = cannon.shot_power
 	shot.modulate = cannon.shot_color
+	shot.duration = cannon.shot_duration
+	shot.homing_amount = cannon.homing_amount
+	shot.homing_priority = cannon.homing_priority
+	shot.penetration_chance = cannon.penetration_chance
+	shot.penetration_count = cannon.penetration_count
+	shot.ricochet_count = cannon.ricochet_count
+	shot.falloff_rate = cannon.falloff_rate
+	shot.area_of_impact = cannon.area_of_impact
+	shot.perfect_chance = cannon.perfect_chance
+	shot.perfect_multiplier = cannon.perfect_multiplier
+	shot.dot_effect = cannon.dot_effect
+	shot.dot_duration = cannon.dot_duration
 
 	if owner is Player:
 		G.player_layer.add_child(shot)
@@ -35,7 +47,5 @@ func shoot():
 		G.shots_layer.add_child(shot)
 
 func check_cannon():
-	if cannon:
-		set_physics_process(true)
-	else:
+	if not cannon:
 		queue_free()

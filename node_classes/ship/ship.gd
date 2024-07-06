@@ -3,8 +3,8 @@ class_name Ship extends PathFollow2D
 const PADDING = 10
 
 # Basic properties
-@export var sprites : Array[CompressedTexture2D] = []
-@export var crystal : CompressedTexture2D
+@export var sprites: Array[CompressedTexture2D] = []
+@export var crystal: CompressedTexture2D
 @export var speed: float
 @export var total_hit_points: float
 @export var points: float
@@ -37,6 +37,8 @@ var shipbody_texture = null
 var cleared = false
 var rarity = 0
 var tier = 1
+
+var power_per_second
 
 signal drop_rewards(recipient, at_global_position)
 
@@ -83,6 +85,9 @@ func _enter_tree():
 		$ShipBody/RarityGlow.rarity = rarity
 
 func _ready():
+	if cannon_mounts:
+		for cannon_mount in cannon_mounts:
+			power_per_second += cannon_mount.cannon.shot_power / float(cannon_mount.shoot_timer)
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING
@@ -183,7 +188,7 @@ func cannon_mounts_status(status):
 		if status:
 			for cannon_mount in cannon_mounts.get_children():
 				if status:
-					cannon_mount.timer.start()
+					cannon_mount.set_physics_process(true)
 		else:
 			cannon_mounts.queue_free()
 			cannon_mounts = null

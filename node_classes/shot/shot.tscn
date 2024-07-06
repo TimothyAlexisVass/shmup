@@ -21,4 +21,3 @@ texture = ExtResource("3_dmubq")
 shape = SubResource("CapsuleShape2D_nnupo")
 
 [connection signal="area_entered" from="." to="." method="_on_target_hit"]
-[connection signal="body_entered" from="." to="." method="_on_target_hit"]
