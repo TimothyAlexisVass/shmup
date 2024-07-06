@@ -1,5 +1,7 @@
 extends ColorRect
 
+# TODO: Fix cannon details for certain stats
+
 var available_cannon_mounts = []
 var player_ship_details
 

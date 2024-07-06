@@ -1,9 +1,10 @@
 class_name Shot extends Area2D
 
 # TODO: Fix shot_duration, area of impact, and such instead of queue_free()
-# TODO: Fix homing
 # TODO: Fix add_dot_effect to actually add a DotEffect instance to the target, if it doesn't already have one
 # TODO: Review the code to make sure everything is in place as it should be
+
+var IMPACT_AREA_SCENE = preload("res://node_classes/shot/impact_area.tscn")
 
 @export var hit_effect_scene = preload("res://scenes/hit_effects/plasma.tscn")
 var direction
@@ -110,14 +111,15 @@ func hit(target):
 		apply_dot_effect(target)
 	
 	# Handle penetration
-	if (penetration_count + ricochet_count) <= 0 and randf() > penetration_chance:
+	if (penetration_count + ricochet_count) <= 0 or (penetration_chance > 0 and randf() > penetration_chance):
 		queue_free()
 	else:
 		if penetration_count > 0:
 			penetration_count -= 1
 		if ricochet_count > 0:
 			ricochet_count -= 1
-			rotation += PI + randf_range(-1, 1) * randf_range(Cannon.DEG_20, Cannon.DEG_60)
+			rotation += PI + randf_range(-1, 1) * randf_range(Cannon.DEG_45, PI / 2.0)
+			direction = Vector2.DOWN.rotated(rotation).normalized()
 		power *= falloff_rate
 
 func apply_dot_effect(target):
@@ -129,16 +131,9 @@ func apply_dot_effect(target):
 func _on_target_hit(target):
 	if not target is Player:
 		if area_of_impact > 0:
-			apply_area_impact()
+			var ships = get_tree().get_nodes_in_group("Ships")
+			for ship in ships:
+				if ship.global_position.distance_to(global_position) < area_of_impact:
+					ship.handle_hit(self)
 		else:
-			target.owner.handle_hit(self)
-
-func apply_area_impact():
-	var impact_area = CircleShape2D.new()
-	impact_area.radius = area_of_impact
-	var area2d = Area2D.new()
-	area2d.set_shape(impact_area)
-	add_child(area2d)
-	for target in area2d.get_overlapping_areas():
-		if not target is Player:
 			target.owner.handle_hit(self)
