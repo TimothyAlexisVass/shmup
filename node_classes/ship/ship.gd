@@ -38,7 +38,7 @@ var cleared = false
 var rarity = 0
 var tier = 1
 
-var power_per_second
+var power_per_second = 0
 
 signal drop_rewards(recipient, at_global_position)
 
@@ -86,8 +86,9 @@ func _enter_tree():
 
 func _ready():
 	if cannon_mounts:
-		for cannon_mount in cannon_mounts:
-			power_per_second += cannon_mount.cannon.shot_power / float(cannon_mount.shoot_timer)
+		print(self.name)
+		for cannon_mount in cannon_mounts.get_children():
+			power_per_second += cannon_mount.cannon.shot_power / G.average(cannon_mount.cannon.shot_rate)
 	$HitPoints.value = current_health
 	$HitPoints.max_value = total_hit_points
 	$HitPoints.position.x = -width / 2 + PADDING

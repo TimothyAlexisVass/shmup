@@ -165,6 +165,9 @@ func display_weight(value, smart_snapped = true):
 func sum(array: Array):
 	return float(array.reduce(func(accum, number): return accum + number, 0))
 
+func average(array: Array):
+	return sum(array) / float(array.size())
+
 func clear_nodes_from(parent):
 	if parent.get_child_count() < 1: return
 	for node in parent.get_children():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://doov2xtv2r0ru"]
+[gd_scene load_steps=17 format=3 uid="uid://doov2xtv2r0ru"]
 
 [ext_resource type="PackedScene" uid="uid://dp30aay75h42t" path="res://node_classes/ship/ship.tscn" id="1_3mkgq"]
 [ext_resource type="Texture2D" uid="uid://bhf7a33v5dw0" path="res://media/sprites/ships/sabir/sabir_1.png" id="2_nsqwn"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cufh7uuaxt0oe" path="res://media/sprites/ships/sabir/sabir_border.png" id="8_ljlxn"]
 [ext_resource type="PackedScene" uid="uid://f3bqt3x13sk" path="res://node_classes/jet/jet.tscn" id="9_2kd32"]
 [ext_resource type="Material" uid="uid://6m88xysbdx4c" path="res://node_classes/jet/jet_process_material.tres" id="10_dh0tq"]
-[ext_resource type="PackedScene" uid="uid://b35aq2t5agpy3" path="res://node_classes/cannon_mount/cannon_mount.tscn" id="10_qg20i"]
 [ext_resource type="Texture2D" uid="uid://o631nvmaqddq" path="res://node_classes/jet/jet_gradient.tres" id="11_xrkng"]
 [ext_resource type="Texture2D" uid="uid://6sxq7qwt1y56" path="res://media/sprites/ships/sabir/sabir_0.png" id="12_afm5n"]
 [ext_resource type="Texture2D" uid="uid://o1pn2he4xbyn" path="res://media/sprites/ships/sabir/sabir_normal.png" id="13_fuqtg"]
@@ -78,17 +77,7 @@ process_material = SubResource("ParticleProcessMaterial_pirx5")
 [node name="CollisionPolygon2D" parent="ShipBody/Area2D" index="0"]
 polygon = PackedVector2Array(26, 93, 56, 24, 78, -50, 80, -92, 59, -89, 45, -114, 54, -50, 38, -61, 10, -69, 0, -115, -9, -69, -36, -61, -52, -50, -45, -114, -61, -87, -81, -91, -77, -50, -56, 24, -25, 93, 0, 118)
 
-[node name="Muzzles" type="Node2D" parent="ShipBody" index="3"]
-
-[node name="Muzzle" parent="ShipBody/Muzzles" index="0" instance=ExtResource("10_qg20i")]
-position = Vector2(-100, 250)
-default_color = Color(1, 0.168627, 0, 1)
-
-[node name="Muzzle2" parent="ShipBody/Muzzles" index="1" instance=ExtResource("10_qg20i")]
-position = Vector2(100, 250)
-default_color = Color(1, 0.168627, 0, 1)
-
-[node name="Sprite" parent="ShipBody" index="4"]
+[node name="Sprite" parent="ShipBody" index="3"]
 texture = SubResource("CanvasTexture_wic3u")
 
 [node name="HitPoints" parent="." index="2"]

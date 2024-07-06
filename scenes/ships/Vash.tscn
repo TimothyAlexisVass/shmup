@@ -14,46 +14,54 @@
 [ext_resource type="PackedScene" uid="uid://bgrh3v338xpf6" path="res://scenes/shots/Plasma.tscn" id="11_7uy6c"]
 [ext_resource type="Texture2D" uid="uid://dml8b4fpl0t4o" path="res://media/sprites/ships/vash/vash_normal.png" id="11_yfknc"]
 
-[sub_resource type="Resource" id="Resource_u7har"]
+[sub_resource type="Resource" id="Resource_sg2pn"]
 resource_local_to_scene = true
 script = ExtResource("10_ojj1v")
+name = "Cannon"
+rarity = 0
+shot_type = "Plasma"
+texture_name = ""
 shot_scene = ExtResource("11_7uy6c")
 shot_rate = [5.0, 1.0]
 shot_speed = 500.0
 shot_power = 1.0
 shot_color = Color(1, 0.282353, 1, 1)
-shot_duration = 0.0
+shot_duration = 5.0
 shot_spread = 0.0
 homing_amount = 0.0
-homing_priority = "None"
+homing_priority = 0
 penetration_chance = 0.0
 ricochet_count = 0
 falloff_rate = 0.5
 area_of_impact = 0.0
-critical_chance = 0.0
-critical_multiplier = 1.0
-dot_effect = "None"
+perfect_chance = 0.0
+perfect_multiplier = 1.0
+dot_effect = 0
 dot_duration = 0.0
 
-[sub_resource type="Resource" id="Resource_37xkb"]
+[sub_resource type="Resource" id="Resource_qpvsl"]
 resource_local_to_scene = true
 script = ExtResource("10_ojj1v")
+name = "Cannon"
+rarity = 0
+shot_type = "Plasma"
+texture_name = ""
 shot_scene = ExtResource("11_7uy6c")
 shot_rate = [5.0, 1.0]
 shot_speed = 500.0
 shot_power = 1.0
 shot_color = Color(1, 0.282353, 1, 1)
-shot_duration = 0.0
+shot_duration = 5.0
 shot_spread = 0.0
 homing_amount = 0.0
-homing_priority = "None"
+homing_priority = 0
 penetration_chance = 0.0
 ricochet_count = 0
 falloff_rate = 0.5
 area_of_impact = 0.0
-critical_chance = 0.0
-critical_multiplier = 1.0
-dot_effect = "None"
+perfect_chance = 0.0
+perfect_multiplier = 1.0
+dot_effect = 0
 dot_duration = 0.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f4y87"]
@@ -99,11 +107,11 @@ position = Vector2(0, 35)
 
 [node name="CannonMount" parent="ShipBody/CannonMounts" index="0" instance=ExtResource("8_e86v0")]
 position = Vector2(-75, 11)
-cannon = SubResource("Resource_u7har")
+cannon = SubResource("Resource_sg2pn")
 
 [node name="CannonMount2" parent="ShipBody/CannonMounts" index="1" instance=ExtResource("8_e86v0")]
 position = Vector2(75, 11)
-cannon = SubResource("Resource_37xkb")
+cannon = SubResource("Resource_qpvsl")
 
 [node name="Area2D" parent="ShipBody" index="3"]
 metadata/_edit_lock_ = true

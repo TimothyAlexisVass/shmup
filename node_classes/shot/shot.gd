@@ -1,6 +1,7 @@
 class_name Shot extends Area2D
 
 # TODO: Fix shot_duration, area of impact, and such instead of queue_free()
+# TODO: Fix homing
 # TODO: Fix add_dot_effect to actually add a DotEffect instance to the target, if it doesn't already have one
 # TODO: Review the code to make sure everything is in place as it should be
 
@@ -61,11 +62,13 @@ func _physics_process(delta):
 			direction = direction.rotated(rotate_amount).normalized()
 
 func get_homing_target():
-	var targets = get_tree().get_nodes_in_group("enemies")  # Adjust the group name as necessary
+	var targets = get_tree().get_nodes_in_group("Ships")
 	if targets.size() == 0:
 		return null
 
 	match homing_priority:
+		Cannon.HOMING_PRIORITY.RANDOM:
+			targets.pick_random()
 		Cannon.HOMING_PRIORITY.CLOSEST:
 			targets.sort_custom(closest)
 		Cannon.HOMING_PRIORITY.LEASTHP:

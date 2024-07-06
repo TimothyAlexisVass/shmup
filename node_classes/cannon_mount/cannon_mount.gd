@@ -29,6 +29,7 @@ func shoot():
 	shot.power = cannon.shot_power
 	shot.modulate = cannon.shot_color
 	shot.duration = cannon.shot_duration
+	shot.shot_spread = cannon.shot_spread
 	shot.homing_amount = cannon.homing_amount
 	shot.homing_priority = cannon.homing_priority
 	shot.penetration_chance = cannon.penetration_chance

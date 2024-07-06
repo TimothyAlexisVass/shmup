@@ -106,8 +106,8 @@ func update_cannon_comparison():
 				json.parse(inventory_value.replace("%", "").replace("persisting", "99"))
 				inventory_value = json.get_data()
 				if mounted_value is Array:
-					inventory_value = inventory_value.size() / G.sum(inventory_value)
-					mounted_value = mounted_value.size() / G.sum(mounted_value)
+					inventory_value = 1 / G.average(inventory_value)
+					mounted_value = 1 / G.average(mounted_value)
 				if inventory_value < mounted_value:
 					font_color = [Color.RED, Color.GREEN]
 				elif inventory_value == mounted_value:

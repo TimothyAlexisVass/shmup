@@ -67,6 +67,3 @@ offset = Vector2(0, 17.647)
 
 [node name="HitPoints" parent="." index="2"]
 theme_override_styles/fill = SubResource("StyleBoxFlat_hrm5i")
-
-[node name="DropHandler" parent="." index="5"]
-type = ""
