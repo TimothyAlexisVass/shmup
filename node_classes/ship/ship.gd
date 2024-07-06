@@ -86,7 +86,6 @@ func _enter_tree():
 
 func _ready():
 	if cannon_mounts:
-		print(self.name)
 		for cannon_mount in cannon_mounts.get_children():
 			power_per_second += cannon_mount.cannon.shot_power / G.average(cannon_mount.cannon.shot_rate)
 	$HitPoints.value = current_health

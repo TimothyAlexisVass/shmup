@@ -1,7 +1,5 @@
 extends ColorRect
 
-# TODO: Fix cannon details for certain stats
-
 var available_cannon_mounts = []
 var player_ship_details
 
@@ -11,8 +9,6 @@ var player_ship_details
 @onready var inventory_cannon_details_grid = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer
 @onready var inventory_cannon_name = $MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/CannonName
 @onready var inventory_grid = $MarginContainer/VBoxContainer/Inventory
-
-const PERCENT_STAT = ["penetration_chance", "falloff_rate", "perfect_chance", "perfect_multiplier"]
 
 const CANNON_MOUNT_POSITION_SCENE = preload("res://scenes/modals/cannon_mount_position.tscn")
 const INVENTORY_ITEM_SCENE = preload("res://scenes/modals/inventory_slot.tscn")
@@ -89,10 +85,27 @@ func update_cannon_details(grid, cannon_details = null):
 		if cannon_details:
 			var value = cannon_details.get(cannon_property.name)
 			if value is Array or (value and value > 0):
-				cannon_property.get_node("label").text = cannon_property.name.replace("_", " ").capitalize()
-				if cannon_property.name == "shot_duration" and value == 99:
-					value = "persisting"
-				cannon_property.get_node("value").text = str(snapped(value * 100, 0.1))+"%" if cannon_property.name in PERCENT_STAT else str(value)
+				cannon_property.get_node("label").text = G.humanize(cannon_property.name)
+				value_to_text(cannon_property, value)
+
+func value_to_text(property, value):
+	var property_name = property.name
+	if property_name == "shot_duration":
+		if value == 99:
+			value = "persisting"
+		else:
+			value = str(value) + " s"
+	if property_name in ["penetration_chance", "falloff_rate", "perfect_chance", "perfect_multiplier"]:
+		value = str(value * 100) + " %"
+	if property_name == "homing_priority":
+		value = Cannon.HOMING_PRIORITY.keys()[value]
+	if property_name == "dot_effect":
+		value = Cannon.DOT_EFFECT.keys()[value]
+	if property_name in ["shot_spread", "homing_amount"]:
+		value = str(round(rad_to_deg(value))) + " °"
+		if property_name == "homing_amount":
+			value += "/s"
+	property.get_node("value").text = str(value)
 
 func update_cannon_comparison():
 	for cannon_property in inventory_cannon_details_grid.get_children():

@@ -132,7 +132,10 @@ func random_sign(number):
 func rotate_towards_target(object_to_rotate, target, rotation_speed, sprite_angle = G.ANGLE_UP):
 	var target_angle = sprite_angle + object_to_rotate.global_position.angle_to_point(target)
 	object_to_rotate.rotation = lerp_angle(object_to_rotate.rotation, target_angle, rotation_speed)
-	
+
+func humanize(text: String) -> String:
+	return text.to_snake_case().replace("_", " ").capitalize()
+
 func smart_snap(value):
 	if value < 5:
 		return snapped(value, 0.01)

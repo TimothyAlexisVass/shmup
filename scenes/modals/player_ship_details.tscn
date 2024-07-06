@@ -478,16 +478,16 @@ theme_type_variation = &"HeaderSmall2"
 text = "-"
 horizontal_alignment = 2
 
-[node name="fallof_rate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer"]
+[node name="falloff_rate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="label" type="Label" parent="MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer/fallof_rate"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer/falloff_rate"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
 text = "Falloff rate: "
 
-[node name="value" type="Label" parent="MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer/fallof_rate"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/MountedCannonDetails/VBoxContainer/GridContainer/falloff_rate"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -914,15 +914,15 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
 horizontal_alignment = 2
 
-[node name="fallof_rate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
+[node name="falloff_rate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/fallof_rate"]
+[node name="label" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/falloff_rate"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall2"
 
-[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/fallof_rate"]
+[node name="value" type="Label" parent="MarginContainer/VBoxContainer/InventoryCannonDetails/VBoxContainer/GridContainer/falloff_rate"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 3

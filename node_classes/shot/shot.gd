@@ -54,6 +54,7 @@ func _physics_process(delta):
 	
 	# Handle shot duration
 	if time_elapsed >= duration:
+		area_impact()
 		queue_free()
 	
 	# Handle homing
@@ -99,13 +100,16 @@ func least_power(a, b):
 func most_power(a, b):
 	return a.power_per_second > b.power_per_second
 
-func hit(target):
+func add_hit_effect(target):
 	var hit_effect = hit_effect_scene.instantiate()
 	hit_effect.modulate = modulate
-	hit_effect.global_position = self.global_position
-	hit_effect.rotation = G.ANGLE_DOWN + self.global_position.angle_to_point(target.global_position)
+	hit_effect.global_position = global_position
+	hit_effect.rotation = rotation if target == self else G.ANGLE_DOWN + global_position.angle_to_point(target.global_position)
 	hit_effect.emitting = true
 	G.player_layer.add_child(hit_effect)
+
+func hit(target):
+	add_hit_effect(target)
 	
 	if dot_effect != Cannon.DOT_EFFECT.NONE:
 		apply_dot_effect(target)
@@ -122,18 +126,28 @@ func hit(target):
 			direction = Vector2.DOWN.rotated(rotation).normalized()
 		power *= falloff_rate
 
-func apply_dot_effect(target):
+func apply_dot_effect(_target):
+	var dot_effect_power
 	if dot_effect == Cannon.DOT_EFFECT.RADIATION:
-		target.add_dot_effect("radiation", dot_duration, power * 0.01)
+		dot_effect_power = power * 0.01
 	elif dot_effect == Cannon.DOT_EFFECT.BURN:
-		target.add_dot_effect("burn", dot_duration, power * 0.3)
+		dot_effect_power = power * 0.3
+	# dot_effect_instance = DOT_EFFECT_SCENE.instantiate()
+	# dot_effect_instance.duration = dot_duration
+	# dot effect_instance.power = dot_effect_power
+	# dot_effect_instance.effect = dot_effect
+	# target.add_child(dot_effect_instance)
+
+func area_impact():
+	add_hit_effect(self)
+	var ships = get_tree().get_nodes_in_group("Ships")
+	for ship in ships:
+		if ship.global_position.distance_to(global_position) < area_of_impact:
+			ship.handle_hit(self)
 
 func _on_target_hit(target):
 	if not target is Player:
 		if area_of_impact > 0:
-			var ships = get_tree().get_nodes_in_group("Ships")
-			for ship in ships:
-				if ship.global_position.distance_to(global_position) < area_of_impact:
-					ship.handle_hit(self)
+			area_impact()
 		else:
 			target.owner.handle_hit(self)

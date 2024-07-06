@@ -153,7 +153,7 @@ const HOMING_AMOUNT = {
 func get_homing_amount(shot_type):
 	return snapped(randf_range(HOMING_AMOUNT[shot_type][0], HOMING_AMOUNT[shot_type][1]), 0.05)
 
-enum HOMING_PRIORITY {RANDOM, CLOSEST, LEASTHP, MOSTHP, LEASTPOWER, MOSTPOWER}
+enum HOMING_PRIORITY {RANDOM, CLOSEST, MOSTHP, LEASTPOWER, MOSTPOWER, LEASTHP}
 
 const PENETRATION_CHANCE = { # penetration_count = 1 if penetration_chance > 0 else 0
 	"Plasma": [0, 0],
