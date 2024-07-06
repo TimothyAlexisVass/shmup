@@ -129,8 +129,8 @@ func random_boolean():
 func random_sign(number):
 	return [-number, number].pick_random()
 
-func rotate_towards_target(object_to_rotate, target, rotation_speed):
-	var target_angle = G.ANGLE_UP + object_to_rotate.global_position.angle_to_point(target)
+func rotate_towards_target(object_to_rotate, target, rotation_speed, sprite_angle = G.ANGLE_UP):
+	var target_angle = sprite_angle + object_to_rotate.global_position.angle_to_point(target)
 	object_to_rotate.rotation = lerp_angle(object_to_rotate.rotation, target_angle, rotation_speed)
 	
 func smart_snap(value):

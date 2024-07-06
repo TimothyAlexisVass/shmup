@@ -50,16 +50,17 @@ func _ready():
 func _physics_process(delta):
 	translate(direction * speed * delta)
 	time_elapsed += delta
+	
 	# Handle shot duration
 	if time_elapsed >= duration:
 		queue_free()
+	
 	# Handle homing
 	if homing_amount > 0:
 		var target = get_homing_target()
 		if target:
-			var angle_to_target = global_position.angle_to_point(target.global_position)
-			var rotate_amount = min(homing_amount * delta, angle_to_target)
-			direction = direction.rotated(rotate_amount).normalized()
+			G.rotate_towards_target(self, target.global_position, homing_amount * delta, G.ANGLE_UP)
+			direction = Vector2.DOWN.rotated(rotation).normalized()
 
 func get_homing_target():
 	var targets = get_tree().get_nodes_in_group("Ships")
@@ -68,7 +69,7 @@ func get_homing_target():
 
 	match homing_priority:
 		Cannon.HOMING_PRIORITY.RANDOM:
-			targets.pick_random()
+			targets = [targets.pick_random()]
 		Cannon.HOMING_PRIORITY.CLOSEST:
 			targets.sort_custom(closest)
 		Cannon.HOMING_PRIORITY.LEASTHP:
