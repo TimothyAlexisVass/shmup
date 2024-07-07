@@ -61,7 +61,7 @@ texture = ExtResource("2_htd3b")
 stretch_mode = 3
 
 [node name="CloseButton" type="Button" parent="."]
-z_index = 4096
+z_index = 4095
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 1

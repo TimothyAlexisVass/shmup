@@ -107,6 +107,31 @@ func value_to_text(property, value):
 			value += "/s"
 	property.get_node("value").text = str(value)
 
+func text_to_value(property, text):
+	var property_name = property.name
+	var value = text
+
+	if property_name == "shot_duration":
+		if text == "persisting":
+			value = "99"
+		else:
+			value = text.replace(" s", "")
+
+	if property_name in ["penetration_chance", "falloff_rate", "perfect_chance", "perfect_multiplier"]:
+		value = str(float(text.replace(" %", "")) / 100.0)
+
+	if property_name == "homing_priority":
+		value = str(Cannon.HOMING_PRIORITY[text])
+
+	if property_name == "dot_effect":
+		value = str(Cannon.DOT_EFFECT[text])
+
+	if property_name in ["shot_spread", "homing_amount"]:
+		value = text.replace(" °/s", "")
+		value = str(deg_to_rad(float(value)))
+
+	return value
+
 func update_cannon_comparison():
 	for cannon_property in inventory_cannon_details_grid.get_children():
 		var inventory_value = cannon_property.get_node("value").text
@@ -116,9 +141,9 @@ func update_cannon_comparison():
 		if inventory_value != "":
 			var mounted_value = mounted_value_node.text
 			if mounted_value != "":
-				json.parse(mounted_value.replace("%", "").replace("persisting", "99"))
+				json.parse(text_to_value(cannon_property, mounted_value))
 				mounted_value = json.get_data()
-				json.parse(inventory_value.replace("%", "").replace("persisting", "99"))
+				json.parse(text_to_value(cannon_property, inventory_value))
 				inventory_value = json.get_data()
 				if mounted_value is Array:
 					inventory_value = 1 / G.average(inventory_value)

@@ -116,8 +116,12 @@ metadata/_edit_lock_ = true
 z_index = -4096
 z_as_relative = false
 
-[node name="ShipsLayer" type="Node2D" parent="ViewLayers"]
+[node name="PlayerLayer" type="Node2D" parent="ViewLayers"]
 z_index = 200
+z_as_relative = false
+
+[node name="ShipsLayer" type="Node2D" parent="ViewLayers"]
+z_index = 300
 z_as_relative = false
 
 [node name="SpawnPoints" type="Node2D" parent="ViewLayers/ShipsLayer"]
@@ -223,10 +227,6 @@ position = Vector2(1540, 980)
 
 [node name="5" type="Marker2D" parent="ViewLayers/ShipsLayer/SpawnPoints"]
 position = Vector2(1540, 1620)
-
-[node name="PlayerLayer" type="Node2D" parent="ViewLayers"]
-z_index = 300
-z_as_relative = false
 
 [node name="TopLayer" type="Node2D" parent="ViewLayers"]
 z_index = 400

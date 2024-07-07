@@ -17,7 +17,7 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
 [node name="LoadDataFromServer" type="TextureRect"]
-z_index = 4096
+z_index = 4095
 z_as_relative = false
 offset_right = 1080.0
 offset_bottom = 1960.0

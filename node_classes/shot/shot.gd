@@ -51,13 +51,11 @@ func _ready():
 func _physics_process(delta):
 	translate(direction * speed * delta)
 	time_elapsed += delta
-	
-	# Handle shot duration
+
 	if time_elapsed >= duration:
 		area_impact()
 		queue_free()
-	
-	# Handle homing
+
 	if homing_amount > 0:
 		var target = get_homing_target()
 		if target:

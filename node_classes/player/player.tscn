@@ -40,7 +40,7 @@ shape = SubResource("CircleShape2D_mg686")
 [node name="Polygon2D" type="Polygon2D" parent="HitArea"]
 modulate = Color(5, 5, 10, 1)
 light_mask = 512
-z_index = 4096
+z_index = 4000
 polygon = PackedVector2Array(0, -15, -15, 0, 0, 15, 15, 0)
 
 [node name="CannonMounts" type="Node2D" parent="."]
