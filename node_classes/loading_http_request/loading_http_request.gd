@@ -11,11 +11,11 @@ var reveal = false
 
 var up = true
 
-func _enter_tree():
+func _ready():
 	loading_animation = LOADING_ANIMATION_SCENE.instantiate()
 	loading_animation.set_anchors_preset(Control.LayoutPreset.PRESET_FULL_RECT)
 	loading_animation.set_z_index(4096)
-	add_child(loading_animation)
+	G.shmup.call_deferred("add_child", loading_animation)
 
 func _process(delta):
 	time += delta

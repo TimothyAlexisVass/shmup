@@ -26,8 +26,9 @@ func _on_area_entered(area):
 		pick_up()
 
 func pick_up():
-	if category_name in ["asset"]:
-		DataManager.change(category_name, item, amount)
+	if category_name == "asset":
+		# TODO: Fix unprocessable entity
+		Api.change_asset(item, amount)
 		amount = 0
 	else:
 		var category = DataManager.player_data[category_name]

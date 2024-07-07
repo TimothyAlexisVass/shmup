@@ -44,11 +44,13 @@ const RARITY_BACKGROUND_COLOR = {
 }
 
 # Active instances
+var shmup
 var level
 var spawn_manager
 var camera
 var player
 var modals
+var market
 
 # Viewport and play area
 var viewport_size

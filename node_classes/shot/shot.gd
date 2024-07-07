@@ -1,10 +1,7 @@
 class_name Shot extends Area2D
 
-# TODO: Fix shot_duration, area of impact, and such instead of queue_free()
-# TODO: Fix add_dot_effect to actually add a DotEffect instance to the target, if it doesn't already have one
-# TODO: Review the code to make sure everything is in place as it should be
-
-var IMPACT_AREA_SCENE = preload("res://node_classes/shot/impact_area.tscn")
+const IMPACT_AREA_SCENE = preload("res://node_classes/shot/impact_area.tscn")
+const DOT_EFFECT_SCENE = preload("res://node_classes/shot/dot_effect.tscn")
 
 @export var hit_effect_scene = preload("res://scenes/hit_effects/plasma.tscn")
 var direction
@@ -124,17 +121,17 @@ func hit(target):
 			direction = Vector2.DOWN.rotated(rotation).normalized()
 		power *= falloff_rate
 
-func apply_dot_effect(_target):
+func apply_dot_effect(target):
 	var dot_effect_power
 	if dot_effect == Cannon.DOT_EFFECT.RADIATION:
-		dot_effect_power = power * 0.01
+		dot_effect_power = power * 0.1
 	elif dot_effect == Cannon.DOT_EFFECT.BURN:
-		dot_effect_power = power * 0.3
-	# dot_effect_instance = DOT_EFFECT_SCENE.instantiate()
-	# dot_effect_instance.duration = dot_duration
-	# dot effect_instance.power = dot_effect_power
-	# dot_effect_instance.effect = dot_effect
-	# target.add_child(dot_effect_instance)
+		dot_effect_power = power * 10
+	var dot_effect_instance = DOT_EFFECT_SCENE.instantiate()
+	dot_effect_instance.duration = dot_duration
+	dot_effect_instance.power = dot_effect_power
+	dot_effect_instance.effect = dot_effect
+	target.add_child(dot_effect_instance)
 
 func area_impact():
 	add_hit_effect(self)

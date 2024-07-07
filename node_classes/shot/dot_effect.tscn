@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4370luf73chl"]
+
+[ext_resource type="Script" path="res://node_classes/shot/dot_effect.gd" id="1_d0rke"]
+
+[node name="DotEffect" type="Node"]
+script = ExtResource("1_d0rke")

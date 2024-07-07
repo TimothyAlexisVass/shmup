@@ -170,6 +170,7 @@ popup/item_8/id = 8
 popup/item_9/icon = ExtResource("11_o1wqs")
 popup/item_9/id = 9
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="MarginContainer/VBoxContainer/Exchange/ExchangeItems" to="MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_visibility_changed"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Exchange/ExchangeItems/AssetFrom" to="MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exchange/ExchangeItems/PerformExchange" to="MarginContainer/VBoxContainer/Exchange/ExchangeItems" method="_on_item_1_to_item_2_pressed"]

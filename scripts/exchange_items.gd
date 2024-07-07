@@ -6,16 +6,16 @@ extends HBoxContainer
 func _on_item_1_item_selected(selected_index):
 	if $AssetTo.get_selected() == selected_index:
 		$AssetTo.select((selected_index + 1) % $AssetTo.item_count)
-	from = Exchange.all[$AssetFrom.get_selected()]
 	update_exchange_values()
 
 func _on_item_2_item_selected(selected_index):
 	if $AssetFrom.get_selected() == selected_index:
 		$AssetFrom.select((selected_index + 1) % $AssetFrom.item_count)
-	to = Exchange.all[$AssetTo.get_selected()]
 	update_exchange_values()
 
 func update_exchange_values():
+	to = Exchange.all[$AssetTo.get_selected()]
+	from = Exchange.all[$AssetFrom.get_selected()]
 	var to_selected = $AssetTo.get_selected()
 	$AssetTo.clear()
 	var exchangeable = 9
@@ -57,17 +57,7 @@ func asset_weight_to_float(weight):
 	return snapped(float(weight) * factor, 0.001)
 
 func perform_exchange(asset_from, asset_to, amount_from):
-	Api.perform_exchange(self, asset_from, asset_to, amount_from)
-
-func _on_api_perform_exchange_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray, http_request_object: LoadingHTTPRequest):
-	if response_code == 200:
-		var json = JSON.new()
-		json.parse(body.get_string_from_ascii())
-		DataManager.set_assets(json.get_data())
-		owner.update_asset_values()
-	else:
-		printerr("HTTP request failed with response code: " + str(response_code))
-	http_request_object.clear()
+	Api.perform_exchange(asset_from, asset_to, amount_from)
 
 func _on_visibility_changed():
 	update_exchange_values()
