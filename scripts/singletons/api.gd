@@ -67,21 +67,11 @@ func perform_exchange(asset_from, asset_to, amount_from):
 	var callback_function = Callable(self, "_on_api_perform_exchange_completed")
 	_make_request(endpoint, request_body, callback_function)
 
-func _on_api_change_assets_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray, http_request_object: LoadingHTTPRequest):
-	if response_code == 200:
-		var json = JSON.new()
-		json.parse(body.get_string_from_ascii())
-		DataManager.set_assets(json.get_data())
-	else:
-		printerr("HTTP request failed with response code: " + str(response_code))
-	http_request_object.clear()
+func _on_api_change_assets_completed(data, response_code = null):
+	if response_code == null:
+		DataManager.set_assets(data)
 
-func _on_api_perform_exchange_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray, http_request_object: LoadingHTTPRequest):
-	if response_code == 200:
-		var json = JSON.new()
-		json.parse(body.get_string_from_ascii())
-		DataManager.set_assets(json.get_data())
+func _on_api_perform_exchange_completed(data, response_code = null):
+	if response_code == null:
+		DataManager.set_assets(data)
 		G.market.update_asset_values()
-	else:
-		printerr("HTTP request failed with response code: " + str(response_code))
-	http_request_object.clear()

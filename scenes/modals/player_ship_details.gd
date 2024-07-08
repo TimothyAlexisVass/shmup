@@ -182,15 +182,10 @@ func add_inventory_cannon(cannon_id, cannon_details):
 func _on_mount_button_pressed():
 	Api.mount_cannon(self, player_ship_name, selected_cannon_mount_position, selected_inventory_cannon_id)
 
-func _on_api_mount_cannon_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray, http_request_object: LoadingHTTPRequest):
-	if response_code == 200:
-		json.parse(body.get_string_from_ascii())
-		var data = json.get_data()
+func _on_api_mount_cannon_completed(data, response_code = null):
+	if response_code == null:
 		player_ship_details.cannons[selected_cannon_mount_position] = Cannon.from_data(data.new_mounted_cannon_details)
 		DataManager.player_data.cannon.erase(data.old_inventory_cannon_id)
 		if data.has("new_inventory_cannon_id"):
 			DataManager.player_data.cannon[data.new_inventory_cannon_id] = Cannon.from_data(data.new_inventory_cannon_details)
 		initialize(player_ship_name)
-	else:
-		printerr("HTTP request failed with response code: " + str(response_code))
-	http_request_object.clear()

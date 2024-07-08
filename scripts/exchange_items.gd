@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+# TODO: Fix so that the exchange button becomes disabled when exchange is done and AmountFrom is too low
+
 @onready var from = Exchange.all[$AssetFrom.get_selected()]
 @onready var to = Exchange.all[$AssetTo.get_selected()]
 
