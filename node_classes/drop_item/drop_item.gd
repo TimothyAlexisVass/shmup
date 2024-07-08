@@ -27,7 +27,6 @@ func _on_area_entered(area):
 
 func pick_up():
 	if category_name == "asset":
-		# TODO: Fix unprocessable entity
 		Api.change_asset(item, amount)
 		amount = 0
 	else:

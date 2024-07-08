@@ -1,5 +1,8 @@
 extends Node
 
+# TODO: Add loading and retry logic for requests when server is down or request fails
+# TODO: Fix so loading shows when 
+
 # const SERVER_URL = "https://earthling.se/shmup/"
 const SERVER_URL = "http://localhost:3000/shmup/"
 const HEADERS = ["Content-Type: application/json"]
@@ -16,7 +19,7 @@ func _make_request(requesting_object, endpoint, request_body, callback_method):
 
 	var http_request = LoadingHTTPRequest.new()
 	http_request.timeout = 30
-	requesting_object.add_child(http_request)
+	G.popup_overlay.add_child(http_request)
 	http_request.request_completed.connect(Callable(requesting_object, callback_method).bind(http_request))
 
 	var url = SERVER_URL + endpoint
@@ -53,7 +56,7 @@ func change_asset(asset_name, amount):
 	asset_change[asset_name] = asset_change.get(asset_name, 0) + amount
 
 func change_assets():
-	_make_request(self, "change_assets", {"change": asset_change}, "_on_api_change_assets_completed")
+	_make_request(self, "change_assets", {"changes": asset_change}, "_on_api_change_assets_completed")
 	asset_change = {}
 
 func perform_exchange(asset_from, asset_to, amount_from):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx8bpqmkmu833"]
 
-[ext_resource type="Script" path="res://scripts/shmup.gd" id="1_q3jkw"]
+[ext_resource type="Script" path="res://node_classes/popup_overlay.gd" id="2_aeert"]
 [ext_resource type="PackedScene" uid="uid://bc600xr1no4ee" path="res://scenes/load_data_from_server.tscn" id="2_eetrn"]
 
 [sub_resource type="Environment" id="Environment_pty44"]
@@ -19,11 +19,16 @@ glow_hdr_scale = 1.0
 glow_hdr_luminance_cap = 8.0
 
 [node name="Shmup" type="Node2D"]
-script = ExtResource("1_q3jkw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pty44")
 
 [node name="LoadDataFromServer" parent="." instance=ExtResource("2_eetrn")]
 
-[connection signal="data_loading_completed" from="LoadDataFromServer" to="." method="show_level_selection"]
+[node name="PopupOverlay" type="Node2D" parent="."]
+top_level = true
+light_mask = 257
+visibility_layer = 257
+z_index = 4095
+z_as_relative = false
+script = ExtResource("2_aeert")

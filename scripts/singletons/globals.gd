@@ -44,13 +44,15 @@ const RARITY_BACKGROUND_COLOR = {
 }
 
 # Active instances
-var shmup
+@onready var root = get_tree().root
+@onready var shmup = root.get_node("Shmup")
 var level
 var spawn_manager
 var camera
 var player
 var modals
 var market
+var popup_overlay
 
 # Viewport and play area
 var viewport_size
