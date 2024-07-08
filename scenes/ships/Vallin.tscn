@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://node_classes/cannon_mount/cannon_details.gd" id="10_xvlnw"]
 [ext_resource type="PackedScene" uid="uid://bgrh3v338xpf6" path="res://scenes/shots/Plasma.tscn" id="11_v73pr"]
 
-[sub_resource type="Resource" id="Resource_ryf8g"]
+[sub_resource type="Resource" id="Resource_pce1h"]
 resource_local_to_scene = true
 script = ExtResource("10_xvlnw")
 name = "Cannon"
@@ -91,7 +91,7 @@ position = Vector2(0, 65)
 
 [node name="CannonMount" parent="ShipBody/CannonMounts" index="0" instance=ExtResource("8_oao7n")]
 position = Vector2(0, 60)
-cannon = SubResource("Resource_ryf8g")
+cannon = SubResource("Resource_pce1h")
 
 [node name="Sprite" parent="ShipBody" index="4"]
 texture = SubResource("CanvasTexture_rdvxd")

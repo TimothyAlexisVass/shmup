@@ -1,11 +1,7 @@
 extends Node
 
-# TODO: Add loading and retry logic for requests when server is down or request fails
-# TODO: Fix so loading shows when 
-
 # const SERVER_URL = "https://earthling.se/shmup/"
 const SERVER_URL = "http://localhost:3000/shmup/"
-const HEADERS = ["Content-Type: application/json"]
 
 var time = 0
 func _physics_process(delta):
@@ -14,41 +10,40 @@ func _physics_process(delta):
 		time = 0
 		change_assets()
 
-func _make_request(requesting_object, endpoint, request_body, callback_method):
+func _make_request(endpoint, request_body, callback_function):
 	request_body["user_handle"] = DataManager.user_handle
 
 	var http_request = LoadingHTTPRequest.new()
 	http_request.timeout = 30
+	http_request.request_url = SERVER_URL + endpoint
+	http_request.request_body = JSON.stringify(request_body)
+	http_request.callback_function = callback_function
 	G.popup_overlay.add_child(http_request)
-	http_request.request_completed.connect(Callable(requesting_object, callback_method).bind(http_request))
-
-	var url = SERVER_URL + endpoint
-	var json_request_body = JSON.stringify(request_body)
-
-	# Make the HTTP request
-	var response = http_request.request(url, HEADERS, HTTPClient.METHOD_POST, json_request_body)
-
-	if response != OK:
-		printerr("An error occurred in the HTTP request:\n%s" % response)
 
 func load_data(requesting_object):
+	var endpoint = "player_data"
 	var request_body = {}
-	_make_request(requesting_object, "player_data", request_body, "_on_api_load_data_completed")
+	var callback_function = Callable(requesting_object, "_on_api_load_data_completed")
+	_make_request(endpoint, request_body, callback_function)
 
 func select(requesting_object, selection_type, selection_name):
+	var endpoint = "select"
 	var request_body = {
 		"selection_type": selection_type,
 		"selection_name": selection_name
 	}
-	_make_request(requesting_object, "select", request_body, "_on_api_select_completed")
+	var callback_function = Callable(requesting_object, "_on_api_select_completed")
+	_make_request(endpoint, request_body, callback_function)
 
 func mount_cannon(requesting_object, player_ship_name, cannon_mount_name, inventory_cannon_id):
+	var endpoint = "mount_cannon"
 	var request_body = {
 		"player_ship_name": player_ship_name,
 		"cannon_mount_name": cannon_mount_name,
 		"inventory_cannon_id": inventory_cannon_id
 	}
-	_make_request(requesting_object, "mount_cannon", request_body, "_on_api_mount_cannon_completed")
+	var callback_function = Callable(requesting_object, "_on_api_mount_cannon_completed")
+	_make_request(endpoint, request_body, callback_function)
 
 var asset_change = {}
 
@@ -56,16 +51,21 @@ func change_asset(asset_name, amount):
 	asset_change[asset_name] = asset_change.get(asset_name, 0) + amount
 
 func change_assets():
-	_make_request(self, "change_assets", {"changes": asset_change}, "_on_api_change_assets_completed")
+	var endpoint = "change_assets"
+	var request_body = {"changes": asset_change}
+	var callback_function = Callable(self, "_on_api_change_assets_completed")
+	_make_request(endpoint, request_body, callback_function)
 	asset_change = {}
 
 func perform_exchange(asset_from, asset_to, amount_from):
+	var endpoint = "exchange"
 	var request_body = {
 		"asset_from": asset_from,
 		"asset_to": asset_to,
 		"amount_from": amount_from
 	}
-	_make_request(self, "exchange", request_body, "_on_api_perform_exchange_completed")
+	var callback_function = Callable(self, "_on_api_perform_exchange_completed")
+	_make_request(endpoint, request_body, callback_function)
 
 func _on_api_change_assets_completed(_result: int, response_code: int, _headers: Array, body: PackedByteArray, http_request_object: LoadingHTTPRequest):
 	if response_code == 200:
