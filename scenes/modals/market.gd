@@ -13,7 +13,6 @@ func _ready():
 	add_asset_buttons()
 
 func add_asset_buttons():
-	print("add_asset_buttons")
 	for asset_data in Asset.all:
 		var asset_button_instance = ASSET_BUTTON_SCENE.instantiate()
 		var texture_button = asset_button_instance.get_node("TextureButton")
