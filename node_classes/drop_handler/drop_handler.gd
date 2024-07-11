@@ -28,7 +28,7 @@ func _ready():
 	prepare_rewards()
 
 func prepare_rewards():
-	rewards = G.database(type).get_rewards(tier, rolls, drop_chance, multi_drop_factor)
+	G.database(type).generate_rewards(tier, rolls, drop_chance, multi_drop_factor, self)
 
 func drop_rewards(recipient, at_global_position):
 	for reward in rewards:

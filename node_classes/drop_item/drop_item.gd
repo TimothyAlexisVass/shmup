@@ -30,13 +30,7 @@ func pick_up():
 		Api.change_asset(item, amount)
 		amount = 0
 	else:
-		var category = DataManager.player_data[category_name]
-		var new_id = 0
-		for id in category.keys():
-			if id >= new_id:
-				new_id = id + 1
-		DataManager.player_data[category_name][new_id] = item
-		item = null
+		Api.generate_cannon(item.rarity, item.shot_type, item.name)
 	clear()
 
 func clear():

@@ -64,6 +64,7 @@ func _on_request_completed(_result: int, response_code: int, _headers: Array, bo
 	else:
 		if retries_left > 0:
 			retries_left -= 1
+			print("Retrying... Attempt: ", MAXIMUM_RETRIES - retries_left)
 			await get_tree().create_timer(request_backoff_time).timeout
 			perform_request()
 			request_backoff_time *= 2
@@ -73,7 +74,6 @@ func _on_request_completed(_result: int, response_code: int, _headers: Array, bo
 			clear()
 
 func perform_request():
-	print("Retrying... Attempts left: ", retries_left)
 	request(request_url, REQUEST_HEADERS, request_method, request_body)
 
 func clear():

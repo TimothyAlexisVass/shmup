@@ -117,7 +117,7 @@ func hit(target):
 			penetration_count -= 1
 		if ricochet_count > 0:
 			ricochet_count -= 1
-			rotation += PI + randf_range(-1, 1) * randf_range(Cannon.DEG_45, PI / 2.0)
+			rotation += PI + randf_range(-1, 1) * randf_range(G.DEG_45, PI / 2.0)
 			direction = Vector2.DOWN.rotated(rotation).normalized()
 		power *= falloff_rate
 

@@ -65,5 +65,5 @@ func _on_item_button_pressed(selected_button):
 func _on_details_button_pressed(item_name):
 	details_screen.initialize(item_name)
 
-func _on_api_select_completed(_data, _response_code = null):
+func _on_api_select_completed(_data, _error_code = null):
 	pass

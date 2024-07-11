@@ -22,16 +22,14 @@ func initialize():
 		all[index]["tier"] = tier
 		all[index]["rarity"] = G.rarity(tier)
 
-func get_rewards(tier, rolls, drop_chance, multi_drop_factor):
-	var rewards = []
+func generate_rewards(tier, rolls, drop_chance, multi_drop_factor, requesting_object):
 	var roll_value = randf()
 	for reward in all:
 		if roll_value <= reward.probability * tier / float(reward.tier):
 			if randf() < drop_chance:
-				rewards.append(reward)
+				requesting_object.rewards.append(reward)
 				if rolls > 1:
 					drop_chance *= multi_drop_factor
 			rolls -= 1
 			if rolls == 0:
 				break
-	return rewards

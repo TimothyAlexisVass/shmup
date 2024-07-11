@@ -82,7 +82,8 @@ func handle_loaded_data(loaded_data):
 		player_data.selected_pilot = loaded_data.player.selected_pilot
 		player_data.selected_player_ship = loaded_data.player.selected_player_ship
 		for cannon_id in loaded_data.cannon:
-			player_data.cannon[int(cannon_id)] = Cannon.from_data(loaded_data.cannon[cannon_id])
+			var cannon_details = Cannon.from_data(loaded_data.cannon[cannon_id])
+			player_data.cannon[int(cannon_id)] = cannon_details
 
 		Exchange.rates = loaded_data.exchange_rates
 		Asset.initialize()

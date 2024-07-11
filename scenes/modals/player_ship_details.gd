@@ -191,8 +191,8 @@ func _on_mount_button_pressed():
 	Api.mount_cannon(self, player_ship_name, selected_cannon_mount_position, selected_inventory_cannon_id)
 
 # API mount cannon completed
-func _on_api_mount_cannon_completed(data, response_code = null):
-	if response_code == null:
+func _on_api_mount_cannon_completed(data, error_code = null):
+	if error_code == null:
 		player_ship_details.cannons[selected_cannon_mount_position] = Cannon.from_data(data.new_mounted_cannon_details)
 		DataManager.player_data.cannon.erase(int(data.old_inventory_cannon_id))
 		if data.has("new_inventory_cannon_id"):

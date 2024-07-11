@@ -43,6 +43,14 @@ const RARITY_BACKGROUND_COLOR = {
 	RARITY.TRANSCENDENT: Color(1, 1, 1)
 }
 
+const DEG_10 = 0.17453292519943
+const DEG_15 = 0.26179938779915
+const DEG_20 = 0.34906585039887
+const DEG_45 = 0.78539816339745
+const DEG_60 = 1.0471975511966
+const DEG_120 = 2.0943951023932
+const DEG_360 = 6.28318530717959
+
 # Active instances
 @onready var root = get_tree().root
 @onready var shmup = root.get_node("Shmup")

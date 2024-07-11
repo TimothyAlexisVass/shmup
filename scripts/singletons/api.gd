@@ -45,6 +45,18 @@ func mount_cannon(requesting_object, player_ship_name, cannon_mount_name, invent
 	var callback_function = Callable(requesting_object, "_on_api_mount_cannon_completed")
 	_make_request(endpoint, request_body, callback_function)
 
+func generate_cannon(rarity, shot_type, cannon_name):
+	var endpoint = "generate_cannon"
+	var request_body = {"rarity": rarity, "shot_type": shot_type, "name": cannon_name}
+	var callback_function = Callable(self, "_on_api_generate_cannon_completed")
+	_make_request(endpoint, request_body, callback_function)
+
+func _on_api_generate_cannon_completed(data, error_code = null):
+	if error_code == null:
+		for cannon_id in data.cannon:
+			var cannon_details = Cannon.from_data(data.cannon[cannon_id])
+			DataManager.player_data.cannon[int(cannon_id)] = cannon_details
+
 var asset_change = {}
 
 func change_asset(asset_name, amount):
@@ -67,11 +79,11 @@ func perform_exchange(asset_from, asset_to, amount_from):
 	var callback_function = Callable(self, "_on_api_perform_exchange_completed")
 	_make_request(endpoint, request_body, callback_function)
 
-func _on_api_change_assets_completed(data, response_code = null):
-	if response_code == null:
+func _on_api_change_assets_completed(data, error_code = null):
+	if error_code == null:
 		DataManager.set_assets(data)
 
-func _on_api_perform_exchange_completed(data, response_code = null):
-	if response_code == null:
+func _on_api_perform_exchange_completed(data, error_code = null):
+	if error_code == null:
 		DataManager.set_assets(data)
 		G.market.update_asset_values()
