@@ -21,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+mouse_filter = 1
 theme = ExtResource("13_tovdy")
 script = ExtResource("1_wjugu")
 
@@ -31,11 +32,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Market" parent="Screens" instance=ExtResource("2_1f5bt")]
+visible = false
 layout_mode = 0
 
 [node name="Ships" parent="Screens" instance=ExtResource("3_iyudx")]
+visible = false
 layout_mode = 0
 
 [node name="Pilots" parent="Screens" instance=ExtResource("4_pfkm0")]
@@ -78,6 +82,7 @@ layout_mode = 0
 offset_top = 1780.0
 offset_right = 1080.0
 offset_bottom = 1960.0
+mouse_filter = 0
 
 [node name="Market" type="Button" parent="ControlsBottom"]
 custom_minimum_size = Vector2(250, 120)

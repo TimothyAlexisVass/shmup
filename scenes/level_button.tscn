@@ -25,6 +25,7 @@ offset_top = 85.0
 offset_right = 1212.0
 offset_bottom = 1083.0
 scale = Vector2(0.2, 0.2)
+mouse_filter = 1
 texture_normal = SubResource("CanvasTexture_3ih2c")
 texture_disabled = SubResource("CanvasTexture_vpi4f")
 texture_click_mask = SubResource("BitMap_g220u")

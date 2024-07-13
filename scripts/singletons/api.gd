@@ -1,7 +1,7 @@
 extends Node
 
-# const SERVER_URL = "https://earthling.se/shmup/"
-const SERVER_URL = "http://localhost:3000/shmup/"
+const SERVER_URL = "https://earthling.se/shmup/"
+# const SERVER_URL = "http://localhost:3000/shmup/"
 
 var time = 0
 func _physics_process(delta):

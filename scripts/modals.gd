@@ -13,6 +13,7 @@ func select_screen(screen_name):
 	hide_screens()
 	if show_screen:
 		screen.set_visible(true)
+		screen.set_mouse_filter(MouseFilter.MOUSE_FILTER_STOP)
 		$Screens.set_visible(true)
 		$Screens/CloseButton.set_visible(true)
 
@@ -20,6 +21,7 @@ func hide_screens():
 	$Screens.set_visible(false)
 	for screen in $Screens.get_children():
 		screen.set_visible(false)
+		screen.set_mouse_filter(MouseFilter.MOUSE_FILTER_PASS)
 
 func ready_controls_bottom():
 	for control in $ControlsBottom.get_children():
