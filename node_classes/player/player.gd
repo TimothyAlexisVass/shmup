@@ -26,9 +26,8 @@ func _enter_tree():
 
 	var image_size = Vector2($Sprite.texture.diffuse_texture.get_image().get_size()) * scale
 	explosion_scale = max(image_size.x, image_size.y) / 300.0
-	
-	if pilot_data.max_cannon_count > 1:
-		mount_cannons()
+
+	mount_cannons()
 
 func _ready():
 	$GrazeArea.scale *= graze_area_radius_base * pilot_data.graze_area_radius_multiplier
@@ -47,6 +46,7 @@ func _physics_process(delta):
 
 func mount_cannons():
 	var active_cannons = 1
+
 	for cannon_mount_name in ship_data.cannons:
 		$CannonMounts.get_node(cannon_mount_name).cannon = ship_data.cannons[cannon_mount_name]
 		active_cannons += 1
