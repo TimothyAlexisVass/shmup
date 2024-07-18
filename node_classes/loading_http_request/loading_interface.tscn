@@ -1,0 +1,175 @@
+[gd_scene load_steps=7 format=3 uid="uid://bughhbfoekmyb"]
+
+[ext_resource type="Theme" uid="uid://cpj6nfev0p1o" path="res://styles/default_theme.tres" id="1_56cr1"]
+
+[sub_resource type="Gradient" id="Gradient_pa3s7"]
+offsets = PackedFloat32Array(0.695915, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gr64d"]
+gradient = SubResource("Gradient_pa3s7")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vejnd"]
+texture = SubResource("GradientTexture2D_gr64d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0vn2"]
+bg_color = Color(0, 0, 0, 0.317647)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5itwa"]
+bg_color = Color(0.717647, 0.909804, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0.188235, 0.427451)
+shadow_size = 10
+
+[node name="Loading" type="Panel"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.999743)
+theme_override_styles/panel = SubResource("StyleBoxTexture_vejnd")
+
+[node name="MessagePanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(800, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -192.0
+offset_right = 398.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0vn2")
+
+[node name="LoadingMessage" type="Label" parent="MessagePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.0
+offset_top = -85.0
+offset_right = 393.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 44
+text = "Loading data from server"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RetryButton" type="Button" parent="MessagePanel"]
+visible = false
+layout_mode = 0
+offset_left = 317.0
+offset_top = 211.011
+offset_right = 482.0
+offset_bottom = 294.011
+theme = ExtResource("1_56cr1")
+text = "RETRY"
+
+[node name="LoadingIndicators" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="_0" type="Panel" parent="LoadingIndicators"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -10.2493
+offset_right = -100.0
+offset_bottom = 29.7507
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.995584, 1.013)
+theme_override_styles/panel = SubResource("StyleBoxFlat_5itwa")
+
+[node name="_1" type="Panel" parent="LoadingIndicators"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -10.2493
+offset_right = -40.0
+offset_bottom = 29.7508
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5itwa")
+
+[node name="_2" type="Panel" parent="LoadingIndicators"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.2493
+offset_right = 20.0
+offset_bottom = 29.7508
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5itwa")
+
+[node name="_3" type="Panel" parent="LoadingIndicators"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -10.2493
+offset_right = 80.0
+offset_bottom = 29.7508
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5itwa")
+
+[node name="_4" type="Panel" parent="LoadingIndicators"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -10.2493
+offset_right = 140.0
+offset_bottom = 29.7508
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5itwa")

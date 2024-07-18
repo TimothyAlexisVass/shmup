@@ -10,7 +10,7 @@ func _physics_process(delta):
 		time = 0
 		change_assets()
 
-func _make_request(endpoint, request_body, callback_function):
+func _make_request(endpoint: String, request_body: Dictionary, callback_function: Callable):
 	request_body["user_handle"] = DataManager.user_handle
 
 	var http_request = LoadingHTTPRequest.new()

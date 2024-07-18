@@ -2,12 +2,13 @@ extends Node
 
 var all = []
 
-var data = {}
+var data = {"Aluminium": {}, "Cuprum": {}}
 
 func by_probability(a, b):
 	return a["probability"] < b["probability"]
 
 func initialize():
+	data = {}
 	for asset_name in Exchange.all:
 		data[asset_name] = {
 			"name": asset_name,
