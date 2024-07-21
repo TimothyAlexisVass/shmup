@@ -78,7 +78,7 @@ func handle_loaded_data(loaded_data):
 
 		player_data.pilot = loaded_data.pilot
 		player_data.levels = loaded_data.levels
-		player_data.asset = loaded_data.asset
+		set_assets(loaded_data.asset)
 		player_data.selected_pilot = loaded_data.player.selected_pilot
 		player_data.selected_player_ship = loaded_data.player.selected_player_ship
 		for cannon_id in loaded_data.cannon:
