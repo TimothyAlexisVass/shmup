@@ -34,7 +34,7 @@ var particle_systems = []
 
 @onready var ships_left_for_next_wave = Spawn.ships_left_for_next_wave(G.level.number)[G.level.challenge]
 @onready var max_spawn_point = Spawn.max_spawn_point(G.level.number)
-@onready var waves = Spawn.WAVE_TIER[G.level.number]
+@onready var waves = Spawn.WAVE_TIER[G.level.number].tiers
 @onready var number_of_waves = waves.size()
 
 func _ready():
